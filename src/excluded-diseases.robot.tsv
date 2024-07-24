@@ -1,0 +1,3 @@
+ID	LABEL	SUBSET	CONTRIBUTOR	COMMENT
+ID		AI oboInOwl:inSubset	AI terms:contributor SPLIT=|	
+MONDO:0002022	disorder of orbital region	obo:mondo#matrix_excluded  https://orcid.org/0000-0002-7356-1779	This is a clear grouping class.

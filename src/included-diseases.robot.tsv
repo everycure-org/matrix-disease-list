@@ -1,0 +1,3 @@
+ID	LABEL	SUBSET	CONTRIBUTOR	COMMENT
+ID		AI oboInOwl:inSubset	AI terms:contributor SPLIT=|	
+MONDO:0010663	intellectual disability-hypotonic facies syndrome, X-linked, 1	obo:mondo#matrix_included_grouping  https://orcid.org/0000-0002-7356-1779	Lots of associations in KG.
