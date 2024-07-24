@@ -1,6 +1,13 @@
-## Filters for Disease List
+## Default filters for Disease List
 
-Here we outline and motivate the various filters we apply to construct the "druggable disease list". 
+Here we outline and motivate the various filters we apply to construct the _diagnosable, clinically actionable diseases_.
+As described in our [workflow specification](workflow.md), these filters serve as _heuristics_ and are gradually overwritten by community and internal expert feedback.
+
+_List of current heurstics_:
+
+- [ICD 10 CM Filter](#icd10)
+
+<a id="icd10"></a>
 
 ### ICD 10 CM Filter
 
