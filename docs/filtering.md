@@ -34,3 +34,6 @@ In clinical and coding contexts, people often refer to the codes with periods as
 
 However, it's important to note that not all codes with periods are billable. Some may require additional digits for specificity. The exact rules can vary slightly depending on the specific implementation of ICD-10 (such as ICD-10-CM in the United States), but generally, the most specific codes (usually those with periods) are the billable ones.
 
+##### Limitations
+
+- Mondo mappings to ICD10CM are currently incomplete
