@@ -1,4 +1,20 @@
+###Generating OBO Semantic Engineer course content and deploying website
+#
+# These are standard options to make Make sane:
+# <http://clarkgrubb.com/makefile-style-guide#toc2>
 
+MAKEFLAGS += --warn-undefined-variables
+SHELL := bash
+.SHELLFLAGS := -eu -o pipefail -c
+.DEFAULT_GOAL := all
+.DELETE_ON_ERROR:
+.SUFFIXES:
+.SECONDARY:
+
+
+#################################
+#### MATRIX Disease List ########
+#################################
 
 all: matrix-disease-list.tsv
 
@@ -16,4 +32,16 @@ matrix-disease-list-unfiltered.tsv: mondo.owl sparql/matrix-disease-list-filters
 
 matrix-disease-list.tsv: matrix-disease-list-unfiltered.tsv scripts/matrix-disease-list.py
 	python scripts/matrix-disease-list.py create-matrix-disease-list -i $< -o $@ -f f_leaf -v TRUE
+
+
+#################################
+#### Documentation ##############
+#################################
+
+.PHONY: deploy_site
+deploy_site:
+	mkdocs gh-deploy --config-file mkdocs.yml
+
+build_site:
+	mkdocs build --config-file mkdocs.yml
 
