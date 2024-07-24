@@ -30,8 +30,8 @@ def matrix_disease_filter(df_disease_list_unfiltered):
     
     Returns
     -------
-    pandas.DataFrame
-        The filtered DataFrame.
+    pandas.DataFrame, pandas.DataFrame
+        A tuple of two DataFrames: the first one contains the included diseases, and the second one contains the excluded diseases.
     """
     filter_column = 'official_matrix_filter'
     
@@ -41,9 +41,19 @@ def matrix_disease_filter(df_disease_list_unfiltered):
     # First, we add all leaf classes
     df_disease_list_unfiltered[filter_column] |= df_disease_list_unfiltered['f_leaf'] == True
 
-    # Now, we add all the immediate parents of leaf classes
-    df_disease_list_unfiltered[filter_column] |= df_disease_list_unfiltered['f_leaf_direct_parent'] == True
+    # Now, we add all the immediate parents of leaf classes that are mapped to OMIM, ICD, or Orphanet
+    df_disease_list_unfiltered[filter_column] |= (
+        (df_disease_list_unfiltered['f_leaf_direct_parent'] == True) & 
+        (
+            (df_disease_list_unfiltered['f_omim'] == True) | 
+            (df_disease_list_unfiltered['f_omimps_descendant'] == True) | 
+            (df_disease_list_unfiltered['f_icd_category'] == True) |
+            (df_disease_list_unfiltered['f_orphanet_disorder'] == True) |
+            (df_disease_list_unfiltered['f_orphanet_subtype'] == True)
+        )
+    )
     
+    # Split the DataFrame into two parts: included and excluded diseases
     df_included_diseases = df_disease_list_unfiltered[df_disease_list_unfiltered[filter_column] == True]
     df_excluded_diseases = df_disease_list_unfiltered[df_disease_list_unfiltered[filter_column] == False]
 
