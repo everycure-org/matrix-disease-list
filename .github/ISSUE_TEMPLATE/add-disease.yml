@@ -1,0 +1,47 @@
+name: Add Disease to the MATRIX disease list
+description: Request for adding a disease to the MATRIX disease list.
+title: Request for adding a [ADD DISEASE NAME] to the disease list
+labels: [ add-disease ]
+assignees: matentzn
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Use this firm to add a new disease to the MATRIX disease list. The new disease _must_ have a MONDO ID. If it does not, please request a new disease on the [Mondo Issue Tracker](https://github.com/monarch-initiative/mondo/issues/new?assignees=&labels=New+term+request&projects=&template=add-term.yml&title=Request+for+new+term+%5BADD+NAME+HERE%5D).
+  - type: input
+    id: mondo_id
+    attributes:
+      label: The MONDO ID
+      description: The MONDO identifier, formatted as a CURIE, e.g. `MONDO:0005148`.
+    validations:
+      required: true
+  - type: input
+    id: mondo_label
+    attributes:
+      label: The MONDO label
+      description: (Optional) the label of the Mondo ID, to avoid confusion.
+    validations:
+      required: false
+  - type: input
+    id: orcid
+    attributes:
+      label: Your ORCID
+      description: An ORCID URL to document your contribution, e.g. `https://orcid.org/0000-0002-7356-1779`. This field is mandatory, as we use ORCIDs to document provenance.
+    validations:
+      required: true
+  - type: textarea
+    id: justification
+    attributes:
+      label: Justification for adding the disease
+      description: |
+        Please provide a few words about why you believe the disease should be included in the MATRIX disease list.
+    validations:
+      required: false
+  - type: textarea
+    id: comments
+    attributes:
+      label: Additional comments
+      description: |
+        Please provide any additional comments here. In particular, if you have gotten your PR merged and you used personal communications to affect this, you can add a comment on what you concretely did.
+    validations:
+      required: false
