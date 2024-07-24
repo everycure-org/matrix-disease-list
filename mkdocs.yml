@@ -51,6 +51,8 @@ extra_javascript:
 
 nav:
   - About the MATRIX disease list: index.md
+  - Workflow and method: workflow.md
+  - Filter criteria and heuristics: filtering.md
 repo_url: https://github.com/monarch-initiative/matrix-disease-list/
 site_url: https://monarch-initiative.github.io/matrix-disease-list/
 edit_uri: edit/main/docs/
