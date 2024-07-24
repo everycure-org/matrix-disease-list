@@ -31,7 +31,11 @@ matrix-disease-list-unfiltered.tsv: mondo.owl sparql/matrix-disease-list-filters
 .PRECIOUS: matrix-disease-list-unfiltered.tsv
 
 matrix-disease-list.tsv: matrix-disease-list-unfiltered.tsv scripts/matrix-disease-list.py
-	python scripts/matrix-disease-list.py create-matrix-disease-list -i $< -o $@ -f f_leaf -v TRUE
+	pip install -r requirements.txt
+	python scripts/matrix-disease-list.py create-matrix-disease-list -i $< \
+		-o matrix-disease-list.tsv \
+		-e matrix-excluded-diseases-list.tsv \
+		-x matrix-disease-list.xlsx
 
 
 #################################
