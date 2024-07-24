@@ -22,6 +22,13 @@ mondo.owl:
 	wget "http://purl.obolibrary.org/obo/mondo.owl" -O $@
 .PRECIOUS: mondo.owl
 
+mondo-metadata.tsv: mondo.owl sparql/ontology-metadata.sparql
+	robot query -i $< -f tsv --query sparql/ontology-metadata.sparql $@
+	sed -i 's/[?]//g' $@
+	sed -i 's/<//g' $@
+	sed -i 's/>//g' $@
+.PRECIOUS: mondo-metadata.tsv
+
 matrix-disease-list-unfiltered.tsv: mondo.owl sparql/matrix-disease-list-filters.sparql
 	robot query -i $< -f tsv --query sparql/matrix-disease-list-filters.sparql $@
 	sed -i 's/[?]//g' $@
@@ -37,6 +44,20 @@ matrix-disease-list.tsv: matrix-disease-list-unfiltered.tsv scripts/matrix-disea
 		-e matrix-excluded-diseases-list.tsv \
 		-x matrix-disease-list.xlsx
 
+#################################
+#### Release system #############
+#################################
+
+ASSETS=matrix-disease-list.tsv \
+	matrix-disease-list-unfiltered.tsv \
+	matrix-disease-list.xlsx \
+	matrix-excluded-diseases-list.tsv \
+	mondo-metadata.tsv
+
+gh_release:
+	@test $(VERSION)
+	ls -alt $(ASSETS)
+	gh release create $(VERSION) --notes "TBD." --title "$(VERSION)" --draft $(ASSETS)
 
 #################################
 #### Documentation ##############
