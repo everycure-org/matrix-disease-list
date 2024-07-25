@@ -6,13 +6,15 @@ As described in our [workflow specification](workflow.md), these filters serve a
 
 _List of current heurstics_ for the MATRIX disease list:
 
+- INCLUDE all classes that have been designated for inclusion by subject matter experts on the MATRIX project
 - INCLUDE all [leaf classes](#leaf-filter)
 - INCLUDE all [direct parents of leaf classes](#filter-leaf) IF
-    - they are [mapped to ICD10 categories](#filter-icd10) OR
     - they [correspond to OMIM diseases](#filter-omim) OR
     - they [correspond to descendants of OMIM Phenotypic Series (OMIMPS)](#filter-omimps-descendants)
-    - they [correspond to Orphanet Disorders](#filter-orphanet-disorder)
     - they [correspond to Orphanet Subtypes](#filter-orphanet-subtypes)
+- INCLUDE all disease classes that [correspond to Orphanet Disorders](#filter-orphanet-disorder)
+- INCLUDE all disease classes are [mapped to ICD10 categories](#filter-icd10)
+- REMOVE all classes that have been designated for exclusion by subject matter experts on the MATRIX project
 
 <a id="filter-leaf"></a>
 

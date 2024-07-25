@@ -38,7 +38,20 @@ def matrix_disease_filter(df_disease_list_unfiltered):
     # By default, no disease is included
     df_disease_list_unfiltered[filter_column] = False
     
-    # First, we add all leaf classes
+    # QC: Check for conflicts where both f_matrix_manually_included and f_matrix_manually_excluded are True
+    conflicts = df_disease_list_unfiltered[
+        df_disease_list_unfiltered['f_matrix_manually_included'] & df_disease_list_unfiltered['f_matrix_manually_excluded']
+    ]
+
+    if not conflicts.empty:
+        # Format the conflicts nicely
+        conflict_str = conflicts.to_string(index=False)
+        raise ValueError(f"Conflicts found: The following entries are marked as both manually included and manually excluded:\n{conflict_str}")
+    
+    # First, we add all manually curated classes to the list
+    df_disease_list_unfiltered[filter_column] |= df_disease_list_unfiltered['f_matrix_manually_included'] == True
+    
+    # Next, we add all leaf classes
     df_disease_list_unfiltered[filter_column] |= df_disease_list_unfiltered['f_leaf'] == True
 
     # Now, we add all the immediate parents of leaf classes that are mapped to OMIM, ICD, or Orphanet
@@ -52,6 +65,15 @@ def matrix_disease_filter(df_disease_list_unfiltered):
             (df_disease_list_unfiltered['f_orphanet_subtype'] == True)
         )
     )
+    
+    # Next, we add all diseases corresponding to ICD 10 billable codes
+    df_disease_list_unfiltered[filter_column] |= df_disease_list_unfiltered['f_icd_category'] == True
+    
+    # Next, we add all diseases corresponding to Orphanet disorders
+    df_disease_list_unfiltered[filter_column] |= df_disease_list_unfiltered['f_orphanet_disorder'] == True
+    
+    # Remove disease that were manually excluded
+    df_disease_list_unfiltered.loc[df_disease_list_unfiltered['f_matrix_manually_excluded'] == True, filter_column] = False
     
     # Split the DataFrame into two parts: included and excluded diseases
     df_included_diseases = df_disease_list_unfiltered[df_disease_list_unfiltered[filter_column] == True]
