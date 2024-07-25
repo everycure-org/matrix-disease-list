@@ -40,37 +40,43 @@ WHERE
     ?category_class IAO:0000115 ?definition .
   }
 
-  # Subquery for synonyms
-  {
-    SELECT ?category_class (GROUP_CONCAT(DISTINCT ?sorted_synonym; separator="; ") AS ?synonyms)
-    WHERE {
-      ?category_class oio:hasExactSynonym ?synonym .
-      BIND(STR(?synonym) AS ?sorted_synonym)
+  # Optional Subquery for synonyms
+  OPTIONAL {
+    {
+      SELECT ?category_class (GROUP_CONCAT(DISTINCT ?sorted_synonym; separator="; ") AS ?synonyms)
+      WHERE {
+        ?category_class oio:hasExactSynonym ?synonym .
+        BIND(STR(?synonym) AS ?sorted_synonym)
+      }
+      GROUP BY ?category_class
+      ORDER BY ?sorted_synonym
     }
-    GROUP BY ?category_class
-    ORDER BY ?sorted_synonym
   }
 
-  # Subquery for subsets
-  {
-    SELECT ?category_class (GROUP_CONCAT(DISTINCT ?sorted_subset; separator="; ") AS ?subsets)
-    WHERE {
-      ?category_class oio:inSubset ?subset .
-      BIND(STR(?subset) AS ?sorted_subset)
+  # Optional Subquery for subsets
+  OPTIONAL {
+    {
+      SELECT ?category_class (GROUP_CONCAT(DISTINCT ?sorted_subset; separator="; ") AS ?subsets)
+      WHERE {
+        ?category_class oio:inSubset ?subset .
+        BIND(STR(?subset) AS ?sorted_subset)
+      }
+      GROUP BY ?category_class
+      ORDER BY ?sorted_subset
     }
-    GROUP BY ?category_class
-    ORDER BY ?sorted_subset
   }
 
-  # Subquery for icd10_xrefs
-  {
-    SELECT ?category_class (GROUP_CONCAT(DISTINCT ?sorted_xref; separator="; ") AS ?icd10_xrefs)
-    WHERE {
-      ?category_class oio:hasDbXref ?xref .
-      BIND(STR(?xref) AS ?sorted_xref)
+  # Optional Subquery for icd10_xrefs
+  OPTIONAL {
+    {
+      SELECT ?category_class (GROUP_CONCAT(DISTINCT ?sorted_xref; separator="; ") AS ?icd10_xrefs)
+      WHERE {
+        ?category_class oio:hasDbXref ?xref .
+        BIND(STR(?xref) AS ?sorted_xref)
+      }
+      GROUP BY ?category_class
+      ORDER BY ?sorted_xref
     }
-    GROUP BY ?category_class
-    ORDER BY ?sorted_xref
   }
 
   #######################
@@ -122,7 +128,7 @@ WHERE
   
   # Filter: Disease corresponds to the descendant of an Orphanet subtype
   OPTIONAL {
-    ?category_class rdfs:subClassO+ ?subtype_subset .
+    ?category_class rdfs:subClassOf+ ?subtype_subset .
     VALUES ?_subset { 
       <http://purl.obolibrary.org/obo/mondo#ordo_subtype_of_a_disorder>
     }
