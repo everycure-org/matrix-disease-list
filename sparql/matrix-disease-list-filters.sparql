@@ -8,10 +8,7 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 PREFIX mondo: <http://purl.obolibrary.org/obo/mondo#>
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 
-SELECT DISTINCT ?category_class ?label ?definition 
-  (GROUP_CONCAT(DISTINCT STR(?synonym); separator=", ") as ?synonyms) 
-  (GROUP_CONCAT(DISTINCT STR(?subset); separator=", ") as ?subsets) 
-  (GROUP_CONCAT(DISTINCT STR(?xref); separator=", ") as ?icd10_xrefs)
+SELECT DISTINCT ?category_class ?label ?definition ?synonyms ?subsets ?icd10_xrefs
   (IF(SUM(IF(?filter_grouping_subset = "TRUE", 1, 0)) > 0, "TRUE", "") AS ?f_grouping_subset)
   (IF(SUM(IF(?filter_grouping_subset_ancestor = "TRUE", 1, 0)) > 0, "TRUE", "") AS ?f_grouping_subset_ancestor)
   (IF(SUM(IF(?filter_orphanet_subtype = "TRUE", 1, 0)) > 0, "TRUE", "") AS ?f_orphanet_subtype)
@@ -29,7 +26,7 @@ SELECT DISTINCT ?category_class ?label ?definition
 WHERE
 {
   ?category_class rdfs:subClassOf* MONDO:0700096 ;
-   rdfs:label ?label .
+                  rdfs:label ?label .
 
   OPTIONAL {
     ?category_class oio:inSubset ?subset .
@@ -168,8 +165,41 @@ WHERE
   OPTIONAL {
     ?category_class IAO:0000115 ?definition .
   }
+
+  # Subquery for synonyms
+  {
+    SELECT ?category_class (GROUP_CONCAT(DISTINCT ?sorted_synonym; separator="; ") AS ?synonyms)
+    WHERE {
+      ?category_class oio:hasExactSynonym ?synonym .
+      BIND(STR(?synonym) AS ?sorted_synonym)
+    }
+    GROUP BY ?category_class
+    ORDER BY ?sorted_synonym
+  }
+
+  # Subquery for subsets
+  {
+    SELECT ?category_class (GROUP_CONCAT(DISTINCT ?sorted_subset; separator="; ") AS ?subsets)
+    WHERE {
+      ?category_class oio:inSubset ?subset .
+      BIND(STR(?subset) AS ?sorted_subset)
+    }
+    GROUP BY ?category_class
+    ORDER BY ?sorted_subset
+  }
+
+  # Subquery for icd10_xrefs
+  {
+    SELECT ?category_class (GROUP_CONCAT(DISTINCT ?sorted_xref; separator="; ") AS ?icd10_xrefs)
+    WHERE {
+      ?category_class oio:hasDbXref ?xref .
+      BIND(STR(?xref) AS ?sorted_xref)
+    }
+    GROUP BY ?category_class
+    ORDER BY ?sorted_xref
+  }
   
   FILTER( !isBlank(?category_class) && STRSTARTS(str(?category_class), "http://purl.obolibrary.org/obo/MONDO_"))
 } 
-GROUP BY ?category_class ?label ?definition
+GROUP BY ?category_class ?label ?definition ?synonyms ?subsets ?icd10_xrefs
 ORDER BY DESC(?label)

@@ -55,7 +55,7 @@ mondo-metadata.tsv: tmp/mondo.owl sparql/ontology-metadata.sparql
 .PRECIOUS: mondo-metadata.tsv
 
 # The unfiltered MATRIX disease list, including the filtering features
-matrix-disease-list-unfiltered.tsv: mondo.owl sparql/matrix-disease-list-filters.sparql
+matrix-disease-list-unfiltered.tsv: tmp/mondo.owl sparql/matrix-disease-list-filters.sparql
 	robot query -i $< -f tsv --query sparql/matrix-disease-list-filters.sparql $@
 	sed -i 's/[?]//g' $@
 	sed -i 's/<http:[/][/]purl[.]obolibrary[.]org[/]obo[/]MONDO_/MONDO:/g' $@
@@ -78,7 +78,7 @@ tmp/matrix-list-designations.robot.tsv: matrix-disease-list.tsv
 .PRECIOUS: tmp/matrix-list-designations.robot.tsv
 
 # This version of Mondo can help reviewers browsing the hierarchy with the filter designations clearly marked in the disease labels
-mondo-with-filter-designations.owl: mondo.owl tmp/matrix-list-designations.robot.tsv sparql/update-labels-with-list-designation.ru
+mondo-with-filter-designations.owl: tmp/mondo.owl tmp/matrix-list-designations.robot.tsv sparql/update-labels-with-list-designation.ru
 	$(ROBOT) template -i $< --merge-after --template tmp/matrix-list-designations.robot.tsv \
 		query --update sparql/update-labels-with-list-designation.ru \
 	 $(ANNOTATE_CONVERT_FILE)
