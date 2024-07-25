@@ -16,7 +16,7 @@ def matrix_filter_final_columns(df_disease_list):
     pandas.DataFrame
         The disease list with only the relevant columns.
     """
-    return df_disease_list[['category_class', 'label', 'definition', 'synonyms', 'subsets', 'icd10_xrefs']]
+    return df_disease_list[['category_class', 'label', 'definition', 'synonyms', 'subsets', 'crossreferences']]
                                               
 
 def matrix_disease_filter(df_disease_list_unfiltered):

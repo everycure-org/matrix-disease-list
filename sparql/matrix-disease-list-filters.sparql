@@ -8,7 +8,7 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 PREFIX mondo: <http://purl.obolibrary.org/obo/mondo#>
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 
-SELECT DISTINCT ?category_class ?label ?definition ?synonyms ?subsets ?icd10_xrefs
+SELECT DISTINCT ?category_class ?label ?definition ?synonyms ?subsets ?crossreferences
   (IF(SUM(IF(?filter_grouping_subset = "TRUE", 1, 0)) > 0, "TRUE", "") AS ?f_grouping_subset)
   (IF(SUM(IF(?filter_grouping_subset_ancestor = "TRUE", 1, 0)) > 0, "TRUE", "") AS ?f_grouping_subset_ancestor)
   (IF(SUM(IF(?filter_orphanet_subtype = "TRUE", 1, 0)) > 0, "TRUE", "") AS ?f_orphanet_subtype)
@@ -66,10 +66,10 @@ WHERE
     }
   }
 
-  # Optional Subquery for icd10_xrefs
+  # Optional Subquery for crossreferences
   OPTIONAL {
     {
-      SELECT ?category_class (GROUP_CONCAT(DISTINCT ?sorted_xref; separator="; ") AS ?icd10_xrefs)
+      SELECT ?category_class (GROUP_CONCAT(DISTINCT ?sorted_xref; separator="; ") AS ?crossreferences)
       WHERE {
         ?category_class oio:hasDbXref ?xref .
         BIND(STR(?xref) AS ?sorted_xref)
@@ -231,5 +231,5 @@ WHERE
 
   FILTER( !isBlank(?category_class) && STRSTARTS(str(?category_class), "http://purl.obolibrary.org/obo/MONDO_"))
 } 
-GROUP BY ?category_class ?label ?definition ?synonyms ?subsets ?icd10_xrefs
+GROUP BY ?category_class ?label ?definition ?synonyms ?subsets ?crossreferences
 ORDER BY DESC(?label)
