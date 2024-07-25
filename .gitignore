@@ -1,2 +1,7 @@
 
 mondo.owl
+/site/
+matrix-disease-list.xlsx
+*.xlsx
+/tmp
+mondo-with-filter-designations.owl
