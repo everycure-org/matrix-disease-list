@@ -14,5 +14,6 @@ The list will be used for communication and navigation purposes
 | ----------- | ------------ | ----- |
 | [Melissa Haendel](https://orcid.org/0000-0001-9114-8737)  | Monarch Initiative, Tislab, UNC | [https://orcid.org/0000-0001-9114-8737](https://orcid.org/0000-0001-9114-8737) |
 | [Sabrina Toro](https://orcid.org/0000-0002-4142-7153)  | Monarch Initiative, Tislab, UNC | [https://orcid.org/0000-0002-4142-7153](https://orcid.org/0000-0002-4142-7153) |
-| [Elliott Sharp](https://everycure.org/leadership-team/elliott-sharp/)  | Every Cure | [https://orcid.org/0000-0002-3420-316X](https://orcid.org/0000-0002-3420-316X) |
-| [Nico Matentzoglu](https://orcid.org/0000-0002-7356-1779)  | Monarch Initiative, Indepdent Consultant | [https://orcid.org/0000-0002-7356-1779](https://orcid.org/0000-0002-7356-1779) |
+| [Elliott Sharp](https://everycure.org/leadership-team/elliott-sharp/)  | Every Cure | [https://orcid.org/0000-0003-2955-4640](https://orcid.org/0000-0003-2955-4640) |
+| [Nico Matentzoglu](https://orcid.org/0000-0002-7356-1779)  | Monarch Initiative, Independent Consultant | [https://orcid.org/0000-0002-7356-1779](https://orcid.org/0000-0002-7356-1779) |
+| [Kevin Schaper](https://orcid.org/0000-0003-3311-7320)  | Monarch Initiative, Tislab, UNC | [https://orcid.org/0000-0003-3311-7320](https://orcid.org/0000-0003-3311-7320) |
