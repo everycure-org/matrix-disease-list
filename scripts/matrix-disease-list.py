@@ -104,7 +104,31 @@ def create_matrix_disease_list(input_file, output_included_diseases, output_excl
             df_excluded_diseases.to_excel(writer, sheet_name='Excluded Diseases', index=False)
             df.to_excel(writer, sheet_name='Unfiltered Diseases', index=False)
         click.echo(f"Excluded diseases written to {output_xlsx}")   
- 
+
+@cli.command()
+@click.option('-i', '--input', 'input_file', required=True, type=click.Path(exists=True), help='MATRIX disease list in TSV format')
+@click.option('-o', '--output', 'output_file', required=True, type=click.Path(), help='Output TSV file to write ROBOT template')
+def create_template_from_matrix_disease_list(input_file, output_file):
+    """
+    Create a template from the matrix disease list.
+    """
+    # Load the input TSV file
+    df_input = pd.read_csv(input_file, sep='\t')
+    
+    robot_template_header = pd.DataFrame({
+        'category_class': ['ID'],
+        'subset': ['AI oboInOwl:inSubset']
+        })
+
+    # Select only the 'category_class' column from df_input
+    df_template = df_input[['category_class']]
+    df_template['subset'] = 'http://purl.obolibrary.org/obo/mondo#matrix_included'
+
+    df_template = pd.concat([robot_template_header, df_template]).reset_index(drop=True)
+
+    df_template.to_csv(output_file, sep='\t', index=False)
+    
+    click.echo(f"Template created and written to {output_file}") 
 
 if __name__ == '__main__':
     cli()
