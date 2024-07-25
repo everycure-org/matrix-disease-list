@@ -57,7 +57,7 @@ def matrix_disease_filter(df_disease_list_unfiltered):
     df_included_diseases = df_disease_list_unfiltered[df_disease_list_unfiltered[filter_column] == True]
     df_excluded_diseases = df_disease_list_unfiltered[df_disease_list_unfiltered[filter_column] == False]
 
-    return df_included_diseases, df_excluded_diseases 
+    return df_included_diseases, df_excluded_diseases, df_disease_list_unfiltered 
 
 @click.group()
 def cli():
@@ -77,8 +77,9 @@ def help():
 @click.option('--input-file', '-i', required=True, type=click.Path(exists=True), help="Input TSV file")
 @click.option('--output-included-diseases', '-o', required=True, type=click.Path(), help="Included disease list as TSV file")
 @click.option('--output-excluded-diseases', '-e', required=False, type=click.Path(), help="Excluded disease list as TSV file")
+@click.option('--output-unfiltered-diseases-processed', '-l', required=False, type=click.Path(), help="Unfiltered disease list with added filter columns as TSV file")
 @click.option('--output-xlsx', '-x', required=False, type=click.Path(), help="Excluded disease list as TSV file")
-def create_matrix_disease_list(input_file, output_included_diseases, output_excluded_diseases, output_xlsx):
+def create_matrix_disease_list(input_file, output_included_diseases, output_excluded_diseases, output_unfiltered_diseases_processed, output_xlsx):
     """
     Load a TSV file, filter it by a specific column and value, and write the result to a new TSV file.
     """
@@ -86,7 +87,7 @@ def create_matrix_disease_list(input_file, output_included_diseases, output_excl
     df = pd.read_csv(input_file, sep='\t')
     
     # Filter the DataFrame
-    df_included_diseases, df_excluded_diseases = matrix_disease_filter(df)
+    df_included_diseases, df_excluded_diseases, df_matrix_disease_filter_modified = matrix_disease_filter(df)
     df_included_diseases = matrix_filter_final_columns(df_included_diseases)
     df_excluded_diseases = matrix_filter_final_columns(df_excluded_diseases)
     
@@ -98,12 +99,17 @@ def create_matrix_disease_list(input_file, output_included_diseases, output_excl
         df_excluded_diseases.to_csv(output_excluded_diseases, sep='\t', index=False)
         click.echo(f"Excluded diseases written to {output_excluded_diseases}")
     
+    if output_unfiltered_diseases_processed:
+        df_matrix_disease_filter_modified.to_csv(output_unfiltered_diseases_processed, sep='\t', index=False)
+        click.echo(f"Unfiltered diseases written to {output_unfiltered_diseases_processed}")
+    
     if output_xlsx:
         with pd.ExcelWriter(output_xlsx, engine='xlsxwriter') as writer:
             df_included_diseases.to_excel(writer, sheet_name='Matrix Disease List', index=False)
             df_excluded_diseases.to_excel(writer, sheet_name='Excluded Diseases', index=False)
+            df_matrix_disease_filter_modified.to_excel(writer, sheet_name='Unfiltered disease list', index=False)
             df.to_excel(writer, sheet_name='Unfiltered Diseases', index=False)
-        click.echo(f"Excluded diseases written to {output_xlsx}")   
+        click.echo(f"Excluded diseases written to {output_xlsx}")
 
 @cli.command()
 @click.option('-i', '--input', 'input_file', required=True, type=click.Path(exists=True), help='MATRIX disease list in TSV format')
