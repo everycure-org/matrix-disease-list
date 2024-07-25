@@ -12,7 +12,7 @@ SELECT DISTINCT ?category_class ?label ?definition ?synonyms ?subsets ?icd10_xre
   (IF(SUM(IF(?filter_grouping_subset = "TRUE", 1, 0)) > 0, "TRUE", "") AS ?f_grouping_subset)
   (IF(SUM(IF(?filter_grouping_subset_ancestor = "TRUE", 1, 0)) > 0, "TRUE", "") AS ?f_grouping_subset_ancestor)
   (IF(SUM(IF(?filter_orphanet_subtype = "TRUE", 1, 0)) > 0, "TRUE", "") AS ?f_orphanet_subtype)
-  (IF(SUM(IF(?filter_subtype_subset_descendant = "TRUE", 1, 0)) > 0, "TRUE", "") AS ?f_subtype_subset_descendant)
+  (IF(SUM(IF(?filter_orphanet_subtype_descendant = "TRUE", 1, 0)) > 0, "TRUE", "") AS ?f_orphanet_subtype_descendant)
   (IF(SUM(IF(?filter_omimps = "TRUE", 1, 0)) > 0, "TRUE", "") AS ?f_omimps)
   (IF(SUM(IF(?filter_omimps_descendant = "TRUE", 1, 0)) > 0, "TRUE", "") AS ?f_omimps_descendant)
   (IF(SUM(IF(?filter_leaf = "TRUE", 1, 0)) > 0, "TRUE", "") AS ?f_leaf) 
@@ -25,141 +25,15 @@ SELECT DISTINCT ?category_class ?label ?definition ?synonyms ?subsets ?icd10_xre
 
 WHERE
 {
-  ?category_class rdfs:subClassOf* MONDO:0700096 ;
-                  rdfs:label ?label .
+  # We are only looking for classes that are specifically human diseases.
+  ?category_class rdfs:subClassOf* MONDO:0700096 .
+
+  ########################
+  #### Metadata ##########
+  ########################
 
   OPTIONAL {
-    ?category_class oio:inSubset ?subset .
-  }
-  
-  OPTIONAL {
-    VALUES ?_subset { 
-      <http://purl.obolibrary.org/obo/mondo#ordo_group_of_disorders> 
-      <http://purl.obolibrary.org/obo/mondo#disease_grouping> 
-      <http://purl.obolibrary.org/obo/mondo#harrisons_view> 
-      <http://purl.obolibrary.org/obo/mondo#rare_grouping>
-    }
-    ?category_class oio:inSubset ?_subset .
-    BIND("TRUE" as ?filter_grouping_subset)
-  }
-  
-  OPTIONAL {
-    ?grouping_class_subset rdfs:subClassOf ?category_class .
-    VALUES ?_subset { 
-      <http://purl.obolibrary.org/obo/mondo#ordo_group_of_disorders> 
-      <http://purl.obolibrary.org/obo/mondo#disease_grouping> 
-      <http://purl.obolibrary.org/obo/mondo#harrisons_view> 
-      <http://purl.obolibrary.org/obo/mondo#rare_grouping>
-    }
-    ?grouping_class_subset oio:inSubset ?_subset .
-    BIND("TRUE" as ?filter_grouping_subset_ancestor)
-  }
-  
-  OPTIONAL {
-    VALUES ?_subset { 
-      <http://purl.obolibrary.org/obo/mondo#ordo_subtype_of_a_disorder>
-    }
-    ?category_class oio:inSubset ?_subset .
-    BIND("TRUE" as ?filter_orphanet_subtype)
-  }
-  
-  OPTIONAL {
-    VALUES ?_subset { 
-      <http://purl.obolibrary.org/obo/mondo#ordo_disorder>
-    }
-    ?category_class oio:inSubset ?_subset .
-    BIND("TRUE" as ?filter_orphanet_disorder)
-  }
-  
-  OPTIONAL {
-    ?category_class rdfs:subClassOf ?subtype_subset .
-    VALUES ?_subset { 
-      <http://purl.obolibrary.org/obo/mondo#ordo_subtype_of_a_disorder>
-    }
-    ?subtype_subset oio:inSubset ?_subset .
-    BIND("TRUE" as ?filter_subtype_subset_descendant)
-  }
-  
-  OPTIONAL {
-    ?category_class <http://www.w3.org/2004/02/skos/core#exactMatch> ?match .
-    FILTER(STRSTARTS(STR(?match), "https://omim.org/phenotypicSeries/PS"))
-    BIND("TRUE" as ?filter_omimps)
-  }
-  
-  OPTIONAL {
-    ?category_class rdfs:subClassOf ?omimps .
-    ?omimps <http://www.w3.org/2004/02/skos/core#exactMatch> ?match .
-    FILTER(STRSTARTS(STR(?match), "https://omim.org/phenotypicSeries/PS"))
-    BIND("TRUE" as ?filter_omimps_descendant)
-  }
-  
-  OPTIONAL {
-    ?category_class rdfs:subClassOf ?omim .
-    ?omim <http://www.w3.org/2004/02/skos/core#exactMatch> ?match .
-    FILTER(STRSTARTS(STR(?match), "https://omim.org/entry/"))
-    BIND("TRUE" as ?filter_omim)
-  }
-  
-  OPTIONAL {
-    ?category_class rdf:type owl:Class .
-    FILTER NOT EXISTS {
-      ?leaf_x rdfs:subClassOf ?category_class 
-    }
-    BIND("TRUE" as ?filter_leaf)
-  }
-  
-  OPTIONAL {
-    ?leaf rdfs:subClassOf ?category_class .
-    FILTER NOT EXISTS {
-      ?leaf_direct_parent_x rdfs:subClassOf ?leaf 
-    }
-    BIND("TRUE" as ?filter_leaf_direct_parent)
-  }
-  
-  OPTIONAL {
-    ?category_class oio:hasDbXref ?xref .
-    ?a owl:annotatedSource ?category_class ;
-       owl:annotatedProperty oio:hasDbXref ;
-       owl:annotatedTarget ?xref ;
-       oio:source ?type
-    FILTER (
-        STRSTARTS(str(?xref), "ICD10") &&
-        !CONTAINS(SUBSTR(str(?xref), 6), "-") &&
-        CONTAINS(SUBSTR(str(?xref), 6), ".")
-    )
-    BIND("TRUE" as ?filter_icd_category)
-  }
-
-  OPTIONAL {
-    ?category_class oio:hasDbXref ?xref .
-    ?a owl:annotatedSource ?category_class ;
-       owl:annotatedProperty oio:hasDbXref ;
-       owl:annotatedTarget ?xref ;
-       oio:source ?type
-    FILTER (
-        STRSTARTS(str(?xref), "ICD10") &&
-        CONTAINS(SUBSTR(str(?xref), 6), "-") &&
-        !CONTAINS(SUBSTR(str(?xref), 6), ".")
-    )
-    BIND("TRUE" as ?filter_icd_chapter_code)
-  }
-
-  OPTIONAL {
-    ?category_class oio:hasDbXref ?xref .
-    ?a owl:annotatedSource ?category_class ;
-       owl:annotatedProperty oio:hasDbXref ;
-       owl:annotatedTarget ?xref ;
-       oio:source ?type
-    FILTER (
-        STRSTARTS(str(?xref), "ICD10") &&
-        !CONTAINS(SUBSTR(str(?xref), 6), "-") &&
-        !CONTAINS(SUBSTR(str(?xref), 6), ".")
-    )
-    BIND("TRUE" as ?filter_icd_chapter_header)
-  }
-
-  OPTIONAL {
-    ?category_class oio:hasExactSynonym ?synonym .
+    ?category_class rdfs:label ?label .
   }
 
   OPTIONAL {
@@ -198,7 +72,157 @@ WHERE
     GROUP BY ?category_class
     ORDER BY ?sorted_xref
   }
+
+  #######################
+  #### Filters ##########
+  #######################
   
+  # Filter: Disease is a designated grouping class in Mondo
+  OPTIONAL {
+    VALUES ?_subset { 
+      <http://purl.obolibrary.org/obo/mondo#ordo_group_of_disorders> 
+      <http://purl.obolibrary.org/obo/mondo#disease_grouping> 
+      <http://purl.obolibrary.org/obo/mondo#harrisons_view> 
+      <http://purl.obolibrary.org/obo/mondo#rare_grouping>
+    }
+    ?category_class oio:inSubset ?_subset .
+    BIND("TRUE" as ?filter_grouping_subset)
+  }
+  
+  # Filter: Disease is an ancestor of a designated grouping class in Mondo
+  OPTIONAL {
+    ?grouping_class_subset rdfs:subClassOf+ ?category_class .
+    VALUES ?_subset { 
+      <http://purl.obolibrary.org/obo/mondo#ordo_group_of_disorders> 
+      <http://purl.obolibrary.org/obo/mondo#disease_grouping> 
+      <http://purl.obolibrary.org/obo/mondo#harrisons_view> 
+      <http://purl.obolibrary.org/obo/mondo#rare_grouping>
+    }
+    ?grouping_class_subset oio:inSubset ?_subset .
+    BIND("TRUE" as ?filter_grouping_subset_ancestor)
+  }
+  
+  # Filter: Disease corresponds to an Orphanet subtype
+  OPTIONAL {
+    VALUES ?_subset { 
+      <http://purl.obolibrary.org/obo/mondo#ordo_subtype_of_a_disorder>
+    }
+    ?category_class oio:inSubset ?_subset .
+    BIND("TRUE" as ?filter_orphanet_subtype)
+  }
+  
+  # Filter: Disease corresponds to an Orphanet disorder
+  OPTIONAL {
+    VALUES ?_subset { 
+      <http://purl.obolibrary.org/obo/mondo#ordo_disorder>
+    }
+    ?category_class oio:inSubset ?_subset .
+    BIND("TRUE" as ?filter_orphanet_disorder)
+  }
+  
+  # Filter: Disease corresponds to the descendant of an Orphanet subtype
+  OPTIONAL {
+    ?category_class rdfs:subClassO+ ?subtype_subset .
+    VALUES ?_subset { 
+      <http://purl.obolibrary.org/obo/mondo#ordo_subtype_of_a_disorder>
+    }
+    ?subtype_subset oio:inSubset ?_subset .
+    BIND("TRUE" as ?filter_orphanet_subtype_descendant)
+  }
+  
+  # Filter: Disease corresponds to an OMIM Phenotypic Series
+  OPTIONAL {
+    ?category_class <http://www.w3.org/2004/02/skos/core#exactMatch> ?match .
+    FILTER(STRSTARTS(STR(?match), "https://omim.org/phenotypicSeries/PS"))
+    BIND("TRUE" as ?filter_omimps)
+  }
+  
+  # Filter: Disease corresponds to a descendant of an OMIM Phenotypic Series
+  OPTIONAL {
+    ?category_class rdfs:subClassOf+ ?omimps .
+    ?omimps <http://www.w3.org/2004/02/skos/core#exactMatch> ?match .
+    FILTER(STRSTARTS(STR(?match), "https://omim.org/phenotypicSeries/PS"))
+    BIND("TRUE" as ?filter_omimps_descendant)
+  }
+  
+  # Filter: Disease corresponds to a disease / phenotype in OMIM
+  OPTIONAL {
+    ?category_class <http://www.w3.org/2004/02/skos/core#exactMatch> ?match .
+    FILTER(STRSTARTS(STR(?match), "https://omim.org/entry/"))
+    BIND("TRUE" as ?filter_omim)
+  }
+
+  # Filter: Disease corresponds to a descendant of a disease / phenotype in OMIM
+  OPTIONAL {
+    ?category_class rdfs:subClassOf+ ?omim .
+    ?omim <http://www.w3.org/2004/02/skos/core#exactMatch> ?match .
+    FILTER(STRSTARTS(STR(?match), "https://omim.org/entry/"))
+    BIND("TRUE" as ?filter_omim_descendant)
+  }
+  
+  # Filter: Disease is a leaf node in the Mondo hierarchy (has no children)
+  OPTIONAL {
+    ?category_class rdf:type owl:Class .
+    FILTER NOT EXISTS {
+      ?leaf_x rdfs:subClassOf ?category_class 
+    }
+    BIND("TRUE" as ?filter_leaf)
+  }
+  
+  # Filter: Disease is a a direct parent of a leaf node in the Mondo hierarchy
+  OPTIONAL {
+    ?leaf rdfs:subClassOf ?category_class .
+    FILTER NOT EXISTS {
+      ?leaf_direct_parent_x rdfs:subClassOf ?leaf 
+    }
+    BIND("TRUE" as ?filter_leaf_direct_parent)
+  }
+  
+  # Filter: Disease corresponds to an ICD-10 category
+  OPTIONAL {
+    ?category_class oio:hasDbXref ?xref .
+    ?a owl:annotatedSource ?category_class ;
+       owl:annotatedProperty oio:hasDbXref ;
+       owl:annotatedTarget ?xref ;
+       oio:source ?type
+    FILTER (
+        STRSTARTS(str(?xref), "ICD10") &&
+        !CONTAINS(SUBSTR(str(?xref), 6), "-") &&
+        CONTAINS(SUBSTR(str(?xref), 6), ".")
+    )
+    BIND("TRUE" as ?filter_icd_category)
+  }
+
+  # Filter: Disease corresponds to an ICD-10 chapter code
+  OPTIONAL {
+    ?category_class oio:hasDbXref ?xref .
+    ?a owl:annotatedSource ?category_class ;
+       owl:annotatedProperty oio:hasDbXref ;
+       owl:annotatedTarget ?xref ;
+       oio:source ?type
+    FILTER (
+        STRSTARTS(str(?xref), "ICD10") &&
+        CONTAINS(SUBSTR(str(?xref), 6), "-") &&
+        !CONTAINS(SUBSTR(str(?xref), 6), ".")
+    )
+    BIND("TRUE" as ?filter_icd_chapter_code)
+  }
+
+  # Filter: Disease corresponds to an ICD-10 chapter header
+  OPTIONAL {
+    ?category_class oio:hasDbXref ?xref .
+    ?a owl:annotatedSource ?category_class ;
+       owl:annotatedProperty oio:hasDbXref ;
+       owl:annotatedTarget ?xref ;
+       oio:source ?type
+    FILTER (
+        STRSTARTS(str(?xref), "ICD10") &&
+        !CONTAINS(SUBSTR(str(?xref), 6), "-") &&
+        !CONTAINS(SUBSTR(str(?xref), 6), ".")
+    )
+    BIND("TRUE" as ?filter_icd_chapter_header)
+  }
+
   FILTER( !isBlank(?category_class) && STRSTARTS(str(?category_class), "http://purl.obolibrary.org/obo/MONDO_"))
 } 
 GROUP BY ?category_class ?label ?definition ?synonyms ?subsets ?icd10_xrefs
