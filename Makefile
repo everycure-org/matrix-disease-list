@@ -101,7 +101,7 @@ gh_release:
 
 .PHONY: deploy_site
 deploy_site:
-	mkdocs gh-deploy --config-file mkdocs.yml
+	mkdocs gh-deploy --config-file mkdocs.yml --ignore-version
 
 build_site:
 	mkdocs build --config-file mkdocs.yml
