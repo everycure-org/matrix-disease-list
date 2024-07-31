@@ -72,6 +72,12 @@ def matrix_disease_filter(df_disease_list_unfiltered):
     # Next, we add all diseases corresponding to Orphanet disorders
     df_disease_list_unfiltered[filter_column] |= df_disease_list_unfiltered['f_orphanet_disorder'] == True
     
+    # Next, we add all diseases corresponding to ClinGen curated conditions
+    df_disease_list_unfiltered[filter_column] |= df_disease_list_unfiltered['f_clingen'] == True
+    
+    # Next, we add all diseases corresponding to OMIM curated diseases
+    df_disease_list_unfiltered[filter_column] |= df_disease_list_unfiltered['f_omim'] == True
+    
     # Remove disease that were manually excluded
     df_disease_list_unfiltered.loc[df_disease_list_unfiltered['f_matrix_manually_excluded'] == True, filter_column] = False
     
@@ -131,7 +137,7 @@ def create_matrix_disease_list(input_file, output_included_diseases, output_excl
             df_excluded_diseases.to_excel(writer, sheet_name='Excluded Diseases', index=False)
             df_matrix_disease_filter_modified.to_excel(writer, sheet_name='Unfiltered disease list', index=False)
             df.to_excel(writer, sheet_name='Unfiltered Diseases', index=False)
-        click.echo(f"Excluded diseases written to {output_xlsx}")
+        click.echo(f"All tables are compiled together as an Excel spreadsheet in {output_xlsx}")
 
 @cli.command()
 @click.option('-i', '--input', 'input_file', required=True, type=click.Path(exists=True), help='MATRIX disease list in TSV format')
