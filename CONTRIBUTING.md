@@ -130,6 +130,19 @@ Some notes for developers to understand the process:
 - `odk.sh` is a simple wrapper script we use in the OBO ontology community to access the ODK, which is essentially a huge docker container with all tools installed we need for executing ontology related workflows.
 - `Makefile` is a regular gnu-make container for all the targets related to the disease list. Basically a super simple data workflow language. For example, the `matrix-disease-list.tsv` build target in the `Makefile` contains the command needed to created the disease list.
 
+### Updating / adding filters
+
+- All filter criteria (not the filtering itself!) are implemented in [this SPARQL query](sparql/matrix-disease-list-filters.sparql).
+- The filter process works as follows:
+  - Define a filter criterion in [this SPARQL query](sparql/matrix-disease-list-filters.sparql) (look for the `FILTER` section of the query). The pipeline will produce a TSV file which contains all the filter criteria defined in this query.
+  - Implement the filter conditions in [this Python script](scripts/matrix-disease-list.py). The pipeline will seperate "diagnosable" from other kinds of disease concepts using filter rules.
+
+### PR reviews and merging
+
+- The person that creates the PR should assign themselves
+- Only the assigned person is allowed to merge a PR - not the reviewers
+- Every PR that alters the disease list should be reviewed by at least 3 people
+
 <!-- omit in toc -->
 ## Attribution
 This guide is based on the **contributing-gen**. [Make your own](https://github.com/bttger/contributing-gen)!
