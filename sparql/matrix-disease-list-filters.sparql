@@ -11,6 +11,7 @@ PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 SELECT DISTINCT ?category_class ?label ?definition ?synonyms ?subsets ?crossreferences
   (IF(SUM(IF(?filter_matrix_manually_excluded = "TRUE", 1, 0)) > 0, "TRUE", "") AS ?f_matrix_manually_excluded)
   (IF(SUM(IF(?filter_matrix_manually_included = "TRUE", 1, 0)) > 0, "TRUE", "") AS ?f_matrix_manually_included)
+  (IF(SUM(IF(?filter_clingen = "TRUE", 1, 0)) > 0, "TRUE", "") AS ?f_clingen)
   (IF(SUM(IF(?filter_grouping_subset = "TRUE", 1, 0)) > 0, "TRUE", "") AS ?f_grouping_subset)
   (IF(SUM(IF(?filter_grouping_subset_ancestor = "TRUE", 1, 0)) > 0, "TRUE", "") AS ?f_grouping_subset_ancestor)
   (IF(SUM(IF(?filter_orphanet_subtype = "TRUE", 1, 0)) > 0, "TRUE", "") AS ?f_orphanet_subtype)
@@ -95,6 +96,14 @@ WHERE
   OPTIONAL {
     ?category_class oio:inSubset <http://purl.obolibrary.org/obo/mondo#matrix_excluded> .
     BIND("TRUE" as ?filter_matrix_manually_excluded)
+  }
+
+  # Filter: Disease that are curated against by ClinGen
+  # Example: https://search.clinicalgenome.org/kb/conditions/MONDO:0020119
+  
+  OPTIONAL {
+    ?category_class oio:inSubset <http://purl.obolibrary.org/obo/mondo#clingen> .
+    BIND("TRUE" as ?filter_clingen)
   }
   
   # Filter: Disease is a designated grouping class in Mondo

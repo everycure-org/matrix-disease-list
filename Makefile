@@ -33,9 +33,12 @@ ASSETS=matrix-disease-list.tsv \
 
 all: $(ASSETS)
 
+#MONDO_OWL_URL=http://purl.obolibrary.org/obo/mondo.owl
+MONDO_OWL_URL=https://github.com/monarch-initiative/mondo/releases/download/v2024-07-02/mondo.owl
+
 # The current release of the Mondo disease ontology
 tmp/mondo.owl:
-	wget "http://purl.obolibrary.org/obo/mondo.owl" -O $@
+	wget "$(MONDO_OWL_URL)" -O $@
 .PRECIOUS: tmp/mondo.owl
 
 # The MONDO ontology with the manually curated subsets added
@@ -69,6 +72,7 @@ matrix-disease-list.tsv: matrix-disease-list-unfiltered.tsv scripts/matrix-disea
 	python scripts/matrix-disease-list.py create-matrix-disease-list -i $< \
 		-o matrix-disease-list.tsv \
 		-e matrix-excluded-diseases-list.tsv \
+		-t src/included-diseases.robot.tsv \
 		-l matrix-disease-list-unfiltered-processed.tsv \
 		-x matrix-disease-list.xlsx
 .PRECIOUS: matrix-disease-list.tsv
