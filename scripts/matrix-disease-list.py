@@ -104,10 +104,11 @@ def help():
 @cli.command()
 @click.option('--input-file', '-i', required=True, type=click.Path(exists=True), help="Input TSV file")
 @click.option('--output-included-diseases', '-o', required=True, type=click.Path(), help="Included disease list as TSV file")
+@click.option('--output-included-diseases-template', '-t', required=True, type=click.Path(), help="Included disease list template for manual curation as TSV file")
 @click.option('--output-excluded-diseases', '-e', required=False, type=click.Path(), help="Excluded disease list as TSV file")
 @click.option('--output-unfiltered-diseases-processed', '-l', required=False, type=click.Path(), help="Unfiltered disease list with added filter columns as TSV file")
 @click.option('--output-xlsx', '-x', required=False, type=click.Path(), help="Excluded disease list as TSV file")
-def create_matrix_disease_list(input_file, output_included_diseases, output_excluded_diseases, output_unfiltered_diseases_processed, output_xlsx):
+def create_matrix_disease_list(input_file, output_included_diseases, output_included_diseases_template, output_excluded_diseases, output_unfiltered_diseases_processed, output_xlsx):
     """
     Load a TSV file, filter it by a specific column and value, and write the result to a new TSV file.
     """
@@ -119,7 +120,19 @@ def create_matrix_disease_list(input_file, output_included_diseases, output_excl
     df_included_diseases = matrix_filter_final_columns(df_included_diseases)
     df_excluded_diseases = matrix_filter_final_columns(df_excluded_diseases)
     
-    # Write the filtered DataFrame to a new TSV file
+    # Before we write the list to a final file, we make load the old list to figure out which diseases are new.
+    df_old_included_disease = pd.read_csv(output_included_diseases, sep='\t') 
+    df_included_diseases_template = pd.read_csv(output_included_diseases_template, sep='\t')
+    df_new_included_diseases = df_included_diseases[~df_included_diseases['category_class'].isin(df_old_included_disease['category_class'])]
+    df_new_included_diseases = df_new_included_diseases[['category_class', 'label']]
+    df_new_included_diseases.columns = ['ID', 'LABEL']
+    df_new_included_diseases['SUBSET'] = ''
+    df_new_included_diseases['CONTRIBUTOR'] = ''
+    df_new_included_diseases['COMMENT'] = ''
+    df_included_diseases_template = pd.concat([df_included_diseases_template, df_new_included_diseases])
+    df_included_diseases_template.to_csv(output_included_diseases_template, sep='\t', index=False)
+    
+    # Write the final disease list to the output file
     df_included_diseases.to_csv(output_included_diseases, sep='\t', index=False)
     click.echo(f"Filtered disease list written to {output_included_diseases}")
     
