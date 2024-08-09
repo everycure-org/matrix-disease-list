@@ -1,1 +1,1 @@
-sh odk.sh make matrix-disease-list.tsv
+VERSION=v1.5.2 ./odk.sh make matrix-disease-list.tsv -B
