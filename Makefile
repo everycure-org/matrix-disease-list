@@ -65,7 +65,7 @@ matrix-disease-list-unfiltered.tsv: tmp/mondo-with-manually-curated-subsets.owl 
 
 # The final MATRIX disease list
 matrix-disease-list.tsv: matrix-disease-list-unfiltered.tsv scripts/matrix-disease-list.py
-	pip install -r requirements.txt
+	pip install -r requirements.txt # This will be needed with ODK 1.5.3+ --break-system-packages
 	python scripts/matrix-disease-list.py create-matrix-disease-list -i $< \
 		-o matrix-disease-list.tsv \
 		-e matrix-excluded-diseases-list.tsv \
