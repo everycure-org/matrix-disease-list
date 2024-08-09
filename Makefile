@@ -34,7 +34,7 @@ ASSETS=matrix-disease-list.tsv \
 all: $(ASSETS)
 
 #MONDO_OWL_URL=http://purl.obolibrary.org/obo/mondo.owl
-MONDO_OWL_URL=https://github.com/monarch-initiative/mondo/releases/download/v2024-07-02/mondo.owl
+MONDO_OWL_URL=https://github.com/monarch-initiative/mondo/releases/download/v2024-08-06/mondo.owl
 
 # The current release of the Mondo disease ontology
 tmp/mondo.owl:
