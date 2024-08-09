@@ -2,3 +2,165 @@ ID	LABEL	SUBSET	CONTRIBUTOR	COMMENT
 ID		AI oboInOwl:inSubset	AI dc:contributor SPLIT=|	
 MONDO:0010663	intellectual disability-hypotonic facies syndrome, X-linked, 1	obo:mondo#matrix_included	https://orcid.org/0000-0002-7356-1779	Lots of associations in KG.
 MONDO:0024617	xanthogranuloma	obo:mondo#matrix_included	https://orcid.org/0000-0002-7356-1779	Lots of associations in KG.
+MONDO:0020754	visceral myopathy 1	obo:mondo#matrix_included	https://orcid.org/0000-0003-2955-4640|https://orcid.org/0000-0002-4142-7153	
+MONDO:0008648	ventricular tachycardia, familial	obo:mondo#matrix_included	https://orcid.org/0000-0003-2955-4640|https://orcid.org/0000-0002-4142-7153	
+MONDO:0100064	tyrosine hydroxylase deficiency	obo:mondo#matrix_included	https://orcid.org/0000-0003-2955-4640|https://orcid.org/0000-0002-4142-7153	
+MONDO:0100153	tubulinopathy	obo:mondo#matrix_included	https://orcid.org/0000-0003-2955-4640|https://orcid.org/0000-0002-4142-7153	
+MONDO:0011182	trimethylaminuria	obo:mondo#matrix_included	https://orcid.org/0000-0003-2955-4640|https://orcid.org/0000-0002-4142-7153	
+MONDO:0008537	telecanthus	obo:mondo#matrix_included	https://orcid.org/0000-0003-2955-4640|https://orcid.org/0000-0002-4142-7153	
+MONDO:0100009	structural congenital heart disease, multiple types - GATA4	obo:mondo#matrix_included	https://orcid.org/0000-0003-2955-4640|https://orcid.org/0000-0002-4142-7153	
+MONDO:0016763	spondylometaphyseal dysplasia	obo:mondo#matrix_included	https://orcid.org/0000-0003-2955-4640|https://orcid.org/0000-0002-4142-7153	
+MONDO:0000030	sleep-related hypermotor epilepsy	obo:mondo#matrix_included	https://orcid.org/0000-0003-2955-4640|https://orcid.org/0000-0002-4142-7153	
+MONDO:0017734	sialidosis	obo:mondo#matrix_included	https://orcid.org/0000-0003-2955-4640|https://orcid.org/0000-0002-4142-7153	
+MONDO:0015924	pulmonary arterial hypertension	obo:mondo#matrix_included	https://orcid.org/0000-0003-2955-4640|https://orcid.org/0000-0002-4142-7153	
+MONDO:0020074	progressive myoclonus epilepsy	obo:mondo#matrix_included	https://orcid.org/0000-0003-2955-4640|https://orcid.org/0000-0002-4142-7153	
+MONDO:0021003	polydactyly	obo:mondo#matrix_included	https://orcid.org/0000-0003-2955-4640|https://orcid.org/0000-0002-4142-7153	
+MONDO:0020642	polycystic kidney disease	obo:mondo#matrix_included	https://orcid.org/0000-0003-2955-4640|https://orcid.org/0000-0002-4142-7153	
+MONDO:0100258	phytanoyl-CoA hydroxylase deficiency	obo:mondo#matrix_included	https://orcid.org/0000-0003-2955-4640|https://orcid.org/0000-0002-4142-7153	
+MONDO:0019234	peroxisome biogenesis disorder	obo:mondo#matrix_included	https://orcid.org/0000-0003-2955-4640|https://orcid.org/0000-0002-4142-7153	
+MONDO:0100283	overgrowth syndrome and/or cerebral malformations due to abnormalities in MTOR pathway genes	obo:mondo#matrix_included	https://orcid.org/0000-0003-2955-4640|https://orcid.org/0000-0002-4142-7153	
+MONDO:0011366	ovarian germ cell tumor	obo:mondo#matrix_included	https://orcid.org/0000-0003-2955-4640|https://orcid.org/0000-0002-4142-7153	
+MONDO:0010795	oncocytic neoplasm	obo:mondo#matrix_included	https://orcid.org/0000-0003-2955-4640|https://orcid.org/0000-0002-4142-7153	
+MONDO:0007712	oculoauriculovertebral spectrum with radial defects	obo:mondo#matrix_included	https://orcid.org/0000-0003-2955-4640|https://orcid.org/0000-0002-4142-7153	
+MONDO:0019497	nonsyndromic genetic hearing loss	obo:mondo#matrix_included	https://orcid.org/0000-0003-2955-4640|https://orcid.org/0000-0002-4142-7153	
+MONDO:0005233	non-small cell lung carcinoma	obo:mondo#matrix_included	https://orcid.org/0000-0003-2955-4640|https://orcid.org/0000-0002-4142-7153	
+MONDO:0001475	neutropenia	obo:mondo#matrix_included	https://orcid.org/0000-0003-2955-4640|https://orcid.org/0000-0002-4142-7153	
+MONDO:0015362	neuronopathy, distal hereditary motor, autosomal dominant	obo:mondo#matrix_included	https://orcid.org/0000-0003-2955-4640|https://orcid.org/0000-0002-4142-7153	
+MONDO:0019056	neuromuscular disease	obo:mondo#matrix_included	https://orcid.org/0000-0003-2955-4640|https://orcid.org/0000-0002-4142-7153	
+MONDO:0018162	neurometabolic disorder due to serine deficiency	obo:mondo#matrix_included	https://orcid.org/0000-0003-2955-4640|https://orcid.org/0000-0002-4142-7153	
+MONDO:0018958	nemaline myopathy	obo:mondo#matrix_included	https://orcid.org/0000-0003-2955-4640|https://orcid.org/0000-0002-4142-7153	
+MONDO:0700071	myopathy caused by variation in POMT2	obo:mondo#matrix_included	https://orcid.org/0000-0003-2955-4640|https://orcid.org/0000-0002-4142-7153	
+MONDO:0700070	myopathy caused by variation in POMT1	obo:mondo#matrix_included	https://orcid.org/0000-0003-2955-4640|https://orcid.org/0000-0002-4142-7153	
+MONDO:0700069	myopathy caused by variation in POMGNT2	obo:mondo#matrix_included	https://orcid.org/0000-0003-2955-4640|https://orcid.org/0000-0002-4142-7153	
+MONDO:0700068	myopathy caused by variation in POMGNT1	obo:mondo#matrix_included	https://orcid.org/0000-0003-2955-4640|https://orcid.org/0000-0002-4142-7153	
+MONDO:0700084	myopathy caused by variation in GMPPB	obo:mondo#matrix_included	https://orcid.org/0000-0003-2955-4640|https://orcid.org/0000-0002-4142-7153	
+MONDO:0700067	myopathy caused by variation in FKTN	obo:mondo#matrix_included	https://orcid.org/0000-0003-2955-4640|https://orcid.org/0000-0002-4142-7153	
+MONDO:0700066	myopathy caused by variation in FKRP	obo:mondo#matrix_included	https://orcid.org/0000-0003-2955-4640|https://orcid.org/0000-0002-4142-7153	
+MONDO:0018943	myofibrillar myopathy	obo:mondo#matrix_included	https://orcid.org/0000-0003-2955-4640|https://orcid.org/0000-0002-4142-7153	
+MONDO:0015151	muscular dystrophy, limb-girdle, autosomal dominant	obo:mondo#matrix_included	https://orcid.org/0000-0003-2955-4640|https://orcid.org/0000-0002-4142-7153	
+MONDO:0100346	microcephaly with or without short stature	obo:mondo#matrix_included	https://orcid.org/0000-0003-2955-4640|https://orcid.org/0000-0002-4142-7153	
+MONDO:0100200	microcephaly with intellectual disability	obo:mondo#matrix_included	https://orcid.org/0000-0003-2955-4640|https://orcid.org/0000-0002-4142-7153	
+MONDO:0001149	microcephaly	obo:mondo#matrix_included	https://orcid.org/0000-0003-2955-4640|https://orcid.org/0000-0002-4142-7153	
+MONDO:0031447	macrothrombocytopenia, isolated	obo:mondo#matrix_included	https://orcid.org/0000-0003-2955-4640|https://orcid.org/0000-0002-4142-7153	
+MONDO:0002561	lysosomal storage disease	obo:mondo#matrix_included	https://orcid.org/0000-0003-2955-4640|https://orcid.org/0000-0002-4142-7153	
+MONDO:0018838	lissencephaly spectrum disorders	obo:mondo#matrix_included	https://orcid.org/0000-0003-2955-4640|https://orcid.org/0000-0002-4142-7153	
+MONDO:0007834	islet cell adenomatosis	obo:mondo#matrix_included	https://orcid.org/0000-0003-2955-4640|https://orcid.org/0000-0002-4142-7153	
+MONDO:0000591	intrinsic cardiomyopathy	obo:mondo#matrix_included	https://orcid.org/0000-0003-2955-4640|https://orcid.org/0000-0002-4142-7153	
+MONDO:0021533	intestinal neuroendocrine tumor G1	obo:mondo#matrix_included	https://orcid.org/0000-0003-2955-4640|https://orcid.org/0000-0002-4142-7153	
+MONDO:0100207	infantile-onset epilepsy	obo:mondo#matrix_included	https://orcid.org/0000-0003-2955-4640|https://orcid.org/0000-0002-4142-7153	
+MONDO:0019220	inborn disorder of cobalamin metabolism and transport	obo:mondo#matrix_included	https://orcid.org/0000-0003-2955-4640|https://orcid.org/0000-0002-4142-7153	
+MONDO:0015364	hereditary sensory and autonomic neuropathy	obo:mondo#matrix_included	https://orcid.org/0000-0003-2955-4640|https://orcid.org/0000-0002-4142-7153	
+MONDO:0020127	hereditary peripheral neuropathy	obo:mondo#matrix_included	https://orcid.org/0000-0003-2955-4640|https://orcid.org/0000-0002-4142-7153	
+MONDO:0018630	hereditary nonpolyposis colon cancer	obo:mondo#matrix_included	https://orcid.org/0000-0003-2955-4640|https://orcid.org/0000-0002-4142-7153	
+MONDO:0100273	glyceronephosphate O-acyltransferase deficiency	obo:mondo#matrix_included	https://orcid.org/0000-0003-2955-4640|https://orcid.org/0000-0002-4142-7153	
+MONDO:0600001	glutaminase deficiency	obo:mondo#matrix_included	https://orcid.org/0000-0003-2955-4640|https://orcid.org/0000-0002-4142-7153	
+MONDO:0018116	galactosemia	obo:mondo#matrix_included	https://orcid.org/0000-0003-2955-4640|https://orcid.org/0000-0002-4142-7153	
+MONDO:0030923	frontotemporal dementia and/or amyotrophic lateral sclerosis	obo:mondo#matrix_included	https://orcid.org/0000-0003-2955-4640|https://orcid.org/0000-0002-4142-7153	
+MONDO:0005384	focal epilepsy	obo:mondo#matrix_included	https://orcid.org/0000-0003-2955-4640|https://orcid.org/0000-0002-4142-7153	
+MONDO:0016248	familial ovarian cancer	obo:mondo#matrix_included	https://orcid.org/0000-0003-2955-4640|https://orcid.org/0000-0002-4142-7153	
+MONDO:0019171	familial long QT syndrome	obo:mondo#matrix_included	https://orcid.org/0000-0003-2955-4640|https://orcid.org/0000-0002-4142-7153	
+MONDO:0000700	familial hemiplegic migraine	obo:mondo#matrix_included	https://orcid.org/0000-0003-2955-4640|https://orcid.org/0000-0002-4142-7153	
+MONDO:0014452	familial dysfibrinogenemia	obo:mondo#matrix_included	https://orcid.org/0000-0003-2955-4640|https://orcid.org/0000-0002-4142-7153	
+MONDO:0005144	familial amyotrophic lateral sclerosis	obo:mondo#matrix_included	https://orcid.org/0000-0003-2955-4640|https://orcid.org/0000-0002-4142-7153	
+MONDO:0002244	factor VII deficiency	obo:mondo#matrix_included	https://orcid.org/0000-0003-2955-4640|https://orcid.org/0000-0002-4142-7153	
+MONDO:0017851	erythrokeratodermia variabilis	obo:mondo#matrix_included	https://orcid.org/0000-0003-2955-4640|https://orcid.org/0000-0002-4142-7153	
+MONDO:0011962	endometrial cancer	obo:mondo#matrix_included	https://orcid.org/0000-0003-2955-4640|https://orcid.org/0000-0002-4142-7153	
+MONDO:0007500	ear malformation	obo:mondo#matrix_included	https://orcid.org/0000-0003-2955-4640|https://orcid.org/0000-0002-4142-7153	
+MONDO:0018894	distal hereditary motor neuropathy	obo:mondo#matrix_included	https://orcid.org/0000-0003-2955-4640|https://orcid.org/0000-0002-4142-7153	
+MONDO:0100317	deficiency of adenosine deaminase 2	obo:mondo#matrix_included	https://orcid.org/0000-0003-2955-4640|https://orcid.org/0000-0002-4142-7153	
+MONDO:0019952	congenital myopathy	obo:mondo#matrix_included	https://orcid.org/0000-0003-2955-4640|https://orcid.org/0000-0002-4142-7153	
+MONDO:0005453	congenital heart disease	obo:mondo#matrix_included	https://orcid.org/0000-0003-2955-4640|https://orcid.org/0000-0002-4142-7153	
+MONDO:0005501	congenital disorder of glycosylation type II	obo:mondo#matrix_included	https://orcid.org/0000-0003-2955-4640|https://orcid.org/0000-0002-4142-7153	
+MONDO:0019719	congenital anomaly of kidney and urinary tract	obo:mondo#matrix_included	https://orcid.org/0000-0003-2955-4640|https://orcid.org/0000-0002-4142-7153	
+MONDO:0014980	cone-rod dystrophy and hearing loss	obo:mondo#matrix_included	https://orcid.org/0000-0003-2955-4640|https://orcid.org/0000-0002-4142-7153	
+MONDO:0100516	complex neurodevelopmental disorder with motor features	obo:mondo#matrix_included	https://orcid.org/0000-0003-2955-4640|https://orcid.org/0000-0002-4142-7153	
+MONDO:0000904	complex cortical dysplasia with other brain malformations	obo:mondo#matrix_included	https://orcid.org/0000-0003-2955-4640|https://orcid.org/0000-0002-4142-7153	
+MONDO:0005575	colorectal cancer	obo:mondo#matrix_included	https://orcid.org/0000-0003-2955-4640|https://orcid.org/0000-0002-4142-7153	
+MONDO:0100225	collagen 6-related myopathy	obo:mondo#matrix_included	https://orcid.org/0000-0003-2955-4640|https://orcid.org/0000-0002-4142-7153	
+MONDO:0021057	classic or attenuated familial adenomatous polyposis	obo:mondo#matrix_included	https://orcid.org/0000-0003-2955-4640|https://orcid.org/0000-0002-4142-7153	
+MONDO:0005308	ciliopathy	obo:mondo#matrix_included	https://orcid.org/0000-0003-2955-4640|https://orcid.org/0000-0002-4142-7153	
+MONDO:0020072	childhood-onset epilepsy syndrome	obo:mondo#matrix_included	https://orcid.org/0000-0003-2955-4640|https://orcid.org/0000-0002-4142-7153	
+MONDO:0000437	cerebellar ataxia	obo:mondo#matrix_included	https://orcid.org/0000-0003-2955-4640|https://orcid.org/0000-0002-4142-7153	
+MONDO:0018947	centronuclear myopathy	obo:mondo#matrix_included	https://orcid.org/0000-0003-2955-4640|https://orcid.org/0000-0002-4142-7153	
+MONDO:0016146	caveolinopathy	obo:mondo#matrix_included	https://orcid.org/0000-0003-2955-4640|https://orcid.org/0000-0002-4142-7153	
+MONDO:0015152	autosomal recessive limb-girdle muscular dystrophy	obo:mondo#matrix_included	https://orcid.org/0000-0003-2955-4640|https://orcid.org/0000-0002-4142-7153	
+MONDO:0005258	autism spectrum disorder	obo:mondo#matrix_included	https://orcid.org/0000-0003-2955-4640|https://orcid.org/0000-0002-4142-7153	
+MONDO:0021944	auditory neuropathy	obo:mondo#matrix_included	https://orcid.org/0000-0003-2955-4640|https://orcid.org/0000-0002-4142-7153	
+MONDO:0015225	arthrogryposis syndrome	obo:mondo#matrix_included	https://orcid.org/0000-0003-2955-4640|https://orcid.org/0000-0002-4142-7153	
+MONDO:0015168	arthrogryposis multiplex congenita	obo:mondo#matrix_included	https://orcid.org/0000-0003-2955-4640|https://orcid.org/0000-0002-4142-7153	
+MONDO:0016587	arrhythmogenic right ventricular cardiomyopathy	obo:mondo#matrix_included	https://orcid.org/0000-0003-2955-4640|https://orcid.org/0000-0002-4142-7153	
+MONDO:0019172	aniridia	obo:mondo#matrix_included	https://orcid.org/0000-0003-2955-4640|https://orcid.org/0000-0002-4142-7153	
+MONDO:0100274	alkylglycerone-phosphate synthase deficiency	obo:mondo#matrix_included	https://orcid.org/0000-0003-2955-4640|https://orcid.org/0000-0002-4142-7153	
+MONDO:0100278	alanine glyoxylate aminotransferase deficiency	obo:mondo#matrix_included	https://orcid.org/0000-0003-2955-4640|https://orcid.org/0000-0002-4142-7153	
+MONDO:0015977	agammaglobulinemia	obo:mondo#matrix_included	https://orcid.org/0000-0003-2955-4640|https://orcid.org/0000-0002-4142-7153	
+MONDO:0100464	acid sphingomyelinase deficiency	obo:mondo#matrix_included	https://orcid.org/0000-0003-2955-4640|https://orcid.org/0000-0002-4142-7153	
+MONDO:0020119	X-linked syndromic intellectual disability	obo:mondo#matrix_included	https://orcid.org/0000-0003-2955-4640|https://orcid.org/0000-0002-4142-7153	
+MONDO:0100284	X-linked intellectual disability	obo:mondo#matrix_included	https://orcid.org/0000-0003-2955-4640|https://orcid.org/0000-0002-4142-7153	
+MONDO:0100148	X-linked complex neurodevelopmental disorder	obo:mondo#matrix_included	https://orcid.org/0000-0003-2955-4640|https://orcid.org/0000-0002-4142-7153	
+MONDO:0023880	WHIM syndrome	obo:mondo#matrix_included	https://orcid.org/0000-0003-2955-4640|https://orcid.org/0000-0002-4142-7153	
+MONDO:0100498	UROD-related inherited porphyria	obo:mondo#matrix_included	https://orcid.org/0000-0003-2955-4640|https://orcid.org/0000-0002-4142-7153	
+MONDO:0100175	TTN-related myopathy	obo:mondo#matrix_included	https://orcid.org/0000-0003-2955-4640|https://orcid.org/0000-0002-4142-7153	
+MONDO:0100484	TSPAN12-related vitreoretinopathy	obo:mondo#matrix_included	https://orcid.org/0000-0003-2955-4640|https://orcid.org/0000-0002-4142-7153	
+MONDO:0018240	TRPV4-related bone disorder	obo:mondo#matrix_included	https://orcid.org/0000-0003-2955-4640|https://orcid.org/0000-0002-4142-7153	
+MONDO:0800402	TRPM1-related retinopathy	obo:mondo#matrix_included	https://orcid.org/0000-0003-2955-4640|https://orcid.org/0000-0002-4142-7153	
+MONDO:0800182	TEK-related primary glaucoma	obo:mondo#matrix_included	https://orcid.org/0000-0003-2955-4640|https://orcid.org/0000-0002-4142-7153	
+MONDO:0800098	SNRNP200-related dominant retinopathy	obo:mondo#matrix_included	https://orcid.org/0000-0003-2955-4640|https://orcid.org/0000-0002-4142-7153	
+MONDO:0700117	SLC6A3-related dopamine transporter deficiency syndrome	obo:mondo#matrix_included	https://orcid.org/0000-0003-2955-4640|https://orcid.org/0000-0002-4142-7153	
+MONDO:0100100	SELENON-related myopathy	obo:mondo#matrix_included	https://orcid.org/0000-0003-2955-4640|https://orcid.org/0000-0002-4142-7153	
+MONDO:0100337	SEC61A1 deficiency	obo:mondo#matrix_included	https://orcid.org/0000-0003-2955-4640|https://orcid.org/0000-0002-4142-7153	
+MONDO:0100437	RPGR-related retinopathy	obo:mondo#matrix_included	https://orcid.org/0000-0003-2955-4640|https://orcid.org/0000-0002-4142-7153	
+MONDO:0100368	RPE65-related recessive retinopathy	obo:mondo#matrix_included	https://orcid.org/0000-0003-2955-4640|https://orcid.org/0000-0002-4142-7153	
+MONDO:0100452	RPE65-related dominant retinopathy	obo:mondo#matrix_included	https://orcid.org/0000-0003-2955-4640|https://orcid.org/0000-0002-4142-7153	
+MONDO:0100442	RP2-related retinopathy	obo:mondo#matrix_included	https://orcid.org/0000-0003-2955-4640|https://orcid.org/0000-0002-4142-7153	
+MONDO:0100444	RLBP1-related retinopathy	obo:mondo#matrix_included	https://orcid.org/0000-0003-2955-4640|https://orcid.org/0000-0002-4142-7153	
+MONDO:0100443	RDH5-related retinopathy	obo:mondo#matrix_included	https://orcid.org/0000-0003-2955-4640|https://orcid.org/0000-0002-4142-7153	
+MONDO:0800099	RDH12-related recessive retinopathy	obo:mondo#matrix_included	https://orcid.org/0000-0003-2955-4640|https://orcid.org/0000-0002-4142-7153	
+MONDO:0021060	RASopathy	obo:mondo#matrix_included	https://orcid.org/0000-0003-2955-4640|https://orcid.org/0000-0002-4142-7153	
+MONDO:0100448	RAB28-related retinopathy	obo:mondo#matrix_included	https://orcid.org/0000-0003-2955-4640|https://orcid.org/0000-0002-4142-7153	
+MONDO:0005180	Parkinson disease	obo:mondo#matrix_included	https://orcid.org/0000-0003-2955-4640|https://orcid.org/0000-0002-4142-7153	
+MONDO:0017623	PTEN hamartoma tumor syndrome	obo:mondo#matrix_included	https://orcid.org/0000-0003-2955-4640|https://orcid.org/0000-0002-4142-7153	
+MONDO:0800395	PRPF31-related retinopathy	obo:mondo#matrix_included	https://orcid.org/0000-0003-2955-4640|https://orcid.org/0000-0002-4142-7153	
+MONDO:0800404	PCARE-related retinopathy	obo:mondo#matrix_included	https://orcid.org/0000-0003-2955-4640|https://orcid.org/0000-0002-4142-7153	
+MONDO:0800183	PAX6-related ocular dysgenesis	obo:mondo#matrix_included	https://orcid.org/0000-0003-2955-4640|https://orcid.org/0000-0002-4142-7153	
+MONDO:0100126	P5CS deficiency	obo:mondo#matrix_included	https://orcid.org/0000-0003-2955-4640|https://orcid.org/0000-0002-4142-7153	
+MONDO:0800181	OPA1-related optic atrophy with or without extraocular features	obo:mondo#matrix_included	https://orcid.org/0000-0003-2955-4640|https://orcid.org/0000-0002-4142-7153	
+MONDO:0800407	NYX-related retinopathy	obo:mondo#matrix_included	https://orcid.org/0000-0003-2955-4640|https://orcid.org/0000-0002-4142-7153	
+MONDO:0800101	NMNAT1-related retinopathy	obo:mondo#matrix_included	https://orcid.org/0000-0003-2955-4640|https://orcid.org/0000-0002-4142-7153	
+MONDO:0800394	MERTK-related retinopathy	obo:mondo#matrix_included	https://orcid.org/0000-0003-2955-4640|https://orcid.org/0000-0002-4142-7153	
+MONDO:0100458	MECOM-associated syndrome	obo:mondo#matrix_included	https://orcid.org/0000-0003-2955-4640|https://orcid.org/0000-0002-4142-7153	
+MONDO:0100445	LCA5-related retinopathy	obo:mondo#matrix_included	https://orcid.org/0000-0003-2955-4640|https://orcid.org/0000-0002-4142-7153	
+MONDO:0100228	LAMA2-related muscular dystrophy	obo:mondo#matrix_included	https://orcid.org/0000-0003-2955-4640|https://orcid.org/0000-0002-4142-7153	
+MONDO:0100485	KCNH1 associated disorder	obo:mondo#matrix_included	https://orcid.org/0000-0003-2955-4640|https://orcid.org/0000-0002-4142-7153	
+MONDO:0100509	IFT140-related recessive ciliopathy	obo:mondo#matrix_included	https://orcid.org/0000-0003-2955-4640|https://orcid.org/0000-0002-4142-7153	
+MONDO:0800393	IDH3B-related retinopathy	obo:mondo#matrix_included	https://orcid.org/0000-0003-2955-4640|https://orcid.org/0000-0002-4142-7153	
+MONDO:0100453	GUCY2D-related recessive retinopathy	obo:mondo#matrix_included	https://orcid.org/0000-0003-2955-4640|https://orcid.org/0000-0002-4142-7153	
+MONDO:0100441	GUCY2D-related dominant retinopathy	obo:mondo#matrix_included	https://orcid.org/0000-0003-2955-4640|https://orcid.org/0000-0002-4142-7153	
+MONDO:0100184	GTP cyclohydrolase I deficiency	obo:mondo#matrix_included	https://orcid.org/0000-0003-2955-4640|https://orcid.org/0000-0002-4142-7153	
+MONDO:0011842	GRN-related frontotemporal lobar degeneration with Tdp43 inclusions	obo:mondo#matrix_included	https://orcid.org/0000-0003-2955-4640|https://orcid.org/0000-0002-4142-7153	
+MONDO:0800397	GRM6-related retinopathy	obo:mondo#matrix_included	https://orcid.org/0000-0003-2955-4640|https://orcid.org/0000-0002-4142-7153	
+MONDO:0800396	GPR179-related retinopathy	obo:mondo#matrix_included	https://orcid.org/0000-0003-2955-4640|https://orcid.org/0000-0002-4142-7153	
+MONDO:0100122	GNPTAB-mucolipidosis	obo:mondo#matrix_included	https://orcid.org/0000-0003-2955-4640|https://orcid.org/0000-0002-4142-7153	
+MONDO:0800392	GNAT2-related retinopathy	obo:mondo#matrix_included	https://orcid.org/0000-0003-2955-4640|https://orcid.org/0000-0002-4142-7153	
+MONDO:0000188	GLUT1 deficiency syndrome	obo:mondo#matrix_included	https://orcid.org/0000-0003-2955-4640|https://orcid.org/0000-0002-4142-7153	
+MONDO:0100089	GATA1-Related X-Linked Cytopenia	obo:mondo#matrix_included	https://orcid.org/0000-0003-2955-4640|https://orcid.org/0000-0002-4142-7153	
+MONDO:0005775	G6PD deficiency	obo:mondo#matrix_included	https://orcid.org/0000-0003-2955-4640|https://orcid.org/0000-0002-4142-7153	
+MONDO:0100040	FOXG1 disorder	obo:mondo#matrix_included	https://orcid.org/0000-0003-2955-4640|https://orcid.org/0000-0002-4142-7153	
+MONDO:0800391	EYS-related retinopathy	obo:mondo#matrix_included	https://orcid.org/0000-0003-2955-4640|https://orcid.org/0000-0002-4142-7153	
+MONDO:0700080	EPHB4-associated vascular malformation spectrum	obo:mondo#matrix_included	https://orcid.org/0000-0003-2955-4640|https://orcid.org/0000-0002-4142-7153	
+MONDO:0100152	DKC1-related disorder	obo:mondo#matrix_included	https://orcid.org/0000-0003-2955-4640|https://orcid.org/0000-0002-4142-7153	
+MONDO:0015626	Charcot-Marie-Tooth disease	obo:mondo#matrix_included	https://orcid.org/0000-0003-2955-4640|https://orcid.org/0000-0002-4142-7153	
+MONDO:0800180	CPOX-related hereditary coproporphyria	obo:mondo#matrix_included	https://orcid.org/0000-0003-2955-4640|https://orcid.org/0000-0002-4142-7153	
+MONDO:0100446	CNGB3-related retinopathy	obo:mondo#matrix_included	https://orcid.org/0000-0003-2955-4640|https://orcid.org/0000-0002-4142-7153	
+MONDO:0800403	CNGB1-related retinopathy	obo:mondo#matrix_included	https://orcid.org/0000-0003-2955-4640|https://orcid.org/0000-0002-4142-7153	
+MONDO:0800102	CNGA3-related retinopathy	obo:mondo#matrix_included	https://orcid.org/0000-0003-2955-4640|https://orcid.org/0000-0002-4142-7153	
+MONDO:0800405	CNGA1-related retinopathy	obo:mondo#matrix_included	https://orcid.org/0000-0003-2955-4640|https://orcid.org/0000-0002-4142-7153	
+MONDO:0800401	CERKL-related retinopathy	obo:mondo#matrix_included	https://orcid.org/0000-0003-2955-4640|https://orcid.org/0000-0002-4142-7153	
+MONDO:0100451	CEP290-related ciliopathy	obo:mondo#matrix_included	https://orcid.org/0000-0003-2955-4640|https://orcid.org/0000-0002-4142-7153	
+MONDO:0100039	CDKL5 disorder	obo:mondo#matrix_included	https://orcid.org/0000-0003-2955-4640|https://orcid.org/0000-0002-4142-7153	
+MONDO:0013343	C1Q deficiency	obo:mondo#matrix_included	https://orcid.org/0000-0003-2955-4640|https://orcid.org/0000-0002-4142-7153	
+MONDO:0700002	ATP1A3-associated neurological disorder	obo:mondo#matrix_included	https://orcid.org/0000-0003-2955-4640|https://orcid.org/0000-0002-4142-7153	
+MONDO:0100447	ATF6-related retinopathy	obo:mondo#matrix_included	https://orcid.org/0000-0003-2955-4640|https://orcid.org/0000-0002-4142-7153	
+MONDO:0100227	ALS2-related motor neuron disease	obo:mondo#matrix_included	https://orcid.org/0000-0003-2955-4640|https://orcid.org/0000-0002-4142-7153	
+MONDO:0100438	AIPL1-related retinopathy	obo:mondo#matrix_included	https://orcid.org/0000-0003-2955-4640|https://orcid.org/0000-0002-4142-7153	
+MONDO:0800398	ADAM9-related retinopathy	obo:mondo#matrix_included	https://orcid.org/0000-0003-2955-4640|https://orcid.org/0000-0002-4142-7153	
+MONDO:0800406	ABCA4-related retinopathy	obo:mondo#matrix_included	https://orcid.org/0000-0003-2955-4640|https://orcid.org/0000-0002-4142-7153	

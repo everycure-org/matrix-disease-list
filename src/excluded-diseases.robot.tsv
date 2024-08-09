@@ -1,3 +1,17 @@
 ID	LABEL	SUBSET	CONTRIBUTOR	COMMENT
 ID		AI oboInOwl:inSubset	AI dc:contributor SPLIT=|	
 MONDO:0002022	disorder of orbital region	obo:mondo#matrix_excluded	https://orcid.org/0000-0002-7356-1779	This is a clear grouping class.
+MONDO:0005027	epilepsy	obo:mondo#matrix_excluded	https://orcid.org/0000-0003-2955-4640	
+MONDO:0005365	hearing loss disorder	obo:mondo#matrix_excluded	https://orcid.org/0000-0003-2955-4640	
+MONDO:0021094	immunodeficiency disease	obo:mondo#matrix_excluded	https://orcid.org/0000-0003-2955-4640	
+MONDO:0037858	inherited fatty acid metabolism disorder	obo:mondo#matrix_excluded	https://orcid.org/0000-0003-2955-4640	
+MONDO:0024237	inherited neurodegenerative disorder	obo:mondo#matrix_excluded	https://orcid.org/0000-0003-2955-4640	
+MONDO:0001071	intellectual disability	obo:mondo#matrix_excluded	https://orcid.org/0000-0003-2955-4640	
+MONDO:0005240	kidney disorder	obo:mondo#matrix_excluded	https://orcid.org/0000-0003-2955-4640	
+MONDO:0044970	mitochondrial disease	obo:mondo#matrix_excluded	https://orcid.org/0000-0003-2955-4640	
+MONDO:0015967	monogenic diabetes	obo:mondo#matrix_excluded	https://orcid.org/0000-0003-2955-4640	
+MONDO:0005395	movement disorder	obo:mondo#matrix_excluded	https://orcid.org/0000-0003-2955-4640	
+MONDO:0000508	syndromic intellectual disability	obo:mondo#matrix_excluded	https://orcid.org/0000-0003-2955-4640|https://orcid.org/0000-0002-4142-7153	
+MONDO:0000509	non-syndromic intellectual disability	obo:mondo#matrix_excluded	https://orcid.org/0000-0003-2955-4640|https://orcid.org/0000-0002-4142-7153	
+MONDO:0016226	specific language disorder	obo:mondo#matrix_excluded	https://orcid.org/0000-0003-2955-4640|https://orcid.org/0000-0002-4142-7153	
+MONDO:0016106	progressive muscular dystrophy	obo:mondo#matrix_excluded	https://orcid.org/0000-0003-2955-4640|https://orcid.org/0000-0002-4142-7153	
