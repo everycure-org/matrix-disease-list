@@ -1,4 +1,4 @@
-###Generating OBO Semantic Engineer course content and deploying website
+###Makefile for the MATRIX Disease List
 #
 # These are standard options to make Make sane:
 # <http://clarkgrubb.com/makefile-style-guide#toc2>
