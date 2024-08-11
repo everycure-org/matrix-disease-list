@@ -72,7 +72,8 @@ matrix-disease-list.tsv: matrix-disease-list-unfiltered.tsv scripts/matrix-disea
 	python scripts/matrix-disease-list.py create-matrix-disease-list -i $< \
 		-o matrix-disease-list.tsv \
 		-e matrix-excluded-diseases-list.tsv \
-		-t src/included-diseases.robot.tsv \
+		--output-included-diseases-template src/included-diseases.robot.tsv \
+		--output-excluded-diseases-template src/excluded-diseases.robot.tsv \
 		-l matrix-disease-list-unfiltered-processed.tsv \
 		-x matrix-disease-list.xlsx
 .PRECIOUS: matrix-disease-list.tsv
