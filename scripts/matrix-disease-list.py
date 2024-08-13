@@ -101,6 +101,53 @@ def help():
     for command, description in commands.items():
         click.echo(f"{command}: {description}")
 
+
+@cli.command()
+@click.option('--input-xlsx', '-i', required=True, type=click.Path(exists=True), help='Path to the input Excel file.')
+@click.option('--mondo-tsv', '-m', required=True, type=click.Path(exists=True), help='Path to the mondo SSSOM TSV file.')
+@click.option('--output-tsv', '-o', required=True, type=click.Path(), help='Path to the output TSV file.')
+def create_billable_icd10_template(input_xlsx, mondo_tsv, output_tsv):
+    """
+    Reads the first sheet of the input XLSX file, modifies ICD-10 codes, filters rows based on matches
+    in mondo.sssom.tsv, and writes the result to an output TSV file.
+    """
+    # Load the first sheet of the Excel file into a pandas DataFrame
+    df = pd.read_excel(input_xlsx, sheet_name=0)
+    
+    # Transform ICD-10 codes in the first column
+    df.iloc[:, 0] = df.iloc[:, 0].apply(lambda x: f"ICD10CM:{x[:3]}.{x[3:]}" if pd.notna(x) and len(x) > 3 else x)
+    
+    # Load the mondo SSSOM TSV file
+    mondo_df = pd.read_csv(mondo_tsv, comment="#", sep='\t')
+    
+    # Extract exactMatch ICD10CM codes
+    icd10_codes = mondo_df.loc[mondo_df['predicate_id'] == 'skos:exactMatch', 'object_id'].unique()
+    
+    # Filter the DataFrame for rows with ICD-10 codes present in mondo SSSOM
+    icd10_codes_billable = df[df.iloc[:, 0].isin(icd10_codes)]["CODE"].unique()
+    
+    rows = []
+    
+    for icd10_code in icd10_codes_billable:
+        row_to_add = mondo_df[(mondo_df['predicate_id'] == 'skos:exactMatch') & (mondo_df['object_id'] == icd10_code)][['subject_id', 'object_id']]
+        row_to_add['SUBSET']="http://purl.obolibrary.org/obo/mondo#icd10_billable"
+        row_to_add['ID']=row_to_add['subject_id']
+        row_to_add['ICD10CM_CODE']=row_to_add['object_id']
+        rows.append(row_to_add[['ID', 'SUBSET','ICD10CM_CODE']])
+    
+    robot_template_header = pd.DataFrame({
+        'ID': ['ID'],
+        'SUBSET': ['AI oboInOwl:inSubset'],
+        'ICD10CM_CODE': [""]
+        })
+    
+    df_icd10billable_subsets = pd.concat(rows)
+    df_icd10billable_subsets = pd.concat([robot_template_header, df_icd10billable_subsets]).reset_index(drop=True)
+
+    # Write the filtered DataFrame to a TSV file
+    df_icd10billable_subsets.to_csv(output_tsv, sep='\t', index=False)
+
+
 @cli.command()
 @click.option('--input-file', '-i', required=True, type=click.Path(exists=True), help="Input TSV file")
 @click.option('--output-included-diseases', '-o', required=True, type=click.Path(), help="Included disease list as TSV file")

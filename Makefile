@@ -41,11 +41,28 @@ tmp/mondo.owl:
 	wget "$(MONDO_OWL_URL)" -O $@
 .PRECIOUS: tmp/mondo.owl
 
+# A list of all billable ICD10 CM codes
+tmp/icd10-cm-codes.xlsx:
+	wget https://www.cms.gov/files/document/valid-icd-10-list.xlsx -O $@
+
+tmp/mondo.sssom.tsv:
+	wget http://purl.obolibrary.org/obo/mondo/mappings/mondo.sssom.tsv -O $@
+
+tmp/icd10-cm-billable.template.tsv: tmp/icd10-cm-codes.xlsx tmp/mondo.sssom.tsv
+	python scripts/matrix-disease-list.py create-billable-icd10-template -i $< \
+		-i $< \
+		-m tmp/mondo.sssom.tsv \
+		-o $@
+
 # The MONDO ontology with the manually curated subsets added
-tmp/mondo-with-manually-curated-subsets.owl: tmp/mondo.owl src/included-diseases.robot.tsv src/excluded-diseases.robot.tsv
+tmp/mondo-with-manually-curated-subsets.owl: tmp/mondo.owl \
+	src/included-diseases.robot.tsv \
+	src/excluded-diseases.robot.tsv \
+	tmp/icd10-cm-billable.template.tsv
 	$(ROBOT) template -i $< --merge-after \
 			--template src/excluded-diseases.robot.tsv \
 			--template src/included-diseases.robot.tsv \
+			--template tmp/icd10-cm-billable.template.tsv \
 	 $(ANNOTATE_CONVERT_FILE)
 .PRECIOUS: mondo-with-filter-designations.owl
 

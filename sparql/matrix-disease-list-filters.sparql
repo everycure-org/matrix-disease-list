@@ -25,6 +25,7 @@ SELECT DISTINCT ?category_class ?label ?definition ?synonyms ?subsets ?crossrefe
   (IF(SUM(IF(?filter_icd_category = "TRUE", 1, 0)) > 0, "TRUE", "") AS ?f_icd_category)
   (IF(SUM(IF(?filter_icd_chapter_code = "TRUE", 1, 0)) > 0, "TRUE", "") AS ?f_icd_chapter_code)
   (IF(SUM(IF(?filter_icd_chapter_header = "TRUE", 1, 0)) > 0, "TRUE", "") AS ?f_icd_chapter_header)
+  (IF(SUM(IF(?filter_icd_billable = "TRUE", 1, 0)) > 0, "TRUE", "") AS ?f_icd_billable)
 
 WHERE
 {
@@ -206,6 +207,14 @@ WHERE
     }
     BIND("TRUE" as ?filter_leaf_direct_parent)
   }
+
+   # Filter: Disease that correspond to billable ICD10 codes
+   # Example: https://icd.codes/icd10cm/R412
+  
+   OPTIONAL {
+     ?category_class oio:inSubset <http://purl.obolibrary.org/obo/mondo#icd10_billable> .
+     BIND("TRUE" as ?filter_icd_billable)
+   }
   
   # Filter: Disease corresponds to an ICD-10 category
   OPTIONAL {
