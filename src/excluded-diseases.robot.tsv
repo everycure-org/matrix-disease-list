@@ -14,8 +14,7 @@ MONDO:0005395	movement disorder	obo:mondo#matrix_excluded	https://orcid.org/0000
 MONDO:0000508	syndromic intellectual disability	obo:mondo#matrix_excluded	https://orcid.org/0000-0003-2955-4640|https://orcid.org/0000-0002-4142-7153	
 MONDO:0000509	non-syndromic intellectual disability	obo:mondo#matrix_excluded	https://orcid.org/0000-0003-2955-4640|https://orcid.org/0000-0002-4142-7153	
 MONDO:0016226	specific language disorder	obo:mondo#matrix_excluded	https://orcid.org/0000-0003-2955-4640|https://orcid.org/0000-0002-4142-7153	
-MONDO:0016106	progressive muscular dystrophy	obo:mondo#matrix_excluded	https://orcid.org/0000-0003-2955-4640|https://orcid.org/0000-0002-4142-7153	
-MONDO:0003343	retinal hemangioblastoma			
+MONDO:0016106	progressive muscular dystrophy	obo:mondo#matrix_excluded	https://orcid.org/0000-0003-2955-4640|https://orcid.org/0000-0002-4142-7153			
 MONDO:1010030	pediatric high-grade glioma			
 MONDO:1030005	mosaic SMO syndrome			
 MONDO:0000400	mixed cerebral palsy			
@@ -23,7 +22,6 @@ MONDO:1030008	mitral valve insufficiency
 MONDO:1010096	clinically amyopathic dermatomyositis			
 MONDO:0971116	borderline vascular tumor			
 MONDO:0971115	benign vascular tumor			
-MONDO:0006525	allergic contact dermatitis			
 MONDO:1030015	acquired porphyria			
 MONDO:1040038	TTLL5-related retinopathy			
 MONDO:1040049	TTC8-related ciliopathy			
@@ -51,3 +49,6 @@ MONDO:1040044	BBS4-related ciliopathy
 MONDO:1040048	BBS2-related ciliopathy			
 MONDO:1040045	BBS12-related ciliopathy			
 MONDO:1040043	BBS1-related ciliopathy			
+MONDO:0021450 benign neoplasm of heart
+MONDO:0005379 neurotic disorder
+MONDO:0011490 diffuse panbronchiolitis
