@@ -14,41 +14,41 @@ MONDO:0005395	movement disorder	obo:mondo#matrix_excluded	https://orcid.org/0000
 MONDO:0000508	syndromic intellectual disability	obo:mondo#matrix_excluded	https://orcid.org/0000-0003-2955-4640|https://orcid.org/0000-0002-4142-7153	
 MONDO:0000509	non-syndromic intellectual disability	obo:mondo#matrix_excluded	https://orcid.org/0000-0003-2955-4640|https://orcid.org/0000-0002-4142-7153	
 MONDO:0016226	specific language disorder	obo:mondo#matrix_excluded	https://orcid.org/0000-0003-2955-4640|https://orcid.org/0000-0002-4142-7153	
-MONDO:0016106	progressive muscular dystrophy	obo:mondo#matrix_excluded	https://orcid.org/0000-0003-2955-4640|https://orcid.org/0000-0002-4142-7153			
-MONDO:1010030	pediatric high-grade glioma			
-MONDO:1030005	mosaic SMO syndrome			
-MONDO:0000400	mixed cerebral palsy			
-MONDO:1030008	mitral valve insufficiency			
-MONDO:1010096	clinically amyopathic dermatomyositis			
-MONDO:0971116	borderline vascular tumor			
-MONDO:0971115	benign vascular tumor			
-MONDO:1030015	acquired porphyria			
-MONDO:1040038	TTLL5-related retinopathy			
-MONDO:1040049	TTC8-related ciliopathy			
-MONDO:1040055	PRPH2-related retinopathy			
-MONDO:1040056	PROM1-related retinopathy			
-MONDO:1040052	PROM1-related recessive retinopathy			
-MONDO:1040053	PROM1-related dominant retinopathy			
-MONDO:0700277	POLR3B-related disorder			
-MONDO:0700276	POLR3A-related disorder			
-MONDO:0700278	POLR1C-related disorder			
-MONDO:1040034	PDE6G-related retinopathy			
-MONDO:1040028	PDE6C-related retinopathy			
-MONDO:1030003	Mycoplasmoides infection			
-MONDO:1040050	MKKS-related ciliopathy			
-MONDO:1040046	LZTFL1-related ciliopathy			
-MONDO:1040035	LRIT3-related retinopathy			
-MONDO:1040037	IMPG1-related recessive retinopathy			
-MONDO:1040036	IMPG1-related dominant retinopathy			
-MONDO:1040051	IMPDH1-related retinopathy			
-MONDO:1040040	HGSNAT-related retinopathy			
-MONDO:1040054	DHDDS-CDG			
-MONDO:1040042	BBS7-related ciliopathy			
-MONDO:1040047	BBS5-related ciliopathy			
-MONDO:1040044	BBS4-related ciliopathy			
-MONDO:1040048	BBS2-related ciliopathy			
-MONDO:1040045	BBS12-related ciliopathy			
-MONDO:1040043	BBS1-related ciliopathy			
-MONDO:0021450 benign neoplasm of heart
-MONDO:0005379 neurotic disorder
-MONDO:0011490 diffuse panbronchiolitis
+MONDO:0016106	progressive muscular dystrophy	obo:mondo#matrix_excluded	https://orcid.org/0000-0003-2955-4640|https://orcid.org/0000-0002-4142-7153	
+MONDO:1010030	pediatric high-grade glioma	obo:mondo#matrix_excluded	https://orcid.org/0000-0003-2955-4640	
+MONDO:1030005	mosaic SMO syndrome	obo:mondo#matrix_excluded	https://orcid.org/0000-0003-2955-4640	
+MONDO:0000400	mixed cerebral palsy	obo:mondo#matrix_excluded	https://orcid.org/0000-0003-2955-4640	
+MONDO:1030008	mitral valve insufficiency	obo:mondo#matrix_excluded	https://orcid.org/0000-0003-2955-4640	
+MONDO:1010096	clinically amyopathic dermatomyositis	obo:mondo#matrix_excluded	https://orcid.org/0000-0003-2955-4640	
+MONDO:0971116	borderline vascular tumor	obo:mondo#matrix_excluded	https://orcid.org/0000-0003-2955-4640	
+MONDO:0971115	benign vascular tumor	obo:mondo#matrix_excluded	https://orcid.org/0000-0003-2955-4640	
+MONDO:1030015	acquired porphyria	obo:mondo#matrix_excluded	https://orcid.org/0000-0003-2955-4640	
+MONDO:1040038	TTLL5-related retinopathy	obo:mondo#matrix_excluded	https://orcid.org/0000-0003-2955-4640	
+MONDO:1040049	TTC8-related ciliopathy	obo:mondo#matrix_excluded	https://orcid.org/0000-0003-2955-4640	
+MONDO:1040055	PRPH2-related retinopathy	obo:mondo#matrix_excluded	https://orcid.org/0000-0003-2955-4640	
+MONDO:1040056	PROM1-related retinopathy	obo:mondo#matrix_excluded	https://orcid.org/0000-0003-2955-4640	
+MONDO:1040052	PROM1-related recessive retinopathy	obo:mondo#matrix_excluded	https://orcid.org/0000-0003-2955-4640	
+MONDO:1040053	PROM1-related dominant retinopathy	obo:mondo#matrix_excluded	https://orcid.org/0000-0003-2955-4640	
+MONDO:0700277	POLR3B-related disorder	obo:mondo#matrix_excluded	https://orcid.org/0000-0003-2955-4640	
+MONDO:0700276	POLR3A-related disorder	obo:mondo#matrix_excluded	https://orcid.org/0000-0003-2955-4640	
+MONDO:0700278	POLR1C-related disorder	obo:mondo#matrix_excluded	https://orcid.org/0000-0003-2955-4640	
+MONDO:1040034	PDE6G-related retinopathy	obo:mondo#matrix_excluded	https://orcid.org/0000-0003-2955-4640	
+MONDO:1040028	PDE6C-related retinopathy	obo:mondo#matrix_excluded	https://orcid.org/0000-0003-2955-4640	
+MONDO:1030003	Mycoplasmoides infection	obo:mondo#matrix_excluded	https://orcid.org/0000-0003-2955-4640	
+MONDO:1040050	MKKS-related ciliopathy	obo:mondo#matrix_excluded	https://orcid.org/0000-0003-2955-4640	
+MONDO:1040046	LZTFL1-related ciliopathy	obo:mondo#matrix_excluded	https://orcid.org/0000-0003-2955-4640	
+MONDO:1040035	LRIT3-related retinopathy	obo:mondo#matrix_excluded	https://orcid.org/0000-0003-2955-4640	
+MONDO:1040037	IMPG1-related recessive retinopathy	obo:mondo#matrix_excluded	https://orcid.org/0000-0003-2955-4640	
+MONDO:1040036	IMPG1-related dominant retinopathy	obo:mondo#matrix_excluded	https://orcid.org/0000-0003-2955-4640	
+MONDO:1040051	IMPDH1-related retinopathy	obo:mondo#matrix_excluded	https://orcid.org/0000-0003-2955-4640	
+MONDO:1040040	HGSNAT-related retinopathy	obo:mondo#matrix_excluded	https://orcid.org/0000-0003-2955-4640	
+MONDO:1040054	DHDDS-CDG	obo:mondo#matrix_excluded	https://orcid.org/0000-0003-2955-4640	
+MONDO:1040042	BBS7-related ciliopathy	obo:mondo#matrix_excluded	https://orcid.org/0000-0003-2955-4640	
+MONDO:1040047	BBS5-related ciliopathy	obo:mondo#matrix_excluded	https://orcid.org/0000-0003-2955-4640	
+MONDO:1040044	BBS4-related ciliopathy	obo:mondo#matrix_excluded	https://orcid.org/0000-0003-2955-4640	
+MONDO:1040048	BBS2-related ciliopathy	obo:mondo#matrix_excluded	https://orcid.org/0000-0003-2955-4640	
+MONDO:1040045	BBS12-related ciliopathy	obo:mondo#matrix_excluded	https://orcid.org/0000-0003-2955-4640	
+MONDO:1040043	BBS1-related ciliopathy	obo:mondo#matrix_excluded	https://orcid.org/0000-0003-2955-4640	
+MONDO:0021450	benign neoplasm of heart	obo:mondo#matrix_excluded	https://orcid.org/0000-0003-2955-4640	
+MONDO:0005379	neurotic disorder	obo:mondo#matrix_excluded	https://orcid.org/0000-0003-2955-4640	
+MONDO:0011490	diffuse panbronchiolitis	obo:mondo#matrix_excluded	https://orcid.org/0000-0003-2955-4640	
