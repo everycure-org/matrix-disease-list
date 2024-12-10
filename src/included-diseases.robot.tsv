@@ -282,7 +282,7 @@ MONDO:0100574	generalized epilepsy	obo:mondo#matrix_included	https://orcid.org/0
 MONDO:0100573	combined generalized and focal epilepsy	obo:mondo#matrix_included	https://orcid.org/0000-0003-2955-4640	
 MONDO:0004989	breast cancer https://orcid.org/0000-0003-2955-4640	obo:mondo#matrix_included	https://orcid.org/0000-0003-2955-4640	
 MONDO:0004658	breast carcinoma in situ https://orcid.org/0000-0003-2955-4640	obo:mondo#matrix_included	https://orcid.org/0000-0003-2955-4640	
-MONDO:0100574	generalized epilepsy			
-MONDO:0100573	combined generalized and focal epilepsy			
-MONDO:0004658	breast carcinoma in situ			
-MONDO:0004989	breast carcinoma			
+MONDO:0100574	generalized epilepsy https://orcid.org/0000-0003-2955-4640	obo:mondo#matrix_included	https://orcid.org/0000-0003-2955-4640	
+MONDO:0100573	combined generalized and focal epilepsy https://orcid.org/0000-0003-2955-4640	obo:mondo#matrix_included	https://orcid.org/0000-0003-2955-4640	
+MONDO:0004658	breast carcinoma in situ https://orcid.org/0000-0003-2955-4640	obo:mondo#matrix_included	https://orcid.org/0000-0003-2955-4640	
+MONDO:0004989	breast carcinoma https://orcid.org/0000-0003-2955-4640	obo:mondo#matrix_included	https://orcid.org/0000-0003-2955-4640	
