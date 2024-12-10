@@ -52,10 +52,8 @@ MONDO:1040043	BBS1-related ciliopathy	obo:mondo#matrix_excluded	https://orcid.or
 MONDO:0021450	benign neoplasm of heart	obo:mondo#matrix_excluded	https://orcid.org/0000-0003-2955-4640	
 MONDO:0005379	neurotic disorder	obo:mondo#matrix_excluded	https://orcid.org/0000-0003-2955-4640	
 MONDO:0011490	diffuse panbronchiolitis	obo:mondo#matrix_excluded	https://orcid.org/0000-0003-2955-4640	
-MONDO:0005379	neurotic disorder			
-MONDO:0011490	diffuse panbronchiolitis			
-MONDO:0021450	benign neoplasm of heart			
-MONDO:0100576	hereditary generalized epilepsy			
-MONDO:0100575	genetic generalized epilepsy			
-MONDO:0100574	generalized epilepsy			
-MONDO:0100573	combined generalized and focal epilepsy			
+MONDO:0005379	neurotic disorder	obo:mondo#matrix_excluded	https://orcid.org/0000-0003-2955-4640	
+MONDO:0011490	diffuse panbronchiolitis	obo:mondo#matrix_excluded	https://orcid.org/0000-0003-2955-4640	
+MONDO:0021450	benign neoplasm of heart	obo:mondo#matrix_excluded	https://orcid.org/0000-0003-2955-4640	
+MONDO:0100576	hereditary generalized epilepsy	obo:mondo#matrix_excluded	https://orcid.org/0000-0003-2955-4640	
+MONDO:0100575	genetic generalized epilepsy	obo:mondo#matrix_excluded	https://orcid.org/0000-0003-2955-4640	
