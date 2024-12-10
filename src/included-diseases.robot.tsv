@@ -286,3 +286,11 @@ MONDO:0100574	generalized epilepsy https://orcid.org/0000-0003-2955-4640	obo:mon
 MONDO:0100573	combined generalized and focal epilepsy https://orcid.org/0000-0003-2955-4640	obo:mondo#matrix_included	https://orcid.org/0000-0003-2955-4640	
 MONDO:0004658	breast carcinoma in situ https://orcid.org/0000-0003-2955-4640	obo:mondo#matrix_included	https://orcid.org/0000-0003-2955-4640	
 MONDO:0004989	breast carcinoma https://orcid.org/0000-0003-2955-4640	obo:mondo#matrix_included	https://orcid.org/0000-0003-2955-4640	
+MONDO:1040007	hemihydranencephaly			
+MONDO:0000384	bladder benign neoplasm			
+MONDO:1040005	PRPF19-related neurodevelopmental disorder			
+MONDO:1040014	PPFIA3-related neurodevelopmental disorder			
+MONDO:1040003	KCND2-related neurodevelopmental disorder with or without seizures			
+MONDO:1040006	CTR9-related neurodevelopmental disorder			
+MONDO:1040008	CAMK2D-related neurodevelopmental disorder and dilated cardiomyopathy			
+MONDO:1030016	22q-related schwannomatosis			
