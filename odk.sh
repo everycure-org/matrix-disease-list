@@ -14,6 +14,6 @@
 #
 # To your entire user directory by adding '-v /Users/username/:/work'
 
-VERSION=${VERSION:-v1.5.2}
+VERSION=${VERSION:-v1.5.4}
 docker pull obolibrary/odkfull:$VERSION
 docker run -e ROBOT_JAVA_ARGS='-Xmx25G' -e JAVA_OPTS='-Xmx25G' -v $PWD/:/work -w /work --rm -ti obolibrary/odkfull:$VERSION "$@"
