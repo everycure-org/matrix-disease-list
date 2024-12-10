@@ -175,7 +175,7 @@ MONDO:1040021	congenital myasthenic syndrome 4	obo:mondo#matrix_included	https:/
 MONDO:1040033	congenital muscular dystrophy without intellectual disability	obo:mondo#matrix_included	https://orcid.org/0000-0003-2955-4640	
 MONDO:1040029	Sharpin-related autoinflammatory syndrome	obo:mondo#matrix_included	https://orcid.org/0000-0003-2955-4640	
 MONDO:1040012	PI4KA-related disorder	obo:mondo#matrix_included	https://orcid.org/0000-0003-2955-4640	
-MONDO:1030004	Mollaret’s meningitis	obo:mondo#matrix_included	https://orcid.org/0000-0003-2955-4640	
+MONDO:1030004	Mollaret's meningitis	obo:mondo#matrix_included	https://orcid.org/0000-0003-2955-4640	
 MONDO:0100572	MTOR-related overgrowth spectrum	obo:mondo#matrix_included	https://orcid.org/0000-0003-2955-4640	
 MONDO:0971044	Ehlers-Danlos syndrome, classic-like, 3	obo:mondo#matrix_included	https://orcid.org/0000-0003-2955-4640	
 MONDO:0971140	well-differentiated papillary mesothelial tumour of the pleura	obo:mondo#matrix_included	https://orcid.org/0000-0003-2955-4640	
@@ -276,4 +276,13 @@ MONDO:0971080	Grisel syndrome	obo:mondo#matrix_included	https://orcid.org/0000-0
 MONDO:1040041	FZD4-related exudative vitreoretinopathy	obo:mondo#matrix_included	https://orcid.org/0000-0003-2955-4640	
 MONDO:1040032	EN1-related dorsoventral syndrome	obo:mondo#matrix_included	https://orcid.org/0000-0003-2955-4640	
 MONDO:0971095	6q25.1 microdeletion syndrome	obo:mondo#matrix_included	https://orcid.org/0000-0003-2955-4640	
-				
+MONDO:0020627	epileptic encephalopathy, infantile or early childhood	obo:mondo#matrix_included	https://orcid.org/0000-0003-2955-4640	
+MONDO:0100029	antibody mediated epilepsy	obo:mondo#matrix_included	https://orcid.org/0000-0003-2955-4640	
+MONDO:0100574	generalized epilepsy	obo:mondo#matrix_included	https://orcid.org/0000-0003-2955-4640	
+MONDO:0100573	combined generalized and focal epilepsy	obo:mondo#matrix_included	https://orcid.org/0000-0003-2955-4640	
+MONDO:0004989	breast cancer https://orcid.org/0000-0003-2955-4640	obo:mondo#matrix_included	https://orcid.org/0000-0003-2955-4640	
+MONDO:0004658	breast carcinoma in situ https://orcid.org/0000-0003-2955-4640	obo:mondo#matrix_included	https://orcid.org/0000-0003-2955-4640	
+MONDO:0100574	generalized epilepsy			
+MONDO:0100573	combined generalized and focal epilepsy			
+MONDO:0004658	breast carcinoma in situ			
+MONDO:0004989	breast carcinoma			
