@@ -18,50 +18,55 @@ disease_categories_txgnn_modified:
 disease_categories_anatomical:
   name: anatomical
   categories:
+    - biliary_disorder
+    - blood_bone_marrow_disorder
+    - bone_disorder
     - brain_disorder
+    - ear_disorder
+    - endocrine_disorder
+    - eye_disorder
     - heart_disorder
-    - blood_disorder
-    - lymphatic_disorder
-    - arterial_disorder
-    - muscle_disorder
-    - gallbladder_disorder
-    - skeletal_disorder
-    - urinary_bladder_disorder
-    - vein_disorder
-    - bone_marrow_disorder
-    - lung_disorder
+    - immune_disorder
+    - intestinal_disorder
+    - joint_disorder
     - kidney_disorder
     - liver_disorder
-    - stomach_disorder
-    - reproductive_system_disorder
-    - teeth_disorder
-    - ear_disorder
-    - throat_disorder
+    - lung_disorder
+    - lymphatic_disorder
+    - muscle_disorder
     - nose_disorder
-    - intestinal_disorder
+    - reproductive_system_disorder
     - skin_disorder
-    - brain_disorder
-    - eye_disorder
-    - immune_disorder
+    - spinal_disorder
+    - stomach_disorder
+    - teeth_disorder
+    - throat_disorder
+    - urinary_bladder_disorder
+    - vascular_disorder
     - other
 
 disease_categories_medical_specialization:
-  name: medical
+  name: medical_specialization
   categories:
     - allergy_and_immunology
     - cardiology
-    - colorectal
+    - cardiothoracic
     - dermatology
-    - obstetrics_and_gynecology
+    - endocrinology
+    - gastroenterology
     - genetics_and_genomics
+    - hematology
+    - hepatology
     - neurology
+    - obstetrics_and_gynecology
     - oncology
     - ophthalmology
     - orthopaedic
     - otolaryngology
     - pediatric
     - psychiatry
+    - pulmonology
+    - renal medicine
     - rheumatology
-    - thoracic
     - urology
     - other
