@@ -1,0 +1,67 @@
+categorization_prompt: Identify and return ONLY (provide no additional text) the best-fitting category of the following list of categories for the disease
+
+disease_categories_txgnn_modified:
+  name: txgnn
+  categories:
+    - adrenal_gland_disease
+    - neurodegenerative_disease
+    - metabolic_disorder
+    - cardiovascular_disorder
+    - autoimmune_diseases
+    - mental_health_disorder
+    - anemia
+    - cancer
+    - inflammatory_disease
+    - allergy
+    - other
+
+disease_categories_anatomical:
+  name: anatomical
+  categories:
+    - brain_disorder
+    - heart_disorder
+    - blood_disorder
+    - lymphatic_disorder
+    - arterial_disorder
+    - muscle_disorder
+    - gallbladder_disorder
+    - skeletal_disorder
+    - urinary_bladder_disorder
+    - vein_disorder
+    - bone_marrow_disorder
+    - lung_disorder
+    - kidney_disorder
+    - liver_disorder
+    - stomach_disorder
+    - reproductive_system_disorder
+    - teeth_disorder
+    - ear_disorder
+    - throat_disorder
+    - nose_disorder
+    - intestinal_disorder
+    - skin_disorder
+    - brain_disorder
+    - eye_disorder
+    - immune_disorder
+    - other
+
+disease_categories_medical_specialization:
+  name: medical
+  categories:
+    - allergy_and_immunology
+    - cardiology
+    - colorectal
+    - dermatology
+    - obstetrics_and_gynecology
+    - genetics_and_genomics
+    - neurology
+    - oncology
+    - ophthalmology
+    - orthopaedic
+    - otolaryngology
+    - pediatric
+    - psychiatry
+    - rheumatology
+    - thoracic
+    - urology
+    - other
