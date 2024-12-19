@@ -27,10 +27,10 @@ disease_categories_anatomical:
     - eye_disorder
     - heart_disorder
     - immune_disorder
-    - intestinal_disorder
     - joint_disorder
     - kidney_disorder
     - liver_disorder
+    - lower_gastrointestinal_disorder
     - lung_disorder
     - lymphatic_disorder
     - muscle_disorder
@@ -41,7 +41,8 @@ disease_categories_anatomical:
     - stomach_disorder
     - teeth_disorder
     - throat_disorder
-    - urinary_bladder_disorder
+    - upper_gastrointestinal_disorder
+    - urinary_tract_disorder
     - vascular_disorder
     - other
 
