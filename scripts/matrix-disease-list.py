@@ -147,6 +147,20 @@ def create_billable_icd10_template(input_xlsx, mondo_tsv, output_tsv):
     # Write the filtered DataFrame to a TSV file
     df_icd10billable_subsets.to_csv(output_tsv, sep='\t', index=False)
 
+def extract_groupings(subsets, groupings):
+    """Extract groupings for list of subsets."""
+    result = {grouping: [] for grouping in groupings}
+    if subsets:
+        for subset in subsets.split(";"):
+            for grouping in groupings:
+                if grouping in subset:
+                    # Extract the specific part after the grouping
+                    subset_tag = subset.replace("mondo:","").replace(grouping,"").replace(" ","").strip("_")
+                    if subset_tag != "member":
+                        result[grouping].append(subset_tag)
+    # Join values with "|" or leave empty if none
+    return {key: "|".join(values) if values else "" for key, values in result.items()}
+
 
 @cli.command()
 @click.option('--input-file', '-i', required=True, type=click.Path(exists=True), help="Input TSV file")
@@ -156,7 +170,8 @@ def create_billable_icd10_template(input_xlsx, mondo_tsv, output_tsv):
 @click.option('--output-excluded-diseases', '-e', required=False, type=click.Path(), help="Excluded disease list as TSV file")
 @click.option('--output-unfiltered-diseases-processed', '-l', required=False, type=click.Path(), help="Unfiltered disease list with added filter columns as TSV file")
 @click.option('--output-xlsx', '-x', required=False, type=click.Path(), help="Excluded disease list as TSV file")
-def create_matrix_disease_list(input_file, output_included_diseases, output_included_diseases_template, output_excluded_diseases_template, output_excluded_diseases, output_unfiltered_diseases_processed, output_xlsx):
+@click.option('--output-disease-groupings', '-g', required=False, type=click.Path(), help="A table with Mondo disease groupings")
+def create_matrix_disease_list(input_file, output_included_diseases, output_included_diseases_template, output_excluded_diseases_template, output_excluded_diseases, output_unfiltered_diseases_processed, output_xlsx, output_disease_groupings):
     """
     Load a TSV file, filter it by a specific column and value, and write the result to a new TSV file.
     """
@@ -203,6 +218,23 @@ def create_matrix_disease_list(input_file, output_included_diseases, output_incl
     if output_unfiltered_diseases_processed:
         df_matrix_disease_filter_modified.to_csv(output_unfiltered_diseases_processed, sep='\t', index=False)
         click.echo(f"Unfiltered diseases written to {output_unfiltered_diseases_processed}")
+    
+    if output_disease_groupings:
+        disease_groupings = ["harrisons_view", "matrix_txgnn_grouping", "mondo_top_grouping"]
+        df_disease_groupings = df_matrix_disease_filter_modified[["category_class", "label", "subsets"]]
+        
+        # Apply the function to extract groupings
+        df_disease_groupings_extracted = df_disease_groupings["subsets"].apply(
+            lambda x: extract_groupings(x, disease_groupings)
+        ).apply(pd.Series)
+
+        # Combine with the original DataFrame
+        df_disease_groupings_pivot = pd.concat(
+            [df_disease_groupings[["category_class", "label"]], df_disease_groupings_extracted], axis=1
+        )
+        df_disease_groupings_pivot.sort_values(by="category_class", inplace=True)
+        df_disease_groupings_pivot.to_csv(output_disease_groupings, sep='\t', index=False)
+
     
     if output_xlsx:
         with pd.ExcelWriter(output_xlsx, engine='xlsxwriter') as writer:
