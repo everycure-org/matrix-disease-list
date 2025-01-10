@@ -1,4 +1,4 @@
-categorization_prompt: Identify and return ONLY (provide no additional text) the best-fitting category of the following list of categories for the disease
+categorization_prompt: Identify and return ONLY (provide no additional text) the best-fitting category of the following list of categories for the following disease
 
 disease_categories_txgnn_modified:
   name: txgnn
@@ -37,8 +37,7 @@ disease_categories_anatomical:
     - nose_disorder
     - reproductive_system_disorder
     - skin_disorder
-    - spinal_disorder
-    - stomach_disorder
+    - spinal_disorder 
     - teeth_disorder
     - throat_disorder
     - upper_gastrointestinal_disorder

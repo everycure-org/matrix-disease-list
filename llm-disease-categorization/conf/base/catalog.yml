@@ -31,3 +31,11 @@ disease_list_with_anatomical_tags:
     sep: "\t"
   save_args:
     sep: "\t"
+
+disease_categories: 
+  type: pandas.CSVDataset
+  filepath: data/03_primary/disease_categories.tsv
+  load_args:
+    sep: "\t"
+  save_args:
+    sep: "\t"

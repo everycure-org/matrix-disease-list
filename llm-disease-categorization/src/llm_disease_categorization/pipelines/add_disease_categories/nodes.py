@@ -22,7 +22,7 @@ def add_disease_categories(list_in:pd.DataFrame, params:str, base_prompt:dict) -
     disease_list = str(category_list)
     #print(disease_list)
     for idx, row in tqdm(list_in.iterrows(), total=len(list_in), desc="adding disease categories"):
-        prompt = f"{base_prompt} {row['label'].upper()}: {disease_list} "
+        prompt = f"{base_prompt} {row['label'].upper()}: {disease_list}. If multiple items, use no quotation marks and delimit with vertical pipe |."
         #print(prompt)
         success = False
         attempts=0
@@ -110,3 +110,15 @@ def query_ollama(
         raise Exception(f"Failed to communicate with Ollama API: {str(e)}")
     except json.JSONDecodeError as e:
         raise Exception(f"Failed to parse Ollama API response: {str(e)}")
+
+
+def return_final_categories(inList: pd.DataFrame, disease_categores_txgnn_modified: dict, disease_categories_anatomical: dict, disease_categories_medical_specialization: dict) -> pd.DataFrame:
+    return pd.DataFrame(
+        {
+            "ID":inList['category_class'],
+            disease_categories_medical_specialization['name']:inList[disease_categories_medical_specialization['name']],
+            disease_categores_txgnn_modified['name']:inList[disease_categores_txgnn_modified['name']],
+            disease_categories_anatomical['name']:inList[disease_categories_anatomical['name']],
+        }
+    )
+    
