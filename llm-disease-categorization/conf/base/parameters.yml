@@ -1,4 +1,4 @@
-categorization_prompt: Identify and return ONLY (provide no additional text) the best-fitting category of the following list of categories for the following disease
+categorization_prompt: "Identify and return ONLY (provide no additional text) the best-fitting categories in the following list of categories for the following disease:"
 
 disease_categories_txgnn_modified:
   name: txgnn

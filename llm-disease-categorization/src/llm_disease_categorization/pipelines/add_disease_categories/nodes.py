@@ -22,13 +22,17 @@ def add_disease_categories(list_in:pd.DataFrame, params:str, base_prompt:dict) -
     disease_list = str(category_list)
     #print(disease_list)
     for idx, row in tqdm(list_in.iterrows(), total=len(list_in), desc="adding disease categories"):
-        prompt = f"{base_prompt} {row['label'].upper()}: {disease_list}. If multiple items, use no quotation marks and delimit with vertical pipe |."
+        prompt = f"{base_prompt} {row['label'].upper()}. CATEGORY LIST: {disease_list}. If multiple items, do not include \'other\'. Use no quotation marks or \' symbols and delimit with vertical pipe | only when there are multiple entries."
         #print(prompt)
         success = False
         attempts=0
+        #print(prompt)
         while not success:
             try:
                 response = query_ollama(prompt)['response']
+                
+                #print("SUCCESSFUL RESPONSE")
+                #print(response)
                 categories_col.append(response)
                 success = True
             except:
@@ -45,8 +49,8 @@ def add_disease_categories(list_in:pd.DataFrame, params:str, base_prompt:dict) -
 
 def query_ollama(
     prompt: str,
-   # model: str = "hf.co/bartowski/Llama-3.3-70B-Instruct-GGUF:IQ2_S",
-    model: str = "llama3.2:latest",
+    #model: str = "hf.co/bartowski/Llama-3.3-70B-Instruct-GGUF:IQ2_S",
+    model: str = "llama3.1",
     system_prompt: Optional[str] = None,
     temperature: float = 0.7,
     max_tokens: Optional[int] = None,
