@@ -34,7 +34,7 @@ ASSETS=matrix-disease-list.tsv \
 all: $(ASSETS)
 
 MONDO_OWL_URL=http://purl.obolibrary.org/obo/mondo.owl
-#MONDO_OWL_URL=https://github.com/monarch-initiative/mondo/releases/download/v2024-08-06/mondo.owl
+#MONDO_OWL_URL=https://github.com/monarch-initiative/mondo/releases/download/v2024-11-05/mondo.owl
 
 # The current release of the Mondo disease ontology
 tmp/mondo.owl:
@@ -85,7 +85,7 @@ matrix-disease-list-unfiltered.tsv: tmp/mondo-with-manually-curated-subsets.owl 
 
 # The final MATRIX disease list
 matrix-disease-list.tsv: matrix-disease-list-unfiltered.tsv scripts/matrix-disease-list.py
-	pip install -r requirements.txt # This will be needed with ODK 1.5.3+ --break-system-packages
+	pip install -r requirements.txt --break-system-packages
 	python scripts/matrix-disease-list.py create-matrix-disease-list -i $< \
 		-o matrix-disease-list.tsv \
 		-e matrix-excluded-diseases-list.tsv \
