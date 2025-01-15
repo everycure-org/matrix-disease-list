@@ -1,0 +1,3 @@
+[console_scripts]
+dynaconf = dynaconf.cli:main
+
