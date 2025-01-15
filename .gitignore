@@ -6,3 +6,4 @@ matrix-disease-list.xlsx
 /tmp
 mondo-with-filter-designations.owl
 .DS_Store
+/kedro_env

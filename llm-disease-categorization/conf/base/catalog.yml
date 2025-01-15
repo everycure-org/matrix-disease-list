@@ -1,0 +1,41 @@
+
+disease_list:
+  type: pandas.CSVDataset
+  filepath: ../matrix-disease-list.tsv
+  load_args:
+    sep: "\t"
+  save_args:
+    sep: "\t"
+
+
+# disease_list_with_txgnn_tags:
+#   type: pandas.CSVDataset
+#   filepath: data/03_primary/diseaseList_with_txgnn_tags.tsv
+#   load_args:
+#     sep: "\t"
+#   save_args:
+#     sep: "\t"
+
+# disease_list_with_medical_specialty_tags:
+#   type: pandas.CSVDataset
+#   filepath: data/03_primary/diseaseList_with_medical_specialty_tags.tsv
+#   load_args:
+#     sep: "\t"
+#   save_args:
+#     sep: "\t"
+
+# disease_list_with_anatomical_tags:
+#   type: pandas.CSVDataset
+#   filepath: data/03_primary/diseaseList_with_anatomical_tags.tsv
+#   load_args:
+#     sep: "\t"
+#   save_args:
+#     sep: "\t"
+
+disease_categories: 
+  type: pandas.CSVDataset
+  filepath: data/03_primary/disease_categories.tsv
+  load_args:
+    sep: "\t"
+  save_args:
+    sep: "\t"

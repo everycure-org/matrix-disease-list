@@ -1,0 +1,72 @@
+categorization_prompt: "Identify and return ONLY (provide no additional text) the best-fitting categories in the following list of categories for the following disease:"
+
+disease_categories_txgnn_modified:
+  name: txgnn
+  categories:
+    - adrenal_gland_disease
+    - neurodegenerative_disease
+    - metabolic_disorder
+    - cardiovascular_disorder
+    - autoimmune_diseases
+    - mental_health_disorder
+    - anemia
+    - cancer
+    - inflammatory_disease
+    - allergy
+    - other
+
+disease_categories_anatomical:
+  name: anatomical
+  categories:
+    - biliary_disorder
+    - blood_bone_marrow_disorder
+    - bone_disorder
+    - brain_disorder
+    - ear_disorder
+    - endocrine_disorder
+    - eye_disorder
+    - heart_disorder
+    - immune_disorder
+    - joint_disorder
+    - kidney_disorder
+    - liver_disorder
+    - lower_gastrointestinal_disorder
+    - lung_disorder
+    - lymphatic_disorder
+    - muscle_disorder
+    - nose_disorder
+    - reproductive_system_disorder
+    - skin_disorder
+    - spinal_disorder 
+    - teeth_disorder
+    - throat_disorder
+    - upper_gastrointestinal_disorder
+    - urinary_tract_disorder
+    - vascular_disorder
+    - other
+
+disease_categories_medical_specialization:
+  name: medical_specialization
+  categories:
+    - allergy_and_immunology
+    - cardiology
+    - cardiothoracic
+    - dermatology
+    - endocrinology
+    - gastroenterology
+    - genetics_and_genomics
+    - hematology
+    - hepatology
+    - neurology
+    - obstetrics_and_gynecology
+    - oncology
+    - ophthalmology
+    - orthopaedic
+    - otolaryngology
+    - pediatric
+    - psychiatry
+    - pulmonology
+    - renal medicine
+    - rheumatology
+    - urology
+    - other
