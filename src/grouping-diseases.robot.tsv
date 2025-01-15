@@ -1,0 +1,12 @@
+ID	LABEL	SUBSET	CONTRIBUTOR	COMMENT
+ID		AI oboInOwl:inSubset	>AI dc:contributor SPLIT=|	
+MONDO:0002025	psychiatric disorder	obo:mondo#matrix_txgnn_grouping	https://orcid.org/0000-0002-7356-1779	Original: Mental health disorders
+MONDO:0002280	anemia	obo:mondo#matrix_txgnn_grouping	https://orcid.org/0000-0002-7356-1779	Original: Anaemia
+MONDO:0004995	cardiovascular disorder	obo:mondo#matrix_txgnn_grouping	https://orcid.org/0000-0002-7356-1779	Original: Cardiovascular disorders
+MONDO:0005015	diabetes mellitus	obo:mondo#matrix_txgnn_grouping	https://orcid.org/0000-0002-7356-1779	Original: Diabetes related diseases (MONDO:0005015 may be a bit more specific)
+MONDO:0005066	metabolic disease	obo:mondo#matrix_txgnn_grouping	https://orcid.org/0000-0002-7356-1779	Original: Metabolic disorders
+MONDO:0005151	endocrine system disorder	obo:mondo#matrix_txgnn_grouping	https://orcid.org/0000-0002-7356-1779	Original: Hormonal diseases (MONDO:0005015 may be a bit more specific)
+MONDO:0005550	infectious disease	obo:mondo#matrix_txgnn_grouping	https://orcid.org/0000-0002-7356-1779	Original: Infectious diseases/pathogen caused diseases (MONDO:0005015 may be a bit more specific, pathogen could be anything)
+MONDO:0005559	neurodegenerative disease	obo:mondo#matrix_txgnn_grouping	https://orcid.org/0000-0002-7356-1779	Original: Neurodegenerative diseases
+MONDO:0007179	autoimmune disease	obo:mondo#matrix_txgnn_grouping	https://orcid.org/0000-0002-7356-1779	Original: Auto-immune diseases
+MONDO:0045024	cancer or benign tumor	obo:mondo#matrix_txgnn_grouping	https://orcid.org/0000-0002-7356-1779	Original: Cancerous diseases

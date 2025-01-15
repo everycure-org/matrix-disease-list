@@ -28,6 +28,7 @@ ASSETS=matrix-disease-list.tsv \
 	matrix-disease-list-unfiltered.tsv \
 	matrix-disease-list.xlsx \
 	matrix-excluded-diseases-list.tsv \
+	matrix-disease-groupings.tsv \
 	mondo-metadata.tsv \
 	mondo-with-filter-designations.owl
 
@@ -54,15 +55,26 @@ tmp/icd10-cm-billable.template.tsv: tmp/icd10-cm-codes.xlsx tmp/mondo.sssom.tsv
 		-m tmp/mondo.sssom.tsv \
 		-o $@
 
+tmp/llm-based-disease-groupings.template.tsv: llm-disease-categorization/data/03_primary/disease_categories.tsv
+	python scripts/matrix-disease-list.py format-llm-disease-categorization -i $< -o $@ -c "https://orcid.org/0000-0002-4299-3501"
+
 # The MONDO ontology with the manually curated subsets added
 tmp/mondo-with-manually-curated-subsets.owl: tmp/mondo.owl \
 	src/included-diseases.robot.tsv \
 	src/excluded-diseases.robot.tsv \
-	tmp/icd10-cm-billable.template.tsv
-	$(ROBOT) template -i $< --merge-after \
+	tmp/icd10-cm-billable.template.tsv \
+	tmp/llm-based-disease-groupings.template.tsv
+	$(ROBOT) template -i tmp/mondo.owl --merge-after \
 			--template src/excluded-diseases.robot.tsv \
 			--template src/included-diseases.robot.tsv \
+			--template src/grouping-diseases.robot.tsv \
 			--template tmp/icd10-cm-billable.template.tsv \
+			--template tmp/llm-based-disease-groupings.template.tsv \
+		query --update sparql/inject-mondo-top-grouping.ru \
+		query --update sparql/inject-subset-declaration.ru \
+		query --update sparql/downfill-disease-groupings.ru \
+		query --update sparql/disease-groupings-other.ru \
+		query --update sparql/inject-subset-declaration.ru \
 	 $(ANNOTATE_CONVERT_FILE)
 .PRECIOUS: mondo-with-filter-designations.owl
 
@@ -86,13 +98,14 @@ matrix-disease-list-unfiltered.tsv: tmp/mondo-with-manually-curated-subsets.owl 
 # The final MATRIX disease list
 matrix-disease-list.tsv: matrix-disease-list-unfiltered.tsv scripts/matrix-disease-list.py
 	pip install -r requirements.txt --break-system-packages
-	python scripts/matrix-disease-list.py create-matrix-disease-list -i $< \
+	python scripts/matrix-disease-list.py create-matrix-disease-list -i matrix-disease-list-unfiltered.tsv \
 		-o matrix-disease-list.tsv \
 		-e matrix-excluded-diseases-list.tsv \
 		--output-included-diseases-template src/included-diseases.robot.tsv \
 		--output-excluded-diseases-template src/excluded-diseases.robot.tsv \
 		-l matrix-disease-list-unfiltered-processed.tsv \
-		-x matrix-disease-list.xlsx
+		-x matrix-disease-list.xlsx \
+		-g matrix-disease-groupings.tsv
 .PRECIOUS: matrix-disease-list.tsv
 
 # ROBOT template with the disease list designations added as subset declarations

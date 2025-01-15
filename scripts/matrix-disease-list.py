@@ -1,5 +1,6 @@
 import click
 import pandas as pd
+import logging
 
 
 def matrix_filter_final_columns(df_disease_list):
@@ -147,6 +148,20 @@ def create_billable_icd10_template(input_xlsx, mondo_tsv, output_tsv):
     # Write the filtered DataFrame to a TSV file
     df_icd10billable_subsets.to_csv(output_tsv, sep='\t', index=False)
 
+def extract_groupings(subsets, groupings):
+    """Extract groupings for list of subsets."""
+    result = {grouping: [] for grouping in groupings}
+    
+    if subsets:
+        for subset in subsets.split(";"):
+            for grouping in groupings:
+                if grouping in subset:
+                    # Extract the specific part after the grouping
+                    subset_tag = subset.replace("mondo:","").replace(grouping,"").replace(" ","").strip("_")
+                    if subset_tag != "member":
+                        result[grouping].append(subset_tag)
+    return {key: "|".join(values) if values else "" for key, values in result.items()}
+
 
 @cli.command()
 @click.option('--input-file', '-i', required=True, type=click.Path(exists=True), help="Input TSV file")
@@ -156,7 +171,8 @@ def create_billable_icd10_template(input_xlsx, mondo_tsv, output_tsv):
 @click.option('--output-excluded-diseases', '-e', required=False, type=click.Path(), help="Excluded disease list as TSV file")
 @click.option('--output-unfiltered-diseases-processed', '-l', required=False, type=click.Path(), help="Unfiltered disease list with added filter columns as TSV file")
 @click.option('--output-xlsx', '-x', required=False, type=click.Path(), help="Excluded disease list as TSV file")
-def create_matrix_disease_list(input_file, output_included_diseases, output_included_diseases_template, output_excluded_diseases_template, output_excluded_diseases, output_unfiltered_diseases_processed, output_xlsx):
+@click.option('--output-disease-groupings', '-g', required=False, type=click.Path(), help="A table with Mondo disease groupings")
+def create_matrix_disease_list(input_file, output_included_diseases, output_included_diseases_template, output_excluded_diseases_template, output_excluded_diseases, output_unfiltered_diseases_processed, output_xlsx, output_disease_groupings):
     """
     Load a TSV file, filter it by a specific column and value, and write the result to a new TSV file.
     """
@@ -203,6 +219,26 @@ def create_matrix_disease_list(input_file, output_included_diseases, output_incl
     if output_unfiltered_diseases_processed:
         df_matrix_disease_filter_modified.to_csv(output_unfiltered_diseases_processed, sep='\t', index=False)
         click.echo(f"Unfiltered diseases written to {output_unfiltered_diseases_processed}")
+
+    if output_disease_groupings:
+        curated_disease_groupings = ["harrisons_view", "matrix_txgnn_grouping", "mondo_top_grouping"]
+        llm_disease_groupings = [ "matrix_llm_medical_specialization",	"matrix_llm_txgnn", "matrix_llm_anatomical"]
+        disease_groupings = curated_disease_groupings + llm_disease_groupings
+        df_disease_groupings = df_matrix_disease_filter_modified[["category_class", "label", "subsets"]]
+        
+        # Apply the function to extract groupings
+        df_disease_groupings_extracted = df_disease_groupings["subsets"].apply(
+            lambda x: extract_groupings(x, disease_groupings)
+        ).apply(pd.Series)
+
+        # Combine with the original DataFrame
+        df_disease_groupings_pivot = pd.concat(
+            [df_disease_groupings[["category_class", "label"]], df_disease_groupings_extracted], axis=1
+        )
+        df_disease_groupings_pivot.sort_values(by="category_class", inplace=True)
+        df_disease_groupings_pivot.to_csv(output_disease_groupings, sep='\t', index=False)
+        click.echo(f"Disease groupinhs written to {output_disease_groupings}")
+
     
     if output_xlsx:
         with pd.ExcelWriter(output_xlsx, engine='xlsxwriter') as writer:
@@ -236,6 +272,66 @@ def create_template_from_matrix_disease_list(input_file, output_file):
     df_template.to_csv(output_file, sep='\t', index=False)
     
     click.echo(f"Template created and written to {output_file}") 
+
+
+@cli.command()
+@click.option(
+    '-i', '--input-file', required=True, type=click.Path(exists=True), help='Path to the input TSV file.'
+)
+@click.option(
+    '-o', '--output-file', required=True, type=click.Path(), help='Path to save the reformatted TSV file.'
+)
+@click.option(
+    '-c', '--contributor', multiple=True, help='Contributor ORCIDs. Can specify multiple values.'
+)
+def format_llm_disease_categorization(input_file, output_file, contributor):
+    """
+    Reformat a TSV file to include LABEL, SUBSET, CONTRIBUTOR, and COMMENT columns.
+    """
+    import re
+    log_count = 0
+    df = pd.read_csv(input_file, sep='\t')
+    contributors = '|'.join(contributor)
+
+    reformatted_rows = []
+
+    for _, row in df.iterrows():
+        id_ = row['ID']
+
+        # Process all columns after the first one as subsets
+        for col in df.columns[1:]:
+            subset_prefix = f'obo:mondo#matrix_llm_{col}'
+            subset_prefix_member = f'obo:mondo#matrix_llm_{col}_member'
+            specific_subsets = row[col].strip().split('|')
+            valid_values = [v.strip() for v in specific_subsets if re.match(r'^\w+$', v.strip())]
+            invalid_values = [v.strip() for v in specific_subsets if not re.match(r'^\w+$', v.strip())]
+            for value in invalid_values:
+                if log_count < 10:
+                    logging.warning(f"Invalid value '{value}' found in column '{col}' for ID '{id_}'. Only showing maximum 10 warnings for brevity.")
+                    log_count += 1
+            prefixed_subsets_specific = [f"{subset_prefix}_{subset.strip()}" for subset in valid_values]
+            all_subsets_list = [subset_prefix_member] + prefixed_subsets_specific
+            all_subsets = '|'.join(all_subsets_list)
+            
+            reformatted_rows.append({
+                'ID': id_,
+                'SUBSET': all_subsets,
+                'CONTRIBUTOR': contributors
+                })
+                
+
+    reformatted_df = pd.DataFrame(reformatted_rows)
+    
+    robot_template_header = pd.DataFrame({
+        'ID': ['ID'],
+        'SUBSET': ['AI oboInOwl:inSubset SPLIT=|'],
+        'CONTRIBUTOR': ['>AI dc:contributor SPLIT=|'],
+        })
+    
+    output_df = pd.concat([robot_template_header, reformatted_df]).reset_index(drop=True)
+    output_df.sort_values(by='ID', inplace=True)
+    output_df.to_csv(output_file, sep='\t', index=False)
+
 
 if __name__ == '__main__':
     cli()
