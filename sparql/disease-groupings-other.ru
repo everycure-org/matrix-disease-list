@@ -10,6 +10,9 @@ WHERE {
     <http://purl.obolibrary.org/obo/mondo#matrix_txgnn_grouping>
     <http://purl.obolibrary.org/obo/mondo#harrisons_view>
     <http://purl.obolibrary.org/obo/mondo#mondo_top_grouping>
+    <http://purl.obolibrary.org/obo/mondo#matrix_llm_txgnn>
+    <http://purl.obolibrary.org/obo/mondo#matrix_llm_anatomical>
+    <http://purl.obolibrary.org/obo/mondo#matrix_llm_medical_specialization>
   }
   ?subject rdfs:subClassOf+ <http://purl.obolibrary.org/obo/MONDO_0700096> .
   

@@ -55,16 +55,21 @@ tmp/icd10-cm-billable.template.tsv: tmp/icd10-cm-codes.xlsx tmp/mondo.sssom.tsv
 		-m tmp/mondo.sssom.tsv \
 		-o $@
 
+tmp/llm-based-disease-groupings.template.tsv: llm-disease-categorization/data/03_primary/disease_categories.tsv
+	python scripts/matrix-disease-list.py format-llm-disease-categorization -i $< -o $@ -c "https://orcid.org/0000-0002-4299-3501"
+
 # The MONDO ontology with the manually curated subsets added
 tmp/mondo-with-manually-curated-subsets.owl: tmp/mondo.owl \
 	src/included-diseases.robot.tsv \
 	src/excluded-diseases.robot.tsv \
-	tmp/icd10-cm-billable.template.tsv
-	$(ROBOT) template -i $< --merge-after \
+	tmp/icd10-cm-billable.template.tsv \
+	tmp/llm-based-disease-groupings.template.tsv
+	$(ROBOT) template -i tmp/mondo.owl --merge-after \
 			--template src/excluded-diseases.robot.tsv \
 			--template src/included-diseases.robot.tsv \
 			--template src/grouping-diseases.robot.tsv \
 			--template tmp/icd10-cm-billable.template.tsv \
+			--template tmp/llm-based-disease-groupings.template.tsv \
 		query --update sparql/inject-mondo-top-grouping.ru \
 		query --update sparql/inject-subset-declaration.ru \
 		query --update sparql/downfill-disease-groupings.ru \

@@ -1,5 +1,5 @@
 ID	LABEL	SUBSET	CONTRIBUTOR	COMMENT
-ID		AI oboInOwl:inSubset	AI dc:contributor SPLIT=|	
+ID		AI oboInOwl:inSubset	>AI dc:contributor SPLIT=|	
 MONDO:0002025	psychiatric disorder	obo:mondo#matrix_txgnn_grouping	https://orcid.org/0000-0002-7356-1779	Original: Mental health disorders
 MONDO:0002280	anemia	obo:mondo#matrix_txgnn_grouping	https://orcid.org/0000-0002-7356-1779	Original: Anaemia
 MONDO:0004995	cardiovascular disorder	obo:mondo#matrix_txgnn_grouping	https://orcid.org/0000-0002-7356-1779	Original: Cardiovascular disorders
