@@ -48,9 +48,6 @@ def create_pipeline(**kwargs) -> Pipeline:
             func=nodes.return_final_categories,
             inputs=[
                 "ec_enriched_disease_list",
-                "params:disease_categories_txgnn_modified",
-                "params:disease_categories_anatomical",
-                "params:disease_categories_medical_specialization"
             ],
             outputs="disease_categories",
             name = "return-final-disease-categories"

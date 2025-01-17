@@ -116,15 +116,9 @@ def query_ollama(
         raise Exception(f"Failed to parse Ollama API response: {str(e)}")
 
 
-def return_final_categories(inList: pd.DataFrame, disease_categores_txgnn_modified: dict, disease_categories_anatomical: dict, disease_categories_medical_specialization: dict) -> pd.DataFrame:
-    return pd.DataFrame(
-        {
-            "ID":inList['category_class'],
-            disease_categories_medical_specialization['name']:inList[disease_categories_medical_specialization['name']],
-            disease_categores_txgnn_modified['name']:inList[disease_categores_txgnn_modified['name']],
-            disease_categories_anatomical['name']:inList[disease_categories_anatomical['name']],
-        }
-    )
+def return_final_categories(inList: pd.DataFrame) -> pd.DataFrame:
+    inList.drop(['label', 'definition', 'synonyms', 'subsets', 'crossreferences'], axis=1, inplace=True)
+    return inList
 
 
 #################################################################

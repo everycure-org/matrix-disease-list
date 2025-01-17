@@ -26,7 +26,7 @@ disease_list_with_medical_specialty_tags:
 
 disease_list_with_anatomical_tags:
   type: pandas.CSVDataset
-  filepath: data/03_primary/diseaseList_with_anatomical_tags.tsv
+  filepath: data/03_primary/ec_tags_test_data.tsv
   load_args:
     sep: "\t"
   save_args:
@@ -34,7 +34,7 @@ disease_list_with_anatomical_tags:
 
 ec_enriched_disease_list:
   type: pandas.CSVDataset
-  filepath: data/03_primary/ec_enricheddisease_list.tsv
+  filepath: data/03_primary/ec_enriched_disease_list.tsv
   load_args:
     sep: "\t"
   save_args:
