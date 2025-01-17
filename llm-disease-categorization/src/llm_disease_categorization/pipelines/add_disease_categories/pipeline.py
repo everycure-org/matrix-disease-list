@@ -1,7 +1,3 @@
-"""
-This is a boilerplate pipeline 'add_disease_categories'
-generated using Kedro 0.19.10
-"""
 
 from kedro.pipeline import Pipeline, pipeline, node
 from . import nodes
@@ -40,15 +36,24 @@ def create_pipeline(**kwargs) -> Pipeline:
             name = "add-tags-anatomical"
         ),
         node(
-            func=nodes.return_final_categories,
+            func=nodes.enrich_disease_list,
             inputs=[
                 "disease_list_with_anatomical_tags",
+                "params:preprocessing.enrichment_tags",
+            ],
+            outputs="ec_enriched_disease_list",
+            name="enrich_disease_list",
+        ),
+        node(
+            func=nodes.return_final_categories,
+            inputs=[
+                "ec_enriched_disease_list",
                 "params:disease_categories_txgnn_modified",
                 "params:disease_categories_anatomical",
                 "params:disease_categories_medical_specialization"
             ],
             outputs="disease_categories",
             name = "return-final-disease-categories"
-        )
+        ),
 
     ])
