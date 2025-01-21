@@ -26,6 +26,8 @@ SELECT DISTINCT ?category_class ?label ?definition ?synonyms ?subsets ?crossrefe
   (IF(SUM(IF(?filter_icd_chapter_code = "TRUE", 1, 0)) > 0, "TRUE", "") AS ?f_icd_chapter_code)
   (IF(SUM(IF(?filter_icd_chapter_header = "TRUE", 1, 0)) > 0, "TRUE", "") AS ?f_icd_chapter_header)
   (IF(SUM(IF(?filter_icd_billable = "TRUE", 1, 0)) > 0, "TRUE", "") AS ?f_icd_billable)
+  (IF(SUM(IF(?filter_mondo_subtype = "TRUE", 1, 0)) > 0, "TRUE", "") AS ?f_mondo_subtype)
+  (IF(SUM(IF(?filter_susceptibility = "TRUE", 1, 0)) > 0, "TRUE", "") AS ?f_susceptibility)
 
 WHERE
 {
@@ -105,6 +107,22 @@ WHERE
   OPTIONAL {
     ?category_class oio:inSubset <http://purl.obolibrary.org/obo/mondo#clingen> .
     BIND("TRUE" as ?filter_clingen)
+  }
+
+  # FILTER if the disease corresponds to a susceptibility match, see
+  # sparql/inject-susceptibility-subset.ru
+  # https://github.com/everycure-org/matrix-disease-list/issues/36
+  OPTIONAL {
+    ?category_class oio:inSubset <http://purl.obolibrary.org/obo/mondo#susceptibility_match> .
+    BIND("TRUE" as ?filter_susceptibility)
+  }
+
+  # FILTER if the disease corresponds to a subtype of a disease according to Mondo
+  # create_template_with_high_granularity_subtypes method in main disease list script
+  # https://github.com/everycure-org/matrix-disease-list/issues/36
+  OPTIONAL {
+    ?category_class oio:inSubset <http://purl.obolibrary.org/obo/mondo#mondo_subtype> .
+    BIND("TRUE" as ?filter_mondo_subtype)
   }
   
   # Filter: Disease is a designated grouping class in Mondo

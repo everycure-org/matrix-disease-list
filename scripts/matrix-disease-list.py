@@ -79,6 +79,10 @@ def matrix_disease_filter(df_disease_list_unfiltered):
     # Next, we add all diseases corresponding to OMIM curated diseases
     df_disease_list_unfiltered[filter_column] |= df_disease_list_unfiltered['f_omim'] == True
     
+    # Next we remove all susceptibilities and mondo subtypes
+    df_disease_list_unfiltered.loc[df_disease_list_unfiltered['f_mondo_subtype'] == True, filter_column] = False
+    df_disease_list_unfiltered.loc[df_disease_list_unfiltered['f_susceptibility'] == True, filter_column] = False
+    
     # Remove disease that were manually excluded
     df_disease_list_unfiltered.loc[df_disease_list_unfiltered['f_matrix_manually_excluded'] == True, filter_column] = False
     
@@ -331,6 +335,123 @@ def format_llm_disease_categorization(input_file, output_file, contributor):
     output_df = pd.concat([robot_template_header, reformatted_df]).reset_index(drop=True)
     output_df.sort_values(by='ID', inplace=True)
     output_df.to_csv(output_file, sep='\t', index=False)
+
+def match_patterns_efficiently(df, label_column, patterns):
+    import re
+    label_match = []
+    label_pattern = []
+
+    for _, row in df.iterrows():
+        label = row[label_column]
+        match_found = False
+
+        for key, pattern in patterns.items():
+            match = re.match(pattern, label)
+            
+            if match:
+                match = match.group(1)
+            else:
+                match = None
+            
+            if match:
+                label_match.append(match)
+                label_pattern.append(key)
+                match_found = True
+                break  # Exit pattern loop on first match
+
+        if not match_found:
+            label_match.append(None)
+            label_pattern.append(None)
+
+    # Add the results to the DataFrame
+    df["label_match"] = label_match
+    df["label_pattern"] = label_pattern
+    return df
+
+@cli.command()
+@click.option(
+    '-l', '--labels', required=True, type=click.Path(exists=True), help='Path to a TSV with Mondo labels.'
+)
+@click.option(
+    '-o', '--output-all-matches', required=True, type=click.Path(), help='Path to save the full output TSV file.'
+)
+@click.option(
+    '-r', '--output-template', required=True, type=click.Path(), help='Path to save the template.'
+)
+@click.option(
+    '-g', '--output-grouping-counts', required=False, type=click.Path(), help='Path to save grouping counts.'
+)
+@click.option(
+    '-t', '--threshold-subtype-count', required=True, type=int, help='Path to save the template.'
+)
+def create_template_with_high_granularity_subtypes(labels, output_all_matches, output_template, output_grouping_counts, threshold_subtype_count=10):
+    """
+    Reformat a TSV file;
+    """
+
+    # Load the data
+    df_labels = pd.read_csv(labels, sep="\t")
+    df_labels = df_labels.dropna(subset=['LABEL'])
+    df_labels = df_labels[df_labels['ID'].str.startswith('MONDO:')]
+    df_labels = df_labels[["ID", "LABEL"]]
+    df_labels.columns = ["category_class", "label"]
+
+    # Define patterns
+    patterns = {
+        "x_type_ad": "(.*)[ ]type[ ][A-Z0-9]+$",
+        "x_group_a": "(.*)[ ]group [A-Z]+$",
+        "x_d": "(.*)[ ][0-9]+[0-9A-Za-z]*$",
+        "x_d_ca": "(.*)[ ][0-9]+[0-9A-Za-z]*[,][ ][/A-Za-z0-9-_, ()]+$",
+        "x_td_a": "(.*)[ ]type[ ][0-9]+[ ][/A-Za-z0-9-_, ()]+$",
+        "x_d_a": "(.*)[ ][0-9]+[0-9A-Za-z]*[ ][/A-Za-z0-9-_, ()]+$",
+        "x_da_a": "(.*)[ ][0-9]+[a-z]*[ ][/A-Za-z0-9-_, ()]+$",
+        "x_dp": "(.*)[ ][0-9]+p$",
+        "x_a": "(.*)[ ][A-Z]+$",
+        "x_a_type": "(.*)[,][ ][A-Za-z0-9-_]+[ ]type$",
+        "x_type_I": "(.*)[ ]type[ ](X{0,3})(IX|IV|V?I{0,3})+$",
+        "x_I": "(.*)[ ](X{0,3})(IX|IV|V?I{0,3})+$",
+    }
+
+    df_disease_list_matched = match_patterns_efficiently(df_labels, "label", patterns)
+
+    df_disease_list_matched_subset = df_disease_list_matched[["category_class", "label", "label_match", "label_pattern"]]
+    df_disease_list_matched_subset.sort_values(by="label_match", inplace=True)
+    
+    # This step is to check if an extracted label_match is a valid label in the original disease list
+    df_disease_list_matched_subset_with_matched_label_ids = pd.merge(df_disease_list_matched_subset, df_labels[['label','category_class']], left_on="label_match", right_on="label", how="left")
+    
+    if output_all_matches:
+        df_disease_list_matched_subset_with_matched_label_ids.to_csv(output_all_matches, sep="\t", index=False)
+    
+    # Count the number of subtypes for each disease
+    grouped_data = df_disease_list_matched_subset_with_matched_label_ids.groupby(["category_class_y", "label_y"]).size()
+    grouped_df = grouped_data.reset_index(name="count")
+    if output_grouping_counts:
+        grouped_df.to_csv(output_grouping_counts, sep="\t", index=False)
+    
+    # Filter the DataFrame to only include subtypes with a count greater than the threshold
+    top_grouped_df = grouped_df[grouped_df["count"] > threshold_subtype_count]
+    
+    # Get the subset of the DataFrame that matches the top groupings
+    top_subset_df = df_disease_list_matched_subset_with_matched_label_ids[df_disease_list_matched_subset_with_matched_label_ids['category_class_y'].notna() & df_disease_list_matched_subset_with_matched_label_ids['category_class_y'].isin(top_grouped_df['category_class_y'])]
+
+    # Display the final filtered DataFrame
+    final_subset_df = top_subset_df[["category_class_x", "label_x"]].drop_duplicates().sort_values(by="category_class_x")
+    final_subset_df['subset'] = "http://purl.obolibrary.org/obo/mondo#mondo_subtype"
+    final_subset_df['contributor'] = "https://orcid.org/0000-0002-7356-1779"
+    final_subset_df.columns=["ID", "LABEL", "SUBSET", "CONTRIBUTOR"]
+    
+    robot_template_header = pd.DataFrame({
+        'ID': ['ID'],
+        'LABEL': [''],
+        'SUBSET': ['AI oboInOwl:inSubset SPLIT=|'],
+        'CONTRIBUTOR': ['>AI dc:contributor SPLIT=|'],
+        })
+    
+    output_df = pd.concat([robot_template_header, final_subset_df]).reset_index(drop=True)
+    output_df.sort_values(by='ID', inplace=True)
+    
+    output_df.to_csv(output_template, sep="\t", index=False)
 
 
 if __name__ == '__main__':
