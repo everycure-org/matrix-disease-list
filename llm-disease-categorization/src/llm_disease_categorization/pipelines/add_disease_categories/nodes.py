@@ -187,9 +187,7 @@ def enrich_disease_list(disease_list: List, params: Dict) -> pd.DataFrame:
             # Check if tag is already in disease list
             if tag in disease_list.columns:
                 continue
-
             print(f"Applying tag: '{tag}' to disease list")
-
             input_col = tag_params["input_params"]["input_col"]
             output_col = tag_params["input_params"]["output_col"]
             raw_prompt = tag_params["input_params"]["prompt"]
@@ -198,7 +196,7 @@ def enrich_disease_list(disease_list: List, params: Dict) -> pd.DataFrame:
             if input_type == "single_input":
                 disease_list[output_col] = generate_tag(
                     disease_list=disease_list[input_col], raw_prompt=raw_prompt, model=chat_model
-                )
+                ).lower()
             else:
                 definition_col = tag_params["input_params"]["definition"]
                 synonym_col = tag_params["input_params"]["synonyms"]
@@ -208,5 +206,5 @@ def enrich_disease_list(disease_list: List, params: Dict) -> pd.DataFrame:
                     synonyms=disease_list[synonym_col],
                     raw_prompt=raw_prompt,
                     model=chat_model
-                )
+                ).lower()
     return disease_list

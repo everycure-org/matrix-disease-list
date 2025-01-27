@@ -10,3 +10,4 @@ pyspark
 spark
 tqdm
 langchain
+pandas
