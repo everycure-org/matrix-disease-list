@@ -14,6 +14,7 @@ WHERE {
     BIND(IRI(CONCAT("http://purl.obolibrary.org/obo/mondo#","susceptibility_mondo")) AS ?subset)
 } UNION {
     ?entity rdfs:subClassOf+ MONDO:0000001 .
+    ?entity rdfs:label ?label .
     FILTER(regex(str(?label), "susceptib") || regex(str(?label), "predisposit") )
     BIND(IRI(CONCAT("http://purl.obolibrary.org/obo/mondo#","susceptibility_match")) AS ?subset)
 }
