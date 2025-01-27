@@ -64,7 +64,7 @@ tmp/mondo-labels.tsv: tmp/mondo.owl
 tmp/subtypes.robot.tsv: tmp/mondo-labels.tsv
 	python scripts/matrix-disease-list.py create-template-with-high-granularity-subtypes \
 		-l $< \
-		-t 10 \
+		-t 5 \
 		-r $@ \
 		-g tmp/grouping-counts.tsv \
 		-o tmp/all-subtype-matches.tsv
