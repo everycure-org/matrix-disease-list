@@ -14,6 +14,36 @@ from langchain.output_parsers import CommaSeparatedListOutputParser
 from langchain.prompts import ChatPromptTemplate
 from langchain.schema import HumanMessage, SystemMessage
 from langchain_openai import ChatOpenAI
+from functools import cache
+
+import pickle
+import functools
+
+def file_cache(cache_file="cache.pkl"):
+    def decorator(func):
+        @functools.wraps(func)
+        def wrapper(*args, **kwargs):
+            if os.path.exists(cache_file):
+                with open(cache_file, "rb") as f:
+                    cache = pickle.load(f)
+            else:
+                cache = {}
+
+            key = (args, tuple(kwargs.items()))  # Create a hashable key from args and kwargs
+
+            if key in cache:
+                return cache[key]
+
+            result = func(*args, **kwargs)
+            cache[key] = result
+
+            with open(cache_file, "wb") as f:
+                pickle.dump(cache, f)
+
+            return result
+
+        return wrapper
+    return decorator
 
 
 def add_disease_categories(list_in:pd.DataFrame, params:str, base_prompt:dict) -> pd.DataFrame:
@@ -31,22 +61,18 @@ def add_disease_categories(list_in:pd.DataFrame, params:str, base_prompt:dict) -
         while not success:
             try:
                 response = query_ollama(prompt)['response']
-                #print("SUCCESSFUL RESPONSE")
-                #print(response)
                 categories_col.append(response)
                 success = True
-            except:
+            except Exception as e:
+                print(e)
                 attempts+=1
             if attempts > 5:
                 success = True
-                categories_col.append("error")
-        
-            
-       # print(response)
-
+                categories_col.append("error") 
     list_in[category_tag]=categories_col
     return list_in
 
+@file_cache()
 def query_ollama(
     prompt: str,
     #model: str = "hf.co/bartowski/Llama-3.3-70B-Instruct-GGUF:IQ2_S",
@@ -126,8 +152,6 @@ def return_final_categories(inList: pd.DataFrame) -> pd.DataFrame:
 ###############################################################
 
 
-
-#@inject_object()
 def generate_tag(
     disease_list: List, model, definitions: str = None, synonyms: str = None, raw_prompt: str = None
 ) -> List:
@@ -177,7 +201,6 @@ def enrich_disease_list(disease_list: List, params: Dict) -> pd.DataFrame:
     Args:
         disease_list: pd.DataFrame - merged disease_list with disease names column that will be used for tag generation
         params: Dict - parameters dictionary specifying tag names, column names, and model params
-        llm_model:  - name of the llm model to use for tag generation
     Returns
         pd.DataFrame with x new tag columns (where x corresponds to number of tags specified in params)
     """
