@@ -190,7 +190,7 @@ def generate_tag(
             formatted_prompt = prompt.format_messages(disease=disease, synonym=synonyms[i], definition=definitions[i])
         response = model.invoke(formatted_prompt)
         tags = output_parser.parse(response.content)
-        tag_list.append(", ".join(tags))
+        tag_list.append(", ".join(tags).lower)
     return tag_list
 
 def enrich_disease_list(disease_list: List, params: Dict) -> pd.DataFrame:
@@ -219,7 +219,7 @@ def enrich_disease_list(disease_list: List, params: Dict) -> pd.DataFrame:
             if input_type == "single_input":
                 disease_list[output_col] = generate_tag(
                     disease_list=disease_list[input_col], raw_prompt=raw_prompt, model=chat_model
-                ).lower()
+                )
             else:
                 definition_col = tag_params["input_params"]["definition"]
                 synonym_col = tag_params["input_params"]["synonyms"]
@@ -229,5 +229,5 @@ def enrich_disease_list(disease_list: List, params: Dict) -> pd.DataFrame:
                     synonyms=disease_list[synonym_col],
                     raw_prompt=raw_prompt,
                     model=chat_model
-                ).lower()
+                )
     return disease_list
