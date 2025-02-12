@@ -28,6 +28,8 @@ SELECT DISTINCT ?category_class ?label ?definition ?synonyms ?subsets ?crossrefe
   (IF(SUM(IF(?filter_icd_billable = "TRUE", 1, 0)) > 0, "TRUE", "") AS ?f_icd_billable)
   (IF(SUM(IF(?filter_mondo_subtype = "TRUE", 1, 0)) > 0, "TRUE", "") AS ?f_mondo_subtype)
   (IF(SUM(IF(?filter_susceptibility = "TRUE", 1, 0)) > 0, "TRUE", "") AS ?f_susceptibility)
+  (IF(SUM(IF(?filter_paraphilic = "TRUE", 1, 0)) > 0, "TRUE", "") AS ?f_paraphilic)
+  (IF(SUM(IF(?filter_acquired = "TRUE", 1, 0)) > 0, "TRUE", "") AS ?f_acquired)
   (IF(SUM(IF(?filter_andor = "TRUE", 1, 0)) > 0, "TRUE", "") AS ?f_andor)
   (IF(SUM(IF(?filter_withorwithout = "TRUE", 1, 0)) > 0, "TRUE", "") AS ?f_withorwithout)
 
@@ -119,6 +121,14 @@ WHERE
     BIND("TRUE" as ?filter_susceptibility)
   }
 
+  # FILTER if the disease corresponds to a paraphilic disorder
+  # https://github.com/everycure-org/matrix-disease-list/issues/42
+  OPTIONAL {
+    ?category_class rdfs:subClassOf* MONDO:0000596 .
+    BIND("TRUE" as ?filter_paraphilic)
+  }
+
+
   # FILTER if the disease corresponds to a grouping based on "with or without" in naming
   # https://github.com/everycure-org/matrix-disease-list/issues/40
   OPTIONAL {
@@ -133,6 +143,12 @@ WHERE
     BIND("TRUE" AS ?filter_andor)
   }
 
+  # FILTER if the disease corresponds to "acquired" disease
+  # https://github.com/everycure-org/matrix-disease-list/issues/53
+  OPTIONAL {
+    FILTER(STRSTARTS(?label,"acquired "))
+    BIND("TRUE" as ?filter_acquired)
+  }
 
   # FILTER if the disease corresponds to a subtype of a disease according to Mondo
   # create_template_with_high_granularity_subtypes method in main disease list script
@@ -147,6 +163,7 @@ WHERE
     VALUES ?_subset { 
       <http://purl.obolibrary.org/obo/mondo#ordo_group_of_disorders> 
       <http://purl.obolibrary.org/obo/mondo#disease_grouping> 
+      <http://purl.obolibrary.org/obo/mondo#matrix_grouping> 
       <http://purl.obolibrary.org/obo/mondo#harrisons_view> 
       <http://purl.obolibrary.org/obo/mondo#rare_grouping>
     }
