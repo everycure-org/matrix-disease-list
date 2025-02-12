@@ -80,10 +80,11 @@ def matrix_disease_filter(df_disease_list_unfiltered):
     df_disease_list_unfiltered[filter_column] |= df_disease_list_unfiltered['f_omim'] == True
     
     # Next we remove all susceptibilities, mondo subtypes, and diseases with and/or or with/without
-    df_disease_list_unfiltered.loc[df_disease_list_unfiltered['f_mondo_subtype'] == True, filter_column] = False
-    df_disease_list_unfiltered.loc[df_disease_list_unfiltered['f_susceptibility'] == True, filter_column] = False
-    df_disease_list_unfiltered.loc[df_disease_list_unfiltered['f_andor'] == True, filter_column] = False
-    df_disease_list_unfiltered.loc[df_disease_list_unfiltered['f_withorwithout'] == True, filter_column] = False
+    # UPDATE 13.02.2025: We will for now _not_ remove these, but provide filter columns for them instead
+    #df_disease_list_unfiltered.loc[df_disease_list_unfiltered['f_mondo_subtype'] == True, filter_column] = False
+    #df_disease_list_unfiltered.loc[df_disease_list_unfiltered['f_susceptibility'] == True, filter_column] = False
+    #df_disease_list_unfiltered.loc[df_disease_list_unfiltered['f_andor'] == True, filter_column] = False
+    #df_disease_list_unfiltered.loc[df_disease_list_unfiltered['f_withorwithout'] == True, filter_column] = False
     
     # Remove disease that were manually excluded
     df_disease_list_unfiltered.loc[df_disease_list_unfiltered['f_matrix_manually_excluded'] == True, filter_column] = False
