@@ -10,9 +10,14 @@ WHERE {
     <http://purl.obolibrary.org/obo/mondo#matrix_txgnn_grouping>
     <http://purl.obolibrary.org/obo/mondo#harrisons_view>
     <http://purl.obolibrary.org/obo/mondo#mondo_top_grouping>
-    <http://purl.obolibrary.org/obo/mondo#matrix_llm_txgnn>
-    <http://purl.obolibrary.org/obo/mondo#matrix_llm_anatomical>
-    <http://purl.obolibrary.org/obo/mondo#matrix_llm_medical_specialization>
+    <http://purl.obolibrary.org/obo/mondo#matrix_llm__txgnn>
+    <http://purl.obolibrary.org/obo/mondo#matrix_llm__anatomical>
+    <http://purl.obolibrary.org/obo/mondo#matrix_llm__medical_specialization>
+    <http://purl.obolibrary.org/obo/mondo#matrix_llm__is_pathogen_caused>
+    <http://purl.obolibrary.org/obo/mondo#matrix_llm__is_cancer>
+    <http://purl.obolibrary.org/obo/mondo#matrix_llm__is_glucose_dysfunction>
+    <http://purl.obolibrary.org/obo/mondo#matrix_llm__tag_existing_treatment>
+    <http://purl.obolibrary.org/obo/mondo#matrix_llm__tag_qualy_lost>
   }
   ?subject rdfs:subClassOf+ <http://purl.obolibrary.org/obo/MONDO_0700096> .
   
