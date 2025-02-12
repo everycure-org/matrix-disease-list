@@ -1,5 +1,5 @@
 ID	LABEL	SUBSET	CONTRIBUTOR	COMMENT
-ID		AI oboInOwl:inSubset	AI dc:contributor SPLIT=|	
+ID		AI oboInOwl:inSubset SPLIT=|	AI dc:contributor SPLIT=|	
 MONDO:0002022	disorder of orbital region	obo:mondo#matrix_excluded	https://orcid.org/0000-0002-7356-1779	This is a clear grouping class.
 MONDO:0005027	epilepsy	obo:mondo#matrix_excluded	https://orcid.org/0000-0003-2955-4640	
 MONDO:0005365	hearing loss disorder	obo:mondo#matrix_excluded	https://orcid.org/0000-0003-2955-4640	
@@ -64,3 +64,20 @@ MONDO:1010097	DHDDS-related syndrome	obo:mondo#matrix_excluded	https://orcid.org
 MONDO:0000384	bladder benign neoplasm	obo:mondo#matrix_excluded	https://orcid.org/0000-0003-2955-4640	
 MONDO:0001520	kleptomania	obo:mondo#matrix_excluded	https://orcid.org/0000-0003-2955-4640	excluding kleptomania as it is a subtype of mania with a different phenotypic expression only and does not have a unique drug-targetable pathophysiology
 MONDO:0016022	early myoclonic encephalopathy	obo:mondo#matrix_excluded	https://orcid.org/0000-0003-2955-4640	excluding kleptomania as it is a subtype of mania with a different phenotypic expression only and does not have a unique drug-targetable pathophysiology
+MONDO:0021517	benign neoplasm of trachea	obo:mondo#matrix_excluded|obo:mondo#matrix_grouping	https://orcid.org/0000-0003-2955-4640	https://github.com/everycure-org/matrix-disease-list/issues/52
+MONDO:0021513	benign neoplasm of tonsil	obo:mondo#matrix_excluded|obo:mondo#matrix_grouping	https://orcid.org/0000-0003-2955-4640	https://github.com/everycure-org/matrix-disease-list/issues/52
+MONDO:0021476	benign neoplasm of tongue	obo:mondo#matrix_excluded|obo:mondo#matrix_grouping	https://orcid.org/0000-0003-2955-4640	https://github.com/everycure-org/matrix-disease-list/issues/52
+MONDO:0021455	benign neoplasm of neck	obo:mondo#matrix_excluded|obo:mondo#matrix_grouping	https://orcid.org/0000-0003-2955-4640	https://github.com/everycure-org/matrix-disease-list/issues/52
+MONDO:0022293	vascular disorder of penis	obo:mondo#matrix_excluded|obo:mondo#matrix_grouping	https://orcid.org/0000-0003-2955-4640	https://github.com/everycure-org/matrix-disease-list/issues/52
+MONDO:0005621	vascular brain injury	obo:mondo#matrix_excluded|obo:mondo#matrix_grouping	https://orcid.org/0000-0003-2955-4640	https://github.com/everycure-org/matrix-disease-list/issues/52
+MONDO:0004192	urethra cancer	obo:mondo#matrix_excluded|obo:mondo#matrix_grouping	https://orcid.org/0000-0003-2955-4640	https://github.com/everycure-org/matrix-disease-list/issues/52
+MONDO:0002642	trochlear nerve neoplasm	obo:mondo#matrix_excluded|obo:mondo#matrix_grouping	https://orcid.org/0000-0003-2955-4640	https://github.com/everycure-org/matrix-disease-list/issues/52
+MONDO:0043797	spinal cord injury	obo:mondo#matrix_excluded|obo:mondo#matrix_grouping	https://orcid.org/0000-0003-2955-4640	https://github.com/everycure-org/matrix-disease-list/issues/52
+MONDO:0003544	spinal cord cancer	obo:mondo#matrix_excluded|obo:mondo#matrix_grouping	https://orcid.org/0000-0003-2955-4640	https://github.com/everycure-org/matrix-disease-list/issues/52
+MONDO:0009453	immune deficiency disease	obo:mondo#matrix_excluded|obo:mondo#matrix_grouping	https://orcid.org/0000-0003-2955-4640	https://github.com/everycure-org/matrix-disease-list/issues/52
+MONDO:0020779	cartilage development disorder	obo:mondo#matrix_excluded|obo:mondo#matrix_grouping	https://orcid.org/0000-0003-2955-4640	https://github.com/everycure-org/matrix-disease-list/issues/52
+MONDO:0009327	heart, malformation of	obo:mondo#matrix_excluded|obo:mondo#matrix_grouping	https://orcid.org/0000-0003-2955-4640	https://github.com/everycure-org/matrix-disease-list/issues/52
+MONDO:0006773	gonadal tissue neoplasm	obo:mondo#matrix_excluded|obo:mondo#matrix_grouping	https://orcid.org/0000-0003-2955-4640	https://github.com/everycure-org/matrix-disease-list/issues/52
+MONDO:0003111	gastric neuroendocrine neoplasm	obo:mondo#matrix_excluded|obo:mondo#matrix_grouping	https://orcid.org/0000-0003-2955-4640	https://github.com/everycure-org/matrix-disease-list/issues/52
+MONDO:0002101	facial nerve neoplasm	obo:mondo#matrix_excluded|obo:mondo#matrix_grouping	https://orcid.org/0000-0003-2955-4640	https://github.com/everycure-org/matrix-disease-list/issues/52
+MONDO:0000744	lung abscess	obo:mondo#matrix_excluded|obo:mondo#matrix_grouping	https://orcid.org/0000-0003-2955-4640	https://github.com/everycure-org/matrix-disease-list/issues/52
