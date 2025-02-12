@@ -228,7 +228,7 @@ def create_matrix_disease_list(input_file, output_included_diseases, output_incl
 
     if output_disease_groupings:
         curated_disease_groupings = ["harrisons_view", "matrix_txgnn_grouping", "mondo_top_grouping"]
-        llm_disease_groupings = [ "matrix_llm_medical_specialization",	"matrix_llm_txgnn", "matrix_llm_anatomical"]
+        llm_disease_groupings = [ "matrix_llm__medical_specialization",	"matrix_llm__txgnn", "matrix_llm__anatomical", "matrix_llm__is_pathogen_caused", "matrix_llm__is_cancer", "matrix_llm__is_glucose_dysfunction", "matrix_llm__tag_existing_treatment", "matrix_llm__tag_qaly_lost"]
         disease_groupings = curated_disease_groupings + llm_disease_groupings
         df_disease_groupings = df_matrix_disease_filter_modified[["category_class", "label", "subsets"]]
         
@@ -290,30 +290,38 @@ def create_template_from_matrix_disease_list(input_file, output_file):
 @click.option(
     '-c', '--contributor', multiple=True, help='Contributor ORCIDs. Can specify multiple values.'
 )
-def format_llm_disease_categorization(input_file, output_file, contributor):
+@click.option(
+    '-r', '--repair-invalid-values', default=True, help='Replaces whitespace in values with underscores.'
+)
+def format_llm_disease_categorization(input_file, output_file, contributor, repair_invalid_values, log_count=20):
     """
     Reformat a TSV file to include LABEL, SUBSET, CONTRIBUTOR, and COMMENT columns.
     """
     import re
     log_count = 0
-    df = pd.read_csv(input_file, sep='\t')
+    df = pd.read_csv(input_file, sep='\t', dtype=str)
     contributors = '|'.join(contributor)
 
     reformatted_rows = []
 
     for _, row in df.iterrows():
-        id_ = row['ID']
+        id_ = row['category_class']
 
         # Process all columns after the first one as subsets
-        for col in df.columns[1:]:
-            subset_prefix = f'obo:mondo#matrix_llm_{col}'
-            subset_prefix_member = f'obo:mondo#matrix_llm_{col}_member'
-            specific_subsets = row[col].strip().split('|')
-            valid_values = [v.strip() for v in specific_subsets if re.match(r'^\w+$', v.strip())]
+        for column_name in df.columns[1:]:
+            col = column_name.lower()
+            subset_prefix = f'obo:mondo#matrix_llm__{col}'
+            subset_prefix_member = f'obo:mondo#matrix_llm__{col}_member'
+            if isinstance(row[column_name], str):
+                specific_subsets = row[column_name].strip().split('|')
+            
+            valid_values = [v.strip().lower() for v in specific_subsets if re.match(r'^\w+$', v.strip())]
             invalid_values = [v.strip() for v in specific_subsets if not re.match(r'^\w+$', v.strip())]
+            if repair_invalid_values:
+                valid_values += [re.sub(r"\W", "_", v.strip().lower()) for v in invalid_values]
             for value in invalid_values:
-                if log_count < 10:
-                    logging.warning(f"Invalid value '{value}' found in column '{col}' for ID '{id_}'. Only showing maximum 10 warnings for brevity.")
+                if log_count < log_count:
+                    logging.warning(f"Invalid value '{value}' found in column '{col}' for ID '{id_}'. Only showing only {log_count} warnings for brevity.")
                     log_count += 1
             prefixed_subsets_specific = [f"{subset_prefix}_{subset.strip()}" for subset in valid_values]
             all_subsets_list = [subset_prefix_member] + prefixed_subsets_specific

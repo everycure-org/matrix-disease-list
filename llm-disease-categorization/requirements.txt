@@ -9,3 +9,5 @@ setuptools; python_version >= "3.12"
 pyspark
 spark
 tqdm
+langchain
+pandas
