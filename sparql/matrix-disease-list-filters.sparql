@@ -27,6 +27,7 @@ SELECT DISTINCT ?category_class ?label ?definition ?synonyms ?subsets ?crossrefe
   (IF(SUM(IF(?filter_icd_chapter_header = "TRUE", 1, 0)) > 0, "TRUE", "") AS ?f_icd_chapter_header)
   (IF(SUM(IF(?filter_icd_billable = "TRUE", 1, 0)) > 0, "TRUE", "") AS ?f_icd_billable)
   (IF(SUM(IF(?filter_mondo_subtype = "TRUE", 1, 0)) > 0, "TRUE", "") AS ?f_mondo_subtype)
+  (IF(SUM(IF(?filter_pathway_defect = "TRUE", 1, 0)) > 0, "TRUE", "") AS ?f_pathway_defect)
   (IF(SUM(IF(?filter_susceptibility = "TRUE", 1, 0)) > 0, "TRUE", "") AS ?f_susceptibility)
   (IF(SUM(IF(?filter_paraphilic = "TRUE", 1, 0)) > 0, "TRUE", "") AS ?f_paraphilic)
   (IF(SUM(IF(?filter_acquired = "TRUE", 1, 0)) > 0, "TRUE", "") AS ?f_acquired)
@@ -157,6 +158,13 @@ WHERE
   OPTIONAL {
     ?category_class oio:inSubset <http://purl.obolibrary.org/obo/mondo#mondo_subtype> .
     BIND("TRUE" as ?filter_mondo_subtype)
+  }
+
+  # FILTER if the disease corresponds to a pathway defect
+  # https://github.com/everycure-org/matrix-disease-list/issues/51
+  OPTIONAL {
+    ?category_class oio:inSubset <http://purl.obolibrary.org/obo/mondo#pathway_defect> .
+    BIND("TRUE" as ?filter_pathway_defect)
   }
   
   # Filter: Disease is a designated grouping class in Mondo
