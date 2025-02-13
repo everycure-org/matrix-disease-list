@@ -212,6 +212,9 @@ def create_matrix_disease_list(input_file, output_included_diseases, output_incl
     df_new_excluded_diseases['SUBSET'] = ''
     df_new_excluded_diseases['CONTRIBUTOR'] = ''
     df_new_excluded_diseases['COMMENT'] = ''
+    # Filter out IDs that are already in df_excluded_diseases_template this is necessary of this code
+    # is run before the official disease list is updated.
+    df_new_excluded_diseases = df_new_excluded_diseases[~df_new_excluded_diseases['ID'].isin(df_excluded_diseases_template['ID'])]
     df_excluded_diseases_template = pd.concat([df_excluded_diseases_template, df_new_excluded_diseases])
     df_excluded_diseases_template.to_csv(output_excluded_diseases_template, sep='\t', index=False)
     
@@ -272,7 +275,10 @@ def create_template_from_matrix_disease_list(input_file, output_file):
 
     # Select only the 'category_class' column from df_input
     df_template = df_input[['category_class']]
-    df_template['subset'] = 'http://purl.obolibrary.org/obo/mondo#matrix_included'
+    
+    df_template['subset'] = df_input['official_matrix_filter'].apply(
+        lambda x: 'http://purl.obolibrary.org/obo/mondo#matrix_included' if x else 'http://purl.obolibrary.org/obo/mondo#matrix_excluded'
+    )
 
     df_template = pd.concat([robot_template_header, df_template]).reset_index(drop=True)
 

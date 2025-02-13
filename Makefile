@@ -123,7 +123,7 @@ matrix-disease-list.tsv: matrix-disease-list-unfiltered.tsv scripts/matrix-disea
 .PRECIOUS: matrix-disease-list.tsv
 
 # ROBOT template with the disease list designations added as subset declarations
-tmp/matrix-list-designations.robot.tsv: matrix-disease-list.tsv
+tmp/matrix-list-designations.robot.tsv: matrix-disease-list-unfiltered-processed.tsv
 	python scripts/matrix-disease-list.py create-template-from-matrix-disease-list -i $< -o $@
 .PRECIOUS: tmp/matrix-list-designations.robot.tsv
 
