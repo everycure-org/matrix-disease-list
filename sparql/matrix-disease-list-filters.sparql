@@ -26,6 +26,13 @@ SELECT DISTINCT ?category_class ?label ?definition ?synonyms ?subsets ?crossrefe
   (IF(SUM(IF(?filter_icd_chapter_code = "TRUE", 1, 0)) > 0, "TRUE", "") AS ?f_icd_chapter_code)
   (IF(SUM(IF(?filter_icd_chapter_header = "TRUE", 1, 0)) > 0, "TRUE", "") AS ?f_icd_chapter_header)
   (IF(SUM(IF(?filter_icd_billable = "TRUE", 1, 0)) > 0, "TRUE", "") AS ?f_icd_billable)
+  (IF(SUM(IF(?filter_mondo_subtype = "TRUE", 1, 0)) > 0, "TRUE", "") AS ?f_mondo_subtype)
+  (IF(SUM(IF(?filter_susceptibility = "TRUE", 1, 0)) > 0, "TRUE", "") AS ?f_susceptibility)
+  (IF(SUM(IF(?filter_paraphilic = "TRUE", 1, 0)) > 0, "TRUE", "") AS ?f_paraphilic)
+  (IF(SUM(IF(?filter_acquired = "TRUE", 1, 0)) > 0, "TRUE", "") AS ?f_acquired)
+  (IF(SUM(IF(?filter_andor = "TRUE", 1, 0)) > 0, "TRUE", "") AS ?f_andor)
+  (IF(SUM(IF(?filter_withorwithout = "TRUE", 1, 0)) > 0, "TRUE", "") AS ?f_withorwithout)
+  (IF(SUM(IF(?filter_obsoletion_candidate = "TRUE", 1, 0)) > 0, "TRUE", "") AS ?f_obsoletion_candidate)
 
 WHERE
 {
@@ -106,17 +113,73 @@ WHERE
     ?category_class oio:inSubset <http://purl.obolibrary.org/obo/mondo#clingen> .
     BIND("TRUE" as ?filter_clingen)
   }
+
+  # FILTER if the disease corresponds to a susceptibility match, see
+  # sparql/inject-susceptibility-subset.ru
+  # https://github.com/everycure-org/matrix-disease-list/issues/36
+  OPTIONAL {
+    ?category_class oio:inSubset <http://purl.obolibrary.org/obo/mondo#susceptibility_match> .
+    BIND("TRUE" as ?filter_susceptibility)
+  }
+
+  # FILTER if the disease corresponds to a paraphilic disorder
+  # https://github.com/everycure-org/matrix-disease-list/issues/42
+  OPTIONAL {
+    ?category_class rdfs:subClassOf* MONDO:0000596 .
+    BIND("TRUE" as ?filter_paraphilic)
+  }
+
+
+  # FILTER if the disease corresponds to a grouping based on "with or without" in naming
+  # https://github.com/everycure-org/matrix-disease-list/issues/40
+  OPTIONAL {
+    FILTER(CONTAINS(?label,"with or without"))
+    BIND("TRUE" as ?filter_withorwithout)
+  }
+
+  # FILTER if the disease corresponds to a grouping based on "and/or" in naming
+  # https://github.com/everycure-org/matrix-disease-list/issues/39
+  OPTIONAL {
+    FILTER(CONTAINS(?label, "and/or"))
+    BIND("TRUE" AS ?filter_andor)
+  }
+
+  # FILTER if the disease corresponds to "acquired" disease
+  # https://github.com/everycure-org/matrix-disease-list/issues/53
+  OPTIONAL {
+    FILTER(STRSTARTS(?label,"acquired "))
+    BIND("TRUE" as ?filter_acquired)
+  }
+
+  # FILTER if the disease corresponds to a subtype of a disease according to Mondo
+  # create_template_with_high_granularity_subtypes method in main disease list script
+  # https://github.com/everycure-org/matrix-disease-list/issues/36
+  OPTIONAL {
+    ?category_class oio:inSubset <http://purl.obolibrary.org/obo/mondo#mondo_subtype> .
+    BIND("TRUE" as ?filter_mondo_subtype)
+  }
   
   # Filter: Disease is a designated grouping class in Mondo
   OPTIONAL {
     VALUES ?_subset { 
       <http://purl.obolibrary.org/obo/mondo#ordo_group_of_disorders> 
       <http://purl.obolibrary.org/obo/mondo#disease_grouping> 
+      <http://purl.obolibrary.org/obo/mondo#matrix_grouping> 
       <http://purl.obolibrary.org/obo/mondo#harrisons_view> 
       <http://purl.obolibrary.org/obo/mondo#rare_grouping>
     }
     ?category_class oio:inSubset ?_subset .
     BIND("TRUE" as ?filter_grouping_subset)
+  }
+
+  # Filter: Disease is an obsoletion candidate in Mondo
+  # 
+  OPTIONAL {
+    VALUES ?_subset { 
+      <http://purl.obolibrary.org/obo/mondo#obsoletion_candidate>
+    }
+    ?category_class oio:inSubset ?_subset .
+    BIND("TRUE" as ?filter_obsoletion_candidate)
   }
   
   # Filter: Disease is an ancestor of a designated grouping class in Mondo

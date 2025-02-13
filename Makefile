@@ -58,11 +58,23 @@ tmp/icd10-cm-billable.template.tsv: tmp/icd10-cm-codes.xlsx tmp/mondo.sssom.tsv
 tmp/llm-based-disease-groupings.template.tsv: llm-disease-categorization/data/03_primary/disease_categories.tsv
 	python scripts/matrix-disease-list.py format-llm-disease-categorization -i $< -o $@ -c "https://orcid.org/0000-0002-4299-3501"
 
+tmp/mondo-labels.tsv: tmp/mondo.owl
+	$(ROBOT) export -i tmp/mondo.owl -f tsv --header "ID|LABEL" --export $@
+
+tmp/subtypes.robot.tsv: tmp/mondo-labels.tsv
+	python scripts/matrix-disease-list.py create-template-with-high-granularity-subtypes \
+		-l $< \
+		-t 5 \
+		-r $@ \
+		-g tmp/grouping-counts.tsv \
+		-o tmp/all-subtype-matches.tsv
+
 # The MONDO ontology with the manually curated subsets added
 tmp/mondo-with-manually-curated-subsets.owl: tmp/mondo.owl \
 	src/included-diseases.robot.tsv \
 	src/excluded-diseases.robot.tsv \
 	tmp/icd10-cm-billable.template.tsv \
+	tmp/subtypes.robot.tsv \
 	tmp/llm-based-disease-groupings.template.tsv
 	$(ROBOT) template -i tmp/mondo.owl --merge-after \
 			--template src/excluded-diseases.robot.tsv \
@@ -70,7 +82,9 @@ tmp/mondo-with-manually-curated-subsets.owl: tmp/mondo.owl \
 			--template src/grouping-diseases.robot.tsv \
 			--template tmp/icd10-cm-billable.template.tsv \
 			--template tmp/llm-based-disease-groupings.template.tsv \
+			--template tmp/subtypes.robot.tsv \
 		query --update sparql/inject-mondo-top-grouping.ru \
+		query --update sparql/inject-susceptibility-subset.ru \
 		query --update sparql/inject-subset-declaration.ru \
 		query --update sparql/downfill-disease-groupings.ru \
 		query --update sparql/disease-groupings-other.ru \
@@ -109,7 +123,7 @@ matrix-disease-list.tsv: matrix-disease-list-unfiltered.tsv scripts/matrix-disea
 .PRECIOUS: matrix-disease-list.tsv
 
 # ROBOT template with the disease list designations added as subset declarations
-tmp/matrix-list-designations.robot.tsv: matrix-disease-list.tsv
+tmp/matrix-list-designations.robot.tsv: matrix-disease-list-unfiltered-processed.tsv
 	python scripts/matrix-disease-list.py create-template-from-matrix-disease-list -i $< -o $@
 .PRECIOUS: tmp/matrix-list-designations.robot.tsv
 

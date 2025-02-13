@@ -9,8 +9,8 @@ INSERT {
   ?subject rdfs:label ?newLabel .
 }
 WHERE {
-    VALUES ?subset { <http://purl.obolibrary.org/obo/mondo#matrix_included> }
+    VALUES ?subset { <http://purl.obolibrary.org/obo/mondo#matrix_excluded> }
     ?subject oio:inSubset ?subset .
     ?subject rdfs:label ?label .
-    BIND(CONCAT(?label, CONCAT(", ", REPLACE(STR(?subset),"http://purl.obolibrary.org/obo/mondo#",""))) AS ?newLabel)
+    BIND(CONCAT("[X] ", ?label) AS ?newLabel)
 }
