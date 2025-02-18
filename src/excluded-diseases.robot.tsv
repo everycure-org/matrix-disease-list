@@ -81,17 +81,16 @@ MONDO:0006773	gonadal tissue neoplasm	obo:mondo#matrix_excluded|obo:mondo#matrix
 MONDO:0003111	gastric neuroendocrine neoplasm	obo:mondo#matrix_excluded|obo:mondo#matrix_grouping	https://orcid.org/0000-0003-2955-4640	https://github.com/everycure-org/matrix-disease-list/issues/52
 MONDO:0002101	facial nerve neoplasm	obo:mondo#matrix_excluded|obo:mondo#matrix_grouping	https://orcid.org/0000-0003-2955-4640	https://github.com/everycure-org/matrix-disease-list/issues/52
 MONDO:0000744	lung abscess	obo:mondo#matrix_excluded|obo:mondo#matrix_grouping	https://orcid.org/0000-0003-2955-4640	https://github.com/everycure-org/matrix-disease-list/issues/52
-MONDO:0800492	variable-age onset focal epilepsy syndrome			
-MONDO:0800494	variable-age onset combined generalized and focal epilepsy syndrome			
-MONDO:0800495	variable-age epilepsy syndrome with developmental and/or epileptic encephalopathy or progressive neurological deterioration			
-MONDO:0800488	neonatal/infantile-onset self-limited epilepsy syndrome			
-MONDO:0800490	neonatal/infantile-onset epilepsy syndrome with developmental and epileptic encephalopathy			
-MONDO:0020561	myxoid/round cell liposarcoma			
-MONDO:0800496	epilepsy with auditory features			
-MONDO:0009068	cytochrome-c oxidase deficiency disease			
-MONDO:0800502	childhood-onset self-limited focal epilepsy syndrome			
-MONDO:0800499	childhood-onset idiopathic generalized epilepsy syndrome			
-MONDO:0800498	childhood-onset genetic generalized epilepsy syndrome			
-MONDO:0800500	childhood-onset epilepsy syndrome with developmental and/or epileptic encephalopathy			
-MONDO:0016707	astroblastoma			
-MONDO:1010098	TFAP2B-related congenital heart disease spectrum disorder			
+MONDO:0800492	variable-age onset focal epilepsy syndrome	obo:mondo#matrix_excluded	https://orcid.org/0000-0003-2955-4640	
+MONDO:0800494	variable-age onset combined generalized and focal epilepsy syndrome	obo:mondo#matrix_excluded	https://orcid.org/0000-0003-2955-4640	
+MONDO:0800495	variable-age epilepsy syndrome with developmental and/or epileptic encephalopathy or progressive neurological deterioration	obo:mondo#matrix_excluded	https://orcid.org/0000-0003-2955-4640	
+MONDO:0800488	neonatal/infantile-onset self-limited epilepsy syndrome	obo:mondo#matrix_excluded	https://orcid.org/0000-0003-2955-4640	
+MONDO:0800490	neonatal/infantile-onset epilepsy syndrome with developmental and epileptic encephalopathy	obo:mondo#matrix_excluded	https://orcid.org/0000-0003-2955-4640	
+MONDO:0020561	myxoid/round cell liposarcoma	obo:mondo#matrix_excluded	https://orcid.org/0000-0003-2955-4640	
+MONDO:0800496	epilepsy with auditory features	obo:mondo#matrix_excluded	https://orcid.org/0000-0003-2955-4640	
+MONDO:0009068	cytochrome-c oxidase deficiency disease	obo:mondo#matrix_excluded	https://orcid.org/0000-0003-2955-4640	
+MONDO:0800502	childhood-onset self-limited focal epilepsy syndrome	obo:mondo#matrix_excluded	https://orcid.org/0000-0003-2955-4640	
+MONDO:0800499	childhood-onset idiopathic generalized epilepsy syndrome	obo:mondo#matrix_excluded	https://orcid.org/0000-0003-2955-4640	
+MONDO:0800498	childhood-onset genetic generalized epilepsy syndrome	obo:mondo#matrix_excluded	https://orcid.org/0000-0003-2955-4640	
+MONDO:0800500	childhood-onset epilepsy syndrome with developmental and/or epileptic encephalopathy	obo:mondo#matrix_excluded	https://orcid.org/0000-0003-2955-4640	
+MONDO:1010098	TFAP2B-related congenital heart disease spectrum disorder	obo:mondo#matrix_excluded	https://orcid.org/0000-0003-2955-4640	
