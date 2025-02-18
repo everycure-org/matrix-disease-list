@@ -301,3 +301,63 @@ MONDO:0800501	developmental and/or epileptic encephalopathy with spike-wave acti
 MONDO:0000415	adolescence-adult electroclinical syndrome	obo:mondo#matrix_included	https://orcid.org/0000-0003-2955-4640	
 MONDO:0800503	TMEM63B-related developmental and epileptic encephalopathy with anemia	obo:mondo#matrix_included	https://orcid.org/0000-0003-2955-4640	
 MONDO:0016707	astroblastoma	obo:mondo#matrix_included	https://orcid.org/0000-0003-2955-4640	https://github.com/everycure-org/matrix-disease-list/pull/55
+MONDO:0008661	vitiligo	obo:mondo#matrix_included	https://orcid.org/0000-0003-2955-4640|https://orcid.org/0000-0002-1149-7767	https://github.com/everycure-org/matrix-disease-list/issues/57
+MONDO:0006007	vesicoureteral reflux	obo:mondo#matrix_included	https://orcid.org/0000-0003-2955-4640|https://orcid.org/0000-0002-1149-7767	https://github.com/everycure-org/matrix-disease-list/issues/57
+MONDO:0000190	ventricular fibrillation	obo:mondo#matrix_included	https://orcid.org/0000-0003-2955-4640|https://orcid.org/0000-0002-1149-7767	https://github.com/everycure-org/matrix-disease-list/issues/57
+MONDO:0004648	vascular dementia	obo:mondo#matrix_included	https://orcid.org/0000-0003-2955-4640|https://orcid.org/0000-0002-1149-7767	https://github.com/everycure-org/matrix-disease-list/issues/57
+MONDO:0005608	varicella zoster infection	obo:mondo#matrix_included	https://orcid.org/0000-0003-2955-4640|https://orcid.org/0000-0002-1149-7767	https://github.com/everycure-org/matrix-disease-list/issues/57
+MONDO:0018076	tuberculosis	obo:mondo#matrix_included	https://orcid.org/0000-0003-2955-4640|https://orcid.org/0000-0002-1149-7767	https://github.com/everycure-org/matrix-disease-list/issues/57
+MONDO:0005264	transient ischemic attack	obo:mondo#matrix_included	https://orcid.org/0000-0003-2955-4640|https://orcid.org/0000-0002-1149-7767	https://github.com/everycure-org/matrix-disease-list/issues/57
+MONDO:0010138	thyrotoxicosis	obo:mondo#matrix_included	https://orcid.org/0000-0003-2955-4640|https://orcid.org/0000-0002-1149-7767	https://github.com/everycure-org/matrix-disease-list/issues/57
+MONDO:0001328	thyroid hormone resistance syndrome	obo:mondo#matrix_included	https://orcid.org/0000-0003-2955-4640|https://orcid.org/0000-0002-1149-7767	https://github.com/everycure-org/matrix-disease-list/issues/57
+MONDO:0005976	syphilis	obo:mondo#matrix_included	https://orcid.org/0000-0003-2955-4640|https://orcid.org/0000-0002-1149-7767	https://github.com/everycure-org/matrix-disease-list/issues/57
+MONDO:0006951	retinal vein occlusion	obo:mondo#matrix_included	https://orcid.org/0000-0003-2955-4640|https://orcid.org/0000-0002-1149-7767	https://github.com/everycure-org/matrix-disease-list/issues/57
+MONDO:0006948	retinal artery occlusion	obo:mondo#matrix_included	https://orcid.org/0000-0003-2955-4640|https://orcid.org/0000-0002-1149-7767	https://github.com/everycure-org/matrix-disease-list/issues/57
+MONDO:0001105	renal hypertension	obo:mondo#matrix_included	https://orcid.org/0000-0003-2955-4640|https://orcid.org/0000-0002-1149-7767	https://github.com/everycure-org/matrix-disease-list/issues/57
+MONDO:0002771	pulmonary fibrosis	obo:mondo#matrix_included	https://orcid.org/0000-0003-2955-4640|https://orcid.org/0000-0002-1149-7767	https://github.com/everycure-org/matrix-disease-list/issues/57
+MONDO:0005279	pulmonary embolism	obo:mondo#matrix_included	https://orcid.org/0000-0003-2955-4640|https://orcid.org/0000-0002-1149-7767	https://github.com/everycure-org/matrix-disease-list/issues/57
+MONDO:0011849	psoriatic arthritis	obo:mondo#matrix_included	https://orcid.org/0000-0003-2955-4640|https://orcid.org/0000-0002-1149-7767	https://github.com/everycure-org/matrix-disease-list/issues/57
+MONDO:0005083	psoriasis	obo:mondo#matrix_included	https://orcid.org/0000-0003-2955-4640|https://orcid.org/0000-0002-1149-7767	https://github.com/everycure-org/matrix-disease-list/issues/57
+MONDO:0002304	protein S deficiency	obo:mondo#matrix_included	https://orcid.org/0000-0003-2955-4640|https://orcid.org/0000-0002-1149-7767	https://github.com/everycure-org/matrix-disease-list/issues/57
+MONDO:0015128	primary adrenal insufficiency	obo:mondo#matrix_included	https://orcid.org/0000-0003-2955-4640|https://orcid.org/0000-0002-1149-7767	https://github.com/everycure-org/matrix-disease-list/issues/57
+MONDO:0005386	peripheral arterial disease	obo:mondo#matrix_included	https://orcid.org/0000-0003-2955-4640|https://orcid.org/0000-0002-1149-7767	https://github.com/everycure-org/matrix-disease-list/issues/57
+MONDO:0005904	pericarditis	obo:mondo#matrix_included	https://orcid.org/0000-0003-2955-4640|https://orcid.org/0000-0002-1149-7767	https://github.com/everycure-org/matrix-disease-list/issues/57
+MONDO:0004247	peptic ulcer disease	obo:mondo#matrix_included	https://orcid.org/0000-0003-2955-4640|https://orcid.org/0000-0002-1149-7767	https://github.com/everycure-org/matrix-disease-list/issues/57
+MONDO:0004982	pancreatitis	obo:mondo#matrix_included	https://orcid.org/0000-0003-2955-4640|https://orcid.org/0000-0002-1149-7767	https://github.com/everycure-org/matrix-disease-list/issues/57
+MONDO:0005178	osteoarthritis	obo:mondo#matrix_included	https://orcid.org/0000-0003-2955-4640|https://orcid.org/0000-0002-1149-7767	https://github.com/everycure-org/matrix-disease-list/issues/57
+MONDO:0018908	non-Hodgkin lymphoma	obo:mondo#matrix_included	https://orcid.org/0000-0003-2955-4640|https://orcid.org/0000-0002-1149-7767	https://github.com/everycure-org/matrix-disease-list/issues/57
+MONDO:0005301	multiple sclerosis	obo:mondo#matrix_included	https://orcid.org/0000-0003-2955-4640|https://orcid.org/0000-0002-1149-7767	https://github.com/everycure-org/matrix-disease-list/issues/57
+MONDO:0005475	migraine with aura	obo:mondo#matrix_included	https://orcid.org/0000-0003-2955-4640|https://orcid.org/0000-0002-1149-7767	https://github.com/everycure-org/matrix-disease-list/issues/57
+MONDO:0001117	methemoglobinemia	obo:mondo#matrix_included	https://orcid.org/0000-0003-2955-4640|https://orcid.org/0000-0002-1149-7767	https://github.com/everycure-org/matrix-disease-list/issues/57
+MONDO:0005191	metastatic melanoma	obo:mondo#matrix_included	https://orcid.org/0000-0003-2955-4640|https://orcid.org/0000-0002-1149-7767	https://github.com/everycure-org/matrix-disease-list/issues/57
+MONDO:0005065	mesothelioma	obo:mondo#matrix_included	https://orcid.org/0000-0003-2955-4640|https://orcid.org/0000-0002-1149-7767	https://github.com/everycure-org/matrix-disease-list/issues/57
+MONDO:0005105	melanoma	obo:mondo#matrix_included	https://orcid.org/0000-0003-2955-4640|https://orcid.org/0000-0002-1149-7767	https://github.com/everycure-org/matrix-disease-list/issues/57
+MONDO:0002648	mammary Paget disease	obo:mondo#matrix_included	https://orcid.org/0000-0003-2955-4640|https://orcid.org/0000-0002-1149-7767	https://github.com/everycure-org/matrix-disease-list/issues/57
+MONDO:0003947	hyper-IgM syndrome	obo:mondo#matrix_included	https://orcid.org/0000-0003-2955-4640|https://orcid.org/0000-0002-1149-7767	https://github.com/everycure-org/matrix-disease-list/issues/57
+MONDO:0018037	hyper-IgE syndrome	obo:mondo#matrix_included	https://orcid.org/0000-0003-2955-4640|https://orcid.org/0000-0002-1149-7767	https://github.com/everycure-org/matrix-disease-list/issues/57
+MONDO:0019623	hereditary angioedema	obo:mondo#matrix_included	https://orcid.org/0000-0003-2955-4640|https://orcid.org/0000-0002-1149-7767	https://github.com/everycure-org/matrix-disease-list/issues/57
+MONDO:0017276	frontotemporal dementia	obo:mondo#matrix_included	https://orcid.org/0000-0003-2955-4640|https://orcid.org/0000-0002-1149-7767	https://github.com/everycure-org/matrix-disease-list/issues/57
+MONDO:0005439	familial hypercholesterolemia	obo:mondo#matrix_included	https://orcid.org/0000-0003-2955-4640|https://orcid.org/0000-0002-1149-7767	https://github.com/everycure-org/matrix-disease-list/issues/57
+MONDO:0001134	essential hypertension	obo:mondo#matrix_included	https://orcid.org/0000-0003-2955-4640|https://orcid.org/0000-0002-1149-7767	https://github.com/everycure-org/matrix-disease-list/issues/57
+MONDO:0005133	endometriosis	obo:mondo#matrix_included	https://orcid.org/0000-0003-2955-4640|https://orcid.org/0000-0002-1149-7767	https://github.com/everycure-org/matrix-disease-list/issues/57
+MONDO:0002050	depressive disorder	obo:mondo#matrix_included	https://orcid.org/0000-0003-2955-4640|https://orcid.org/0000-0002-1149-7767	https://github.com/everycure-org/matrix-disease-list/issues/57
+MONDO:0005356	coronary vasospasm	obo:mondo#matrix_included	https://orcid.org/0000-0003-2955-4640|https://orcid.org/0000-0002-1149-7767	https://github.com/everycure-org/matrix-disease-list/issues/57
+MONDO:0005480	contact dermatitis	obo:mondo#matrix_included	https://orcid.org/0000-0003-2955-4640|https://orcid.org/0000-0002-1149-7767	https://github.com/everycure-org/matrix-disease-list/issues/57
+MONDO:0005003	chronic pancreatitis	obo:mondo#matrix_included	https://orcid.org/0000-0003-2955-4640|https://orcid.org/0000-0002-1149-7767	https://github.com/everycure-org/matrix-disease-list/issues/57
+MONDO:0002465	bronchiolitis	obo:mondo#matrix_included	https://orcid.org/0000-0003-2955-4640|https://orcid.org/0000-0002-1149-7767	https://github.com/everycure-org/matrix-disease-list/issues/57
+MONDO:0004822	bronchiectasis	obo:mondo#matrix_included	https://orcid.org/0000-0003-2955-4640|https://orcid.org/0000-0002-1149-7767	https://github.com/everycure-org/matrix-disease-list/issues/57
+MONDO:0005310	atrial flutter	obo:mondo#matrix_included	https://orcid.org/0000-0003-2955-4640|https://orcid.org/0000-0002-1149-7767	https://github.com/everycure-org/matrix-disease-list/issues/57
+MONDO:0004981	atrial fibrillation	obo:mondo#matrix_included	https://orcid.org/0000-0003-2955-4640|https://orcid.org/0000-0002-1149-7767	https://github.com/everycure-org/matrix-disease-list/issues/57
+MONDO:0004979	asthma	obo:mondo#matrix_included	https://orcid.org/0000-0003-2955-4640|https://orcid.org/0000-0002-1149-7767	https://github.com/everycure-org/matrix-disease-list/issues/57
+MONDO:0005618	anxiety disorder	obo:mondo#matrix_included	https://orcid.org/0000-0003-2955-4640|https://orcid.org/0000-0002-1149-7767	https://github.com/everycure-org/matrix-disease-list/issues/57
+MONDO:0005306	ankylosing spondylitis	obo:mondo#matrix_included	https://orcid.org/0000-0003-2955-4640|https://orcid.org/0000-0002-1149-7767	https://github.com/everycure-org/matrix-disease-list/issues/57
+MONDO:0100053	anaphylaxis	obo:mondo#matrix_included	https://orcid.org/0000-0003-2955-4640|https://orcid.org/0000-0002-1149-7767	https://github.com/everycure-org/matrix-disease-list/issues/57
+MONDO:0004907	alopecia	obo:mondo#matrix_included	https://orcid.org/0000-0003-2955-4640|https://orcid.org/0000-0002-1149-7767	https://github.com/everycure-org/matrix-disease-list/issues/57
+MONDO:0011786	allergic rhinitis	obo:mondo#matrix_included	https://orcid.org/0000-0003-2955-4640|https://orcid.org/0000-0002-1149-7767	https://github.com/everycure-org/matrix-disease-list/issues/57
+MONDO:0006515	acute pancreatitis	obo:mondo#matrix_included	https://orcid.org/0000-0003-2955-4640|https://orcid.org/0000-0002-1149-7767	https://github.com/everycure-org/matrix-disease-list/issues/57
+MONDO:0850093	absence epilepsy	obo:mondo#matrix_included	https://orcid.org/0000-0003-2955-4640|https://orcid.org/0000-0002-1149-7767	https://github.com/everycure-org/matrix-disease-list/issues/57
+MONDO:0004952	Hodgkins lymphoma	obo:mondo#matrix_included	https://orcid.org/0000-0003-2955-4640|https://orcid.org/0000-0002-1149-7767	https://github.com/everycure-org/matrix-disease-list/issues/57
+MONDO:0005109	HIV infectious disease	obo:mondo#matrix_included	https://orcid.org/0000-0003-2955-4640|https://orcid.org/0000-0002-1149-7767	https://github.com/everycure-org/matrix-disease-list/issues/57
+MONDO:0005364	Graves disease	obo:mondo#matrix_included	https://orcid.org/0000-0003-2955-4640|https://orcid.org/0000-0002-1149-7767	https://github.com/everycure-org/matrix-disease-list/issues/57
+MONDO:0015759	B-cell non-Hodgkin lymphoma	obo:mondo#matrix_included	https://orcid.org/0000-0003-2955-4640|https://orcid.org/0000-0002-1149-7767	https://github.com/everycure-org/matrix-disease-list/issues/57
+MONDO:0004975	Alzheimer disease	obo:mondo#matrix_included	https://orcid.org/0000-0003-2955-4640|https://orcid.org/0000-0002-1149-7767	https://github.com/everycure-org/matrix-disease-list/issues/57
