@@ -34,6 +34,7 @@ SELECT DISTINCT ?category_class ?label ?definition ?synonyms ?subsets ?crossrefe
   (IF(SUM(IF(?filter_andor = "TRUE", 1, 0)) > 0, "TRUE", "") AS ?f_andor)
   (IF(SUM(IF(?filter_withorwithout = "TRUE", 1, 0)) > 0, "TRUE", "") AS ?f_withorwithout)
   (IF(SUM(IF(?filter_obsoletion_candidate = "TRUE", 1, 0)) > 0, "TRUE", "") AS ?f_obsoletion_candidate)
+  (IF(SUM(IF(?filter_unclassified_hereditary = "TRUE", 1, 0)) > 0, "TRUE", "") AS ?f_unclassified_hereditary)
 
 WHERE
 {
@@ -150,6 +151,33 @@ WHERE
   OPTIONAL {
     FILTER(STRSTARTS(?label,"acquired "))
     BIND("TRUE" as ?filter_acquired)
+  }
+
+  # FILTER if the disease corresponds to a "weird stray child of hereditary disease" which has no further classification
+  # https://github.com/everycure-org/matrix-disease-list/issues/50
+  OPTIONAL {
+    ?entity rdfs:label ?label .
+    ?entity rdfs:subClassOf+ MONDO:0003847 .
+    
+    
+    FILTER NOT EXISTS {
+      # is a leaf (does not have children)
+      ?x rdfs:subClassOf ?entity .
+      FILTER(?x!=?entity)
+    }
+    
+    FILTER NOT EXISTS {
+      # does not have any other parent other than hereditary disease
+      ?entity rdfs:subClassOf ?y .
+      FILTER(
+        (?y!=MONDO:0003847) 
+        && (?y!= MONDO:0000001)
+        && (?y!= MONDO:0700096)
+        && (?y!= MONDO:0008577)
+        && (?entity!=?y))
+      
+    }
+    BIND("TRUE" as ?filter_unclassified_hereditary)
   }
 
   # FILTER if the disease corresponds to a subtype of a disease according to Mondo

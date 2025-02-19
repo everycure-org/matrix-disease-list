@@ -86,6 +86,11 @@ def matrix_disease_filter(df_disease_list_unfiltered):
     #df_disease_list_unfiltered.loc[df_disease_list_unfiltered['f_andor'] == True, filter_column] = False
     #df_disease_list_unfiltered.loc[df_disease_list_unfiltered['f_withorwithout'] == True, filter_column] = False
     
+    ## Remove all hereditary diseases without classification. This is imo a dangerous default, but
+    ## @jxneli reviewed all 849 cases from the February 2025 release and found that all were indeed
+    ## "irrelevant" for drug repurposing, https://github.com/everycure-org/matrix-disease-list/issues/50
+    df_disease_list_unfiltered.loc[df_disease_list_unfiltered['f_unclassified_hereditary'] == True, filter_column] = False
+    
     # Remove disease that were manually excluded
     df_disease_list_unfiltered.loc[df_disease_list_unfiltered['f_matrix_manually_excluded'] == True, filter_column] = False
     
@@ -175,11 +180,13 @@ def extract_groupings(subsets, groupings):
 @click.option('--output-included-diseases', '-o', required=True, type=click.Path(), help="Included disease list as TSV file")
 @click.option('--output-included-diseases-template', required=True, type=click.Path(), help="Included disease list template for manual curation as TSV file")
 @click.option('--output-excluded-diseases-template', required=True, type=click.Path(), help="Excluded disease list template for manual curation as TSV file")
+@click.option('--output-included-diseases-new', required=True, type=click.Path(), help="Included disease list update since last release as TSV file")
+@click.option('--output-excluded-diseases-new', required=True, type=click.Path(), help="Excluded disease list update since last release as TSV file")
 @click.option('--output-excluded-diseases', '-e', required=False, type=click.Path(), help="Excluded disease list as TSV file")
 @click.option('--output-unfiltered-diseases-processed', '-l', required=False, type=click.Path(), help="Unfiltered disease list with added filter columns as TSV file")
 @click.option('--output-xlsx', '-x', required=False, type=click.Path(), help="Excluded disease list as TSV file")
 @click.option('--output-disease-groupings', '-g', required=False, type=click.Path(), help="A table with Mondo disease groupings")
-def create_matrix_disease_list(input_file, output_included_diseases, output_included_diseases_template, output_excluded_diseases_template, output_excluded_diseases, output_unfiltered_diseases_processed, output_xlsx, output_disease_groupings):
+def create_matrix_disease_list(input_file, output_included_diseases, output_included_diseases_template, output_excluded_diseases_template, output_included_diseases_new, output_excluded_diseases_new, output_excluded_diseases, output_unfiltered_diseases_processed, output_xlsx, output_disease_groupings):
     """
     Load a TSV file, filter it by a specific column and value, and write the result to a new TSV file.
     """
@@ -194,7 +201,8 @@ def create_matrix_disease_list(input_file, output_included_diseases, output_incl
     # Before we write the list to a final file, we make load the old list to figure out which diseases are new.
     df_old_included_disease = pd.read_csv(output_included_diseases, sep='\t') 
     df_included_diseases_template = pd.read_csv(output_included_diseases_template, sep='\t')
-    df_new_included_diseases = df_included_diseases[~df_included_diseases['category_class'].isin(df_old_included_disease['category_class'])]
+    df_new_included_diseases_compared_to_release = df_included_diseases[~df_included_diseases['category_class'].isin(df_old_included_disease['category_class'])]
+    df_new_included_diseases = df_new_included_diseases_compared_to_release[~df_new_included_diseases_compared_to_release['category_class'].isin(df_included_diseases_template['ID'])]
     df_new_included_diseases = df_new_included_diseases[['category_class', 'label']]
     df_new_included_diseases.columns = ['ID', 'LABEL']
     df_new_included_diseases['SUBSET'] = ''
@@ -203,10 +211,15 @@ def create_matrix_disease_list(input_file, output_included_diseases, output_incl
     df_included_diseases_template = pd.concat([df_included_diseases_template, df_new_included_diseases])
     df_included_diseases_template.to_csv(output_included_diseases_template, sep='\t', index=False)
     
+    if output_included_diseases_new:
+        # Write markdown output for updates
+        df_new_included_diseases_compared_to_release[['category_class','label']].to_markdown(output_included_diseases_new, index=False)
+    
     # Same with newly excluded diseases
     df_old_excluded_disease = pd.read_csv(output_excluded_diseases, sep='\t') 
     df_excluded_diseases_template = pd.read_csv(output_excluded_diseases_template, sep='\t')
-    df_new_excluded_diseases = df_excluded_diseases[~df_excluded_diseases['category_class'].isin(df_old_excluded_disease['category_class'])]
+    df_new_excluded_diseases_compared_to_release = df_excluded_diseases[~df_excluded_diseases['category_class'].isin(df_old_excluded_disease['category_class'])]
+    df_new_excluded_diseases = df_new_excluded_diseases_compared_to_release[~df_new_excluded_diseases_compared_to_release['category_class'].isin(df_excluded_diseases_template['ID'])]
     df_new_excluded_diseases = df_new_excluded_diseases[['category_class', 'label']]
     df_new_excluded_diseases.columns = ['ID', 'LABEL']
     df_new_excluded_diseases['SUBSET'] = ''
@@ -217,6 +230,11 @@ def create_matrix_disease_list(input_file, output_included_diseases, output_incl
     df_new_excluded_diseases = df_new_excluded_diseases[~df_new_excluded_diseases['ID'].isin(df_excluded_diseases_template['ID'])]
     df_excluded_diseases_template = pd.concat([df_excluded_diseases_template, df_new_excluded_diseases])
     df_excluded_diseases_template.to_csv(output_excluded_diseases_template, sep='\t', index=False)
+    
+    if output_excluded_diseases_new:
+        # Write markdown output for updates
+        df_new_excluded_diseases_compared_to_release[['category_class','label']].to_markdown(output_excluded_diseases_new, index=False)
+
     
     # Write the final disease list to the output file
     df_included_diseases.to_csv(output_included_diseases, sep='\t', index=False)

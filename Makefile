@@ -117,6 +117,8 @@ matrix-disease-list.tsv: matrix-disease-list-unfiltered.tsv scripts/matrix-disea
 		-e matrix-excluded-diseases-list.tsv \
 		--output-included-diseases-template src/included-diseases.robot.tsv \
 		--output-excluded-diseases-template src/excluded-diseases.robot.tsv \
+		--output-included-diseases-new new-included-diseases-since-last-release.md \
+		--output-excluded-diseases-new new-excluded-diseases-since-last-release.md \
 		-l matrix-disease-list-unfiltered-processed.tsv \
 		-x matrix-disease-list.xlsx \
 		-g matrix-disease-groupings.tsv
@@ -143,6 +145,11 @@ gh_release:
 	@test $(VERSION)
 	ls -alt $(ASSETS)
 	gh release create $(VERSION) --notes "TBD." --title "$(VERSION)" --draft $(ASSETS)
+
+
+tmp/grounding.tsv: tmp/mondo.owl tmp/disease-labels.tsv
+	runoak -i sqlite:obo:mondo annotate --text-file tmp/disease-labels.tsv -W -O tsv -o $@
+
 
 #################################
 #### Help #######################
