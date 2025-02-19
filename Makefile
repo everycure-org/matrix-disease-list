@@ -144,6 +144,11 @@ gh_release:
 	ls -alt $(ASSETS)
 	gh release create $(VERSION) --notes "TBD." --title "$(VERSION)" --draft $(ASSETS)
 
+
+tmp/grounding.tsv: tmp/mondo.owl tmp/disease-labels.tsv
+	runoak -i sqlite:obo:mondo annotate --text-file tmp/disease-labels.tsv -W -O tsv -o $@
+
+
 #################################
 #### Help #######################
 #################################
