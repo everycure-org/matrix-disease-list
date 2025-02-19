@@ -86,6 +86,11 @@ def matrix_disease_filter(df_disease_list_unfiltered):
     #df_disease_list_unfiltered.loc[df_disease_list_unfiltered['f_andor'] == True, filter_column] = False
     #df_disease_list_unfiltered.loc[df_disease_list_unfiltered['f_withorwithout'] == True, filter_column] = False
     
+    ## Remove all hereditary diseases without classification. This is imo a dangerous default, but
+    ## @jxneli reviewed all 849 cases from the February 2025 release and found that all were indeed
+    ## "irrelevant" for drug repurposing, https://github.com/everycure-org/matrix-disease-list/issues/50
+    df_disease_list_unfiltered.loc[df_disease_list_unfiltered['f_unclassified_hereditary'] == True, filter_column] = False
+    
     # Remove disease that were manually excluded
     df_disease_list_unfiltered.loc[df_disease_list_unfiltered['f_matrix_manually_excluded'] == True, filter_column] = False
     
