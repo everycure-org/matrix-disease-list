@@ -95,6 +95,11 @@ def matrix_disease_filter(df_disease_list_unfiltered):
     ## https://github.com/everycure-org/matrix-disease-list/issues/48
     df_disease_list_unfiltered.loc[df_disease_list_unfiltered['f_obsoletion_candidate'] == True, filter_column] = False
     
+    ## Remove all paraphilic disorders
+    ## https://github.com/everycure-org/matrix-disease-list/issues/42
+    df_disease_list_unfiltered.loc[df_disease_list_unfiltered['f_paraphilic'] == True, filter_column] = False
+    
+    
     # Remove disease that were manually excluded
     df_disease_list_unfiltered.loc[df_disease_list_unfiltered['f_matrix_manually_excluded'] == True, filter_column] = False
     
