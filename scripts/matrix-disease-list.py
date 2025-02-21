@@ -91,6 +91,15 @@ def matrix_disease_filter(df_disease_list_unfiltered):
     ## "irrelevant" for drug repurposing, https://github.com/everycure-org/matrix-disease-list/issues/50
     df_disease_list_unfiltered.loc[df_disease_list_unfiltered['f_unclassified_hereditary'] == True, filter_column] = False
     
+    ## Remove all diseases that are candidates for obsoletion
+    ## https://github.com/everycure-org/matrix-disease-list/issues/48
+    # df_disease_list_unfiltered.loc[df_disease_list_unfiltered['f_obsoletion_candidate'] == True, filter_column] = False
+    
+    ## Remove all paraphilic disorders
+    ## https://github.com/everycure-org/matrix-disease-list/issues/42
+    df_disease_list_unfiltered.loc[df_disease_list_unfiltered['f_paraphilic'] == True, filter_column] = False
+    
+    
     # Remove disease that were manually excluded
     df_disease_list_unfiltered.loc[df_disease_list_unfiltered['f_matrix_manually_excluded'] == True, filter_column] = False
     
