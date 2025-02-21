@@ -26,6 +26,7 @@ ANNOTATE_CONVERT_FILE = annotate --ontology-iri $(ONTBASE)/$@ $(ANNOTATE_ONTOLOG
 
 ASSETS=matrix-disease-list.tsv \
 	matrix-disease-list-unfiltered.tsv \
+	matrix-disease-list-unfiltered-processed.tsv \
 	matrix-disease-list.xlsx \
 	matrix-excluded-diseases-list.tsv \
 	matrix-disease-groupings.tsv \
