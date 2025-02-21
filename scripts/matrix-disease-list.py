@@ -244,10 +244,6 @@ def create_matrix_disease_list(input_file, output_included_diseases, output_incl
         df_excluded_diseases.to_csv(output_excluded_diseases, sep='\t', index=False)
         click.echo(f"Excluded diseases written to {output_excluded_diseases}")
     
-    if output_unfiltered_diseases_processed:
-        df_matrix_disease_filter_modified.to_csv(output_unfiltered_diseases_processed, sep='\t', index=False)
-        click.echo(f"Unfiltered diseases written to {output_unfiltered_diseases_processed}")
-
     if output_disease_groupings:
         curated_disease_groupings = ["harrisons_view", "matrix_txgnn_grouping", "mondo_top_grouping"]
         llm_disease_groupings = [ "matrix_llm__medical_specialization",	"matrix_llm__txgnn", "matrix_llm__anatomical", "matrix_llm__is_pathogen_caused", "matrix_llm__is_cancer", "matrix_llm__is_glucose_dysfunction", "matrix_llm__tag_existing_treatment", "matrix_llm__tag_qaly_lost"]
@@ -266,6 +262,18 @@ def create_matrix_disease_list(input_file, output_included_diseases, output_incl
         df_disease_groupings_pivot.sort_values(by="category_class", inplace=True)
         df_disease_groupings_pivot.to_csv(output_disease_groupings, sep='\t', index=False)
         click.echo(f"Disease groupinhs written to {output_disease_groupings}")
+    
+    if output_unfiltered_diseases_processed:
+        # Remove label column from df_disease_groupings_pivot
+        df_disease_groupings_pivot.drop(columns=['label'], inplace=True)
+        
+        # Prepend "g_" to all column names corresponding to groups
+        df_disease_groupings_pivot.rename(columns=lambda x: f"g_{x}" if x != 'category_class' else x, inplace=True)
+        
+        # Merge df_disease_groupings_pivot into df_matrix_disease_filter_modified
+        df_matrix_disease_filter_modified = df_matrix_disease_filter_modified.merge(df_disease_groupings_pivot, on='category_class', how='left')
+        df_matrix_disease_filter_modified.to_csv(output_unfiltered_diseases_processed, sep='\t', index=False)
+        click.echo(f"Unfiltered diseases written to {output_unfiltered_diseases_processed}")
 
     
     if output_xlsx:
