@@ -85,6 +85,7 @@ preprocessing.enrichment_tags:
         _object: &openai_chat_model langchain_openai.chat_models.base.ChatOpenAI
         model: &model_name gpt-4o-mini
         temperature: &temperature 0.8
+      single_input: True
     cancer:
       input_params:
         input_col: label
@@ -94,6 +95,7 @@ preprocessing.enrichment_tags:
         _object: *openai_chat_model
         model: *model_name
         temperature: *temperature
+      single_input: True
     glucose_dysfunction:
       input_params:
         input_col: label
@@ -103,6 +105,7 @@ preprocessing.enrichment_tags:
         _object: *openai_chat_model
         model: *model_name
         temperature: *temperature
+      single_input: True
     existing_treatment:
       input_params:
         input_col: label
@@ -112,6 +115,7 @@ preprocessing.enrichment_tags:
         _object: *openai_chat_model
         model: *model_name
         temperature: *temperature
+      single_input: True
   multiple_input:
     quality_life_years_lost:
       input_params:
@@ -124,6 +128,7 @@ preprocessing.enrichment_tags:
         _object: *openai_chat_model
         model: *model_name
         temperature: *temperature
+      single_input: False
 
 
 
