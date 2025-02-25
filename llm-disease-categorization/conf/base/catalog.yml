@@ -26,7 +26,47 @@ disease_list_with_medical_specialty_tags:
 
 disease_list_with_anatomical_tags:
   type: pandas.CSVDataset
-  filepath: data/03_primary/ec_tags_test_data.tsv
+  filepath: data/03_primary/ec_tags_anatomical.tsv
+  load_args:
+    sep: "\t"
+  save_args:
+    sep: "\t"
+
+enriched_disease_list_pathogen:
+  type: pandas.CSVDataset
+  filepath: data/03_primary/enriched_pathogen.tsv
+  load_args:
+    sep: "\t"
+  save_args:
+    sep: "\t"
+
+enriched_disease_list_cancer:
+  type: pandas.CSVDataset
+  filepath: data/03_primary/enriched_cancer.tsv
+  load_args:
+    sep: "\t"
+  save_args:
+    sep: "\t"
+
+enriched_disease_list_glucose_dysfunction:
+  type: pandas.CSVDataset
+  filepath: data/03_primary/enriched_glucose_dysfunction.tsv
+  load_args:
+    sep: "\t"
+  save_args:
+    sep: "\t"
+
+enriched_disease_list_existing_treatment:
+  type: pandas.CSVDataset
+  filepath: data/03_primary/enriched_existing_treatment.tsv
+  load_args:
+    sep: "\t"
+  save_args:
+    sep: "\t"
+
+enriched_disease_list_qoly:
+  type: pandas.CSVDataset
+  filepath: data/03_primary/enriched_qoly.tsv
   load_args:
     sep: "\t"
   save_args:
