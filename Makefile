@@ -43,6 +43,19 @@ tmp/mondo.owl:
 	wget "$(MONDO_OWL_URL)" -O $@
 .PRECIOUS: tmp/mondo.owl
 
+%.db: %.owl
+	@rm -f $*.db
+	@rm -f .template.db
+	@rm -f .template.db.tmp
+	@rm -f $*-relation-graph.tsv.gz
+	RUST_BACKTRACE=full semsql make $*.db
+	@rm -f .template.db
+	@rm -f .template.db.tmp
+	@rm -f $*-relation-graph.tsv.gz
+	@test -f $*.db || (echo "Error: File not found!" && exit 1)
+
+.PRECIOUS: %.db
+
 # A list of all billable ICD10 CM codes
 tmp/icd10-cm-codes.xlsx:
 	wget https://www.cms.gov/files/document/valid-icd-10-list.xlsx -O $@
@@ -62,12 +75,14 @@ tmp/llm-based-disease-groupings.template.tsv: llm-disease-categorization/data/03
 tmp/mondo-labels.tsv: tmp/mondo.owl
 	$(ROBOT) export -i tmp/mondo.owl -f tsv --header "ID|LABEL" --export $@
 
-tmp/subtypes.robot.tsv: tmp/mondo-labels.tsv
+tmp/subtypes.robot.tsv: tmp/mondo-labels.tsv tmp/mondo.db
 	python scripts/matrix-disease-list.py create-template-with-high-granularity-subtypes \
-		-l $< \
-		-t 5 \
+		-l tmp/mondo-labels.tsv \
+		-a sqlite:tmp/mondo.db \
+		-t 0 \
 		-r $@ \
 		-g tmp/grouping-counts.tsv \
+		-s tmp/subtype-counts.tsv \
 		-o tmp/all-subtype-matches.tsv
 
 # The MONDO ontology with the manually curated subsets added
@@ -114,6 +129,7 @@ matrix-disease-list-unfiltered.tsv: tmp/mondo-with-manually-curated-subsets.owl 
 matrix-disease-list.tsv: matrix-disease-list-unfiltered.tsv scripts/matrix-disease-list.py
 	pip install -r requirements.txt --break-system-packages
 	python scripts/matrix-disease-list.py create-matrix-disease-list -i matrix-disease-list-unfiltered.tsv \
+		--subtype-counts-tsv tmp/subtype-counts.tsv \
 		-o matrix-disease-list.tsv \
 		-e matrix-excluded-diseases-list.tsv \
 		--output-included-diseases-template src/included-diseases.robot.tsv \
