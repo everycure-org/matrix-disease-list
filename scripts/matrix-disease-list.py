@@ -186,6 +186,7 @@ def extract_groupings(subsets, groupings):
 
 @cli.command()
 @click.option('--input-file', '-i', required=True, type=click.Path(exists=True), help="Input TSV file")
+@click.option('--subtype-counts-tsv', '-s', required=True, type=click.Path(), help="TSV file with information on subtypes.")
 @click.option('--output-included-diseases', '-o', required=True, type=click.Path(), help="Included disease list as TSV file")
 @click.option('--output-included-diseases-template', required=True, type=click.Path(), help="Included disease list template for manual curation as TSV file")
 @click.option('--output-excluded-diseases-template', required=True, type=click.Path(), help="Excluded disease list template for manual curation as TSV file")
@@ -195,12 +196,13 @@ def extract_groupings(subsets, groupings):
 @click.option('--output-unfiltered-diseases-processed', '-l', required=False, type=click.Path(), help="Unfiltered disease list with added filter columns as TSV file")
 @click.option('--output-xlsx', '-x', required=False, type=click.Path(), help="Excluded disease list as TSV file")
 @click.option('--output-disease-groupings', '-g', required=False, type=click.Path(), help="A table with Mondo disease groupings")
-def create_matrix_disease_list(input_file, output_included_diseases, output_included_diseases_template, output_excluded_diseases_template, output_included_diseases_new, output_excluded_diseases_new, output_excluded_diseases, output_unfiltered_diseases_processed, output_xlsx, output_disease_groupings):
+def create_matrix_disease_list(input_file, subtype_counts_tsv, output_included_diseases, output_included_diseases_template, output_excluded_diseases_template, output_included_diseases_new, output_excluded_diseases_new, output_excluded_diseases, output_unfiltered_diseases_processed, output_xlsx, output_disease_groupings):
     """
     Load a TSV file, filter it by a specific column and value, and write the result to a new TSV file.
     """
     # Load the TSV file
     df = pd.read_csv(input_file, sep='\t')
+    df_subtype_counts = pd.read_csv(subtype_counts_tsv, sep='\t')
     
     # Filter the DataFrame
     df_included_diseases, df_excluded_diseases, df_matrix_disease_filter_modified = matrix_disease_filter(df)
@@ -253,37 +255,39 @@ def create_matrix_disease_list(input_file, output_included_diseases, output_incl
         df_excluded_diseases.to_csv(output_excluded_diseases, sep='\t', index=False)
         click.echo(f"Excluded diseases written to {output_excluded_diseases}")
     
-    if output_disease_groupings:
-        curated_disease_groupings = ["harrisons_view", "matrix_txgnn_grouping", "mondo_top_grouping"]
-        llm_disease_groupings = [ "matrix_llm__medical_specialization",	"matrix_llm__txgnn", "matrix_llm__anatomical", "matrix_llm__is_pathogen_caused", "matrix_llm__is_cancer", "matrix_llm__is_glucose_dysfunction", "matrix_llm__tag_existing_treatment", "matrix_llm__tag_qaly_lost"]
-        disease_groupings = curated_disease_groupings + llm_disease_groupings
-        df_disease_groupings = df_matrix_disease_filter_modified[["category_class", "label", "subsets"]]
-        
-        # Apply the function to extract groupings
-        df_disease_groupings_extracted = df_disease_groupings["subsets"].apply(
-            lambda x: extract_groupings(x, disease_groupings)
-        ).apply(pd.Series)
+    curated_disease_groupings = ["harrisons_view", "matrix_txgnn_grouping", "mondo_top_grouping"]
+    llm_disease_groupings = [ "matrix_llm__medical_specialization",	"matrix_llm__txgnn", "matrix_llm__anatomical", "matrix_llm__is_pathogen_caused", "matrix_llm__is_cancer", "matrix_llm__is_glucose_dysfunction", "matrix_llm__tag_existing_treatment", "matrix_llm__tag_qaly_lost"]
+    disease_groupings = curated_disease_groupings + llm_disease_groupings
+    df_disease_groupings = df_matrix_disease_filter_modified[["category_class", "label", "subsets"]]
+    
+    # Apply the function to extract groupings
+    df_disease_groupings_extracted = df_disease_groupings["subsets"].apply(
+        lambda x: extract_groupings(x, disease_groupings)
+    ).apply(pd.Series)
 
-        # Combine with the original DataFrame
-        df_disease_groupings_pivot = pd.concat(
-            [df_disease_groupings[["category_class", "label"]], df_disease_groupings_extracted], axis=1
-        )
-        df_disease_groupings_pivot.sort_values(by="category_class", inplace=True)
+    # Combine with the original DataFrame
+    df_disease_groupings_pivot = pd.concat(
+        [df_disease_groupings[["category_class", "label"]], df_disease_groupings_extracted], axis=1
+    )
+    df_disease_groupings_pivot.sort_values(by="category_class", inplace=True)
+    
+    if output_disease_groupings:
         df_disease_groupings_pivot.to_csv(output_disease_groupings, sep='\t', index=False)
         click.echo(f"Disease groupinhs written to {output_disease_groupings}")
     
+    # Remove label column from df_disease_groupings_pivot
+    df_disease_groupings_pivot.drop(columns=['label'], inplace=True)
+    
+    # Prepend "g_" to all column names corresponding to groups
+    df_disease_groupings_pivot.rename(columns=lambda x: f"g_{x}" if x != 'category_class' else x, inplace=True)
+    
+    # Merge df_disease_groupings_pivot into df_matrix_disease_filter_modified
+    df_matrix_disease_filter_modified = df_matrix_disease_filter_modified.merge(df_disease_groupings_pivot, on='category_class', how='left')
+    df_matrix_disease_filter_modified = df_matrix_disease_filter_modified.merge(df_subtype_counts[["subset_id", "subset_group_id", "subset_group_label", "other_subsets_count"]], left_on='category_class', right_on="subset_id", how='left')
+
     if output_unfiltered_diseases_processed:
-        # Remove label column from df_disease_groupings_pivot
-        df_disease_groupings_pivot.drop(columns=['label'], inplace=True)
-        
-        # Prepend "g_" to all column names corresponding to groups
-        df_disease_groupings_pivot.rename(columns=lambda x: f"g_{x}" if x != 'category_class' else x, inplace=True)
-        
-        # Merge df_disease_groupings_pivot into df_matrix_disease_filter_modified
-        df_matrix_disease_filter_modified = df_matrix_disease_filter_modified.merge(df_disease_groupings_pivot, on='category_class', how='left')
         df_matrix_disease_filter_modified.to_csv(output_unfiltered_diseases_processed, sep='\t', index=False)
         click.echo(f"Unfiltered diseases written to {output_unfiltered_diseases_processed}")
-
     
     if output_xlsx:
         with pd.ExcelWriter(output_xlsx, engine='xlsxwriter') as writer:
@@ -425,6 +429,9 @@ def match_patterns_efficiently(df, label_column, patterns):
     '-l', '--labels', required=True, type=click.Path(exists=True), help='Path to a TSV with Mondo labels.'
 )
 @click.option(
+    '-a', '--oak-adapter', required=True, type=str, help='Which OAK adapter to use for this script.'
+)
+@click.option(
     '-o', '--output-all-matches', required=True, type=click.Path(), help='Path to save the full output TSV file.'
 )
 @click.option(
@@ -434,17 +441,31 @@ def match_patterns_efficiently(df, label_column, patterns):
     '-g', '--output-grouping-counts', required=False, type=click.Path(), help='Path to save grouping counts.'
 )
 @click.option(
+    '-s', '--output-subtype-counts', required=False, type=click.Path(), help='Path to save subtype counts.'
+)
+@click.option(
     '-t', '--threshold-subtype-count', required=True, type=int, help='Path to save the template.'
 )
-def create_template_with_high_granularity_subtypes(labels, output_all_matches, output_template, output_grouping_counts, threshold_subtype_count=10):
+def create_template_with_high_granularity_subtypes(labels, oak_adapter, output_all_matches, output_template, output_grouping_counts, output_subtype_counts, threshold_subtype_count=10):
     """
     Reformat a TSV file;
     """
+    
+    from oaklib import get_adapter
+    from oaklib.datamodels.vocabulary import IS_A
+    
+    mondo = get_adapter(oak_adapter)
+    
+    # We will exclude chromosomal diseases from the subtype process
+    # as they are usually subtyped by chromosomal location
+    # making them very different diseases
+    chromosomal_diseases = set(mondo.descendants(["MONDO:0019040"], predicates=[IS_A]))
 
     # Load the data
     df_labels = pd.read_csv(labels, sep="\t")
     df_labels = df_labels.dropna(subset=['LABEL'])
     df_labels = df_labels[df_labels['ID'].str.startswith('MONDO:')]
+    df_labels = df_labels[~df_labels['ID'].isin(chromosomal_diseases)]
     df_labels = df_labels[["ID", "LABEL"]]
     df_labels.columns = ["category_class", "label"]
 
@@ -484,8 +505,18 @@ def create_template_with_high_granularity_subtypes(labels, output_all_matches, o
     # Filter the DataFrame to only include subtypes with a count greater than the threshold
     top_grouped_df = grouped_df[grouped_df["count"] > threshold_subtype_count]
     
+    
+    
     # Get the subset of the DataFrame that matches the top groupings
     top_subset_df = df_disease_list_matched_subset_with_matched_label_ids[df_disease_list_matched_subset_with_matched_label_ids['category_class_y'].notna() & df_disease_list_matched_subset_with_matched_label_ids['category_class_y'].isin(top_grouped_df['category_class_y'])]
+    
+    # Ensure we get the counts of "how many other subtypes exist in this group"
+    top_subset_df = pd.merge(top_subset_df, top_grouped_df, on="category_class_y", how="left")
+        
+    if output_subtype_counts:
+        top_subset_df_out=top_subset_df[["category_class_x", "label_x","category_class_y", "label_y_y","count"]]
+        top_subset_df_out.columns=["subset_id", "subset_label", "subset_group_id", "subset_group_label", "other_subsets_count"]
+        top_subset_df_out.to_csv(output_subtype_counts, sep="\t", index=False)
 
     # Display the final filtered DataFrame
     final_subset_df = top_subset_df[["category_class_x", "label_x"]].drop_duplicates().sort_values(by="category_class_x")
