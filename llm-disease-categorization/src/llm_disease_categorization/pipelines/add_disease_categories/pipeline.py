@@ -4,12 +4,16 @@ from . import nodes
 
 def create_pipeline(**kwargs) -> Pipeline:
     return pipeline([
+        
+
         node(
             func=nodes.add_disease_categories,
             inputs = [
                 "disease_list",
                 "params:disease_categories_txgnn_modified",
-                "params:categorization_prompt"
+                "params:categorization_prompt",
+                "prev_list",
+                "params:rebuild_cache",
             ],
             outputs = "disease_list_with_txgnn_tags",
             name = "add-txgnn-tags"
@@ -19,7 +23,9 @@ def create_pipeline(**kwargs) -> Pipeline:
             inputs = [
                 "disease_list_with_txgnn_tags",
                 "params:disease_categories_medical_specialization",
-                "params:categorization_prompt"
+                "params:categorization_prompt",
+                "prev_list",
+                "params:rebuild_cache",
             ],
             outputs = "disease_list_with_medical_specialty_tags",
             name = "add-medical-specialty-tags"
@@ -29,7 +35,9 @@ def create_pipeline(**kwargs) -> Pipeline:
             inputs = [
                 "disease_list_with_medical_specialty_tags",
                 "params:disease_categories_anatomical",
-                "params:categorization_prompt"
+                "params:categorization_prompt",
+                "prev_list",
+                "params:rebuild_cache",
             ],
             outputs = "disease_list_with_anatomical_tags",
             name = "add-tags-anatomical"
@@ -104,9 +112,7 @@ def create_pipeline(**kwargs) -> Pipeline:
             name="add-qoly-tag"
         ),
 
-
-
-
+        
         node(
             func=nodes.return_final_categories,
             inputs=[

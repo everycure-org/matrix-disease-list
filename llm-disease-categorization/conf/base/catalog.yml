@@ -87,3 +87,11 @@ disease_categories:
     sep: "\t"
   save_args:
     sep: "\t"
+
+prev_list: 
+  type: pandas.CSVDataset
+  filepath: data/03_primary/previous-list.tsv
+  load_args:
+    sep: "\t"
+  save_args:
+    sep: "\t"

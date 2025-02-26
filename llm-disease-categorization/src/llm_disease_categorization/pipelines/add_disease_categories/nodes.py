@@ -49,9 +49,17 @@ def file_cache(cache_file="cache.pkl"):
     return decorator
 
 
-def add_disease_categories(list_in:pd.DataFrame, params:str, base_prompt:dict) -> pd.DataFrame:
+def add_disease_categories(list_in:pd.DataFrame, params:str, base_prompt:dict, old_list: pd.DataFrame, rebuild_cache: bool) -> pd.DataFrame:
+
     category_tag = params['name']
     category_list = params['categories']
+
+
+    cache = {}
+    if not rebuild_cache:
+        for idx, row in old_list.iterrows():
+            cache[row['category_class']]=row[category_tag]
+
     categories_col = []
     disease_list = str(category_list)
     #print(disease_list)
@@ -61,17 +69,20 @@ def add_disease_categories(list_in:pd.DataFrame, params:str, base_prompt:dict) -
         success = False
         attempts=0
         #print(prompt)
-        while not success:
-            try:
-                response = query_ollama(prompt)['response']
-                categories_col.append(response)
-                success = True
-            except Exception as e:
-                print(e)
-                attempts+=1
-            if attempts > 5:
-                success = True
-                categories_col.append("error") 
+        if row['category_class'] in cache:
+            categories_col.append(cache[row['category_class']])
+        else:
+            while not success:
+                try:
+                    response = query_ollama(prompt)['response']
+                    categories_col.append(response)
+                    success = True
+                except Exception as e:
+                    print(e)
+                    attempts+=1
+                if attempts > 5:
+                    success = True
+                    categories_col.append("error") 
     list_in[category_tag]=categories_col
     return list_in
 

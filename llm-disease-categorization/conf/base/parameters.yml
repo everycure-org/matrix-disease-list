@@ -1,3 +1,6 @@
+
+rebuild_cache: False
+
 categorization_prompt: "Identify and return ONLY (provide no additional text) the best-fitting categories in the following list of categories for the following disease:"
 
 disease_categories_txgnn_modified:
