@@ -157,7 +157,38 @@ def query_ollama(
 
 
 def return_final_categories(inList: pd.DataFrame) -> pd.DataFrame:
-    inList.drop(['label', 'definition', 'synonyms', 'subsets', 'crossreferences'], axis=1, inplace=True)
+    inList.drop(['label', 
+                 'definition', 
+                 'synonyms', 
+                 'subsets', 
+                 'crossreferences', 
+                 'f_matrix_manually_included', 
+                 'f_clingen', 
+                 'f_grouping_subset', 
+                 'f_grouping_subset_ancestor', 
+                 'f_orphanet_subtype',
+                 'f_orphanet_subtype_descendant',
+                 'f_omimps',
+                 'f_omimps_descendant',
+                 'f_leaf',
+                 'f_leaf_direct_parent',
+                 'f_orphanet_disorder',
+                 'f_omim',
+                 'f_icd_category',
+                 'f_icd_chapter_code',
+                 'f_icd_chapter_header',
+                 'f_icd_billable',
+                 'f_mondo_subtype',
+                 'f_pathway_defect',
+                 'f_susceptibility',
+                 'f_paraphilic',
+                 'f_acquired',
+                 'f_andor',
+                 'f_withorwithout',
+                 'f_obsoletion_candidate',
+                 'f_unclassified_hereditary',
+                 'f_matrix_manually_excluded',
+                  ], axis=1, inplace=True)
     return inList
 
 
