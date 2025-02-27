@@ -1,7 +1,7 @@
 
 disease_list:
   type: pandas.CSVDataset
-  filepath: ../matrix-disease-list.tsv
+  filepath: ../matrix-disease-list-unfiltered.tsv
   load_args:
     sep: "\t"
   save_args:

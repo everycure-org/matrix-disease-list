@@ -59,6 +59,8 @@ def create_pipeline(**kwargs) -> Pipeline:
                 "params:preprocessing.enrichment_tags.single_input.pathogen.input_params.output_col",
                 "params:preprocessing.enrichment_tags.single_input.pathogen",
                 "params:preprocessing.enrichment_tags.single_input.pathogen.single_input",
+                "prev_list",
+                "params:rebuild_cache",
             ],
             outputs = "enriched_disease_list_pathogen",
             name="add-pathogen-tag"
@@ -71,6 +73,8 @@ def create_pipeline(**kwargs) -> Pipeline:
                 "params:preprocessing.enrichment_tags.single_input.cancer.input_params.output_col",
                 "params:preprocessing.enrichment_tags.single_input.cancer",
                 "params:preprocessing.enrichment_tags.single_input.cancer.single_input",
+                "prev_list",
+                "params:rebuild_cache",
             ],
             outputs = "enriched_disease_list_cancer",
             name="add-cancer-tag"
@@ -83,6 +87,8 @@ def create_pipeline(**kwargs) -> Pipeline:
                 "params:preprocessing.enrichment_tags.single_input.glucose_dysfunction.input_params.output_col",
                 "params:preprocessing.enrichment_tags.single_input.glucose_dysfunction",
                 "params:preprocessing.enrichment_tags.single_input.glucose_dysfunction.single_input",
+                "prev_list",
+                "params:rebuild_cache",
             ],
             outputs = "enriched_disease_list_glucose_dysfunction",
             name="add-glucose_dysfunction-tag"
@@ -95,6 +101,8 @@ def create_pipeline(**kwargs) -> Pipeline:
                 "params:preprocessing.enrichment_tags.single_input.existing_treatment.input_params.output_col",
                 "params:preprocessing.enrichment_tags.single_input.existing_treatment",
                 "params:preprocessing.enrichment_tags.single_input.existing_treatment.single_input",
+                "prev_list",
+                "params:rebuild_cache",
             ],
             outputs = "enriched_disease_list_existing_treatment",
             name="add-existing_treatment-tag"
@@ -107,6 +115,8 @@ def create_pipeline(**kwargs) -> Pipeline:
                 "params:preprocessing.enrichment_tags.multiple_input.quality_life_years_lost.input_params.output_col",
                 "params:preprocessing.enrichment_tags.multiple_input.quality_life_years_lost",
                 "params:preprocessing.enrichment_tags.multiple_input.quality_life_years_lost.single_input",
+                "prev_list",
+                "params:rebuild_cache",
             ],
             outputs = "enriched_disease_list_qoly",
             name="add-qoly-tag"

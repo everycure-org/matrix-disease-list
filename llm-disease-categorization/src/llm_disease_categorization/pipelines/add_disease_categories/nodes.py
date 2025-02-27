@@ -167,7 +167,15 @@ def return_final_categories(inList: pd.DataFrame) -> pd.DataFrame:
 
 
 def generate_tag(
-    disease_list: List, model, definitions: str = None, synonyms: str = None, raw_prompt: str = None
+    disease_list: List,
+    id_list: List,
+    model, 
+    definitions: str = None, 
+    synonyms: str = None, 
+    raw_prompt: str = None,
+    old_list: pd.DataFrame = None, 
+    rebuild_cache: bool = None, 
+    category_tag: str = None
 ) -> List:
     """Temporary function to generate tags based on provided prompts and params through OpenAI API call.
 
@@ -187,29 +195,40 @@ def generate_tag(
     # Initialize the output parser
     output_parser = CommaSeparatedListOutputParser()
 
+    cache = {}
+    if not rebuild_cache:
+        for idx, row in old_list.iterrows():
+            cache[row['category_class']]=row[category_tag]
+
     # Generate tags
     tag_list = []
     for i, disease in tqdm(enumerate(disease_list), total=len(disease_list), desc="adding tags..."):
-        if not testing or i < limit:
-            if (definitions is None) | (synonyms is None):
-                prompt = ChatPromptTemplate.from_messages(
-                    [SystemMessage(content=raw_prompt), HumanMessage(content=disease)]
-                )
-                formatted_prompt = prompt.format_messages(disease=disease)
-            else:
-                prompt = ChatPromptTemplate.from_messages(
-                    [
-                        SystemMessage(
-                            content=raw_prompt.format(disease=disease, synonym=synonyms[i], definition=definitions[i])
-                        )
-                    ]
-                )
-                formatted_prompt = prompt.format_messages(disease=disease, synonym=synonyms[i], definition=definitions[i])
-            response = model.invoke(formatted_prompt)
-            tags = output_parser.parse(response.content)
-            tag_list.append(", ".join(tags).lower())
+        id = id_list[i]
+        if id in cache:
+            print(f"cache hit for {id}")
+            tag_list.append(cache[id])
         else:
-            tag_list.append("over limit")
+            print("no cache hit")
+            if not testing or i < limit:
+                if (definitions is None) | (synonyms is None):
+                    prompt = ChatPromptTemplate.from_messages(
+                        [SystemMessage(content=raw_prompt), HumanMessage(content=disease)]
+                    )
+                    formatted_prompt = prompt.format_messages(disease=disease)
+                else:
+                    prompt = ChatPromptTemplate.from_messages(
+                        [
+                            SystemMessage(
+                                content=raw_prompt.format(disease=disease, synonym=synonyms[i], definition=definitions[i])
+                            )
+                        ]
+                    )
+                    formatted_prompt = prompt.format_messages(disease=disease, synonym=synonyms[i], definition=definitions[i])
+                response = model.invoke(formatted_prompt)
+                tags = output_parser.parse(response.content)
+                tag_list.append(", ".join(tags).lower())
+            else:
+                tag_list.append("over limit")
     return tag_list
 
 def enrich_disease_list(disease_list: List, params: Dict) -> pd.DataFrame:
@@ -254,7 +273,9 @@ def enrich_disease_list_single_tag(
     disease_list: pd.DataFrame,
     tag_name: str,
     tag_params: Dict,
-    single_input: bool
+    single_input: bool,
+    prev_list: pd.DataFrame,
+    rebuild_cache: bool
 ) -> pd.DataFrame:
     """Function to enrich disease list with a single llm-generated tag.
 
@@ -281,18 +302,26 @@ def enrich_disease_list_single_tag(
     if single_input:
         disease_list[output_col] = generate_tag(
             disease_list=disease_list[input_col],
+            id_list = disease_list['category_class'],
             raw_prompt=raw_prompt,
-            model=chat_model
+            model=chat_model,
+            old_list = prev_list,
+            rebuild_cache = rebuild_cache,
+            category_tag=output_col
         )
     else:  # multiple_input
         definition_col = tag_params["input_params"]["definition"]
         synonym_col = tag_params["input_params"]["synonyms"]
         disease_list[output_col] = generate_tag(
             disease_list=disease_list[input_col],
+            id_list = disease_list['category_class'],
             definitions=disease_list[definition_col],
             synonyms=disease_list[synonym_col],
             raw_prompt=raw_prompt,
-            model=chat_model
+            model=chat_model,
+            old_list = prev_list,
+            rebuild_cache = rebuild_cache,
+            category_tag=output_col
         )
 
     return disease_list
