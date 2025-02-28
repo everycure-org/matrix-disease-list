@@ -175,13 +175,18 @@ def extract_groupings(subsets, groupings):
     
     if subsets:
         for subset in subsets.split(";"):
+            subset = subset.strip()
             for grouping in groupings:
-                if grouping in subset:
-                    # Extract the specific part after the grouping
+                if subset.startswith(f"mondo:{grouping}"):
                     subset_tag = subset.replace("mondo:","").replace(grouping,"").replace(" ","").strip("_")
-                    if subset_tag != "member":
-                        result[grouping].append(subset_tag)
-    return {key: "|".join(values) if values else "" for key, values in result.items()}
+                    if (subset_tag != "member") and (subset_tag != ""):
+                        result[grouping].append(subset_tag.replace("|",""))
+    
+    # This looks very complex: if there are multiple values, we join them with a pipe, but we exclude "other" in this case
+    return {
+        key: "|".join([v for v in values if v != "other"] if len(values) > 1 else values) if values else ""
+        for key, values in result.items()
+    }
 
 
 @cli.command()
