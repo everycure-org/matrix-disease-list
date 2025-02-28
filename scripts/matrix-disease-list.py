@@ -277,10 +277,7 @@ def create_matrix_disease_list(input_file, subtype_counts_tsv, output_included_d
     
     # Remove label column from df_disease_groupings_pivot
     df_disease_groupings_pivot.drop(columns=['label'], inplace=True)
-    
-    # Prepend "g_" to all column names corresponding to groups
-    df_disease_groupings_pivot.rename(columns=lambda x: f"g_{x}" if x != 'category_class' else x, inplace=True)
-    
+       
     # Merge df_disease_groupings_pivot into df_matrix_disease_filter_modified
     
     # As per convention, rewrite filter columns to is_ 
