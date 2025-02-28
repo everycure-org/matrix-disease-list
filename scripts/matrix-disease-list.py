@@ -200,6 +200,7 @@ def create_matrix_disease_list(input_file, subtype_counts_tsv, output_included_d
     """
     Load a TSV file, filter it by a specific column and value, and write the result to a new TSV file.
     """
+    import re
     # Load the TSV file
     df = pd.read_csv(input_file, sep='\t')
     df_subtype_counts = pd.read_csv(subtype_counts_tsv, sep='\t')
@@ -290,6 +291,19 @@ def create_matrix_disease_list(input_file, subtype_counts_tsv, output_included_d
     # Remove subset_id column after merge
     df_matrix_disease_filter_modified.drop(columns=['subset_id'], inplace=True)
 
+    # Given all columns with start with is_ or tag_ should be boolean, we convert them to True/False
+    columns_to_check = [col for col in df_matrix_disease_filter_modified.columns if col.startswith('is_')]
+    
+    # Model this exceptoon, hopefully it will go away in a future iteration:
+    # https://github.com/everycure-org/matrix-disease-list/issues/75
+    
+    if "tag_existing_treatment" in df_matrix_disease_filter_modified.columns:
+        columns_to_check.append('tag_existing_treatment')
+    
+    for col in columns_to_check:
+        df_matrix_disease_filter_modified[col] = df_matrix_disease_filter_modified[col].map(
+            lambda x: 'True' if isinstance(x, bool) and x or (isinstance(x, str) and x.lower() == 'true') else 'False')
+    
     if output_unfiltered_diseases_processed:
         df_matrix_disease_filter_modified.to_csv(output_unfiltered_diseases_processed, sep='\t', index=False)
         click.echo(f"Unfiltered diseases written to {output_unfiltered_diseases_processed}")
