@@ -282,6 +282,11 @@ def create_matrix_disease_list(input_file, subtype_counts_tsv, output_included_d
     df_disease_groupings_pivot.rename(columns=lambda x: f"g_{x}" if x != 'category_class' else x, inplace=True)
     
     # Merge df_disease_groupings_pivot into df_matrix_disease_filter_modified
+    
+    # As per convention, rewrite filter columns to is_ 
+    # https://github.com/everycure-org/matrix-disease-list/issues/75
+    df_matrix_disease_filter_modified.rename(columns=lambda x: re.sub(r'^f_', 'is_', x) if x.startswith("f_") else x, inplace=True)
+    
     df_matrix_disease_filter_modified = df_matrix_disease_filter_modified.merge(df_disease_groupings_pivot, on='category_class', how='left')
     df_matrix_disease_filter_modified = df_matrix_disease_filter_modified.merge(df_subtype_counts[["subset_id", "subset_group_id", "subset_group_label", "other_subsets_count"]], left_on='category_class', right_on="subset_id", how='left')
     
