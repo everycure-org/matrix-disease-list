@@ -70,7 +70,7 @@ tmp/icd10-cm-billable.template.tsv: tmp/icd10-cm-codes.xlsx tmp/mondo.sssom.tsv
 		-o $@
 
 tmp/llm-based-disease-groupings.template.tsv: llm-disease-categorization/data/03_primary/disease_categories.tsv
-	python scripts/matrix-disease-list.py format-llm-disease-categorization -i $< -o $@ -c "https://orcid.org/0000-0002-4299-3501"
+	python scripts/matrix-disease-list.py format-llm-disease-categorization -i llm-disease-categorization/data/03_primary/disease_categories.tsv -o $@ -c "https://orcid.org/0000-0002-4299-3501"
 
 tmp/mondo-labels.tsv: tmp/mondo.owl
 	$(ROBOT) export -i tmp/mondo.owl -f tsv --header "ID|LABEL" --export $@
