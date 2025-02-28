@@ -175,13 +175,18 @@ def extract_groupings(subsets, groupings):
     
     if subsets:
         for subset in subsets.split(";"):
+            subset = subset.strip()
             for grouping in groupings:
-                if grouping in subset:
-                    # Extract the specific part after the grouping
+                if subset.startswith(f"mondo:{grouping}"):
                     subset_tag = subset.replace("mondo:","").replace(grouping,"").replace(" ","").strip("_")
-                    if subset_tag != "member":
-                        result[grouping].append(subset_tag)
-    return {key: "|".join(values) if values else "" for key, values in result.items()}
+                    if (subset_tag != "member") and (subset_tag != ""):
+                        result[grouping].append(subset_tag.replace("|",""))
+    
+    # This looks very complex: if there are multiple values, we join them with a pipe, but we exclude "other" in this case
+    return {
+        key: "|".join([v for v in values if v != "other"] if len(values) > 1 else values) if values else ""
+        for key, values in result.items()
+    }
 
 
 @cli.command()
@@ -200,6 +205,7 @@ def create_matrix_disease_list(input_file, subtype_counts_tsv, output_included_d
     """
     Load a TSV file, filter it by a specific column and value, and write the result to a new TSV file.
     """
+    import re
     # Load the TSV file
     df = pd.read_csv(input_file, sep='\t')
     df_subtype_counts = pd.read_csv(subtype_counts_tsv, sep='\t')
@@ -255,8 +261,8 @@ def create_matrix_disease_list(input_file, subtype_counts_tsv, output_included_d
         df_excluded_diseases.to_csv(output_excluded_diseases, sep='\t', index=False)
         click.echo(f"Excluded diseases written to {output_excluded_diseases}")
     
-    curated_disease_groupings = ["harrisons_view", "matrix_txgnn_grouping", "mondo_top_grouping"]
-    llm_disease_groupings = [ "matrix_llm__medical_specialization",	"matrix_llm__txgnn", "matrix_llm__anatomical", "matrix_llm__is_pathogen_caused", "matrix_llm__is_cancer", "matrix_llm__is_glucose_dysfunction", "matrix_llm__tag_existing_treatment", "matrix_llm__tag_qaly_lost"]
+    curated_disease_groupings = ["harrisons_view", "mondo_txgnn", "mondo_top_grouping"]
+    llm_disease_groupings = [ "medical_specialization",	"txgnn", "anatomical", "is_pathogen_caused", "is_cancer", "is_glucose_dysfunction", "tag_existing_treatment", "tag_qaly_lost"]
     disease_groupings = curated_disease_groupings + llm_disease_groupings
     df_disease_groupings = df_matrix_disease_filter_modified[["category_class", "label", "subsets"]]
     
@@ -273,18 +279,36 @@ def create_matrix_disease_list(input_file, subtype_counts_tsv, output_included_d
     
     if output_disease_groupings:
         df_disease_groupings_pivot.to_csv(output_disease_groupings, sep='\t', index=False)
-        click.echo(f"Disease groupinhs written to {output_disease_groupings}")
+        click.echo(f"Disease groupings written to {output_disease_groupings}")
     
     # Remove label column from df_disease_groupings_pivot
     df_disease_groupings_pivot.drop(columns=['label'], inplace=True)
-    
-    # Prepend "g_" to all column names corresponding to groups
-    df_disease_groupings_pivot.rename(columns=lambda x: f"g_{x}" if x != 'category_class' else x, inplace=True)
-    
+       
     # Merge df_disease_groupings_pivot into df_matrix_disease_filter_modified
+    
+    # As per convention, rewrite filter columns to is_ 
+    # https://github.com/everycure-org/matrix-disease-list/issues/75
+    df_matrix_disease_filter_modified.rename(columns=lambda x: re.sub(r'^f_', 'is_', x) if x.startswith("f_") else x, inplace=True)
+    
     df_matrix_disease_filter_modified = df_matrix_disease_filter_modified.merge(df_disease_groupings_pivot, on='category_class', how='left')
     df_matrix_disease_filter_modified = df_matrix_disease_filter_modified.merge(df_subtype_counts[["subset_id", "subset_group_id", "subset_group_label", "other_subsets_count"]], left_on='category_class', right_on="subset_id", how='left')
+    
+    # Remove subset_id column after merge
+    df_matrix_disease_filter_modified.drop(columns=['subset_id'], inplace=True)
 
+    # Given all columns with start with is_ or tag_ should be boolean, we convert them to True/False
+    columns_to_check = [col for col in df_matrix_disease_filter_modified.columns if col.startswith('is_')]
+    
+    # Model this exceptoon, hopefully it will go away in a future iteration:
+    # https://github.com/everycure-org/matrix-disease-list/issues/75
+    
+    if "tag_existing_treatment" in df_matrix_disease_filter_modified.columns:
+        columns_to_check.append('tag_existing_treatment')
+    
+    for col in columns_to_check:
+        df_matrix_disease_filter_modified[col] = df_matrix_disease_filter_modified[col].map(
+            lambda x: 'True' if isinstance(x, bool) and x or (isinstance(x, str) and x.lower() == 'true') else 'False')
+    
     if output_unfiltered_diseases_processed:
         df_matrix_disease_filter_modified.to_csv(output_unfiltered_diseases_processed, sep='\t', index=False)
         click.echo(f"Unfiltered diseases written to {output_unfiltered_diseases_processed}")
@@ -355,9 +379,14 @@ def format_llm_disease_categorization(input_file, output_file, contributor, repa
 
         # Process all columns after the first one as subsets
         for column_name in df.columns[1:]:
+            if column_name.startswith('f_'):
+                # Comment to self: this if clause is probably no longer needed
+                continue
             col = column_name.lower()
-            subset_prefix = f'obo:mondo#matrix_llm__{col}'
-            subset_prefix_member = f'obo:mondo#matrix_llm__{col}_member'
+            subset_prefix = f'obo:mondo#{col}'
+            subset_prefix_member = f'obo:mondo#{col}_member'
+            
+            specific_subsets = []
             if isinstance(row[column_name], str):
                 specific_subsets = row[column_name].strip().split('|')
             

@@ -8,7 +8,7 @@ INSERT {
 }
 WHERE {
     VALUES ?subset { 
-      <http://purl.obolibrary.org/obo/mondo#matrix_txgnn_grouping> 
+      <http://purl.obolibrary.org/obo/mondo#mondo_txgnn> 
       <http://purl.obolibrary.org/obo/mondo#harrisons_view>
       <http://purl.obolibrary.org/obo/mondo#mondo_top_grouping> 
       }

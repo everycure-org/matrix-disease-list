@@ -70,7 +70,7 @@ tmp/icd10-cm-billable.template.tsv: tmp/icd10-cm-codes.xlsx tmp/mondo.sssom.tsv
 		-o $@
 
 tmp/llm-based-disease-groupings.template.tsv: llm-disease-categorization/data/03_primary/disease_categories.tsv
-	python scripts/matrix-disease-list.py format-llm-disease-categorization -i $< -o $@ -c "https://orcid.org/0000-0002-4299-3501"
+	python scripts/matrix-disease-list.py format-llm-disease-categorization -i llm-disease-categorization/data/03_primary/disease_categories.tsv -o $@ -c "https://orcid.org/0000-0002-4299-3501"
 
 tmp/mondo-labels.tsv: tmp/mondo.owl
 	$(ROBOT) export -i tmp/mondo.owl -f tsv --header "ID|LABEL" --export $@
@@ -142,7 +142,7 @@ matrix-disease-list.tsv: matrix-disease-list-unfiltered.tsv scripts/matrix-disea
 .PRECIOUS: matrix-disease-list.tsv
 
 # ROBOT template with the disease list designations added as subset declarations
-tmp/matrix-list-designations.robot.tsv: matrix-disease-list-unfiltered-processed.tsv
+tmp/matrix-list-designations.robot.tsv: matrix-disease-list-unfiltered-processed.tsv matrix-disease-list.tsv
 	python scripts/matrix-disease-list.py create-template-from-matrix-disease-list -i $< -o $@
 .PRECIOUS: tmp/matrix-list-designations.robot.tsv
 
