@@ -284,6 +284,9 @@ def create_matrix_disease_list(input_file, subtype_counts_tsv, output_included_d
     # Merge df_disease_groupings_pivot into df_matrix_disease_filter_modified
     df_matrix_disease_filter_modified = df_matrix_disease_filter_modified.merge(df_disease_groupings_pivot, on='category_class', how='left')
     df_matrix_disease_filter_modified = df_matrix_disease_filter_modified.merge(df_subtype_counts[["subset_id", "subset_group_id", "subset_group_label", "other_subsets_count"]], left_on='category_class', right_on="subset_id", how='left')
+    
+    # Remove subset_id column after merge
+    df_matrix_disease_filter_modified.drop(columns=['subset_id'], inplace=True)
 
     if output_unfiltered_diseases_processed:
         df_matrix_disease_filter_modified.to_csv(output_unfiltered_diseases_processed, sep='\t', index=False)
