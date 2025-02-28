@@ -255,8 +255,8 @@ def create_matrix_disease_list(input_file, subtype_counts_tsv, output_included_d
         df_excluded_diseases.to_csv(output_excluded_diseases, sep='\t', index=False)
         click.echo(f"Excluded diseases written to {output_excluded_diseases}")
     
-    curated_disease_groupings = ["harrisons_view", "matrix_txgnn_grouping", "mondo_top_grouping"]
-    llm_disease_groupings = [ "matrix_llm__medical_specialization",	"matrix_llm__txgnn", "matrix_llm__anatomical", "matrix_llm__is_pathogen_caused", "matrix_llm__is_cancer", "matrix_llm__is_glucose_dysfunction", "matrix_llm__tag_existing_treatment", "matrix_llm__tag_qaly_lost"]
+    curated_disease_groupings = ["harrisons_view", "mondo_txgnn", "mondo_top_grouping"]
+    llm_disease_groupings = [ "medical_specialization",	"txgnn", "anatomical", "is_pathogen_caused", "is_cancer", "is_glucose_dysfunction", "tag_existing_treatment", "tag_qaly_lost"]
     disease_groupings = curated_disease_groupings + llm_disease_groupings
     df_disease_groupings = df_matrix_disease_filter_modified[["category_class", "label", "subsets"]]
     
@@ -273,7 +273,7 @@ def create_matrix_disease_list(input_file, subtype_counts_tsv, output_included_d
     
     if output_disease_groupings:
         df_disease_groupings_pivot.to_csv(output_disease_groupings, sep='\t', index=False)
-        click.echo(f"Disease groupinhs written to {output_disease_groupings}")
+        click.echo(f"Disease groupings written to {output_disease_groupings}")
     
     # Remove label column from df_disease_groupings_pivot
     df_disease_groupings_pivot.drop(columns=['label'], inplace=True)
@@ -355,9 +355,14 @@ def format_llm_disease_categorization(input_file, output_file, contributor, repa
 
         # Process all columns after the first one as subsets
         for column_name in df.columns[1:]:
+            if column_name.startswith('f_'):
+                # Comment to self: this if clause is probably no longer needed
+                continue
             col = column_name.lower()
-            subset_prefix = f'obo:mondo#matrix_llm__{col}'
-            subset_prefix_member = f'obo:mondo#matrix_llm__{col}_member'
+            subset_prefix = f'obo:mondo#{col}'
+            subset_prefix_member = f'obo:mondo#{col}_member'
+            
+            specific_subsets = []
             if isinstance(row[column_name], str):
                 specific_subsets = row[column_name].strip().split('|')
             
