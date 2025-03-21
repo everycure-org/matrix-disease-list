@@ -500,8 +500,11 @@ def create_template_with_high_granularity_subtypes(labels, oak_adapter, output_a
 
     # Define patterns
     patterns = {
+        "x_typec_ad": "(.*)[,][ ]type[ ][A-Z0-9]+$",
         "x_type_ad": "(.*)[ ]type[ ][A-Z0-9]+$",
         "x_group_a": "(.*)[ ]group [A-Z]+$",
+        "x_xylinked_d": "(.*),[ ][xyXY][-]linked,[ ][0-9]+$",
+        "x_dueto_d": "(.*)[,]?[ ]due[ ]to[ ].*$",
         "x_d": "(.*)[ ][0-9]+[0-9A-Za-z]*$",
         "x_d_ca": "(.*)[ ][0-9]+[0-9A-Za-z]*[,][ ][/A-Za-z0-9-_, ()]+$",
         "x_td_a": "(.*)[ ]type[ ][0-9]+[ ][/A-Za-z0-9-_, ()]+$",
