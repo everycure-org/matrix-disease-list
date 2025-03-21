@@ -489,7 +489,11 @@ def create_template_with_high_granularity_subtypes(labels, oak_adapter, output_a
     # as they are usually subtyped by chromosomal location
     # making them very different diseases
     chromosomal_diseases = set(mondo.descendants(["MONDO:0019040"], predicates=[IS_A]))
-
+    
+    # Some chromosomal diseases are indeed part of a series so we manually remove them
+    chromosomal_diseases.remove("MONDO:0010767")
+    chromosomal_diseases.remove("MONDO:0010763")
+    
     # Load the data
     df_labels = pd.read_csv(labels, sep="\t")
     df_labels = df_labels.dropna(subset=['LABEL'])
@@ -500,8 +504,11 @@ def create_template_with_high_granularity_subtypes(labels, oak_adapter, output_a
 
     # Define patterns
     patterns = {
+        "x_typec_ad": "(.*)[,][ ]type[ ][A-Z0-9]+$",
         "x_type_ad": "(.*)[ ]type[ ][A-Z0-9]+$",
         "x_group_a": "(.*)[ ]group [A-Z]+$",
+        "x_xylinked_d": "(.*),[ ][xyXY][-]linked,[ ][0-9]+$",
+        "x_dueto_d": "(.*)[,]?[ ]due[ ]to[ ].*$",
         "x_d": "(.*)[ ][0-9]+[0-9A-Za-z]*$",
         "x_d_ca": "(.*)[ ][0-9]+[0-9A-Za-z]*[,][ ][/A-Za-z0-9-_, ()]+$",
         "x_td_a": "(.*)[ ]type[ ][0-9]+[ ][/A-Za-z0-9-_, ()]+$",
