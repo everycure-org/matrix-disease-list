@@ -125,10 +125,19 @@ matrix-disease-list-unfiltered.tsv: tmp/mondo-with-manually-curated-subsets.owl 
 	sed -i 's/>//g' $@
 .PRECIOUS: matrix-disease-list-unfiltered.tsv
 
+matrix-disease-list-metrics.tsv: tmp/mondo-with-manually-curated-subsets.owl sparql/matrix-disease-list-metrics.sparql
+	robot query -i $< -f tsv --query sparql/matrix-disease-list-metrics.sparql $@
+	sed -i 's/[?]//g' $@
+	sed -i 's/<http:[/][/]purl[.]obolibrary[.]org[/]obo[/]MONDO_/MONDO:/g' $@
+	sed -i 's/http:[/][/]purl[.]obolibrary[.]org[/]obo[/]mondo#/mondo:/g' $@
+	sed -i 's/>//g' $@
+.PRECIOUS: matrix-disease-list-metrics.tsv
+
 # The final MATRIX disease list
-matrix-disease-list.tsv: matrix-disease-list-unfiltered.tsv scripts/matrix-disease-list.py
+matrix-disease-list.tsv: matrix-disease-list-unfiltered.tsv matrix-disease-list-metrics.tsv scripts/matrix-disease-list.py
 	pip install -r requirements.txt --break-system-packages
 	python scripts/matrix-disease-list.py create-matrix-disease-list -i matrix-disease-list-unfiltered.tsv \
+		-m matrix-disease-list-metrics.tsv \
 		--subtype-counts-tsv tmp/subtype-counts.tsv \
 		-o matrix-disease-list.tsv \
 		-e matrix-excluded-diseases-list.tsv \

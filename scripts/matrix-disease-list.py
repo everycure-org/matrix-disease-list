@@ -1,6 +1,9 @@
 import click
 import pandas as pd
 import logging
+import re
+
+from oaklib.datamodels.vocabulary import IS_A
 
 
 def matrix_filter_final_columns(df_disease_list):
@@ -192,6 +195,7 @@ def extract_groupings(subsets, groupings):
 @cli.command()
 @click.option('--input-file', '-i', required=True, type=click.Path(exists=True), help="Input TSV file")
 @click.option('--subtype-counts-tsv', '-s', required=True, type=click.Path(), help="TSV file with information on subtypes.")
+@click.option('--metrics', '-m', required=True, type=click.Path(), help="TSV file with additional metrics.")
 @click.option('--output-included-diseases', '-o', required=True, type=click.Path(), help="Included disease list as TSV file")
 @click.option('--output-included-diseases-template', required=True, type=click.Path(), help="Included disease list template for manual curation as TSV file")
 @click.option('--output-excluded-diseases-template', required=True, type=click.Path(), help="Excluded disease list template for manual curation as TSV file")
@@ -201,14 +205,17 @@ def extract_groupings(subsets, groupings):
 @click.option('--output-unfiltered-diseases-processed', '-l', required=False, type=click.Path(), help="Unfiltered disease list with added filter columns as TSV file")
 @click.option('--output-xlsx', '-x', required=False, type=click.Path(), help="Excluded disease list as TSV file")
 @click.option('--output-disease-groupings', '-g', required=False, type=click.Path(), help="A table with Mondo disease groupings")
-def create_matrix_disease_list(input_file, subtype_counts_tsv, output_included_diseases, output_included_diseases_template, output_excluded_diseases_template, output_included_diseases_new, output_excluded_diseases_new, output_excluded_diseases, output_unfiltered_diseases_processed, output_xlsx, output_disease_groupings):
+def create_matrix_disease_list(input_file, subtype_counts_tsv, metrics, output_included_diseases, output_included_diseases_template, output_excluded_diseases_template, output_included_diseases_new, output_excluded_diseases_new, output_excluded_diseases, output_unfiltered_diseases_processed, output_xlsx, output_disease_groupings):
     """
     Load a TSV file, filter it by a specific column and value, and write the result to a new TSV file.
     """
     import re
     # Load the TSV file
     df = pd.read_csv(input_file, sep='\t')
+    df_metrics = pd.read_csv(metrics, sep='\t')
     df_subtype_counts = pd.read_csv(subtype_counts_tsv, sep='\t')
+    df_subtype_group_counts = df_subtype_counts[["subset_group_id", "other_subsets_count"]].drop_duplicates()
+    df_subtype_group_counts.columns = ["category_class", "count_subtypes"]
     
     # Filter the DataFrame
     df_included_diseases, df_excluded_diseases, df_matrix_disease_filter_modified = matrix_disease_filter(df)
@@ -291,7 +298,14 @@ def create_matrix_disease_list(input_file, subtype_counts_tsv, output_included_d
     df_matrix_disease_filter_modified.rename(columns=lambda x: re.sub(r'^f_', 'is_', x) if x.startswith("f_") else x, inplace=True)
     
     df_matrix_disease_filter_modified = df_matrix_disease_filter_modified.merge(df_disease_groupings_pivot, on='category_class', how='left')
+    df_matrix_disease_filter_modified = df_matrix_disease_filter_modified.merge(df_metrics, on='category_class', how='left')
+    df_matrix_disease_filter_modified = df_matrix_disease_filter_modified.merge(df_subtype_group_counts, on='category_class', how='left')
     df_matrix_disease_filter_modified = df_matrix_disease_filter_modified.merge(df_subtype_counts[["subset_id", "subset_group_id", "subset_group_label", "other_subsets_count"]], left_on='category_class', right_on="subset_id", how='left')
+    df_matrix_disease_filter_modified['count_subtypes'] = df_matrix_disease_filter_modified['count_subtypes'].fillna(0)
+    df_matrix_disease_filter_modified['count_descendants'] = df_matrix_disease_filter_modified['count_descendants'].fillna(0)
+    df_matrix_disease_filter_modified['count_descendants_without_subtypes'] = (
+        df_matrix_disease_filter_modified['count_descendants'] - df_matrix_disease_filter_modified['count_subtypes']
+    )
     
     # Remove subset_id column after merge
     df_matrix_disease_filter_modified.drop(columns=['subset_id'], inplace=True)
@@ -421,37 +435,53 @@ def format_llm_disease_categorization(input_file, output_file, contributor, repa
     output_df.sort_values(by='ID', inplace=True)
     output_df.to_csv(output_file, sep='\t', index=False)
 
-def match_patterns_efficiently(df, label_column, patterns):
-    import re
+def match_patterns_efficiently(df_labels, i_labels, patterns, mondo):
     label_match = []
+    curie_match = []
     label_pattern = []
-
-    for _, row in df.iterrows():
-        label = row[label_column]
+    
+    for _, row in df_labels.iterrows():
+        label = row["label"]
+        disease_id = row["category_class"]
         match_found = False
 
-        for key, pattern in patterns.items():
+        for pattern_id, pattern in patterns.items():
             match = re.match(pattern, label)
             
             if match:
-                match = match.group(1)
+                potential_disease_group_label = match.group(1)
             else:
-                match = None
+                potential_disease_group_label = None
             
-            if match:
-                label_match.append(match)
-                label_pattern.append(key)
-                match_found = True
-                break  # Exit pattern loop on first match
+            if potential_disease_group_label:
+                potential_disease_group_label = potential_disease_group_label.strip().lower()
+                if potential_disease_group_label in i_labels:
+                    potential_disease_group_id = i_labels[potential_disease_group_label]
+                    if is_parent(mondo, potential_disease_group_id, disease_id):
+                        match_found = True
+                        label_match.append(potential_disease_group_label)
+                        label_pattern.append(pattern_id)
+                        curie_match.append(potential_disease_group_id)
+                        break
 
         if not match_found:
             label_match.append(None)
             label_pattern.append(None)
+            curie_match.append(None)
 
     # Add the results to the DataFrame
-    df["label_match"] = label_match
-    df["label_pattern"] = label_pattern
-    return df
+    df_labels["label_match"] = label_match
+    df_labels["label_pattern"] = label_pattern
+    df_labels["curie_match"] = curie_match
+    return df_labels
+
+def is_parent(mondo, parent_id, child_id):
+    try:
+        parents = mondo.ancestors([child_id], predicates=[IS_A])  # get all superclasses
+        return parent_id in parents
+    except Exception as e:
+        print(f"Error checking relationship between {parent_id} and {child_id}: {e}")
+        return False
 
 @cli.command()
 @click.option(
@@ -489,6 +519,7 @@ def create_template_with_high_granularity_subtypes(labels, oak_adapter, output_a
     # as they are usually subtyped by chromosomal location
     # making them very different diseases
     chromosomal_diseases = set(mondo.descendants(["MONDO:0019040"], predicates=[IS_A]))
+    human_diseases = set(mondo.descendants(["MONDO:0700096"], predicates=[IS_A]))
     
     # Some chromosomal diseases are indeed part of a series so we manually remove them
     chromosomal_diseases.remove("MONDO:0010767")
@@ -499,63 +530,91 @@ def create_template_with_high_granularity_subtypes(labels, oak_adapter, output_a
     df_labels = df_labels.dropna(subset=['LABEL'])
     df_labels = df_labels[df_labels['ID'].str.startswith('MONDO:')]
     df_labels = df_labels[~df_labels['ID'].isin(chromosomal_diseases)]
+    df_labels = df_labels[df_labels['ID'].isin(human_diseases)]
     df_labels = df_labels[["ID", "LABEL"]]
     df_labels.columns = ["category_class", "label"]
+    df_labels['label_lc'] = df_labels['label'].str.lower()
+    i_labels = {row['label_lc']: row['category_class'] for _, row in df_labels.iterrows()}
 
     # Define patterns
     patterns = {
-        "x_typec_ad": "(.*)[,][ ]type[ ][A-Z0-9]+$",
-        "x_type_ad": "(.*)[ ]type[ ][A-Z0-9]+$",
-        "x_group_a": "(.*)[ ]group [A-Z]+$",
-        "x_xylinked_d": "(.*),[ ][xyXY][-]linked,[ ][0-9]+$",
-        "x_dueto_d": "(.*)[,]?[ ]due[ ]to[ ].*$",
-        "x_d": "(.*)[ ][0-9]+[0-9A-Za-z]*$",
-        "x_d_ca": "(.*)[ ][0-9]+[0-9A-Za-z]*[,][ ][/A-Za-z0-9-_, ()]+$",
-        "x_td_a": "(.*)[ ]type[ ][0-9]+[ ][/A-Za-z0-9-_, ()]+$",
-        "x_d_a": "(.*)[ ][0-9]+[0-9A-Za-z]*[ ][/A-Za-z0-9-_, ()]+$",
-        "x_da_a": "(.*)[ ][0-9]+[a-z]*[ ][/A-Za-z0-9-_, ()]+$",
-        "x_dp": "(.*)[ ][0-9]+p$",
-        "x_a": "(.*)[ ][A-Z]+$",
-        "x_a_type": "(.*)[,][ ][A-Za-z0-9-_]+[ ]type$",
-        "x_type_I": "(.*)[ ]type[ ](X{0,3})(IX|IV|V?I{0,3})+$",
-        "x_I": "(.*)[ ](X{0,3})(IX|IV|V?I{0,3})+$",
+        "autosomal_rd_o_x_d": r"autosomal[ ](?:recessive|dominant)[ ](?:juvenile|early[-]onset)(.*)[ ][0-9]+[0-9A-Za-z]*$",
+        "x_typec_ad": r"(.*)[,][ ]type[ ][A-Z0-9]+$",
+        "x_type_I": r"(.*)\s+type\s+(X?(IX|IV|V?I{1,3}))$",
+        "x_type_ad": r"(.*)[ ]type[ ][A-Z0-9]+$",
+        "x_group_a": r"(.*)[ ]group [A-Z]+$",
+        "x_xylinked_d": r"(.*),[ ][xyXY][-]linked,[ ][0-9]+$",
+        "x_xylinked": r"(.*),[ ][xyXY][-]linked$",
+        "autosomal_rd_x_d": r"autosomal[ ](?:recessive|dominant)[ ](.*)[ ][0-9]+[0-9A-Za-z]*$",
+        "x_variant_type": r"(.*)[ ]variant[ ]type$",
+        "x_autosomomal_dominant_mild": r"(.*),[ ]autosomal[ ]dominant,[ ]mild$",
+        "x_d_autosomomal_dominant": r"(.*) [0-9]+[0-9A-Za-z]*,[ ]autosomal[ ]dominant$",
+        "x_d_early_onset": r"(.*) [0-9]+[0-9A-Za-z]*,[ ]early[- ]onset$",
+        "x_mitochondrial": r"(.*),[ ]mitochondrial$",
+        "x_xylinked": r"(.*),[ ][xyXY][-]linked$",
+        "x_familial_d": r"(.*),[ ]familial,[ ][0-9]+$",
+        "x_autosomal_rd_d": r"(.*),[ ]autosomal[ ](?:recessive|dominant),[ ][0-9]+$",
+        "x_dueto_d": r"(.*)[,]?[ ]due[ ]to[ ].*$",
+        "x_dp": r"(.*)[ ][0-9]+[qp]$",
+        "x_d": r"(.*)[ ][0-9]+[0-9A-Za-z]*$",
+        "x_tda": r"(.*)[ ]type[ ][0-9]+[A-Za-z0-9/_, ()-]+$",
+        "x_d_ca": r"(.*)[ ][0-9]+[0-9A-Za-z]*[,][ ][A-Za-z0-9/_, ()-]+$",
+        "x_d_a": r"(.*)[ ][0-9]+[0-9A-Za-z]*[ ][A-Za-z0-9/_, ()-]+$",
+        "x_da_a": r"(.*)[ ][0-9]+[a-z]*[ ][A-Za-z0-9/_, ()-]+$",
+        "x_I": r"(.*)\s(X?(?:IX|IV|V?I{1,3}))$",
+        "x_a": r"(.*)[ ][A-Z]+$",
+        "x_a_type": r"(.*)[,][ ][A-Za-z0-9-_]+[ ]type$",
+        "familial_x": r"familial[ ](.*)$",
+        "paroxysmal_x": r"paroxysmal[ ](.*)$",
+        "persistent_x": r"persistent[ ](.*)$",
+        "onset_x": r"(?:young|late|juvenile|early)[- ]onset[ ](.*)$",
+        "onset_x_d": r"(?:young|late|juvenile|early)[- ]onset[ ](.*)[ ][0-9]+[0-9A-Za-z]*$",
+        "persistent_x": r"persistent[ ](.*)$",
+        "xylinked_x": r"[xyXY][-]linked[ ](.*)$",
     }
 
-    df_disease_list_matched = match_patterns_efficiently(df_labels, "label", patterns)
+    df_disease_list_matched = match_patterns_efficiently(df_labels, i_labels, patterns, mondo)
 
-    df_disease_list_matched_subset = df_disease_list_matched[["category_class", "label", "label_match", "label_pattern"]]
-    df_disease_list_matched_subset.sort_values(by="label_match", inplace=True)
+    df_disease_list_matched_subset_with_matched_label_ids = df_disease_list_matched[["category_class", "label", "label_match", "curie_match", "label_pattern"]]
+    df_disease_list_matched_subset_with_matched_label_ids.sort_values(by="label_match", inplace=True)
     
-    # This step is to check if an extracted label_match is a valid label in the original disease list
-    df_disease_list_matched_subset_with_matched_label_ids = pd.merge(df_disease_list_matched_subset, df_labels[['label','category_class']], left_on="label_match", right_on="label", how="left")
+    # Count the number of subtypes for each disease
+    df_disease_list_matched_subset_with_matched_label_ids = df_disease_list_matched_subset_with_matched_label_ids[
+        df_disease_list_matched_subset_with_matched_label_ids['label_match'].notna() &
+        (df_disease_list_matched_subset_with_matched_label_ids['label_match'].str.strip() != "")
+    ]
+    grouped_data_label_match = df_disease_list_matched_subset_with_matched_label_ids.groupby(["label_match"]).size()
+    grouped_df_label_match = grouped_data_label_match.reset_index(name="count")
+    #grouped_data_grouping_class = df_disease_list_matched_subset_with_matched_label_ids.groupby(["label_y"]).size()
+    #grouped_df_grouping_class = grouped_data_grouping_class.reset_index(name="count")
     
     if output_all_matches:
         df_disease_list_matched_subset_with_matched_label_ids.to_csv(output_all_matches, sep="\t", index=False)
-    
-    # Count the number of subtypes for each disease
-    grouped_data = df_disease_list_matched_subset_with_matched_label_ids.groupby(["category_class_y", "label_y"]).size()
-    grouped_df = grouped_data.reset_index(name="count")
+        # print label_pattern if its not in patterns.keys()
+        processed = df_disease_list_matched_subset_with_matched_label_ids['label_pattern'].unique()
+        for label_pattern in patterns.keys():
+            if label_pattern not in processed:
+                print(f"Label pattern {label_pattern} not in patterns.keys()")
+
     if output_grouping_counts:
-        grouped_df.to_csv(output_grouping_counts, sep="\t", index=False)
+        grouped_df_label_match.to_csv(output_grouping_counts, sep="\t", index=False)
     
     # Filter the DataFrame to only include subtypes with a count greater than the threshold
-    top_grouped_df = grouped_df[grouped_df["count"] > threshold_subtype_count]
-    
-    
+    top_grouped_df = grouped_df_label_match[grouped_df_label_match["count"] > threshold_subtype_count]
     
     # Get the subset of the DataFrame that matches the top groupings
-    top_subset_df = df_disease_list_matched_subset_with_matched_label_ids[df_disease_list_matched_subset_with_matched_label_ids['category_class_y'].notna() & df_disease_list_matched_subset_with_matched_label_ids['category_class_y'].isin(top_grouped_df['category_class_y'])]
+    top_subset_df = df_disease_list_matched_subset_with_matched_label_ids.copy()
     
     # Ensure we get the counts of "how many other subtypes exist in this group"
-    top_subset_df = pd.merge(top_subset_df, top_grouped_df, on="category_class_y", how="left")
-        
+    top_subset_df = pd.merge(top_subset_df, top_grouped_df, left_on="label_match", right_on='label_match', how="left")
+    
     if output_subtype_counts:
-        top_subset_df_out=top_subset_df[["category_class_x", "label_x","category_class_y", "label_y_y","count"]]
+        top_subset_df_out=top_subset_df[["category_class", "label","curie_match", "label_match","count"]]
         top_subset_df_out.columns=["subset_id", "subset_label", "subset_group_id", "subset_group_label", "other_subsets_count"]
         top_subset_df_out.to_csv(output_subtype_counts, sep="\t", index=False)
 
     # Display the final filtered DataFrame
-    final_subset_df = top_subset_df[["category_class_x", "label_x"]].drop_duplicates().sort_values(by="category_class_x")
+    final_subset_df = top_subset_df[["curie_match", "label_match"]].drop_duplicates().sort_values(by="curie_match")
     final_subset_df['subset'] = "http://purl.obolibrary.org/obo/mondo#mondo_subtype"
     final_subset_df['contributor'] = "https://orcid.org/0000-0002-7356-1779"
     final_subset_df.columns=["ID", "LABEL", "SUBSET", "CONTRIBUTOR"]
