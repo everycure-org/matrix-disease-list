@@ -30,6 +30,11 @@ SELECT DISTINCT ?category_class ?label ?definition ?synonyms ?subsets ?crossrefe
   (IF(SUM(IF(?filter_pathway_defect = "TRUE", 1, 0)) > 0, "TRUE", "") AS ?f_pathway_defect)
   (IF(SUM(IF(?filter_susceptibility = "TRUE", 1, 0)) > 0, "TRUE", "") AS ?f_susceptibility)
   (IF(SUM(IF(?filter_paraphilic = "TRUE", 1, 0)) > 0, "TRUE", "") AS ?f_paraphilic)
+  (IF(SUM(IF(?filter_inflammatory = "TRUE", 1, 0)) > 0, "TRUE", "") AS ?f_inflammatory)
+  (IF(SUM(IF(?filter_cancer_or_benign_tumor = "TRUE", 1, 0)) > 0, "TRUE", "") AS ?f_cancer_or_benign_tumor)
+  (IF(SUM(IF(?filter_cardiovascular = "TRUE", 1, 0)) > 0, "TRUE", "") AS ?f_cardiovascular)
+  (IF(SUM(IF(?filter_heart_disorder = "TRUE", 1, 0)) > 0, "TRUE", "") AS ?f_filter_heart_disorder)
+  (IF(SUM(IF(?filter_psychiatric = "TRUE", 1, 0)) > 0, "TRUE", "") AS ?f_psychiatric)
   (IF(SUM(IF(?filter_acquired = "TRUE", 1, 0)) > 0, "TRUE", "") AS ?f_acquired)
   (IF(SUM(IF(?filter_andor = "TRUE", 1, 0)) > 0, "TRUE", "") AS ?f_andor)
   (IF(SUM(IF(?filter_withorwithout = "TRUE", 1, 0)) > 0, "TRUE", "") AS ?f_withorwithout)
@@ -129,6 +134,41 @@ WHERE
   OPTIONAL {
     ?category_class rdfs:subClassOf* MONDO:0000596 .
     BIND("TRUE" as ?filter_paraphilic)
+  }
+
+  # FILTER if the disease corresponds to a cardiovascular disorder
+  # https://github.com/everycure-org/matrix-disease-list/issues/90
+  OPTIONAL {
+    ?category_class rdfs:subClassOf* MONDO:0004995 .
+    BIND("TRUE" as ?filter_cardiovascular)
+  }
+
+  # FILTER if the disease corresponds to a heart disorder
+  # https://github.com/everycure-org/matrix-disease-list/issues/90
+  OPTIONAL {
+    ?category_class rdfs:subClassOf* MONDO:0005267 .
+    BIND("TRUE" as ?filter_heart_disorder)
+  }
+  
+  # FILTER if the disease corresponds to a inflammatory disease
+  # https://github.com/everycure-org/matrix-disease-list/issues/89
+  OPTIONAL {
+    ?category_class rdfs:subClassOf* MONDO:0021166 .
+    BIND("TRUE" as ?filter_inflammatory)
+  }
+
+  # FILTER if the disease corresponds to a psychiatric disorder
+  # https://github.com/everycure-org/matrix-disease-list/issues/88
+  OPTIONAL {
+    ?category_class rdfs:subClassOf* MONDO:0002025 .
+    BIND("TRUE" as ?filter_psychiatric)
+  }
+
+  # FILTER if the disease corresponds to a cancer
+  # https://github.com/everycure-org/matrix-disease-list/issues/87
+  OPTIONAL {
+    ?category_class rdfs:subClassOf* MONDO:0045024 .
+    BIND("TRUE" as ?filter_cancer_or_benign_tumor)
   }
 
 
