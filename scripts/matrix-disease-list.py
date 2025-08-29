@@ -25,7 +25,7 @@ def matrix_filter_final_columns(df_disease_list):
 
 def is_grouping_heuristic(df):
     """
-    Determine if a disease is a grouping heuristic based on its subsets.
+    Determine if a disease is a grouping heuristic based on its filters.
     
     Parameters
     ----------
