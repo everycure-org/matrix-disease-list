@@ -1,0 +1,4556 @@
+atc-codes-umls:
+  infores:
+    agent_type: not_provided
+    consumed_by:
+    - infores:rtx-kg2
+    id: infores:atc-codes-umls
+    knowledge_level: knowledge_assertion
+    name: Anatomical Therapeutic Chemical (ATC) Codes (from UMLS)
+    status: released
+    xref:
+    - https://www.nlm.nih.gov/research/umls/sourcereleasedocs/current/ATC/index.html
+  matrixcurated:
+    license_name: UMLS Metathesaurus
+    license_source_link: https://uts.nlm.nih.gov/uts/assets/LicenseAgreement.pdf
+    primary_knowledge_source: infores:atc-codes-umls
+bgee:
+  infores:
+    agent_type: not_provided
+    id: infores:bgee
+    knowledge_level: knowledge_assertion
+    name: Bgee
+    status: released
+    synonym:
+    - BGEE
+    xref:
+    - https://github.com/NCATSTranslator/Translator-All/wiki/Bgee
+  kgregistry:
+    activity_status: active
+    category: DataSource
+    contacts:
+    - category: Organization
+      contact_details:
+      - contact_type: email
+        value: bgee@sib.swiss
+      - contact_type: url
+        value: https://www.bgee.org/contact/
+      label: Bgee Team - SIB Swiss Institute of Bioinformatics
+    description: Bgee is a database for retrieval and comparison of gene expression
+      patterns across multiple animal species, providing information about gene expression
+      in different anatomical structures, developmental stages, and species.
+    domains:
+    - biological systems
+    - organisms
+    homepage_url: https://www.bgee.org/
+    id: bgee
+    layout: resource_detail
+    license:
+      id: https://creativecommons.org/licenses/by/4.0/
+      label: CC-BY-4.0
+      logo: http://mirrors.creativecommons.org/presskit/buttons/80x15/png/by.png
+    name: Bgee - Gene Expression Database
+    publications:
+    - authors:
+      - Bastian FB
+      - Brandulas Cammarata A
+      - Carsanaro S
+      - Detering H
+      - Huang W-T
+      - Joye S
+      - Niknejad A
+      - Nyamari M
+      - Mendes de Farias T
+      - Moretti S
+      - Tzivanopoulou M
+      - Wollbrett J
+      - Robinson-Rechavi M
+      doi: doi:10.1093/nar/gkae1118
+      id: doi:10.1093/nar/gkae1118
+      preferred: true
+      title: Bgee in 2024 - focus on curated single-cell RNA-seq datasets, and query
+        tools
+      year: '2025'
+    - authors:
+      - Bastian FB
+      - Roux J
+      - Niknejad A
+      - Comte A
+      - Fonseca Costa SS
+      - de Farias TM
+      - Moretti S
+      - Parmentier G
+      - de Laval VR
+      - Rosikiewicz M
+      - Wollbrett J
+      - Echchiki A
+      - Escoriza A
+      - Gharib WH
+      - Gonzales-Porta M
+      - Jarosz Y
+      - Laurenczy B
+      - Moret P
+      - Person E
+      - Roelli P
+      - Sanjeev K
+      - Seppey M
+      - Robinson-Rechavi M
+      doi: doi:10.1093/nar/gkaa793
+      id: doi:10.1093/nar/gkaa793
+      title: The Bgee suite - integrated curated expression atlas and comparative
+        transcriptomics in animals
+      year: '2021'
+    repository: https://github.com/BgeeDB/bgee_apps
+  matrixcurated:
+    license_name: CC0 1.0
+    license_source_link: https://www.bgee.org/about/
+    primary_knowledge_source: infores:bgee
+  reusabledata:
+    contacts:
+    - Bgee@sib.swiss
+    data-access:
+    - location: https://www.bgee.org/download/gene-expression-calls
+      type: download
+    - location: https://www.bgee.org/download/processed-expression-values
+      type: download
+    - location: https://www.bgee.org/download/data-dumps
+      type: download
+    data-categories:
+    - expression data
+    - curated data
+    - biology
+    - evo-devo
+    - curated experiment annotations
+    - RNA-Seq experiments
+    - scRNA-Seq experiments
+    - microarray experiments
+    - in situ hybridization experiments
+    - EST libraries
+    data-field: biomedical
+    data-tags: biomedical, x-species, expression data, curated data, biology, evo-devo,
+      curated experiment annotations, RNA-Seq experiments, scRNA-Seq experiments,
+      microarray experiments, in situ hybridization experiments, EST libraries
+    data-type: x-species
+    description: Bgee is a database to retrieve and compare gene expression patterns
+      in multiple animal species, produced from multiple data types (RNA-Seq, scRNA-Seq,
+      Affymetrix, in situ hybridization, and EST data).
+    grade-automatic: 5
+    id: bgee
+    license: CC0-1.0
+    license-commentary:
+    - In footer, two download pages are given in the footer (/download/processed-expression-values
+      and /download/gene-expression-calls) and a third in the menu (/download/data-dumps);
+      on all of these pages we see "All data are available under the Creative Commons
+      Zero license (CC0)."
+    - Also noting that on /about/, there is similarly affirming text.
+    - A little unclear on how this practically interacts with the sources list on
+      /about/sources, but does not affect evaluation with current standards.
+    - While there is manual iteration needed for the TSVs, the mysql and rdf available
+      on the data-dumps page sufficiently bridges the bulk criteria in C.1.
+    license-commentary-embeddable: In footer, two download pages are given in the
+      footer (/download/processed-expression-values and /download/gene-expression-calls)
+      and a third in the menu (/download/data-dumps); on all of these pages we see
+      "All data are available under the Creative Commons Zero license (CC0)."<hr />Also
+      noting that on /about/, there is similarly affirming text.<hr />A little unclear
+      on how this practically interacts with the sources list on /about/sources, but
+      does not affect evaluation with current standards.<hr />While there is manual
+      iteration needed for the TSVs, the mysql and rdf available on the data-dumps
+      page sufficiently bridges the bulk criteria in C.1.
+    license-issues: []
+    license-type: permissive
+    provisional: 'true'
+    source: Bgee
+    source-link: https://www.bgee.org
+    source-type: integrator
+    status: complete
+    was-controversial: 'false'
+bindingdb:
+  infores:
+    agent_type: not_provided
+    consumed_by:
+    - infores:biothings-bindingdb
+    - infores:molepro
+    description: BindingDB is a public, web-accessible database of measured binding
+      affinities, focusing chiefly on the interactions of protein considered to be
+      drug-targets with small, drug-like molecules. As of July 31, 2021, BindingDB
+      contains 41,300 Entries, each with a DOI, containing 2,303,972 binding data
+      for 8,561 protein targets and 995,797 small molecules.
+    id: infores:bindingdb
+    knowledge_level: knowledge_assertion
+    name: BindingDB
+    status: released
+    synonym:
+    - The Binding Database
+    xref:
+    - https://github.com/NCATSTranslator/Translator-All/wiki/bindingdb
+  kgregistry:
+    activity_status: active
+    category: DataSource
+    contacts:
+    - category: Organization
+      contact_details:
+      - contact_type: email
+        value: bindingdb@gmail.com
+      - contact_type: url
+        value: https://www.bindingdb.org/rwd/bind/sendmail.jsp
+      label: BindingDB
+    - category: Organization
+      contact_details:
+      - contact_type: url
+        value: https://pharmacy.ucsd.edu/
+      label: Skaggs School of Pharmacy and Pharmaceutical Sciences, University of
+        California San Diego
+    description: BindingDB is a public, web-accessible database of measured binding
+      affinities between small, drug-like molecules and protein targets, focusing
+      on the interactions of proteins with small, drug-like molecules. It contains
+      3.0M data points for 1.3M compounds and 9.6K targets, serving as a crucial resource
+      for drug discovery, pharmacology, and related fields.
+    domains:
+    - biomedical
+    - drug discovery
+    - chemistry and biochemistry
+    - pharmacology
+    fairsharing_id: FAIRsharing.3b36hk
+    homepage_url: https://www.bindingdb.org/rwd/bind/index.jsp
+    id: bindingdb
+    layout: resource_detail
+    license:
+      id: https://www.bindingdb.org/rwd/bind/info.jsp
+      label: CC BY 4.0
+    name: BindingDB
+    publications:
+    - authors:
+      - Tiqing Liu
+      - Linda Hwang
+      - Stephen K Burley
+      - Carmen I Nitsche
+      - Christopher Southan
+      - W Patrick Walters
+      - Michael K Gilson
+      doi: 10.1093/nar/gkae1075
+      id: doi:10.1093/nar/gkae1075
+      journal: Nucleic Acids Research
+      title: 'BindingDB in 2024: a FAIR knowledgebase of protein-small molecule binding
+        data'
+      year: '2025'
+  matrixcurated:
+    license_name: CC BY 3.0 (BindingDB curated), CC BY-SA 3.0 (ChEMBL-derived)
+    license_source_link: 'https://www.bindingdb.org/rwd/bind/info.jsp '
+    primary_knowledge_source: infores:bindingdb
+biolink-ontology:
+  infores:
+    agent_type: not_provided
+    consumed_by:
+    - infores:rtx-kg2
+    id: infores:biolink-ontology
+    knowledge_level: knowledge_assertion
+    name: Biolink ontology
+    status: released
+    xref:
+    - https://github.com/NCATSTranslator/Translator-All/wiki/BioLink-OWL
+  matrixcurated:
+    license_name: Public Domain and CC0 1.0
+    license_source_link: 'https://www.ebi.ac.uk/ols4/ontologies/biolink '
+    primary_knowledge_source: infores:biolink-ontology
+bspo:
+  infores:
+    agent_type: not_provided
+    consumed_by:
+    - infores:rtx-kg2
+    id: infores:bspo
+    knowledge_level: knowledge_assertion
+    name: Biological Spatial Ontology
+    status: released
+    synonym:
+    - BSPO
+    xref:
+    - https://obofoundry.org/ontology/bspo.html
+  matrixcurated:
+    license_name: CC BY 3.0
+    license_source_link: https://obofoundry.org/ontology/bspo.html
+    primary_knowledge_source: infores:bspo
+chebi:
+  infores:
+    agent_type: not_provided
+    consumed_by:
+    - infores:molepro
+    - infores:mychem-info
+    - infores:rtx-kg2
+    description: "a freely available dictionary of molecular entities focused on \u2018\
+      small\u2019 chemical compounds"
+    id: infores:chebi
+    knowledge_level: knowledge_assertion
+    name: Chemical Entity of Biological Interest
+    status: released
+    synonym:
+    - ChEBI
+    xref:
+    - https://github.com/NCATSTranslator/Translator-All/wiki/ChEBI
+  kgregistry:
+    activity_status: active
+    category: DataSource
+    contacts:
+    - category: Organization
+      label: ChEBI
+    description: "Chemical Entities of Biological Interest (ChEBI) is a freely available\
+      \ dictionary of molecular entities focused on \u2018small\u2019 chemical compounds."
+    domains:
+    - chemistry and biochemistry
+    homepage_url: https://www.ebi.ac.uk/chebi/
+    id: chebi
+    layout: resource_detail
+    license:
+      id: https://creativecommons.org/licenses/by-sa/4.0/
+      label: CC-BY-SA-4.0
+      logo: https://mirrors.creativecommons.org/presskit/buttons/80x15/png/by-sa.png
+    name: ChEBI
+    repository: https://github.com/ebi-chebi/ChEBI
+  matrixcurated:
+    license_name: CC BY 4.0
+    license_source_link: 'https://www.ebi.ac.uk/chebi/aboutChebiForward.do '
+    primary_knowledge_source: infores:chebi
+  matrixreviews:
+    domain_coverage_comments: Rich ontology of small molecules with roles and structure
+      descriptors; cross-referenced broadly; but lacks explicit gene/disease edges.
+    domain_coverage_score: 2
+    label_manual: Medium
+    label_manual_comment: "ChEBI is an essential foundation for biomedical informatics\
+      \ because it provides a rigorously curated ontology of small molecules, drugs,\
+      \ metabolites, cofactors, and xenobiotics, each linked with standardized identifiers\
+      \ (InChI, SMILES, INNs, synonyms) and roles such as \u201Cantineoplastic agent\u201D\
+      \ or \u201Canalgesic.\u201D From a pharmacology perspective, this makes it an\
+      \ amazing source for harmonizing chemical vocabularies across databases and\
+      \ for ensuring consistent mapping of drug entities when integrating resources\
+      \ like ChEMBL, DrugBank, or Reactome. However, ChEBI does not itself provide\
+      \ direct therapeutic relationships such as drug\u2013target, target\u2013disease,\
+      \ or drug\u2013disease edges. Its value in repurposing therefore lies in its\
+      \ ability to unify chemical definitions, facilitate cross-resource linkage,\
+      \ and provide chemical role annotations that can serve as indirect signals of\
+      \ therapeutic potential. In practice, ChEBI acts as the chemical backbone of\
+      \ larger repurposing pipelines, enabling clean integration rather than producing\
+      \ repurposing hypotheses on its own"
+    label_rubric: Medium
+    label_rubric_rationale: "Conditional: a backbone ontology for chemical harmonization\
+      \ and roles, but requires integration with drug\u2013target and disease resources\
+      \ to support repurposing models."
+    primary_knowledge_source: infores:chebi
+    reviewer: https://orcid.org/0000-0003-4097-3395
+    source_scope_score: 3
+    source_scope_score_comment: General-purpose backbone ontology of small molecules,
+      roles, and classes; >400k entities; multi-resource integration; cross-disease,
+      multi-use.
+    utility_drugrepurposing_comment: "Great for harmonization (IDs, synonyms, chemical\
+      \ roles), but lacks curated D\u2013T, T\u2013D, or D\u2013D edges; not plug-and-play\
+      \ for repurposing."
+    utility_drugrepurposing_score: 1
+chembl:
+  infores:
+    agent_type: not_provided
+    consumed_by:
+    - infores:molepro
+    - infores:mychem-info
+    - infores:rtx-kg2
+    description: a manually knowledge_assertion database of bioactive molecules with
+      drug-like properties.
+    id: infores:chembl
+    knowledge_level: knowledge_assertion
+    name: ChEMBL
+    status: released
+    synonym:
+    - Chembl
+    xref:
+    - https://github.com/NCATSTranslator/Translator-All/wiki/ChEMBL
+  kgregistry:
+    activity_status: active
+    category: DataSource
+    contacts:
+    - category: Organization
+      contact_details:
+      - contact_type: email
+        value: chembl-help@ebi.ac.uk
+      label: ChEMBL
+    description: ChEMBL is a manually curated database of bioactive molecules with
+      drug-like properties. It brings together chemical, bioactivity and genomic data
+      to aid the translation of genomic information into effective new drugs.
+    domains:
+    - chemistry and biochemistry
+    homepage_url: https://www.ebi.ac.uk/chembl/
+    id: chembl
+    layout: resource_detail
+    license:
+      id: https://creativecommons.org/licenses/by-sa/3.0/
+      label: CC-BY-SA-3.0
+      logo: https://mirrors.creativecommons.org/presskit/buttons/80x15/png/by-sa.png
+    name: ChEMBL
+    publications:
+    - authors:
+      - Zdrazil B
+      - Felix E
+      - Hunter F
+      - Manners EJM
+      - Blackshaw J
+      - Corbett S
+      - de Veij M
+      - Ioannidis H
+      - Mendez Lopez DM
+      - Mosquera JF
+      - Magarinos MP
+      - Bosc N
+      - Arcila R
+      - "Kizil\xF6ren T"
+      - Gaulton A
+      - Bento AP
+      - Adasme MF
+      - Monecke PM
+      - Landrum GA
+      - Leach AR
+      doi: doi:10.1093/nar/gkad1004
+      id: doi:10.1093/nar/gkad1004
+      preferred: true
+      title: 'The ChEMBL Database in 2023: a drug discovery platform spanning multiple
+        bioactivity data types and time periods'
+      year: '2023'
+    repository: https://github.com/chembl
+  matrixcurated:
+    license_name: CC BY-SA 3.0
+    license_source_link: https://chembl.gitbook.io/chembl-interface-documentation/about
+    primary_knowledge_source: infores:chembl
+  reusabledata:
+    contacts:
+    - https://www.ebi.ac.uk/support/
+    data-access:
+    - location: https://www.ebi.ac.uk/chembl/downloads
+      type: download
+    - location: https://www.ebi.ac.uk/chembl/ws
+      type: api
+    data-categories:
+    - bioactive drug-like small molecules
+    data-field: biology
+    data-tags: biology, biochemical, bioactive drug-like small molecules
+    data-type: biochemical
+    description: ChEMBL is a database of bioactive drug-like small molecules, it contains
+      2-D structures, calculated properties (e.g. logP, Molecular Weight, Lipinski
+      Parameters, etc.) and abstracted bioactivities (e.g. binding constants, pharmacology
+      and ADMET data).
+    grade-automatic: 3
+    id: chembl
+    license: CC-BY-SA-3.0
+    license-commentary:
+    - There was no centralized licensing/terms information on the main site, but all
+      download FTP directories we looked at contained terms for the CC SA 3.0; we
+      used as single example as the license link.
+    license-commentary-embeddable: There was no centralized licensing/terms information
+      on the main site, but all download FTP directories we looked at contained terms
+      for the CC SA 3.0; we used as single example as the license link.
+    license-hat-used: 'false'
+    license-issues:
+    - comment: CC SA prevents some types of reuse, such and modification and redistribution
+        with data from different license types.
+      criteria: D.1.2
+    - comment: CC SA prevents all parties from reusing the data as D.1.2.
+      criteria: E.1.2
+    license-link: ftp://ftp.ebi.ac.uk/pub/databases/chembl/ChEMBLdb/releases/chembl_23/LICENSE
+    license-type: copyleft
+    source: ChEMBL
+    source-link: https://www.ebi.ac.uk/chembl/
+    source-type: source
+    status: complete
+    was-controversial: 'false'
+chv-umls:
+  infores:
+    agent_type: not_provided
+    consumed_by:
+    - infores:rtx-kg2
+    id: infores:chv-umls
+    knowledge_level: not_provided
+    status: released
+    xref:
+    - https://github.com/NCATSTranslator/Translator-All/wiki/Automat
+  matrixcurated:
+    license_name: .nan
+    license_source_link: .nan
+    primary_knowledge_source: infores:chv-umls
+cl:
+  infores:
+    agent_type: not_provided
+    consumed_by:
+    - infores:rtx-kg2
+    id: infores:cl
+    knowledge_level: knowledge_assertion
+    name: Cell Ontology
+    status: released
+    synonym:
+    - CL
+    xref:
+    - https://github.com/NCATSTranslator/Translator-All/wiki/CL
+  kgregistry:
+    activity_status: active
+    category: DataModel
+    contacts:
+    - category: Individual
+      contact_details:
+      - contact_type: email
+        value: addiehl@buffalo.edu
+      - contact_type: github
+        value: addiehl
+      label: Alexander D. Diehl
+      orcid: 0000-0001-9990-8331
+    - category: Organization
+      contact_details:
+      - contact_type: url
+        value: https://obofoundry.org/
+      - contact_type: github
+        value: obophenotype
+      label: OBO Foundry
+    creation_date: '2025-07-22T00:00:00Z'
+    description: The Cell Ontology (CL) is a structured controlled vocabulary for
+      cell types in animals. It serves as a comprehensive resource for model organism
+      and bioinformatics databases, with over 2,700 cell type classes and rich integration
+      with other biomedical ontologies.
+    domains:
+    - anatomy and development
+    - biomedical
+    homepage_url: https://cell-ontology.github.io/
+    id: cl
+    last_modified_date: '2025-07-22T00:00:00Z'
+    layout: resource_detail
+    license:
+      id: http://creativecommons.org/licenses/by/4.0/
+      label: CC BY 4.0
+      logo: http://mirrors.creativecommons.org/presskit/buttons/80x15/png/by.png
+    name: Cell Ontology
+    publications:
+    - authors:
+      - Alexander D Diehl
+      - Terrence F Meehan
+      - Yvonne M Bradford
+      - Matthew H Brush
+      - Wasila M Dahdul
+      - David S Dougall
+      - Yongqun He
+      - David Osumi-Sutherland
+      - Bjoern Peters
+      - Alan Ruttenberg
+      - Sirarat Sarntivijai
+      - Christian J Stoeckert Jr
+      - Melissa A Haendel
+      - Christopher J Mungall
+      doi: 10.1186/s13326-016-0088-7
+      id: doi:10.1186/s13326-016-0088-7
+      journal: Journal of Biomedical Semantics
+      preferred: true
+      title: The Cell Ontology 2016 - enhanced content, modularization, and ontology
+        interoperability
+      year: '2016'
+    - authors:
+      - Terrence F Meehan
+      - Anna Maria Masci
+      - Amina Abdulla
+      - Lindsay G Cowell
+      - Judith A Blake
+      - Christopher J Mungall
+      - Alexander D Diehl
+      doi: 10.1186/1471-2105-12-6
+      id: doi:10.1186/1471-2105-12-6
+      journal: BMC Bioinformatics
+      title: Logical development of the cell ontology
+      year: '2011'
+    - authors:
+      - Jonathan Bard
+      - Seung Y Rhee
+      - Michael Ashburner
+      doi: 10.1186/gb-2005-6-2-r21
+      id: doi:10.1186/gb-2005-6-2-r21
+      journal: Genome Biology
+      title: An ontology for cell types
+      year: '2005'
+    repository: https://github.com/obophenotype/cell-ontology
+  matrixcurated:
+    license_name: CC BY 4.0
+    license_source_link: 'https://obofoundry.org/ontology/cl.html '
+    primary_knowledge_source: infores:cl
+ctd:
+  infores:
+    agent_type: not_provided
+    consumed_by:
+    - infores:molepro
+    - infores:mydisease-info
+    - infores:service-provider-trapi
+    description: A robust, publicly available database that aims to advance understanding
+      about how environmental exposures affect human health.
+    id: infores:ctd
+    knowledge_level: knowledge_assertion
+    name: Comparative Toxicogenomics Database
+    status: released
+    synonym:
+    - CTDbase
+    xref:
+    - https://github.com/NCATSTranslator/Translator-All/wiki/CTD
+  kgregistry:
+    activity_status: active
+    category: DataSource
+    contacts:
+    - category: Organization
+      label: Comparative Toxicogenomics Database
+    description: CTD is a robust, publicly available database that aims to advance
+      understanding about how environmental exposures affect human health.
+    domains:
+    - chemistry and biochemistry
+    homepage_url: https://ctdbase.org/
+    id: ctd
+    layout: resource_detail
+    license:
+      id: https://ctdbase.org/about/legal.jsp
+      label: Custom
+    name: Comparative Toxicogenomics Database
+  matrixcurated:
+    license_name: "Custom CTD License \u2014 free for research/education; commercial\
+      \ use requires written permission; attribution, linking, and usage notification\
+      \ required"
+    license_source_link: 'https://ctdbase.org/about/legal.jsp '
+    primary_knowledge_source: infores:ctd
+  reusabledata:
+    contacts:
+    - http://ctdbase.org/help/contact.go
+    data-access:
+    - location: http://ctdbase.org/tools/batchQuery.go
+      type: api
+    - location: http://ctdbase.org/downloads/
+      type: download
+    data-categories:
+    - disease-gene association
+    data-field: biology
+    data-tags: biology, x-species, disease-gene association
+    data-type: x-species
+    description: CTD promotes understanding about the effects of environmental chemicals
+      on human health by integrating data from curated scientific literature to describe
+      chemical interactions with genes and proteins, and associations between diseases
+      and chemicals, and diseases and genes/proteins.
+    grade-automatic: 2.5
+    id: ctd
+    license: custom
+    license-commentary:
+    - There are statements made in the Additional Terms of Data Use that would make
+      it very difficult to re-use the data provided without a air amount o coordination
+      with the resource and changes to information handling.
+    license-commentary-embeddable: There are statements made in the Additional Terms
+      of Data Use that would make it very difficult to re-use the data provided without
+      a air amount o coordination with the resource and changes to information handling.
+    license-issues:
+    - comment: Custom license with interesting use restrictions.
+      criteria: A.2.2
+    - comment: For quality control purposes, you must provide CTD with periodic access
+        to your publication of our data.
+      criteria: B.1
+    - comment: Given the four statements in the Additional Terms of Data Use, notably
+        number 4, it looks like any downstream user would have to renegotiate with
+        CTD.
+      criteria: D.1.2
+    - comment: 'Without negotiation: "It is to be used only for research and educational
+        purposes."'
+      criteria: E.1.1
+    license-link: http://ctdbase.org/about/legal.jsp
+    license-type: restrictive
+    source: Comparative Toxicogenomics Database (CTD)
+    source-link: http://ctdbase.org
+    status: complete
+dda:
+  infores:
+    agent_type: not_provided
+    consumed_by:
+    - infores:rtx-kg2
+    id: infores:dda
+    knowledge_level: knowledge_assertion
+    name: Dictyostelium discoideum anatomy
+    status: released
+    synonym:
+    - DDA
+    xref:
+    - http://www.obofoundry.org/ontology/ddanat.html
+  matrixcurated:
+    license_name: CC0 1.0
+    license_source_link: 'https://bioregistry.io/registry/ddanat '
+    primary_knowledge_source: infores:dda
+dgidb:
+  infores:
+    agent_type: not_provided
+    consumed_by:
+    - infores:biothings-dgidb
+    - infores:molepro
+    - infores:rtx-kg2
+    description: information on drug-gene interactions and druggable genes from publications,
+      databases, and other web-based sources. Drug, gene, and interaction data are
+      normalized and merged into conceptual groups.
+    id: infores:dgidb
+    knowledge_level: mixed
+    name: Drug Gene Interaction Database
+    status: released
+    synonym:
+    - DGIdb
+    xref:
+    - https://github.com/NCATSTranslator/Translator-All/wiki/dgidb
+  kgregistry:
+    activity_status: active
+    category: DataSource
+    contacts:
+    - category: Organization
+      contact_details:
+      - contact_type: email
+        value: help@dgidb.org
+      - contact_type: url
+        value: http://www.griffithlab.com
+      label: Griffith Lab
+    description: The Drug Gene Interaction Database (DGIdb) is a resource that consolidates
+      disparate data sources describing drug-gene interactions and gene druggability
+      to help researchers identify actionable drug targets or repurposable drugs for
+      genes of interest.
+    domains:
+    - health
+    - pharmacology
+    - drug discovery
+    - genomics
+    - precision medicine
+    homepage_url: https://dgidb.org
+    id: dgidb
+    layout: resource_detail
+    license:
+      id: https://opensource.org/licenses/MIT
+      label: MIT
+    name: DGIdb
+    publications:
+    - authors:
+      - Cotto KC
+      - Wagner AH
+      - Feng YY
+      - Kiwala S
+      - Coffman AC
+      - Spies G
+      - Wollam A
+      - Spies NC
+      - Griffith OL
+      - Griffith M
+      doi: doi:10.1093/nar/gkx1143
+      id: https://doi.org/10.1093/nar/gkx1143
+      journal: Nucleic Acids Research
+      preferred: true
+      title: 'DGIdb 3.0: a redesign and expansion of the drug-gene interaction database'
+      year: '2018'
+    - authors:
+      - Wagner AH
+      - Coffman AC
+      - Ainscough BJ
+      - Spies NC
+      - Skidmore ZL
+      - Campbell KM
+      - Krysiak K
+      - Pan D
+      - McMichael JF
+      - Eldred JM
+      - Walker JR
+      - Wilson RK
+      - Mardis ER
+      - Griffith M
+      - Griffith OL
+      doi: doi:10.1093/nar/gkv1165
+      id: https://doi.org/10.1093/nar/gkv1165
+      journal: Nucleic Acids Research
+      title: 'DGIdb 2.0: mining clinically relevant drug-gene interactions'
+      year: '2016'
+    - authors:
+      - Griffith M
+      - Griffith OL
+      - Coffman AC
+      - Weible JV
+      - McMichael JF
+      - Spies NC
+      - Koval J
+      - Das I
+      - Callaway MB
+      - Eldred JM
+      - Miller CA
+      - Subramanian J
+      - Govindan R
+      - Kumar RD
+      - Bose R
+      - Ding L
+      - Walker JR
+      - Larson DE
+      - Dooling DJ
+      - Smith SM
+      - Ley TJ
+      - Mardis ER
+      - Wilson RK
+      doi: doi:10.1038/nmeth.2689
+      id: https://doi.org/10.1038/nmeth.2689
+      journal: Nature Methods
+      title: DGIdb - mining the druggable genome
+      year: '2013'
+    repository: https://github.com/griffithlab/dgi-db
+  matrixcurated:
+    license_name: MIT License
+    license_source_link: https://dgidb.org/about/overview/data-accessibility
+    primary_knowledge_source: infores:dgidb
+disease-ontology:
+  infores:
+    agent_type: not_provided
+    consumed_by:
+    - infores:ols
+    - infores:rtx-kg2
+    id: infores:disease-ontology
+    knowledge_level: knowledge_assertion
+    name: Disease Ontology
+    status: released
+    synonym:
+    - DO
+    xref:
+    - https://github.com/NCATSTranslator/Translator-All/wiki/disease-ontology
+  matrixcurated:
+    license_name: CC0 1.0
+    license_source_link: https://disease-ontology.org/about/
+    primary_knowledge_source: infores:disease-ontology
+diseases:
+  infores:
+    agent_type: not_provided
+    consumed_by:
+    - infores:biothings-diseases
+    - infores:rtx-kg2
+    description: DISEASES is a weekly updated web resource that integrates evidence
+      on disease-gene associations  from automatic text mining, manually curated literature,
+      cancer mutation data, and  genome-wide association studies. We further unify
+      the evidence by assigning confidence  scores that facilitate comparison of the
+      different types and sources of evidence.
+    id: infores:diseases
+    knowledge_level: mixed
+    name: DISEASES
+    status: released
+    xref:
+    - https://github.com/NCATSTranslator/Translator-All/wiki/Diseases
+  kgregistry:
+    activity_status: active
+    category: DataSource
+    description: Stub Resource page for diseases. This page was automatically generated
+      because it was referenced by other resources.
+    domains:
+    - stub
+    id: diseases
+    layout: resource_detail
+    name: Diseases
+    warnings:
+    - This is an automatically generated stub page. Please replace with accurate information
+      about this resource.
+  matrixcurated:
+    license_name: CC BY 4.0
+    license_source_link: 'https://diseases.jensenlab.org/About '
+    primary_knowledge_source: infores:diseases
+  matrixreviews:
+    domain_coverage_comments: "Entities: target,gene + disease; Relation: T\u2013\
+      D (~millions); mapped to DOID, STRING/HGNC/Ensembl; confidence scoring robust.\
+      \ No drugs or D\u2013D/AEs."
+    domain_coverage_score: 2
+    label_manual: Medium
+    label_manual_comment: "The DISEASES database is highly relevant for pharmacology\
+      \ and translational research as it aggregates gene\u2013disease associations\
+      \ from multiple evidence streams \u2014 curated resources, GWAS, and large-scale\
+      \ text mining. From a therapeutic perspective, this makes it a powerful backbone\
+      \ for connecting disease biology to molecular targets, especially since all\
+      \ entities are mapped to standardized identifiers (Disease Ontology, UniProt,\
+      \ HGNC, Ensembl). The built-in confidence scoring (1\u20135 stars) and benchmarking\
+      \ against gold standards lend reliability that is rare in large-scale association\
+      \ resources. For drug repurposing, DISEASES does not provide drug\u2013disease\
+      \ edges directly, but it plays a crucial enabling role: drugs can be linked\
+      \ in through their known targets (via resources like DrugBank or ChEMBL), making\
+      \ D\u2192T\u2192D inference feasible at scale. This indirect but evidence-weighted\
+      \ connection between disease and targets provides a structured way to prioritize\
+      \ repurposing opportunities grounded in genetic and literature support. It is\
+      \ not a plug-and-play repurposing tool on its own, but it is an excellent, trustworthy\
+      \ foundation for building disease\u2013gene\u2013drug networks that support\
+      \ pharmacological hypothesis generation and drug repositioning"
+    label_rubric: Medium
+    label_rubric_rationale: "Conditional: useful for repurposing only when linked\
+      \ with other drug\u2192target resources"
+    primary_knowledge_source: infores:diseases
+    reviewer: https://orcid.org/0000-0003-4097-3395
+    source_scope_score: 3
+    source_scope_score_comment: "Broad, cross-disease; millions of T\u2013D edges;\
+      \ >19k genes, >8k diseases; integrates curated, GWAS, text mining; updated weekly."
+    utility_drugrepurposing_comment: "Direct edges: T\u2013D; millions of associations;\
+      \ 1\u20135 star confidence; AUC=0.916 for text mining. No direct drug links,\
+      \ no mechanism or AE context \u2192 requires integration with drug\u2013target\
+      \ DBs."
+    utility_drugrepurposing_score: 2
+disgenet:
+  infores:
+    agent_type: not_provided
+    consumed_by:
+    - infores:mydisease-info
+    - infores:rtx-kg2
+    id: infores:disgenet
+    knowledge_level: mixed
+    name: DisGeNET
+    status: released
+    xref:
+    - https://github.com/NCATSTranslator/Translator-All/wiki/DisGeNET
+  kgregistry:
+    activity_status: active
+    category: DataSource
+    contacts:
+    - category: Organization
+      contact_details:
+      - contact_type: email
+        value: info@disgenet.com
+      label: MedBioinformatics Solutions SL
+    description: DisGeNET is the world's largest and most extensive gene-disease association
+      (GDA) network, integrating data from expert-curated repositories, GWAS catalogs,
+      animal models, and scientific literature. It contains gene-disease associations,
+      variant-disease associations, and disease-disease associations with extensive
+      evidence supporting each connection.
+    domains:
+    - biomedical
+    - genomics
+    - clinical
+    - precision medicine
+    - translational
+    - drug discovery
+    homepage_url: https://www.disgenet.com/
+    id: disgenet
+    layout: resource_detail
+    license:
+      id: https://www.disgenet.com/Legal
+      label: DisGeNET License
+    name: DisGeNET
+    publications:
+    - authors:
+      - "Janet Pi\xF1ero"
+      - "Juan Manuel Ram\xEDrez-Anguita"
+      - "Josep Sa\xFCch-Pitarch"
+      - Francesco Ronzano
+      - Emilio Centeno
+      - Ferran Sanz
+      - Laura I. Furlong
+      doi: 10.1093/nar/gkz1021
+      id: doi:10.1093/nar/gkz1021
+      journal: Nucleic Acids Research
+      preferred: true
+      title: The DisGeNET knowledge platform for disease genomics - 2019 update
+      year: '2020'
+  matrixcurated:
+    license_name: CC BY 4.0 (for most of its sources)
+    license_source_link: https://disgenet.com/Legal
+    primary_knowledge_source: infores:disgenet
+drugbank:
+  infores:
+    agent_type: not_provided
+    consumed_by:
+    - infores:catrax-pharmacogenomics
+    - infores:molepro
+    - infores:openpredict
+    - infores:rtx-kg2
+    description: A comprehensive, free-to-access, online database containing information
+      on drugs and drug targets. As both a bioinformatics and a cheminformatics resource,
+      we combine detailed drug (i.e. chemical, pharmacological and pharmaceutical)
+      data with comprehensive drug target (i.e. sequence, structure, and pathway)
+      information
+    id: infores:drugbank
+    knowledge_level: knowledge_assertion
+    name: DrugBank
+    status: released
+    synonym:
+    - Drugbank
+    xref:
+    - https://github.com/NCATSTranslator/Translator-All/wiki/DrugBank
+  kgregistry:
+    activity_status: active
+    category: DataSource
+    contacts:
+    - category: Organization
+      contact_details:
+      - contact_type: email
+        value: info@drugbank.com
+      - contact_type: url
+        value: https://www.drugbank.com/contact
+      label: DrugBank
+    description: DrugBank Online is a comprehensive, publicly accessible database
+      containing detailed information on drugs and drug targets, combining chemical,
+      pharmacological, pharmaceutical data with drug target information including
+      sequence, structure, and pathway details.
+    domains:
+    - health
+    - chemistry and biochemistry
+    - pharmacology
+    - genomics
+    - proteomics
+    homepage_url: https://www.drugbank.com/
+    id: drugbank
+    layout: resource_detail
+    license:
+      id: https://go.drugbank.com/legal/terms_of_use
+      label: Custom (free for academic research with license)
+    name: DrugBank
+    publications:
+    - id: https://doi.org/10.1093/nar/gkad976
+      journal: Nucleic Acids Research
+      preferred: true
+      title: DrugBank 6.0 - The DrugBank Knowledgebase for 2024
+      year: '2024'
+    - id: https://doi.org/10.1093/nar/gkx1037
+      journal: Nucleic Acids Research
+      title: DrugBank 5.0 - A major update to the DrugBank database for 2018
+      year: '2018'
+    repository: https://go.drugbank.com/releases/latest
+    tags:
+    - core
+    - biopragmatics
+  matrixcurated:
+    license_name: CC BY-NC 4.0 (Complete Database including structures, external links,
+      protein identifiers, target sequences, drug sequences), CC0 1.0 (Open Data)
+    license_source_link: 'https://go.drugbank.com/releases/latest#open-data '
+    primary_knowledge_source: infores:drugbank
+  reusabledata:
+    contacts:
+    - https://go.drugbank.com/contact
+    - info@drugbank.com
+    data-access:
+    - location: https://www.drugbank.ca/releases/latest
+      type: download
+    data-categories:
+    - bioinformatics
+    - cheminformatics
+    - drugs
+    - drug-protein interactions
+    - targets
+    - pathways
+    data-field: pharmacology
+    data-tags: pharmacology, drug, bioinformatics, cheminformatics, drugs, drug-protein
+      interactions, targets, pathways
+    data-type: drug
+    description: The DrugBank database is a unique bioinformatics and cheminformatics
+      resource that combines detailed drug data with comprehensive drug target information.
+    grade-automatic: 4
+    id: drugbank
+    license: CC-BY-NC-4.0
+    license-commentary:
+    - There is also an open (CC0) data subset for vocabulary and structures that could
+      be evaluated separately; it is ~5mb vs ~150mb for the complete "academic" set(about
+      3%).
+    - This seems to be mostly a standard NC/commercial licensing split, with DrugBank+
+      supporting commerical licensing for fees.
+    - To download the full academic set, one must create an account (https://go.drugbank.com/public_users/sign_up),
+      which is a multi-step and human mediated process, with varying turnaround times
+      and follow-up questions.
+    license-commentary-embeddable: There is also an open (CC0) data subset for vocabulary
+      and structures that could be evaluated separately; it is ~5mb vs ~150mb for
+      the complete "academic" set(about 3%).<hr />This seems to be mostly a standard
+      NC/commercial licensing split, with DrugBank+ supporting commerical licensing
+      for fees.<hr />To download the full academic set, one must create an account
+      (https://go.drugbank.com/public_users/sign_up), which is a multi-step and human
+      mediated process, with varying turnaround times and follow-up questions.
+    license-hat-used: 'false'
+    license-issues:
+    - comment: The NC license allows for liberal non-commercial reuse.
+      criteria: D.1.1
+    - comment: The NC license allows for non-commercial reuse with other non-commercial
+        interests.
+      criteria: E.1.1
+    license-link: https://www.drugbank.ca/releases/latest
+    license-type: restrictive
+    source: DrugBank
+    source-link: https://go.drugbank.com
+    source-type: source
+    status: complete
+    was-controversial: 'false'
+drugcentral:
+  infores:
+    agent_type: not_provided
+    consumed_by:
+    - infores:catrax-pharmacogenomics
+    - infores:molepro
+    - infores:mychem-info
+    - infores:rtx-kg2
+    description: Online drug information resource created and maintained by Division
+      of Translational Informatics at University of New Mexico in collaboration with
+      the IDG.
+    id: infores:drugcentral
+    knowledge_level: knowledge_assertion
+    name: DrugCentral
+    status: released
+    synonym:
+    - Drugcentral
+    xref:
+    - https://github.com/NCATSTranslator/Translator-All/wiki/DrugCentral
+  kgregistry:
+    activity_status: active
+    category: DataSource
+    contacts:
+    - category: Organization
+      label: DrugCentral
+    description: DrugCentral is online drug information resource created and maintained
+      by Division of Translational Informatics at University of New Mexico.
+    domains:
+    - health
+    homepage_url: https://drugcentral.org/
+    id: drugcentral
+    layout: resource_detail
+    license:
+      id: https://creativecommons.org/licenses/by/4.0/
+      label: CC-BY-4.0
+      logo: http://mirrors.creativecommons.org/presskit/buttons/80x15/png/by.png
+    name: DrugCentral
+    publications:
+    - authors:
+      - Ursu O
+      - Holmes J
+      - Knockel J
+      - Bologa CG
+      - Yang JJ
+      - Mathias SL
+      - Nelson SJ
+      - Oprea TI
+      doi: doi:10.1093/nar/gkw993
+      id: doi:10.1093/nar/gkw993
+      title: 'DrugCentral: online drug compendium'
+      year: '2017'
+  matrixcurated:
+    license_name: CC BY-SA 4.0
+    license_source_link: https://drugcentral.org/privacy
+    primary_knowledge_source: infores:drugcentral
+  reusabledata:
+    contacts:
+    - For questions and comments please contact Oleg Ursu or Jayme Holmes.
+    data-access:
+    - location: http://drugcentral.org/download
+      type: download
+    data-categories:
+    - chemical structure of drugs
+    - drug
+    - disease
+    data-field: pharmacology
+    data-tags: pharmacology, drug-target interaction, chemical structure of drugs,
+      drug, disease
+    data-type: drug-target interaction
+    description: DrugCentral provides information on active ingredients chemical entities,
+      pharmaceutical products, drug mode of action, indications, pharmacologic action.
+      We monitor FDA, EMA, and PMDA for new drug approval on regular basis to ensure
+      currency of the resource.
+    grade-automatic: 3
+    id: drugcentral
+    license: CC-BY-SA-4.0
+    license-commentary:
+    - While there is upstream data integtration, there seems to be no mention of upstream
+      licenses or terms. Not necessarily our issue here.
+    license-commentary-embeddable: While there is upstream data integtration, there
+      seems to be no mention of upstream licenses or terms. Not necessarily our issue
+      here.
+    license-hat-used: 'false'
+    license-issues:
+    - comment: By using a copyleft-style license, there may be issues in mixing and
+        redistributing this data with licenses that have incompatible terms.
+      criteria: D.1.2
+    - comment: By using a copyleft-style license, there may be some parties with issues
+        in mixing and redistributing this data with licenses that have incompatible
+        terms.
+      criteria: E.1.2
+    license-link: http://drugcentral.org/privacy
+    license-type: copyleft
+    source: DrugCentral
+    source-link: http://drugcentral.org
+    source-type: integrator
+    status: complete
+    was-controversial: 'false'
+drugmechdb:
+  infores:
+    agent_type: not_provided
+    description: A database of paths that represent the mechanism of action from a
+      drug to a disease in an indication.
+    id: infores:drugmechdb
+    knowledge_level: knowledge_assertion
+    name: DrugMechDB
+    status: released
+    synonym:
+    - drugmechdb
+    xref:
+    - https://github.com/SuLab/DrugMechDB
+  kgregistry:
+    activity_status: active
+    category: KnowledgeGraph
+    contacts:
+    - category: Organization
+      contact_details:
+      - contact_type: url
+        value: https://sulab.org/
+      label: Su Lab
+    description: DrugMechDB is a curated database that captures mechanistic paths
+      from a drug to a disease within a given indication. Expert curators normalize
+      concepts and relationships to standard biomedical identifiers and represent
+      each indication as a directed path through a biological knowledge graph, suitable
+      for computational analysis and benchmarking.
+    domains:
+    - biomedical
+    - pharmacology
+    - drug discovery
+    - literature
+    evaluation_page: resource/drugmechdb/drugmechdb_eval.html
+    homepage_url: https://sulab.github.io/DrugMechDB/
+    id: drugmechdb
+    layout: resource_detail
+    license:
+      id: https://creativecommons.org/publicdomain/zero/1.0/
+      label: CC0 1.0 Universal
+      logo: http://mirrors.creativecommons.org/presskit/buttons/80x15/png/cc-zero.png
+    name: DrugMechDB
+    publications:
+    - doi: 10.1038/s41597-023-02534-z
+      id: doi:10.1038/s41597-023-02534-z
+      journal: Scientific Data
+      title: "DrugMechDB \u2014 a curated database of drug mechanisms"
+      year: '2023'
+    repository: https://github.com/SuLab/DrugMechDB
+  matrixcurated:
+    license_name: CC BY 4.0
+    license_source_link: 'https://www.nature.com/articles/s41597-023-02534-z#:~:text=(DrugMechDB)%2C%20a%20manually%20curated&text=Open%20Access%20This%20article%20is%20licensed%20under%20a%20Creative%20Commons%20Attribution%204.0%20International%20License '
+    primary_knowledge_source: infores:drugmechdb
+efo:
+  infores:
+    agent_type: not_provided
+    consumed_by:
+    - infores:rtx-kg2
+    id: infores:efo
+    knowledge_level: knowledge_assertion
+    name: Experimental Factor Ontology
+    status: released
+    synonym:
+    - EFO
+    xref:
+    - https://github.com/NCATSTranslator/Translator-All/wiki/EFO
+  kgregistry:
+    activity_status: active
+    category: DataModel
+    contacts:
+    - category: Organization
+      contact_details:
+      - contact_type: email
+        value: efo-users@ebi.ac.uk
+      - contact_type: url
+        value: https://www.ebi.ac.uk/spot/ontology/
+      label: EMBL-EBI Samples, Phenotypes and Ontologies Team (SPOT)
+    description: The Experimental Factor Ontology (EFO) provides a systematic description
+      of many experimental variables available in EBI databases, and for projects
+      such as the GWAS catalog. It combines parts of several biological ontologies,
+      such as UBERON anatomy, ChEBI chemical compounds, and Cell Ontology.
+    domains:
+    - biological systems
+    - biomedical
+    - health
+    - phenotype
+    homepage_url: https://www.ebi.ac.uk/efo/
+    id: efo
+    layout: resource_detail
+    license:
+      id: https://www.apache.org/licenses/LICENSE-2.0
+      label: Apache 2.0
+    name: Experimental Factor Ontology
+    publications:
+    - authors:
+      - James Malone
+      - Ele Holloway
+      - Tomasz Adamusiak
+      - Misha Kapushesky
+      - Jie Zheng
+      - Nikolay Kolesnikov
+      - Anna Zhukova
+      - Alvis Brazma
+      - Helen Parkinson
+      doi: doi:10.1093/bioinformatics/btq099
+      id: https://doi.org/10.1093/bioinformatics/btq099
+      journal: Bioinformatics
+      preferred: true
+      title: Modeling Sample Variables with an Experimental Factor Ontology
+      year: '2010'
+    repository: https://github.com/EBISPOT/efo
+  matrixcurated:
+    license_name: Apache 2.0
+    license_source_link: 'https://kghub.org/kg-registry/resource/efo/efo.html '
+    primary_knowledge_source: infores:efo
+ehdaa2:
+  infores:
+    agent_type: not_provided
+    consumed_by:
+    - infores:rtx-kg2
+    id: infores:ehdaa2
+    knowledge_level: knowledge_assertion
+    name: Human Developmental Anatomy Ontology
+    status: released
+    synonym:
+    - EHDAA2
+    xref:
+    - http://obofoundry.org/ontology/ehdaa2.html
+  matrixcurated:
+    license_name: CC BY 4.0
+    license_source_link: 'https://obofoundry.org/ontology/ehdaa2.html '
+    primary_knowledge_source: infores:ehdaa2
+ensembl-gene:
+  infores:
+    agent_type: not_provided
+    consumed_by:
+    - infores:rtx-kg2
+    id: infores:ensembl-gene
+    knowledge_level: knowledge_assertion
+    name: Ensembl gene
+    status: released
+    xref:
+    - https://www.ebi.ac.uk/training/online/courses/ensembl-browsing-genomes/exploring-sources-of-biological-data/ensembl-genes/
+  matrixcurated:
+    license_name: Apache 2.0
+    license_source_link: 'https://useast.ensembl.org/info/about/legal/code_licence.html '
+    primary_knowledge_source: infores:ensembl-gene
+epsd:
+  infores:
+    agent_type: not_provided
+    id: infores:epsd
+    knowledge_level: not_provided
+    name: EPSD
+    status: released
+    synonym:
+    - Eukaryotic phosporylation site database
+    xref:
+    - https://epsd.biocuckoo.cn
+  matrixcurated:
+    license_name: No License Mentioned
+    license_source_link: .nan
+    primary_knowledge_source: infores:epsd
+eram:
+  infores:
+    agent_type: not_provided
+    description: encyclopedia of rare disease annotations for precision medicine
+    id: infores:eram
+    knowledge_level: knowledge_assertion
+    name: 'eRAM: encyclopedia of rare disease annotations for precision medicine'
+    status: released
+    synonym:
+    - eRAM
+    xref:
+    - https://github.com/NCATSTranslator/Translator-All/wiki/eRAM
+  matrixcurated:
+    license_name: "Custom eRAM License \u2014 free for academic/non-profit use; commercial\
+      \ use requires a paid license; provided \u201Cas-is\u201D with no liability"
+    license_source_link: 'http://119.3.41.228/eram/download.php '
+    primary_knowledge_source: infores:eram
+faers:
+  infores:
+    agent_type: not_provided
+    consumed_by:
+    - infores:multiomics-drugapprovals
+    description: The FDA Adverse Event Reporting System (FAERS) is a database that
+      contains information on adverse event and medication error reports submitted
+      to FDA.
+    id: infores:faers
+    knowledge_level: knowledge_assertion
+    name: FDA Adverse Event Reporting System
+    status: released
+    xref:
+    - https://github.com/NCATSTranslator/Translator-All/wiki/FAERS
+  matrixcurated:
+    license_name: Public Domain and CC0 1.0
+    license_source_link: 'https://open.fda.gov/data/faers/ '
+    primary_knowledge_source: infores:faers
+flybase:
+  infores:
+    agent_type: not_provided
+    description: A Database of Drosophila Genes & Genomes
+    id: infores:flybase
+    knowledge_level: knowledge_assertion
+    name: FlyBase
+    status: released
+    synonym:
+    - FlyBase
+    xref:
+    - https://flybase.org
+  matrixcurated:
+    license_name: CC BY 4.0
+    license_source_link: https://wiki.flybase.org/wiki/FlyBase:About#FlyBase_Licenses_and_Availability
+    primary_knowledge_source: infores:flybase
+  reusabledata:
+    contacts:
+    - http://flybase.org/cgi-bin/mailto-fbhelp.html
+    data-access:
+    - location: http://flybase.org/static_pages/downloads/ID.html
+      type: download
+    data-categories:
+    - genotype-phenotype association
+    data-field: biology
+    data-tags: biology, MOD, genotype-phenotype association
+    data-type: MOD
+    description: FlyBase is the model organism database providing integrated genetic,
+      genomic, phenomic, and biological data for Drosophila melanogaster.
+    grade-automatic: 2.5
+    id: flybase
+    license: custom
+    license-commentary:
+    - Copyright statement is not co-located with the data source.
+    license-commentary-embeddable: Copyright statement is not co-located with the
+      data source.
+    license-issues:
+    - comment: Copyright statement includes 'This publication may be copied for non-commercial,
+        scientific uses by individuals or organizations (including for-profit organizations).
+        FlyBase is freely distributed to the scientific community on the understanding
+        that it will not be used for commercial gain by any organization. Any commercial
+        use of this publication, or any parts thereof, is expressly prohibited without
+        permission in writing from the FlyBase consortium.'
+      criteria: A.2.2
+    - comment: Copyright statement includes 'Certain portions of FlyBase are copyrighted
+        separately.'
+      criteria: B.1
+    - comment: Copyright statement includes 'Certain portions of FlyBase are copyrighted
+        separately.'
+      criteria: B.2.1
+    - comment: As stated copyright may be interpreted by non-legal professional that
+        the contents may be reused/remixed in a non-commercial context.
+      criteria: D.1.1
+    - comment: As stated copyright may be interpreted by non-legal professional that
+        the contents may be reused/remixed in a non-commercial context.
+      criteria: E.1.1
+    license-link: http://flybase.org/wiki/FlyBase:About#FlyBase_Copyright
+    license-type: restrictive
+    source: FlyBase
+    source-link: http://flybase.org
+    status: complete
+fma-obo:
+  infores:
+    agent_type: not_provided
+    consumed_by:
+    - infores:rtx-kg2
+    id: infores:fma-obo
+    knowledge_level: knowledge_assertion
+    name: Foundational Model of Anatomy Ontology (FMA -- both from UMLS and from OBO)
+    status: released
+    xref:
+    - https://www.nlm.nih.gov/research/umls/sourcereleasedocs/current/FMA/index.html
+  matrixcurated:
+    license_name: CC BY 3.0
+    license_source_link: 'http://si.washington.edu/info-books/project-details/foundational-model-of-anatomy/accessing-the-fma-ontology/ '
+    primary_knowledge_source: infores:fma-obo
+fma-umls:
+  infores:
+    agent_type: not_provided
+    consumed_by:
+    - infores:rtx-kg2
+    id: infores:fma-umls
+    knowledge_level: knowledge_assertion
+    name: Foundational Model of Anatomy Ontology (FMA -- both from UMLS and from OBO)
+    status: released
+    xref:
+    - https://www.nlm.nih.gov/research/umls/sourcereleasedocs/current/FMA/index.html
+  matrixcurated:
+    license_name: CC BY 3.0
+    license_source_link: 'http://si.washington.edu/info-books/project-details/foundational-model-of-anatomy/accessing-the-fma-ontology/ '
+    primary_knowledge_source: infores:fma-umls
+foodon:
+  infores:
+    agent_type: not_provided
+    consumed_by:
+    - infores:rtx-kg2
+    id: infores:foodon
+    knowledge_level: knowledge_assertion
+    name: Food Ontology
+    status: released
+    synonym:
+    - FOODON
+    xref:
+    - http://www.obofoundry.org/ontology/foodon.html
+  matrixcurated:
+    license_name: CC BY 4.0
+    license_source_link: https://obofoundry.org/ontology/foodon.html
+    primary_knowledge_source: infores:foodon
+genepio:
+  infores:
+    agent_type: not_provided
+    consumed_by:
+    - infores:rtx-kg2
+    id: infores:genepio
+    knowledge_level: knowledge_assertion
+    name: Genomic Epidemiology Ontology
+    status: released
+    synonym:
+    - GenEpiO
+    xref:
+    - https://genepio.org/
+  matrixcurated:
+    license_name: CC BY 3.0
+    license_source_link: 'https://obofoundry.org/ontology/genepio.html '
+    primary_knowledge_source: infores:genepio
+go:
+  infores:
+    agent_type: not_provided
+    consumed_by:
+    - infores:biothings-go-bp
+    - infores:biothings-go-cc
+    - infores:biothings-go-mf
+    - infores:ebi-quick-go
+    - infores:rtx-kg2
+    id: infores:go
+    knowledge_level: knowledge_assertion
+    name: Gene Ontology
+    status: released
+    xref:
+    - https://github.com/NCATSTranslator/Translator-All/wiki/go
+  kgregistry:
+    activity_status: active
+    category: Resource
+    contacts:
+    - category: Organization
+      contact_details:
+      - contact_type: email
+        value: help@geneontology.org
+      label: Gene Ontology Helpdesk
+    description: "The Gene Ontology resource, the world\u2019s largest source of information\
+      \ on the functions of genes. This knowledge is both human-readable and machine-readable,\
+      \ and is a foundation for computational analysis of large-scale molecular biology\
+      \ and genetics experiments in biomedical research."
+    domains:
+    - biological systems
+    homepage_url: https://geneontology.org/
+    id: go
+    layout: resource_detail
+    license:
+      id: https://creativecommons.org/licenses/by/4.0/
+      label: CC-BY-4.0
+      logo: http://mirrors.creativecommons.org/presskit/buttons/80x15/png/by.png
+    name: Gene Ontology
+    publications:
+    - authors:
+      - Ashburner M
+      - Ball CA
+      - Blake JA
+      - Botstein D
+      - Butler H
+      - Cherry JM
+      - Davis AP
+      - Dolinski K
+      - Dwight SS
+      - Eppig JT
+      - Harris MA
+      - Hill DP
+      - Issel-Tarver L
+      - Kasarskis A
+      - Lewis S
+      - Matese JC
+      - Richardson JE
+      - Ringwald M
+      - Rubin GM
+      - Sherlock G
+      doi: 10.1038/75556
+      id: doi:10.1038/75556
+      title: 'Gene ontology: tool for the unification of biology'
+      year: '2000'
+    - authors:
+      - The Gene Ontology Consortium
+      - Aleksander SA
+      - Balhoff J
+      - Carbon S
+      - Cherry JM
+      - Drabkin HJ
+      - Ebert D
+      - Feuermann M
+      - Gaudet P
+      - Harris NL
+      - Hill DP
+      - Lee R
+      - Mi H
+      - Moxon S
+      - Mungall CJ
+      - Muruganugan A
+      - Mushayahama T
+      - Sternberg PW
+      - Thomas PD
+      - Van Auken K
+      - Ramsey J
+      - Siegele DA
+      - Chisholm RL
+      - Fey P
+      - Aspromonte MC
+      - Nugnes MV
+      - Quaglia F
+      - Tosatto S
+      - Giglio M
+      - Nadendla S
+      - Antonazzo G
+      - Attrill H
+      - dos Santos G
+      - Marygold SJ
+      - Strelets V
+      - Tabone CJ
+      - Thurmond J
+      - Zhou P
+      - Ahmed SH
+      - Asanitthong P
+      - Buitrago DL
+      - Erdol MN
+      - Gage MC
+      - Kadhum MA
+      - Li KYC
+      - Long M
+      - Michalak A
+      - Pesala A
+      - Pritazahra A
+      - Saverimuttu SCC
+      - Su R
+      - Thurlow KE
+      - Lovering RC
+      - Logie C
+      - Oliferenko S
+      - Blake J
+      - Christie K
+      - Corbani L
+      - Dolan ME
+      - Drabkin HJ
+      - Hill DP
+      - Ni L
+      - Sitnikov D
+      - Smith C
+      - Cuzick A
+      - Seager J
+      - Cooper L
+      - Elser J
+      - Jaiswal P
+      - Gupta P
+      - Jaiswal P
+      - Naithani S
+      - Lera-Ramirez M
+      - Rutherford K
+      - Wood V
+      - De Pons JL
+      - Dwinell MR
+      - Hayman GT
+      - Kaldunski ML
+      - Kwitek AE
+      - Laulederkind SJF
+      - Tutaj MA
+      - Vedi M
+      - Wang S-J
+      - "D\u2019Eustachio PD"
+      - Aimo L
+      - Axelsen K
+      - Bridge A
+      - Hyka-Nouspikel N
+      - Morgat A
+      - Aleksander SA
+      - Cherry JM
+      - Engel SR
+      - Karra K
+      - Miyasato SR
+      - Nash RS
+      - Skrzypek MS
+      - Weng S
+      - Wong ED
+      - Bakker E
+      - Berardini TZ
+      - Reiser L
+      - Auchincloss A
+      - Axelsen K
+      - Argoud-Puy G
+      - Blatter M-C
+      - Boutet E
+      - Breuza L
+      - Bridge A
+      - Casals-Casas C
+      - Coudert E
+      - Estreicher A
+      - Famiglietti ML
+      - Feuermann M
+      - Gos A
+      - Gruaz-Gumowski N
+      - Hulo C
+      - Hyka-Nouspikel N
+      - Jungo F
+      - Le Mercier P
+      - Lieberherr D
+      - Masson P
+      - Morgat A
+      - Pedruzzi I
+      - Pourcel L
+      - Poux S
+      - Rivoire C
+      - Sundaram S
+      - Bateman A
+      - Bowler-Barnett E
+      - Bye-A-Jee H
+      - Denny P
+      - Ignatchenko A
+      - Ishtiaq R
+      - Lock A
+      - Lussi Y
+      - Magrane M
+      - Martin MJ
+      - Orchard S
+      - Raposo P
+      - Speretta E
+      - Tyagi N
+      - Warner K
+      - Zaru R
+      - Diehl AD
+      - Lee R
+      - Chan J
+      - Diamantakis S
+      - Raciti D
+      - Zarowiecki M
+      - Fisher M
+      - James-Zorn C
+      - Ponferrada V
+      - Zorn A
+      - Ramachandran S
+      - Ruzicka L
+      - Westerfield M
+      doi: 10.1093/genetics/iyad031
+      id: doi:10.1093/genetics/iyad031
+      title: The Gene Ontology knowledgebase in 2023
+      year: '2023'
+    repository: https://github.com/geneontology
+  matrixcurated:
+    license_name: CC BY 4.0
+    license_source_link: 'https://geneontology.org/docs/go-citation-policy/ '
+    primary_knowledge_source: infores:go
+go-plus:
+  infores:
+    agent_type: not_provided
+    consumed_by:
+    - infores:rtx-kg2
+    id: infores:go-plus
+    knowledge_level: knowledge_assertion
+    name: Gene Ontology Plus
+    status: released
+    synonym:
+    - GO-Plus
+    xref:
+    - https://github.com/NCATSTranslator/Translator-All/wiki/GO-Plus
+  matrixcurated:
+    license_name: CC BY 4.0
+    license_source_link: https://geneontology.org/docs/go-citation-policy/
+    primary_knowledge_source: infores:go-plus
+goa:
+  infores:
+    agent_type: not_provided
+    consumed_by:
+    - infores:rtx-kg2
+    id: infores:goa
+    knowledge_level: knowledge_assertion
+    name: Gene Ontology Annotations
+    status: released
+    synonym:
+    - GOA
+    xref:
+    - http://www.geneontology.org/
+  matrixcurated:
+    license_name: CC BY 4.0
+    license_source_link: 'https://geneontology.org/docs/go-citation-policy/ '
+    primary_knowledge_source: infores:goa
+gtopdb:
+  infores:
+    agent_type: not_provided
+    consumed_by:
+    - infores:molepro
+    description: An expert-knowledge_assertion resource of ligand-activity-target
+      relationships, the majority of which come from high-quality pharmacological
+      and medicinal chemistry literature
+    id: infores:gtopdb
+    knowledge_level: knowledge_assertion
+    name: Guide to Pharmacology
+    status: released
+    xref:
+    - https://github.com/NCATSTranslator/Translator-All/wiki/GtoPdb
+  kgregistry:
+    activity_status: active
+    category: DataSource
+    contacts:
+    - category: Organization
+      contact_details:
+      - contact_type: email
+        value: enquiries@guidetopharmacology.org
+      label: Guide to Pharmacology Help Desk
+    - category: Individual
+      contact_details:
+      - contact_type: email
+        value: jamie.davies@ed.ac.uk
+      label: Jamie Davies
+    description: The IUPHAR/BPS Guide to PHARMACOLOGY is an expert-curated resource
+      providing quantitative information on drug targets and the substances that act
+      on them, including approved drugs and experimental therapeutics
+    domains:
+    - pharmacology
+    - health
+    - biomedical
+    - drug discovery
+    - translational
+    homepage_url: https://www.guidetopharmacology.org
+    id: gtopdb
+    infores_id: gtopdb
+    layout: resource_detail
+    license:
+      id: http://creativecommons.org/licenses/by-sa/4.0/
+      label: CC-BY-SA-4.0
+      logo: https://mirrors.creativecommons.org/presskit/buttons/80x15/png/by-sa.png
+    name: Guide to Pharmacology
+    publications:
+    - authors:
+      - Harding SD
+      - Armstrong JF
+      - Faccenda E
+      - Southan C
+      - Alexander SPH
+      - Davenport AP
+      - Spedding M
+      - Davies JA
+      doi: doi:10.1093/nar/gkad944
+      id: https://doi.org/10.1093/nar/gkad944
+      journal: Nucleic Acids Research
+      preferred: true
+      title: The IUPHAR/BPS Guide to PHARMACOLOGY in 2024
+      year: '2024'
+    repository: https://www.guidetopharmacology.org/download.jsp
+  matrixcurated:
+    license_name: CC BY-SA 4.0
+    license_source_link: 'https://www.guidetopharmacology.org/download.jsp#:~:text=The%20Guide%20to%20PHARMACOLOGY%20database,Open%20Database%20License%20(ODbL). '
+    primary_knowledge_source: infores:gtopdb
+hcp-codes-umls:
+  infores:
+    agent_type: not_provided
+    consumed_by:
+    - infores:rtx-kg2
+    id: infores:hcp-codes-umls
+    knowledge_level: knowledge_assertion
+    name: Healthcare Common Procedure Coding System (from UMLS)
+    status: released
+    xref:
+    - https://github.com/NCATSTranslator/Translator-All/wiki/HCPCS-Version-of-Current-Procedural-Terminology
+  matrixcurated:
+    license_name: UMLS Metathesaurus
+    license_source_link: https://uts.nlm.nih.gov/uts/assets/LicenseAgreement.pdf
+    primary_knowledge_source: infores:hcp-codes-umls
+hetionet:
+  infores:
+    agent_type: not_provided
+    id: infores:hetionet
+    knowledge_level: knowledge_assertion
+    name: Hetionet
+    status: released
+    xref:
+    - https://github.com/NCATSTranslator/Translator-All/wiki/Hetionet
+  kgregistry:
+    activity_status: active
+    category: KnowledgeGraph
+    contacts:
+    - category: Individual
+      contact_details:
+      - contact_type: email
+        value: daniel.himmelstein@gmail.com
+      - contact_type: github
+        value: dhimmel
+      label: Daniel Himmelstein
+    description: Hetionet is an integrative network of biomedical knowledge assembled
+      from 29 different databases of genes, compounds, diseases, and more. It combines
+      over 50 years of biomedical information into a single resource.
+    domains:
+    - biomedical
+    - drug discovery
+    - genomics
+    - health
+    - biological systems
+    evaluation_page: resource/hetionet/hetionet_eval.html
+    homepage_url: https://het.io/
+    id: hetionet
+    layout: resource_detail
+    license:
+      id: https://creativecommons.org/licenses/by/4.0/
+      label: CC BY 4.0
+      logo: http://mirrors.creativecommons.org/presskit/buttons/80x15/png/by.png
+    name: Hetionet
+    publications:
+    - authors:
+      - Daniel S Himmelstein
+      - Michael Zietz
+      - Vincent Rubinetti
+      - Kyle Kloster
+      - Benjamin J Heil
+      - Faisal Alquaddoomi
+      - Dongbo Hu
+      - David N Nicholson
+      - Yun Hao
+      - Blair D Sullivan
+      - Michael W Nagle
+      - Casey S Greene
+      doi: doi:10.1093/gigascience/giad047
+      id: https://doi.org/10.1093/gigascience/giad047
+      journal: GigaScience
+      title: Hetnet connectivity search provides rapid insights into how biomedical
+        entities are related
+      year: '2023'
+    repository: https://github.com/hetio/hetionet
+  matrixcurated:
+    license_name: CC BY 4.0
+    license_source_link: 'https://het.io/about/ '
+    primary_knowledge_source: infores:hetionet
+hgnc:
+  infores:
+    agent_type: not_provided
+    consumed_by:
+    - infores:molepro
+    - infores:rtx-kg2
+    id: infores:hgnc
+    knowledge_level: knowledge_assertion
+    name: HUGO Gene Nomenclature Committee
+    status: released
+    synonym:
+    - HGNC
+    xref:
+    - https://github.com/NCATSTranslator/Translator-All/wiki/HGNC
+  kgregistry:
+    activity_status: active
+    category: DataSource
+    contacts:
+    - category: Organization
+      contact_details:
+      - contact_type: email
+        value: hgnc@genenames.org
+      label: HUGO Gene Nomenclature Committee
+    description: HGNC is the HUGO Gene Nomenclature Committee. It is a resource for
+      approved human gene names.
+    domains:
+    - biological systems
+    fairsharing_id: FAIRsharing.amcv1e
+    homepage_url: https://www.genenames.org/
+    id: hgnc
+    infores_id: hgnc
+    layout: resource_detail
+    license:
+      id: https://creativecommons.org/publicdomain/zero/1.0/
+      label: CC0-1.0
+      logo: http://mirrors.creativecommons.org/presskit/buttons/80x15/png/cc-zero.png
+    name: HGNC
+    repository: https://github.com/HGNC
+  matrixcurated:
+    license_name: Public Domain and CC0
+    license_source_link: https://www.genenames.org/about/license/
+    primary_knowledge_source: infores:hgnc
+hl7-umls:
+  infores:
+    agent_type: not_provided
+    consumed_by:
+    - infores:rtx-kg2
+    id: infores:hl7-umls
+    knowledge_level: knowledge_assertion
+    name: Health Level Seven (HL7) (from UMLS)
+    status: released
+    xref:
+    - https://www.nlm.nih.gov/research/umls/sourcereleasedocs/current/HL7V3.0/index.html
+  matrixcurated:
+    license_name: UMLS Metathesaurus
+    license_source_link: https://uts.nlm.nih.gov/uts/assets/LicenseAgreement.pdf
+    primary_knowledge_source: infores:hl7-umls
+hmdb:
+  infores:
+    agent_type: not_provided
+    consumed_by:
+    - infores:molepro
+    - infores:rtx-kg2
+    description: A freely available electronic database containing detailed information
+      about small molecule metabolites found in the human body
+    id: infores:hmdb
+    knowledge_level: knowledge_assertion
+    name: 'Human Metabolome Database '
+    status: released
+    synonym:
+    - HMDB
+    xref:
+    - https://github.com/NCATSTranslator/Translator-All/wiki/HMDB
+  kgregistry:
+    activity_status: active
+    category: DataSource
+    creation_date: '2025-08-12T00:00:00Z'
+    description: Stub Resource page for hmdb. This page was automatically generated
+      because it was referenced by other resources.
+    domains:
+    - stub
+    id: hmdb
+    last_modified_date: '2025-08-12T00:00:00Z'
+    layout: resource_detail
+    name: Hmdb
+    warnings:
+    - This is an automatically generated stub page. Please replace with accurate information
+      about this resource.
+  matrixcurated:
+    license_name: CC BY 4.0
+    license_source_link: 'https://hmdb.ca/about '
+    primary_knowledge_source: infores:hmdb
+  reusabledata:
+    contacts:
+    - https://twitter.com/WishartLab
+    data-access:
+    - location: http://www.hmdb.ca/downloads
+      type: download
+    data-categories:
+    - metabolomics
+    - clinical chemistry
+    - biomarkers
+    data-field: biology
+    data-tags: biology, human, metabolomics, clinical chemistry, biomarkers
+    data-type: human
+    description: The Human Metabolome Database (HMDB) is a freely available electronic
+      database containing detailed information about small molecule metabolites found
+      in the human body.
+    grade-automatic: 3.5
+    id: hmdb
+    license: custom
+    license-commentary:
+    - While the terms are minimal, they seem intended to act a bit the CC-BY-NC; it
+      was evaluated similarly.
+    - Given their upstream resources mentioned in http://www.hmdb.ca/sources , it
+      would be interesting to know their pass-through negotiations and differences
+      with Canadian law..
+    license-commentary-embeddable: While the terms are minimal, they seem intended
+      to act a bit the CC-BY-NC; it was evaluated similarly.<hr />Given their upstream
+      resources mentioned in http://www.hmdb.ca/sources , it would be interesting
+      to know their pass-through negotiations and differences with Canadian law..
+    license-hat-used: 'false'
+    license-issues:
+    - comment: Custom terms at linked license and on downloads page.
+      criteria: A.2.2
+    - comment: The custom license would appear to allow for liberal non-commercial
+        reuse.
+      criteria: D.1.1
+    - comment: The custom license would appear to explicitly allow for non-commercial
+        reuse with other non-commercial interests.
+      criteria: E.1.1
+    license-link: http://www.hmdb.ca/about#cite
+    license-type: restrictive
+    source: Human Metabolome Database (HMDB)
+    source-link: http://www.hmdb.ca
+    source-type: source
+    status: complete
+    was-controversial: 'false'
+hpo:
+  infores:
+    agent_type: not_provided
+    consumed_by:
+    - infores:biothings-hpo
+    - infores:catrax-pharmacogenomics
+    - infores:rtx-kg2
+    id: infores:hpo
+    knowledge_level: knowledge_assertion
+    name: Human Phenotype Ontology
+    status: released
+    xref:
+    - https://github.com/NCATSTranslator/Translator-All/wiki/HPO
+  matrixcurated:
+    license_name: "Custom HPO License \u2014 free use with attribution, version/date\
+      \ display, and no content alteration without approval"
+    license_source_link: 'https://hpo.jax.org/license '
+    primary_knowledge_source: infores:hpo
+  reusabledata:
+    contacts:
+    - http://human-phenotype-ontology.github.io/contact.html
+    data-access:
+    - location: http://human-phenotype-ontology.github.io/downloads.html
+      type: download
+    data-categories:
+    - disease-phenotype association
+    data-field: biology
+    data-tags: biology, human, disease-phenotype association
+    data-type: human
+    description: A curated database of human hereditary syndromes from OMIM, Orphanet,
+      and DECIPHER mapped to classes of the human phenotype ontology. Various meta-attributes
+      such as frequency, references and negations are associated with each annotation.
+      These are presently limited to rare mendelian diseases.
+    grade-automatic: 2.5
+    id: hpo
+    license: custom
+    license-commentary:
+    - immutability
+    - unclear derivatives
+    - That the Human Phenotype Ontology Consortium is acknowledged and cited properly.
+    - That neither the content of the HPO file(s) nor the logical relationships embedded
+      within the HPO file(s) be altered in any way.
+    license-commentary-embeddable: immutability<hr />unclear derivatives<hr />That
+      the Human Phenotype Ontology Consortium is acknowledged and cited properly.<hr
+      />That neither the content of the HPO file(s) nor the logical relationships
+      embedded within the HPO file(s) be altered in any way.
+    license-issues:
+    - comment: HPO is copyrighted to protect ontologies and all changes must be made
+        by hpo developers.
+      criteria: A.2.2
+    - comment: Restricted downstream use. May not be edited.
+      criteria: D.1.2
+    - comment: Restricted downstream use translates to agents as well.
+      criteria: E.1.2
+    license-link: http://human-phenotype-ontology.github.io/license.html
+    license-type: restrictive
+    source: Human Phenotype Ontology (HPO)
+    source-link: http://human-phenotype-ontology.github.io
+    status: complete
+hpo-annotations:
+  infores:
+    agent_type: not_provided
+    consumed_by:
+    - infores:biothings-hpo
+    - infores:mydisease-info
+    id: infores:hpo-annotations
+    knowledge_level: knowledge_assertion
+    name: Human Phenotype Ontology
+    status: released
+    synonym:
+    - HPO Annotations
+    xref:
+    - https://github.com/NCATSTranslator/Translator-All/wiki/HPO-Annotations
+  matrixcurated:
+    license_name: "Custom HPO License \u2014 free use with attribution, version/date\
+      \ display, and no content alteration without approval"
+    license_source_link: 'https://hpo.jax.org/license '
+    primary_knowledge_source: infores:hpo-annotations
+icd10pcs-umls:
+  infores:
+    agent_type: not_provided
+    consumed_by:
+    - infores:rtx-kg2
+    id: infores:icd10pcs-umls
+    knowledge_level: knowledge_assertion
+    name: ICD10PCS (from UMLS)
+    status: released
+    xref:
+    - https://www.nlm.nih.gov/research/umls/sourcereleasedocs/current/ICD10PCS/index.html
+  matrixcurated:
+    license_name: UMLS Metathesaurus
+    license_source_link: 'https://bioportal.bioontology.org/ontologies/ICD10PCS '
+    primary_knowledge_source: infores:icd10pcs-umls
+icd9cm-umls:
+  infores:
+    agent_type: not_provided
+    consumed_by:
+    - infores:rtx-kg2
+    id: infores:icd9cm-umls
+    knowledge_level: knowledge_assertion
+    name: ICD9CM (from UMLS)
+    status: released
+    xref:
+    - https://www.nlm.nih.gov/research/umls/sourcereleasedocs/current/ICD9CM/index.html
+  matrixcurated:
+    license_name: UMLS Metathesaurus
+    license_source_link: https://bioportal.bioontology.org/ontologies/ICD9CM
+    primary_knowledge_source: infores:icd9cm-umls
+ino:
+  infores:
+    agent_type: not_provided
+    consumed_by:
+    - infores:rtx-kg2
+    id: infores:ino
+    knowledge_level: knowledge_assertion
+    name: Interaction Network Ontology
+    status: released
+    xref:
+    - http://www.obofoundry.org/ontology/ino.html
+  matrixcurated:
+    license_name: CC BY 3.0
+    license_source_link: 'https://obofoundry.org/ontology/ino.html '
+    primary_knowledge_source: infores:ino
+intact:
+  infores:
+    agent_type: not_provided
+    consumed_by:
+    - infores:rtx-kg2
+    id: infores:intact
+    knowledge_level: knowledge_assertion
+    name: IntAct
+    status: released
+    xref:
+    - https://github.com/NCATSTranslator/Translator-All/wiki/IntAct
+  kgregistry:
+    activity_status: active
+    category: DataSource
+    description: Stub Resource page for intact. This page was automatically generated
+      because it was referenced by other resources.
+    domains:
+    - stub
+    id: intact
+    layout: resource_detail
+    name: Intact
+    warnings:
+    - This is an automatically generated stub page. Please replace with accurate information
+      about this resource.
+  matrixcurated:
+    license_name: 'CC BY 4.0 (all datasets), Software/Tools: Apache License 2.0 (code,
+      web services, curator tools, branding)'
+    license_source_link: 'https://www.ebi.ac.uk/intact/about#license_privacy '
+    primary_knowledge_source: infores:intact
+iptmnet:
+  infores:
+    agent_type: not_provided
+    description: iPTMnet is a bioinformatics resource for integrated understanding
+      of protein post-translational modifications (PTMs) in systems biology context.
+      It connects multiple disparate bioinformatics tools and systems text mining,
+      data mining, analysis and visualization tools, and databases and ontologies
+      into an integrated cross-cutting research resource to address the knowledge
+      gaps in exploring and discovering PTM networks.
+    id: infores:iptmnet
+    knowledge_level: mixed
+    name: iPTMnet
+    status: released
+    xref:
+    - https://github.com/NCATSTranslator/Translator-All/wiki/iPTMnet
+  matrixcurated:
+    license_name: CC BY-NC-SA 4.0
+    license_source_link: 'https://research.bioinformatics.udel.edu/iptmnet/license '
+    primary_knowledge_source: infores:iptmnet
+kegg:
+  infores:
+    agent_type: not_provided
+    consumed_by:
+    - infores:rtx-kg2
+    id: infores:kegg
+    knowledge_level: knowledge_assertion
+    name: Kyoto Encyclopedia of Genes and Genomes (KEGG)
+    status: released
+    synonym:
+    - KEGG
+    xref:
+    - https://www.genome.jp/kegg/
+  kgregistry:
+    activity_status: active
+    category: DataSource
+    contacts:
+    - category: Organization
+      contact_details:
+      - contact_type: email
+        value: feedback@genome.jp
+      - contact_type: url
+        value: https://www.kegg.jp/feedback/
+      label: KEGG
+    description: The Kyoto Encyclopedia of Genes and Genomes (KEGG) is a database
+      resource for understanding high-level functions and utilities of the biological
+      system, such as the cell, the organism and the ecosystem, from molecular-level
+      information, especially large-scale molecular datasets generated by genome sequencing
+      and other high-throughput experimental technologies.
+    domains:
+    - biological systems
+    - pathways
+    - pharmacology
+    - drug discovery
+    - genomics
+    - proteomics
+    - chemistry and biochemistry
+    - health
+    homepage_url: https://www.genome.jp/kegg/
+    id: kegg
+    layout: resource_detail
+    license:
+      id: https://www.kegg.jp/feedback/copyright.html
+      label: By request
+    name: KEGG
+    publications:
+    - id: doi:10.1093/nar/gkae909
+      preferred: true
+      title: KEGG biological systems database as a model of the real world
+  matrixcurated:
+    license_name: "Proprietary (Kanehisa Laboratories) \u2014 free for academic web\
+      \ access; FTP subscription required for academic service use; commercial use\
+      \ requires paid license"
+    license_source_link: 'https://www.kegg.jp/kegg/legal.html '
+    primary_knowledge_source: infores:kegg
+lincs:
+  infores:
+    agent_type: not_provided
+    id: infores:lincs
+    knowledge_level: knowledge_assertion
+    name: Library of Integrated Network-Based Cellular Signatures
+    status: released
+    synonym:
+    - LINCS
+    xref:
+    - https://github.com/NCATSTranslator/Translator-All/wiki/LINCS
+  kgregistry:
+    activity_status: active
+    category: DataSource
+    contacts:
+    - category: Organization
+      contact_details:
+      - contact_type: email
+        value: ilincs@googlegroups.com
+      label: BD2K-LINCS Data Coordination and Integration Center
+    - category: Organization
+      label: National Institutes of Health (NIH) Common Fund
+    description: The Library of Integrated Network-based Cellular Signatures (LINCS)
+      is a comprehensive collection of data that catalogs how human cells globally
+      respond to chemical, genetic, and disease perturbations. It aims to better understand
+      human disease and advance the development of new therapies by assembling an
+      integrated picture of the range of responses of human cells exposed to many
+      perturbations.
+    domains:
+    - biomedical
+    - drug discovery
+    - systems biology
+    - genomics
+    - proteomics
+    - precision medicine
+    homepage_url: https://lincsportal.ccs.miami.edu/signatures/home
+    id: lincs
+    layout: resource_detail
+    name: LINCS
+    publications:
+    - authors:
+      - Keenan AB
+      - Jenkins SL
+      - Jagodnik KM
+      - Koplev S
+      - He E
+      - Torre D
+      - Wang Z
+      - Dohlman AB
+      - Silverstein MC
+      - Lachmann A
+      - Kuleshov MV
+      - Ma'ayan A
+      - Stathias V
+      - Terryn R
+      - Cooper D
+      - Forlin M
+      - Koleti A
+      - Vidovic D
+      - Chung C
+      - "Sch\xFCrer SC"
+      - Vasiliauskas J
+      - Pilarczyk M
+      - Shamsaei B
+      - Fazel M
+      - Ren Y
+      - Niu W
+      - Clark NA
+      - White S
+      - Mahi N
+      - Zhang L
+      - Kouril M
+      - Reichard JF
+      - Sivaganesan S
+      - Medvedovic M
+      - Meller J
+      - Koch RJ
+      - Birtwistle MR
+      - Iyengar R
+      - Sobie EA
+      - Azeloglu EU
+      - Kaye J
+      - Osterloh J
+      - Haston K
+      - Kalra J
+      - Finkbiener S
+      - Li J
+      - Milani P
+      - Adam M
+      - Escalante-Chong R
+      - Sachs K
+      - Lenail A
+      - Ramamoorthy D
+      - Fraenkel E
+      - Daigle G
+      - Hussain U
+      - Coye A
+      - Rothstein J
+      - Sareen D
+      - Ornelas L
+      - Banuelos M
+      - Mandefro B
+      - Ho R
+      - Svendsen CN
+      - Lim RG
+      - Stocksdale J
+      - Casale MS
+      - Thompson TG
+      - Wu J
+      - Thompson LM
+      - Dardov V
+      - Venkatraman V
+      - Matlock A
+      - Van Eyk JE
+      - Jaffe JD
+      - Papanastasiou M
+      - Subramanian A
+      - Golub TR
+      - Erickson SD
+      - Fallahi-Sichani M
+      - Hafner M
+      - Gray NS
+      - Lin JR
+      - Mills CE
+      - Muhlich JL
+      - Niepel M
+      - Shamu CE
+      - Williams EH
+      - Wrobel D
+      - Sorger PK
+      - Heiser LM
+      - Gray JW
+      - Korkola JE
+      - Mills GB
+      - LaBarge M
+      - Feiler HS
+      - Dane MA
+      - Bucher E
+      - Nederlof M
+      - Sudar D
+      - Gross S
+      - Kilburn DF
+      - Smith R
+      - Devlin K
+      - Margolis R
+      - Derr L
+      - Lee A
+      - Pillai A
+      doi: doi:10.1016/j.cels.2017.11.001
+      id: https://doi.org/10.1016/j.cels.2017.11.001
+      journal: Cell Systems
+      preferred: true
+      title: The Library of Integrated Network-Based Cellular Signatures NIH Program
+        - System-Level Cataloging of Human Cells Response to Perturbations
+      year: '2018'
+    - authors:
+      - Koleti A
+      - Terryn R
+      - Stathias V
+      - Chung C
+      - Cooper DJ
+      - Turner JP
+      - Vidovic D
+      - Forlin M
+      - Kelley TT
+      - D'Urso A
+      - Allen BK
+      - Torre D
+      - Jagodnik KM
+      - Wang L
+      - Jenkins SL
+      - Mader C
+      - Niu W
+      - Fazel M
+      - Mahi N
+      - Pilarczyk M
+      - Clark N
+      - Shamsaei B
+      - Meller J
+      - Vasiliauskas J
+      - Reichard J
+      - Medvedovic M
+      - Ma'ayan A
+      - Pillai A
+      - "Sch\xFCrer SC"
+      doi: doi:10.1093/nar/gkx1063
+      id: https://doi.org/10.1093/nar/gkx1063
+      journal: Nucleic Acids Research
+      title: Data Portal for the Library of Integrated Network-based Cellular Signatures
+        (LINCS) program - integrated access to diverse large-scale cellular perturbation
+        response data
+      year: '2018'
+    - authors:
+      - Shen JP
+      - Ozerov IV
+      - Zhavoronkov A
+      - Keenan AB
+      - Koplev S
+      - Jenkins SL
+      - Jagodnik KM
+      - Hallen A
+      - Ma'ayan A
+      doi: doi:10.1038/s41467-022-32205-3
+      id: https://doi.org/10.1038/s41467-022-32205-3
+      journal: Nature Communications
+      title: Connecting omics signatures of diseases, drugs, and mechanisms of actions
+        with iLINCS
+      year: '2022'
+  matrixcurated:
+    license_name: CC BY 4.0
+    license_source_link: 'https://lincsportal.ccs.miami.edu/datasets/terms '
+    primary_knowledge_source: infores:lincs
+  matrixreviews:
+    domain_coverage_comments: "Entities: drugs + genes (genetic perturbations), disease\
+      \ mainly as context; relations are perturbation\u2192signature (L1000, P100/GCP,\
+      \ imaging). Rich metadata/FAIR, but no native D\u2013T/T\u2013D/D\u2013D edges"
+    domain_coverage_score: 2
+    label_manual: Medium
+    label_manual_comment: "The LINCS program is quite relevant to drug discovery and\
+      \ repurposing because it systematically catalogs how human cells respond to\
+      \ thousands of chemical and genetic perturbations across transcriptomic, proteomic,\
+      \ epigenetic, and imaging assays. From a pharmacology standpoint, this resource\
+      \ provides a unique way to understand mechanism of action, pathway involvement,\
+      \ and potential off-target or toxic effects. While LINCS does not natively contain\
+      \ curated drug\u2013target or drug\u2013disease links, its large-scale perturbation\
+      \ signatures [molecular response profile of a cell when it is exposed to a specific\
+      \ perturbation (e.g., a small molecule, genetic knockdown, overexpression, or\
+      \ other intervention)] serve as a critical hypothesis-generation layer. By integrating\
+      \ LINCS with drug\u2013target resources (e.g., DrugBank, ChEMBL) and disease\
+      \ ontologies, one can systematically prioritize candidate therapies, explore\
+      \ polypharmacology, and filter out compounds with toxicity"
+    label_rubric: Medium
+    label_rubric_rationale: "Conditional: it\u2019s a backbone-scale perturbation\
+      \ resource that\u2019s excellent for signature-based repurposing and MOA illumination,\
+      \ but it must be joined to curated drug\u2013target and disease sources to drive\
+      \ actionable D\u2192D decisions."
+    primary_knowledge_source: infores:lincs
+    reviewer: https://orcid.org/0000-0003-4097-3395
+    source_scope_score: 3
+    source_scope_score_comment: "Broad, cross-disease & multi-modality (L1000, proteomics,\
+      \ imaging, epigenetics); tens of thousands of perturbagens; hundreds of thousands\
+      \ of signatures; large multi-center program; FAIR & standardized.\u201D"
+    utility_drugrepurposing_comment: "Strong for signature-based D\u2192D (reversal/mimic)\
+      \ via CLUE/L1000CDS2; toxicity signatures (DToxS) aid filtering. Lacks curated\
+      \ D\u2013T/T\u2013D/D\u2013D edges; needs join to DrugBank/ChEMBL/BindingDB\
+      \ and disease resources."
+    utility_drugrepurposing_score: 2
+medical team:
+  matrixcurated:
+    license_name: .nan
+    license_source_link: .nan
+    primary_knowledge_source: medical team
+medlineplus:
+  infores:
+    agent_type: not_provided
+    consumed_by:
+    - infores:rtx-kg2
+    id: infores:medlineplus
+    knowledge_level: knowledge_assertion
+    name: MedlinePlus (from UMLS)
+    status: released
+    xref:
+    - https://medlineplus.gov/
+  matrixcurated:
+    license_name: UMLS Metathesaurus
+    license_source_link: https://www.nlm.nih.gov/research/umls/sourcereleasedocs/current/MEDLINEPLUS/index.html
+    primary_knowledge_source: infores:medlineplus
+medrt-umls:
+  infores:
+    agent_type: not_provided
+    consumed_by:
+    - infores:rtx-kg2
+    id: infores:medrt-umls
+    knowledge_level: knowledge_assertion
+    name: Medication Reference Terminology (MED-RT) (from UMLS)
+    status: released
+    xref:
+    - https://www.nlm.nih.gov/research/umls/sourcereleasedocs/current/MED-RT/index.html
+  matrixcurated:
+    license_name: UMLS Metathesaurus
+    license_source_link: https://evs.nci.nih.gov/ftp1/MED-RT/MED-RT%20Documentation.pdf
+    primary_knowledge_source: infores:medrt-umls
+mesh:
+  infores:
+    agent_type: not_provided
+    consumed_by:
+    - infores:rtx-kg2
+    id: infores:mesh
+    knowledge_level: knowledge_assertion
+    name: Medical Subject Headings Thesaurus
+    status: released
+    synonym:
+    - MeSH
+    xref:
+    - https://github.com/NCATSTranslator/Translator-All/wiki/MeSH
+  kgregistry:
+    activity_status: active
+    category: DataSource
+    description: Stub Resource page for mesh. This page was automatically generated
+      because it was referenced by other resources.
+    domains:
+    - stub
+    id: mesh
+    layout: resource_detail
+    name: Mesh
+    warnings:
+    - This is an automatically generated stub page. Please replace with accurate information
+      about this resource.
+  matrixcurated:
+    license_name: UMLS Metathesaurus
+    license_source_link: 'https://uts.nlm.nih.gov/uts/assets/LicenseAgreement.pdf '
+    primary_knowledge_source: infores:mesh
+mgi:
+  infores:
+    agent_type: not_provided
+    consumed_by:
+    - infores:biothings-mgi-g2p
+    id: infores:mgi
+    knowledge_level: knowledge_assertion
+    name: Mouse Genome Informatics
+    status: released
+    synonym:
+    - MGI
+    xref:
+    - https://github.com/NCATSTranslator/Translator-All/wiki/mgi
+  matrixcurated:
+    license_name: CC BY 4.0
+    license_source_link: https://www.informatics.jax.org/mgihome/other/copyright.shtml
+    primary_knowledge_source: infores:mgi
+  matrixreviews:
+    domain_coverage_comments: "Entities: gene, disease, phenotype; Relations: gene\u2013\
+      phenotype (MP), mouse model\u2192human disease (DO/OMIM), gene\u2192GO, gene\u2192\
+      expression (GXD); IDs: MGI/DO/MP/NCBI/PMID."
+    domain_coverage_score: 2
+    label_manual: Medium
+    label_manual_comment: "MGI provides well-curated links between mouse genes, phenotypes,\
+      \ and human diseasesusing standard ontologies and published evidence. This makes\
+      \ it a strong reference for understanding disease mechanisms and validating\
+      \ target\u2013disease associations. For drug repurposing, MGI is most useful\
+      \ when combined with drug\u2013target databases, since it does not include drugs\
+      \ directly. It supports the pathway from drug \u2192 target \u2192 disease by\
+      \ supplying reliable target\u2013disease information"
+    label_rubric: Medium
+    label_rubric_rationale: "Conditional \u2014 Use MGI\u2019s T\u2013D as high-quality\
+      \ disease biology and gene-prior layer; combine with D\u2013T from DrugBank/ChEMBL/BindingDB\
+      \ to run D\u2192T\u2192D paths. (Consider filtering to curated HMDC disease\
+      \ links.)"
+    primary_knowledge_source: infores:mgi
+    reviewer: https://orcid.org/0000-0003-4097-3395
+    source_scope_score: 3
+    source_scope_score_comment: Backbone mouse resource; cross-disease; many phenotypes/models;
+      multiple relation subtypes (phenotype, expression, GO, disease models); regular
+      releases / bulk access.
+    utility_drugrepurposing_comment: "Direct edges: T\u2013D (mouse model\u2192human\
+      \ disease) with PMIDs; IDs clean (DO/OMIM/NCBI/MGI). No D\u2013T/D\u2013D/AE\u2014\
+      needs drug databases for D\u2192T\u2192D."
+    utility_drugrepurposing_score: 2
+  reusabledata:
+    contacts:
+    - http://www.informatics.jax.org/mgihome/support/mgi_inbox.shtml
+    data-access:
+    - location: http://www.informatics.jax.org/downloads/reports/index.html
+      type: download
+    data-categories:
+    - genotype-phenotype association
+    - disease-model association
+    - gene expression
+    data-field: biology
+    data-tags: biology, MOD, genotype-phenotype association, disease-model association,
+      gene expression
+    data-type: MOD
+    description: MGI is the international database resource for the laboratory mouse,
+      providing integrated genetic, genomic, and biological data to facilitate the
+      study of human health and disease.
+    grade-automatic: 4
+    id: mgi
+    license: custom
+    license-commentary:
+    - -This software and data are provided to enhance knowledge and encourage progress
+      in the scientific community and are to be used only for research and educational
+      purposes.
+    - -Any reproduction or use for commercial purpose is prohibited without the prior
+      express written permission of the Jackson Laboratory.
+    license-commentary-embeddable: -This software and data are provided to enhance
+      knowledge and encourage progress in the scientific community and are to be used
+      only for research and educational purposes.<hr />-Any reproduction or use for
+      commercial purpose is prohibited without the prior express written permission
+      of the Jackson Laboratory.
+    license-issues:
+    - comment: Custom license.
+      criteria: A.2.2
+    - comment: distinguishes groups, allowing for research/academic. Commercial groups
+        can negotiate.
+      criteria: E.1.1
+    license-link: http://www.informatics.jax.org/mgihome/other/copyright.shtml
+    license-type: permissive
+    source: Mouse Genome Informatics (MGI)
+    source-link: http://www.informatics.jax.org/
+    status: complete
+mi:
+  infores:
+    agent_type: not_provided
+    consumed_by:
+    - infores:rtx-kg2
+    id: infores:mi
+    knowledge_level: knowledge_assertion
+    name: Molecular Interactions Controlled Vocabulary
+    status: released
+    synonym:
+    - MI
+    xref:
+    - http://www.obofoundry.org/ontology/mi.html
+  kgregistry:
+    activity_status: active
+    category: DataSource
+    description: Stub Resource page for mi. This page was automatically generated
+      because it was referenced by other resources.
+    domains:
+    - stub
+    id: mi
+    layout: resource_detail
+    name: Mi
+    warnings:
+    - This is an automatically generated stub page. Please replace with accurate information
+      about this resource.
+  matrixcurated:
+    license_name: CC BY 4.0
+    license_source_link: 'https://obofoundry.org/ontology/mi.html '
+    primary_knowledge_source: infores:mi
+mirbase:
+  infores:
+    agent_type: not_provided
+    consumed_by:
+    - infores:rtx-kg2
+    id: infores:mirbase
+    knowledge_level: knowledge_assertion
+    name: The microRNA Database
+    status: released
+    synonym:
+    - miRBase
+    xref:
+    - https://www.mirbase.org/
+  matrixcurated:
+    license_name: Public Domain
+    license_source_link: https://www.mirbase.org/download/CURRENT/LICENSE/#:~:text=miRBase%20is%20in%20the%20public,MIRBASE%20DATABASE%2C%20EVEN%20IF%20THE
+    primary_knowledge_source: infores:mirbase
+monarchinitiative:
+  infores:
+    agent_type: not_provided
+    consumed_by:
+    - infores:service-provider-trapi
+    id: infores:monarchinitiative
+    knowledge_level: knowledge_assertion
+    name: Monarch Initiative
+    status: released
+    xref:
+    - https://github.com/NCATSTranslator/Translator-All/wiki/Monarch-Initiative
+  matrixcurated:
+    license_name: BSD-3-Clause
+    license_source_link: 'https://monarchinitiative.org/kg/terms '
+    primary_knowledge_source: infores:monarchinitiative
+mondo:
+  infores:
+    agent_type: not_provided
+    consumed_by:
+    - infores:catrax-pharmacogenomics
+    - infores:mydisease-info
+    - infores:rtx-kg2
+    id: infores:mondo
+    knowledge_level: knowledge_assertion
+    name: MONDO Disease Ontology
+    status: released
+    synonym:
+    - MONDO
+    xref:
+    - https://github.com/NCATSTranslator/Translator-All/wiki/mondo
+  kgregistry:
+    activity_status: active
+    category: DataModel
+    contacts:
+    - category: Individual
+      contact_details:
+      - contact_type: github
+        value: nicolevasilevsky
+      label: Nicole Vasilevsky
+      orcid: 0000-0001-5208-3432
+    - category: Individual
+      contact_details:
+      - contact_type: github
+        value: sabrinatoro
+      label: Sabrina Toro
+      orcid: 0000-0002-4142-7153
+    description: "The Mondo Disease Ontology (Mondo) aims to harmonize disease definitions\
+      \ across the world. The name Mondo comes from the Latin word \u2018mundus\u2019\
+      \ and means \u2018for the world.\u2019"
+    domains:
+    - health
+    homepage_url: https://mondo.monarchinitiative.org/
+    id: mondo
+    layout: resource_detail
+    license:
+      id: https://creativecommons.org/licenses/by/4.0/
+      label: CC-BY-4.0
+      logo: http://mirrors.creativecommons.org/presskit/buttons/80x15/png/by.png
+    name: Mondo Disease Ontology
+    repository: https://github.com/DiseaseOntology/HumanDiseaseOntology
+  matrixcurated:
+    license_name: CC BY 4.0
+    license_source_link: https://mondo.monarchinitiative.org/#license
+    primary_knowledge_source: infores:mondo
+nbo:
+  infores:
+    agent_type: not_provided
+    consumed_by:
+    - infores:rtx-kg2
+    id: infores:nbo
+    knowledge_level: knowledge_assertion
+    name: Neuro Behavior Ontology
+    status: released
+    synonym:
+    - NBO
+    xref:
+    - https://github.com/NCATSTranslator/Translator-All/wiki/NBO
+  matrixcurated:
+    license_name: CC BY 3.0
+    license_source_link: https://bioregistry.io/registry/nbo
+    primary_knowledge_source: infores:nbo
+ncbi-gene:
+  infores:
+    agent_type: not_provided
+    consumed_by:
+    - infores:catrax-pharmacogenomics
+    - infores:mygene-info
+    - infores:rtx-kg2
+    id: infores:ncbi-gene
+    knowledge_level: knowledge_assertion
+    name: National Center for Biotechnology Information Gene
+    status: released
+    synonym:
+    - NGBI Gene
+    - ncbigene
+    xref:
+    - https://github.com/NCATSTranslator/Translator-All/wiki/ncbi-gene
+  matrixcurated:
+    license_name: CC0 1.0
+    license_source_link: 'https://kghub.org/kg-registry/resource/ncbigene/ncbigene.html '
+    primary_knowledge_source: infores:ncbi-gene
+  reusabledata:
+    contacts:
+    - info@ncbi.nlm.nih.gov
+    data-access:
+    - location: ftp://ftp.ncbi.nih.gov/gene/
+      type: download
+    data-categories:
+    - gene definition
+    - taxon definition
+    - gene-publication association
+    data-field: biology
+    data-tags: biology, genomic resource, gene definition, taxon definition, gene-publication
+      association
+    data-type: genomic resource
+    description: Gene integrates information from a wide range of species. A record
+      may include nomenclature, Reference Sequences (RefSeqs), maps, pathways, variations,
+      phenotypes, and links to genome-, phenotype-, and locus-specific resources worldwide.
+    grade-automatic: 1
+    id: ncbi-gene
+    license: inconsistent
+    license-commentary:
+    - We specifically avoided the more general operation of the EUtils suite, focusing
+      on the provided downloads.
+    - The following statements from the license page seem to support a custom "hands
+      off" approach. To was difficult to decide if this was "restrictive" or "unknown"
+      (although inconsistent in practice).
+    - '...NCBI itself places no restrictions on the use or distribution of the data
+      contained therein. Nor do we accept data when the submitter has requested restrictions
+      on reuse or redistribution...'
+    - '...some submitters of the original data...may claim patent, copyright, or other
+      intellectual property rights in all or a portion of the data (that has been
+      submitted)...'
+    - '...NCBI cannot provide comment or unrestricted permission concerning the use,
+      copying, or distribution of the information contained in the molecular databases...'
+    license-commentary-embeddable: We specifically avoided the more general operation
+      of the EUtils suite, focusing on the provided downloads.<hr />The following
+      statements from the license page seem to support a custom "hands off" approach.
+      To was difficult to decide if this was "restrictive" or "unknown" (although
+      inconsistent in practice).<hr />...NCBI itself places no restrictions on the
+      use or distribution of the data contained therein. Nor do we accept data when
+      the submitter has requested restrictions on reuse or redistribution...<hr />...some
+      submitters of the original data...may claim patent, copyright, or other intellectual
+      property rights in all or a portion of the data (that has been submitted)...<hr
+      />...NCBI cannot provide comment or unrestricted permission concerning the use,
+      copying, or distribution of the information contained in the molecular databases...
+    license-issues:
+    - comment: The license apparently uses language to declare something similar to
+        "public domain", but with the caveat that it may contain data that is otherwise.
+        This is judged to be a violation as any (re)use would depend on negotiating
+        with all upstream copyright holders, which are not presented. It is implied
+        that their license does not cover all data and could not find an explicit
+        "clean" version of the data in the downloads.
+      criteria: A.1.1
+    license-link: http://www.ncbi.nlm.nih.gov/home/about/policies.shtml
+    license-type: unknown
+    source: National Center for Biotechnology Information (Gene)
+    source-link: https://www.ncbi.nlm.nih.gov/gene/
+    status: complete
+ncbi-taxon:
+  infores:
+    agent_type: not_provided
+    consumed_by:
+    - infores:rtx-kg2
+    id: infores:ncbi-taxon
+    knowledge_level: knowledge_assertion
+    name: NCBI Taxonomy Ontology
+    status: released
+    xref:
+    - http://www.obofoundry.org/ontology/ncbitaxon.html
+  matrixcurated:
+    license_name: CC0 1.0
+    license_source_link: 'https://obofoundry.org/ontology/ncbitaxon.html '
+    primary_knowledge_source: infores:ncbi-taxon
+ncbi-taxonomy:
+  infores:
+    agent_type: not_provided
+    consumed_by:
+    - infores:rtx-kg2
+    id: infores:ncbi-taxonomy
+    knowledge_level: knowledge_assertion
+    name: NCBI Taxonomy
+    status: released
+    synonym:
+    - ncbitaxonomy
+    - ncbitaxon
+    xref:
+    - http://www.ncbi.nlm.nih.gov/taxonomy
+  matrixcurated:
+    license_name: CC0 1.0
+    license_source_link: 'https://kghub.org/kg-registry/resource/ncbitaxon/ncbitaxon.html '
+    primary_knowledge_source: infores:ncbi-taxonomy
+ncit:
+  infores:
+    agent_type: not_provided
+    consumed_by:
+    - infores:rtx-kg2
+    id: infores:ncit
+    knowledge_level: knowledge_assertion
+    name: National Cancer Institute Thesaurus
+    status: released
+    synonym:
+    - NCT Thesaurus
+    - NCIt
+    xref:
+    - https://github.com/NCATSTranslator/Translator-All/wiki/NCIT
+  kgregistry:
+    activity_status: active
+    category: DataSource
+    description: Stub Resource page for ncit. This page was automatically generated
+      because it was referenced by other resources.
+    domains:
+    - stub
+    id: ncit
+    layout: resource_detail
+    name: Ncit
+    warnings:
+    - This is an automatically generated stub page. Please replace with accurate information
+      about this resource.
+  matrixcurated:
+    license_name: CC BY 4.0
+    license_source_link: https://evs.nci.nih.gov/license
+    primary_knowledge_source: infores:ncit
+  reusabledata:
+    contacts:
+    - https://ncithesaurus-stage.nci.nih.gov/ncitbrowser/pages/contact_us.jsf
+    - NCIAppSupport@nih.gov
+    - http://ncicb.nci.nih.gov/support
+    data-access:
+    - location: https://evs.nci.nih.gov/ftp1/NCI_Thesaurus/
+      type: download
+    data-categories:
+    - cancer
+    - ontology
+    - disease
+    - phenotypes
+    - pharmacology
+    - drugs
+    - biomedical coding and reference
+    data-field: biomedical
+    data-tags: biomedical, ontology, cancer, ontology, disease, phenotypes, pharmacology,
+      drugs, biomedical coding and reference
+    data-type: ontology
+    description: 'NCI Thesaurus (NCIt) provides reference terminology for many NCI
+      and other systems.  It covers vocabulary for clinical care, translational and
+      basic research, and public information and administrative activities.
+
+      '
+    grade-automatic: 5
+    id: ncit
+    license: CC-BY-4.0
+    license-commentary:
+    - 'The Terms of Use puts a trademark restriction on re-releasing the data using
+      the name "NCI Thesaurus".  This was evaluated as be outside the scope of data
+      (re)use.
+
+      '
+    license-commentary-embeddable: 'The Terms of Use puts a trademark restriction
+      on re-releasing the data using the name "NCI Thesaurus".  This was evaluated
+      as be outside the scope of data (re)use.
+
+      '
+    license-hat-used: 'false'
+    license-issues: []
+    license-link: https://evs.nci.nih.gov/ftp1/NCI_Thesaurus/ThesaurusTermsofUse.htm
+    license-type: permissive
+    source: NCI Thesaurus
+    source-link: https://ncithesaurus-stage.nci.nih.gov
+    source-type: source
+    status: complete
+    was-controversial: 'false'
+nddf-umls:
+  infores:
+    consumed_by:
+    - infores:rtx-kg2
+    id: infores:nddf-umls
+    name: National Drug Data File (NDDF) (from UMLS)
+    status: deprecated
+  matrixcurated:
+    license_name: UMLS Metathesaurus
+    license_source_link: 'https://bioportal.bioontology.org/ontologies/NDDF '
+    primary_knowledge_source: infores:nddf-umls
+omim:
+  infores:
+    agent_type: not_provided
+    consumed_by:
+    - infores:openpredict
+    - infores:rtx-kg2
+    id: infores:omim
+    knowledge_level: knowledge_assertion
+    name: Online Mendelian Inheritance in Man (OMIM)
+    status: released
+    synonym:
+    - OMIM
+    xref:
+    - https://github.com/NCATSTranslator/Translator-All/wiki/OMIM
+  kgregistry:
+    activity_status: active
+    category: DataSource
+    contacts:
+    - category: Organization
+      contact_details:
+      - contact_type: url
+        value: https://www.omim.org/contact
+      label: OMIM (Johns Hopkins University)
+    description: "OMIM (Online Mendelian Inheritance in Man) is a continuously updated,\
+      \ expert-curated catalog of human genes and genetic disorders, focusing on genotype\u2013\
+      phenotype relationships and the molecular basis of disease."
+    domains:
+    - biomedical
+    - clinical
+    - genomics
+    homepage_url: https://www.omim.org/
+    id: omim
+    layout: resource_detail
+    license:
+      id: https://www.omim.org/help/agreement
+      label: OMIM Use Agreement (research/educational use; license required for commercial/redistribution)
+    name: OMIM
+    publications:
+    - id: https://doi.org/10.1093/nar/gky1151
+      journal: Nucleic Acids Research
+      preferred: true
+      title: "OMIM.org\u2014leveraging knowledge across phenotype\u2013gene relationships"
+      year: '2019'
+    - id: https://doi.org/10.1093/nar/gku1205
+      journal: Nucleic Acids Research
+      title: "OMIM.org\u2014an online catalog of human genes and genetic disorders"
+      year: '2015'
+    warnings:
+    - OMIM data are for research and educational use. Redistribution and commercial
+      use require a license from Johns Hopkins University; API access requires registration
+      and an API key.
+  matrixcurated:
+    license_name: Custom Johns Hopkins University OMIM Use Agreement
+    license_source_link: https://www.omim.org/help/agreement
+    primary_knowledge_source: infores:omim
+  reusabledata:
+    contacts:
+    - JHTT-Communications@jhmi.edu
+    data-access:
+    - location: https://omim.org/api
+      type: api
+    - location: https://omim.org/downloads
+      type: download
+    data-categories:
+    - disease-phenotype association
+    - gene-disease association
+    - variant-disease association
+    data-field: biomedical
+    data-tags: biomedical, human, disease-phenotype association, gene-disease association,
+      variant-disease association
+    data-type: human
+    description: OMIM is a comprehensive, authoritative compendium of human genes
+      and genetic phenotypes with full-text, referenced overviews that contains information
+      on all known mendelian disorders and over 12,000 genes. OMIM focuses on the
+      relationship between phenotype and genotype.
+    grade-automatic: 1.5
+    id: omim
+    license: custom
+    license-commentary:
+    - Assuming that one registered, it seems that data access would be relatively
+      pain-free; so no C.1 violation.
+    - 'See also: https://omim.org/downloads and https://omim.org/api for additional
+      access information.'
+    - It is worth reading through the linked agreement; there are many sections that
+      are restrictive or would be best interpreted with legal advice.
+    license-commentary-embeddable: 'Assuming that one registered, it seems that data
+      access would be relatively pain-free; so no C.1 violation.<hr />See also: https://omim.org/downloads
+      and https://omim.org/api for additional access information.<hr />It is worth
+      reading through the linked agreement; there are many sections that are restrictive
+      or would be best interpreted with legal advice.'
+    license-hat-used: 'false'
+    license-issues:
+    - comment: The license at link is custom.
+      criteria: A.2.2
+    - comment: Agreement section 13 requires downloads to be updated by downstream;
+        section 14 discussion arbitrary API key revocation.
+      criteria: B.1
+    - comment: Downloads and access are provided post-registration; as the API key
+        is used for access control, it violates the C.2 example.
+      criteria: C.2
+    - comment: Sections 8, 9, and 10 of the agreement make it seems that while a non-profit
+        reasearcher may access the data, there is no reuse (pass-through) possible.
+      criteria: D.1.2
+    - comment: Sections 8, 9, and 10 of the agreement make it seems that while a non-profit
+        reasearcher may access the data, there is no reuse (pass-through) possible.
+      criteria: E.1.2
+    license-link: http://www.omim.org/help/agreement
+    license-type: restrictive
+    source: Mendelian Inheritance in Man (OMIM)
+    source-link: https://www.omim.org
+    source-type: source
+    status: complete
+    was-controversial: 'false'
+ordo:
+  infores:
+    agent_type: not_provided
+    consumed_by:
+    - infores:rtx-kg2
+    id: infores:ordo
+    knowledge_level: knowledge_assertion
+    name: Orphanet Rare Disease Ontology
+    status: released
+    synonym:
+    - ORDO
+    xref:
+    - https://github.com/NCATSTranslator/Translator-All/wiki/Orphanet-Rare-Disease-Ontology
+  kgregistry:
+    activity_status: active
+    category: DataSource
+    contacts:
+    - category: Organization
+      contact_details:
+      - contact_type: email
+        value: contact.orphanet@inserm.fr
+      - contact_type: url
+        value: https://www.orpha.net/
+      label: Orphanet
+    - category: Organization
+      contact_details:
+      - contact_type: url
+        value: https://www.inserm.fr/
+      label: INSERM
+    description: The Orphanet Rare Disease Ontology (ORDO) is an open-access ontology
+      developed from the Orphanet information system, enabling complex queries of
+      rare diseases and their epidemiological data (age of onset, prevalence, mode
+      of inheritance) and gene-disorder functional relationships.
+    domains:
+    - biomedical
+    - health
+    - clinical
+    - genomics
+    - phenotype
+    homepage_url: https://www.orphadata.com/ordo/
+    id: ordo
+    layout: resource_detail
+    license:
+      id: https://creativecommons.org/licenses/by/4.0/
+      label: CC BY 4.0 (Creative Commons Attribution 4.0 International)
+      logo: http://mirrors.creativecommons.org/presskit/buttons/80x15/png/by.png
+    name: Orphanet Rare Disease Ontology (ORDO)
+  matrixcurated:
+    license_name: CC BY 4.0
+    license_source_link: https://www.orphadata.com/about-us/
+    primary_knowledge_source: infores:ordo
+orphanet:
+  infores:
+    agent_type: not_provided
+    id: infores:orphanet
+    knowledge_level: knowledge_assertion
+    name: Orphanet
+    status: released
+    xref:
+    - https://www.orpha.net
+  kgregistry:
+    activity_status: active
+    category: DataSource
+    contacts:
+    - category: Organization
+      contact_details:
+      - contact_type: url
+        value: https://www.orpha.net/en/institutions/get-in-touch/
+      label: Orphanet
+    creation_date: '2025-07-10T00:00:00Z'
+    description: Orphanet is a unique resource for information and data on rare diseases
+      and orphan drugs, aimed at improving diagnosis, care, and treatment of patients
+      with rare diseases. It maintains the Orphanet rare disease nomenclature (ORPHAcodes),
+      which is essential for improving the visibility of rare diseases in health and
+      research information systems.
+    domains:
+    - biomedical
+    - clinical
+    homepage_url: https://www.orpha.net/
+    id: orphanet
+    last_modified_date: '2025-07-10T00:00:00Z'
+    layout: resource_detail
+    name: Orphanet
+    repository: https://github.com/Orphanet
+    version: July 2025
+  matrixcurated:
+    license_name: CC BY 4.0
+    license_source_link: https://www.orphadata.com/about-us/
+    primary_knowledge_source: infores:orphanet
+panther:
+  infores:
+    agent_type: not_provided
+    consumed_by:
+    - infores:mygene-info
+    id: infores:panther
+    knowledge_level: other
+    name: Panther Classification System
+    status: released
+    synonym:
+    - Panther
+    xref:
+    - https://github.com/NCATSTranslator/Translator-All/wiki/PANTHER
+  kgregistry:
+    activity_status: active
+    category: Resource
+    contacts:
+    - category: Organization
+      contact_details:
+      - contact_type: email
+        value: pantherfeedback@yahoo.com
+      label: PANTHER
+    description: PANTHER is a Protein ANalysis THrough Evolutionary Relationships
+      Classification System. The mission of the PANTHER knowledgebase is to support
+      biomedical and other research by providing comprehensive information about the
+      evolution of protein-coding gene families, particularly protein phylogeny, function
+      and genetic variation impacting that function.
+    domains:
+    - biological systems
+    homepage_url: https://www.pantherdb.org/
+    id: panther
+    layout: resource_detail
+    name: PANTHER
+    repository: https://data.pantherdb.org/ftp/
+  matrixcurated:
+    license_name: CC BY 4.0
+    license_source_link: 'https://pantherdb.org/tou.jsp   '
+    primary_knowledge_source: infores:panther
+  reusabledata:
+    contacts:
+    - feedback@pantherdb.org
+    - pdthomas@usc.edu
+    data-access:
+    - location: http://pantherdb.org/downloads/index.jsp
+      type: download
+    data-categories:
+    - orthology
+    data-field: biology
+    data-tags: biology, genomic resource, orthology
+    data-type: genomic resource
+    description: The PANTHER (Protein ANalysis THrough Evolutionary Relationships)
+      Classification System was designed to classify proteins (and their genes) according
+      to evolutionary family/subfamily, molecular function, biological process, and
+      pathway. The PANTHER Classifications are the result of human curation as well
+      as sophisticated bioinformatics algorithms.
+    grade-automatic: 3
+    id: panther
+    license: all rights reserved
+    license-commentary:
+    - There is an alternate curation for this resource that bases itself off of 'http://www.pantherdb.org/tou.jsp',
+      which was found using a narrow Google search and not given consideration due
+      to the difficulties in finding it--we have found no access to this document
+      yet except for the Google search.
+    - "Considering the alternate license, downloads are under a permissive minimal\
+      \ license that states '...as long as the following copyright statement is placed\
+      \ at the top of each file: Copyright \xA9 2005 SRI International', which besides\
+      \ being likely out of data, is custom and does not cover APIs, remixing, and\
+      \ the like. It is hard to interpret the consequences of this license."
+    license-commentary-embeddable: "There is an alternate curation for this resource\
+      \ that bases itself off of 'http://www.pantherdb.org/tou.jsp', which was found\
+      \ using a narrow Google search and not given consideration due to the difficulties\
+      \ in finding it--we have found no access to this document yet except for the\
+      \ Google search.<hr />Considering the alternate license, downloads are under\
+      \ a permissive minimal license that states '...as long as the following copyright\
+      \ statement is placed at the top of each file: Copyright \xA9 2005 SRI International',\
+      \ which besides being likely out of data, is custom and does not cover APIs,\
+      \ remixing, and the like. It is hard to interpret the consequences of this license."
+    license-issues:
+    - comment: Given the all rights reserved copyright statement, any downstream reuse
+        would require negotiation.
+      criteria: D.1.2
+    - comment: Given the all rights reserved copyright statement, all user/agent types
+        would need to negotiate downstream reuse.
+      criteria: E.1.2
+    license-type: copyright
+    source: Protein ANalysis THrough Evolutionary Relationships Classification System
+      (PANTHER)
+    source-link: http://pantherdb.org/
+    status: complete
+pathwhiz:
+  infores:
+    agent_type: not_provided
+    consumed_by:
+    - infores:rtx-kg2
+    id: infores:pathwhiz
+    knowledge_level: knowledge_assertion
+    name: PathWhiz
+    status: released
+    xref:
+    - https://github.com/NCATSTranslator/Translator-All/wiki/PathWhiz
+  matrixcurated:
+    license_name: David Wishart, Departments of Computing Science & Biological Sciences,
+      University of Alberta.
+    license_source_link: https://smpdb.ca/pathwhiz
+    primary_knowledge_source: infores:pathwhiz
+pato:
+  infores:
+    agent_type: not_provided
+    consumed_by:
+    - infores:rtx-kg2
+    id: infores:pato
+    knowledge_level: knowledge_assertion
+    name: Phenotype and Trait Ontology
+    status: released
+    synonym:
+    - PATO
+    xref:
+    - https://github.com/NCATSTranslator/Translator-All/wiki/PATO
+  kgregistry:
+    activity_status: active
+    category: DataModel
+    contacts:
+    - category: Individual
+      contact_details:
+      - contact_type: email
+        value: g.gkoutos@gmail.com
+      - contact_type: url
+        value: https://orcid.org/0000-0002-2061-091X
+      - contact_type: github
+        value: gkoutos
+      label: George Gkoutos
+    creation_date: '2025-07-12T00:00:00Z'
+    description: Phenotype And Trait Ontology (PATO) is an ontology of phenotypic
+      qualities (properties, attributes or characteristics). It is used in conjunction
+      with other ontologies to refer to phenotypes, and is widely used for logical
+      definitions of phenotypes in cross-species integration.
+    domains:
+    - phenotype
+    homepage_url: https://github.com/pato-ontology/pato/
+    id: pato
+    last_modified_date: '2025-07-12T00:00:00Z'
+    layout: resource_detail
+    license:
+      id: http://creativecommons.org/licenses/by/3.0/
+      label: CC BY 3.0
+      logo: http://mirrors.creativecommons.org/presskit/buttons/80x15/png/by.png
+    name: Phenotype And Trait Ontology
+    repository: https://github.com/pato-ontology/pato
+  matrixcurated:
+    license_name: CC BY 3.0
+    license_source_link: https://obofoundry.org/ontology/pato.html
+    primary_knowledge_source: infores:pato
+pdq-umls:
+  infores:
+    agent_type: not_provided
+    consumed_by:
+    - infores:rtx-kg2
+    id: infores:pdq-umls
+    knowledge_level: knowledge_assertion
+    name: Physician Data Query (PDQ) (from UMLS)
+    status: released
+    xref:
+    - https://www.nlm.nih.gov/research/umls/sourcereleasedocs/current/PDQ/index.html
+  matrixcurated:
+    license_name: UMLS Metathesaurus
+    license_source_link: https://bioportal.bioontology.org/ontologies/PDQ
+    primary_knowledge_source: infores:pdq-umls
+pdsp:
+  infores:
+    agent_type: not_provided
+    description: This service provides screening of novel psychoactive compounds for
+      pharmacological and functional activity at cloned human or rodent CNS receptors,
+      channels, and transporters.
+    id: infores:pdsp
+    knowledge_level: other
+    name: Psychoactive Drug Screening Program
+    status: released
+    xref:
+    - https://github.com/NCATSTranslator/Translator-All/wiki/PDSP
+  matrixcurated:
+    license_name: CC BY-NC-SA 4.0
+    license_source_link: 'https://www.nature.com/nature-index/institution-outputs/articles/all/global/United%20States%20of%20America%20%28USA%29/NIMH%20Psychoactive%20Drug%20Screening%20Program%20%28PDSP%29/ '
+    primary_knowledge_source: infores:pdsp
+pharos:
+  infores:
+    agent_type: not_provided
+    consumed_by:
+    - infores:molepro
+    description: 'focusing on three of the most commonly drug-targeted protein families:
+      G-protein-coupled receptors (GPCRs, Ion channels (ICs), Kinases'
+    id: infores:pharos
+    knowledge_level: knowledge_assertion
+    name: Pharos
+    status: released
+    xref:
+    - https://github.com/NCATSTranslator/Translator-All/wiki/Pharos
+  kgregistry:
+    activity_status: active
+    category: DataSource
+    creation_date: '2025-08-13T00:00:00Z'
+    description: Stub Resource page for pharos. This page was automatically generated
+      because it was referenced by other resources.
+    domains:
+    - stub
+    id: pharos
+    last_modified_date: '2025-08-13T00:00:00Z'
+    layout: resource_detail
+    name: Pharos
+    warnings:
+    - This is an automatically generated stub page. Please replace with accurate information
+      about this resource.
+  matrixcurated:
+    license_name: "Aggregated data \u2014 follows licenses of primary data sources"
+    license_source_link: 'https://pharos.nih.gov/about '
+    primary_knowledge_source: infores:pharos
+  reusabledata:
+    contacts:
+    - pharos@mail.nih.gov
+    data-access:
+    - location: https://pharos.nih.gov/idg/api
+      type: api
+    - location: http://juniper.health.unm.edu/tcrd/download/
+      type: download
+    data-categories:
+    - disease
+    - targets
+    - ligands
+    data-field: biology
+    data-tags: biology, disease, targets, ligands
+    data-type: ''
+    description: Pharos is the user interface to the Knowledge Management Center (KMC)
+      for the Illuminating the Druggable Genome (IDG) program...
+    grade-automatic: 1
+    id: pharos
+    license: inconsistent
+    license-commentary:
+    - Unfortunately, the API ToS link leads to a bad (404-type) Swagger page.
+    - 'From the license page: \"Please note that TCRD incoporates many data sources
+      with a variety of associated licenses...Users of the TCRD downloads are resposible
+      for compliance with these licenses.\"'
+    - Given the variety and terms of the upstream resources, the inconsistency is
+      not unexpected.
+    - The license is also found here at https://pharos.nih.gov/idg/about, which has
+      similar wording to the README on the downloads page, but makes no note of the
+      user responsibility to adhere to licenses from original data sources.
+    license-commentary-embeddable: 'Unfortunately, the API ToS link leads to a bad
+      (404-type) Swagger page.<hr />From the license page: \"Please note that TCRD
+      incoporates many data sources with a variety of associated licenses...Users
+      of the TCRD downloads are resposible for compliance with these licenses.\"<hr
+      />Given the variety and terms of the upstream resources, the inconsistency is
+      not unexpected.<hr />The license is also found here at https://pharos.nih.gov/idg/about,
+      which has similar wording to the README on the downloads page, but makes no
+      note of the user responsibility to adhere to licenses from original data sources.'
+    license-hat-used: 'false'
+    license-issues:
+    - comment: While any novel data is under a CC license (CC-BY-SA-4.0), the integrated
+        resources are under whatever license the upstream is, with the user expected
+        to sort it out.
+      criteria: A.1.1
+    license-link: http://juniper.health.unm.edu/tcrd/download/README
+    license-type: unknown
+    source: Pharos
+    source-link: https://pharos.nih.gov/
+    source-type: integrator
+    status: complete
+    was-controversial: 'false'
+pr:
+  infores:
+    agent_type: not_provided
+    consumed_by:
+    - infores:rtx-kg2
+    id: infores:pr
+    knowledge_level: knowledge_assertion
+    name: Protein Ontology
+    status: released
+    synonym:
+    - PRO
+    xref:
+    - https://proconsortium.org/
+  kgregistry:
+    activity_status: active
+    category: DataSource
+    description: Stub Resource page for pr. This page was automatically generated
+      because it was referenced by other resources.
+    domains:
+    - stub
+    id: pr
+    layout: resource_detail
+    name: Pr
+    warnings:
+    - This is an automatically generated stub page. Please replace with accurate information
+      about this resource.
+  matrixcurated:
+    license_name: CC BY 4.0
+    license_source_link: 'https://obofoundry.org/ontology/pr.html '
+    primary_knowledge_source: infores:pr
+psite-plus:
+  infores:
+    agent_type: manual_agent
+    description: provides comprehensive information and tools for the study of protein  post-translational
+      modifications (PTMs) including phosphorylation, acetylation, and more.
+    id: infores:psite-plus
+    knowledge_level: knowledge_assertion
+    name: PhosphoSitePlus
+    status: released
+    xref:
+    - https://www.phosphosite.org/homeAction.action
+  matrixcurated:
+    license_name: CC BY-NC-SA 3.0
+    license_source_link: 'https://www.phosphosite.org/homeAction '
+    primary_knowledge_source: infores:psite-plus
+psy-umls:
+  infores:
+    agent_type: not_provided
+    consumed_by:
+    - infores:rtx-kg2
+    id: infores:psy-umls
+    knowledge_level: knowledge_assertion
+    name: Psychological Index Terms (PSY) (from UMLS)
+    status: released
+    xref:
+    - https://www.nlm.nih.gov/research/umls/sourcereleasedocs/current/PSY/index.html#:~:text=PSY%20(Psychological%20Index%20Terms)%20%2D%20Synopsis,-Synopsis%20Metadata%20Statistics&text=The%20Thesaurus%20of%20Psychological%20Index%20Terms%20is%20a%20controlled%20vocabulary,provide%20subject%20searching%20of%20data.
+  matrixcurated:
+    license_name: UMLS Metathesaurus
+    license_source_link: 'https://www.nlm.nih.gov/research/umls/sourcereleasedocs/current/PSY/stats.html '
+    primary_knowledge_source: infores:psy-umls
+reactome:
+  infores:
+    agent_type: not_provided
+    consumed_by:
+    - infores:molepro
+    - infores:mygene-info
+    - infores:rtx-kg2
+    id: infores:reactome
+    knowledge_level: knowledge_assertion
+    name: Reactome
+    status: released
+    xref:
+    - https://github.com/NCATSTranslator/Translator-All/wiki/reactome
+  kgregistry:
+    activity_status: active
+    category: DataSource
+    contacts:
+    - category: Individual
+      contact_details:
+      - contact_type: email
+        value: cjmungall@lbl.gov
+      - contact_type: github
+        value: cmungall
+      label: Christopher J. Mungall
+      orcid: 0000-0002-6601-2165
+    description: Reactome from Biopax
+    domains:
+    - biological systems
+    - pathways
+    - systems biology
+    - biomedical
+    homepage_url: https://reactome.org
+    id: reactome
+    layout: resource_detail
+    name: Reactome
+    repository: ''
+  matrixcurated:
+    license_name: CC0 1.0 (All Data), CC BY 4.0 (Pathway art/branding), Apache 2.0
+      (Software/code - some exceptions)
+    license_source_link: 'https://reactome.org/license '
+    primary_knowledge_source: infores:reactome
+  reusabledata:
+    contacts:
+    - help@reactome.org
+    data-access:
+    - location: http://reactome.org/pages/download-data/
+      type: download
+    - location: http://reactome.org/pages/documentation/developer-guide/content-service/
+      type: api
+    data-categories:
+    - pathway data
+    data-field: biology
+    data-tags: biology, pathway, pathway data
+    data-type: pathway
+    description: Reactome is a free, open-source, curated and peer reviewed pathway
+      database. Our goal is to provide intuitive bioinformatics tools for the visualization,
+      interpretation and analysis of pathway knowledge to support basic research,
+      genome analysis, modeling, systems biology and education.
+    grade-automatic: 4.5
+    id: reactome
+    license: CC-BY-4.0
+    license-commentary:
+    - The issue with criteria B.2.2 could be rectified if Reactome provided a clean
+      copy of the data that can be redistributed without negotiation.
+    license-commentary-embeddable: The issue with criteria B.2.2 could be rectified
+      if Reactome provided a clean copy of the data that can be redistributed without
+      negotiation.
+    license-issues:
+    - comment: KEGG gene and pathway annotations used to construct Reactome Functional
+        Interaction (FI) Network are not licenced CC-BY-4.0. There is a comment that
+        "the recipient may not distribute this data to other users without a license
+        from Pathway Solutions, Inc."
+      criteria: B.2.2
+    license-link: http://www.reactome.org/pages/about/license-agreement/
+    license-type: permissive
+    source: Reactome
+    source-link: http://www.reactome.org
+    status: complete
+repodb:
+  infores:
+    agent_type: not_provided
+    consumed_by:
+    - infores:biothings-repodb
+    id: infores:repodb
+    knowledge_level: knowledge_assertion
+    name: Drug Repositioning Database
+    status: released
+    synonym:
+    - repoDB
+    xref:
+    - https://github.com/NCATSTranslator/Translator-All/wiki/repoDB
+  kgregistry:
+    activity_status: active
+    category: DataSource
+    contacts:
+    - category: Organization
+      contact_details:
+      - contact_type: url
+        value: https://datascience.unm.edu/
+      label: University of New Mexico Translational Informatics Division
+    - category: Organization
+      contact_details:
+      - contact_type: url
+        value: http://www.chiragjpgroup.org/
+      label: Harvard School of Medicine Patel Group
+    creation_date: '2025-07-17T00:00:00Z'
+    description: RepoDB is a standard dataset of drug repositioning successes and
+      failures  that can be used to fairly and reproducibly benchmark computational  repositioning
+      methods. The database contains approved drugs, their  indications, and clinical
+      trial outcomes.
+    domains:
+    - drug discovery
+    - pharmacology
+    - clinical
+    - biomedical
+    homepage_url: https://unmtid-shinyapps.net/shiny/repodb/
+    id: repodb
+    last_modified_date: '2025-08-07T00:00:00Z'
+    layout: resource_detail
+    license:
+      id: https://creativecommons.org/licenses/by/4.0/
+      label: CC-BY-4.0
+      logo: http://mirrors.creativecommons.org/presskit/buttons/80x15/png/by.png
+    name: RepoDB
+    publications:
+    - doi: 10.1038/sdata.2017.29
+      id: doi:10.1038/sdata.2017.29
+      preferred: true
+      title: A standard database for drug repositioning
+    - id: pmid:28291243
+      title: A standard database for drug repositioning
+  matrixcurated:
+    license_name: CC BY 4.0
+    license_source_link: 'https://www.nature.com/articles/sdata201729 '
+    primary_knowledge_source: infores:repodb
+rgd:
+  infores:
+    agent_type: not_provided
+    description: The RGD API
+    id: infores:rgd
+    knowledge_level: knowledge_assertion
+    name: RGD API
+    status: released
+    xref:
+    - https://rgd.mcw.edu/
+  kgregistry:
+    activity_status: active
+    category: DataSource
+    description: Stub Resource page for rgd. This page was automatically generated
+      because it was referenced by other resources.
+    domains:
+    - stub
+    id: rgd
+    layout: resource_detail
+    name: Rgd
+    warnings:
+    - This is an automatically generated stub page. Please replace with accurate information
+      about this resource.
+  matrixcurated:
+    license_name: CC BY 4.0
+    license_source_link: 'https://rgd.mcw.edu/wg/disclaimer/#:~:text=Data%20in%20RGD%20are%20provided,You%20are%20free%20to%E2%80%A6&text=Adapt:%20remix%2C%20transform%2C%20and,for%20any%20purpose%2C%20even%20commercially. '
+    primary_knowledge_source: infores:rgd
+  reusabledata:
+    contacts:
+    - http://rgd.mcw.edu/contact/index.shtml
+    data-access:
+    - location: ftp://ftp.rgd.mcw.edu/pub/
+      type: download
+    - location: http://rest.rgd.mcw.edu/rgdws/swagger-ui.html
+      type: api
+    data-categories:
+    - genotype-phenotype association
+    - disease-model association
+    - gene expression
+    data-field: biology
+    data-tags: biology, MOD, genotype-phenotype association, disease-model association,
+      gene expression
+    data-type: MOD
+    description: The Rat Genome Database (RGD) was established in 1999 and is the
+      premier site for genetic, genomic, phenotype, and disease data generated from
+      rat research. In addition, it provides easy access to corresponding human and
+      mouse data for cross-species comparisons.
+    grade-automatic: 5
+    id: rgd
+    license: CC-BY-4.0
+    license-commentary:
+    - Information found in the "Legal Disclaimer" footer on all pages, next to CC
+      BY 4.0 link.
+    license-commentary-embeddable: Information found in the "Legal Disclaimer" footer
+      on all pages, next to CC BY 4.0 link.
+    license-issues: []
+    license-link: http://rgd.mcw.edu/wg/home/disclaimer
+    license-type: permissive
+    source: Rat Genome Database (RGD)
+    source-link: http://rgd.mcw.edu
+    status: complete
+ro:
+  infores:
+    agent_type: not_provided
+    consumed_by:
+    - infores:rtx-kg2
+    id: infores:ro
+    knowledge_level: knowledge_assertion
+    name: Relations Ontology
+    status: released
+    synonym:
+    - RO
+    xref:
+    - http://www.obofoundry.org/ontology/ro.html
+  kgregistry:
+    activity_status: active
+    category: DataSource
+    description: Stub Resource page for ro. This page was automatically generated
+      because it was referenced by other resources.
+    domains:
+    - stub
+    id: ro
+    layout: resource_detail
+    name: Ro
+    warnings:
+    - This is an automatically generated stub page. Please replace with accurate information
+      about this resource.
+  matrixcurated:
+    license_name: CC0 1.0
+    license_source_link: https://obofoundry.org/ontology/ro.html
+    primary_knowledge_source: infores:ro
+rxnorm:
+  infores:
+    agent_type: not_provided
+    consumed_by:
+    - infores:molepro
+    - infores:rtx-kg2
+    description: normalized names for clinical drugs and links its names to many of
+      the drug vocabularies commonly used in pharmacy management and drug interaction
+      software, including those of First Databank, Micromedex, and Gold Standard Drug
+      Database
+    id: infores:rxnorm
+    knowledge_level: knowledge_assertion
+    name: RxNorm
+    status: released
+    xref:
+    - https://github.com/NCATSTranslator/Translator-All/wiki/RxNORM
+  matrixcurated:
+    license_name: UMLS Metathesaurus
+    license_source_link: https://www.nlm.nih.gov/research/umls/rxnorm/faq.html#faq-about-rxnorm
+    primary_knowledge_source: infores:rxnorm
+semmeddb:
+  infores:
+    agent_type: text_mining_agent
+    consumed_by:
+    - infores:biothings-semmeddb
+    - infores:rtx-kg2
+    id: infores:semmeddb
+    knowledge_level: not_provided
+    name: Semantic Medline Database
+    status: released
+    xref:
+    - https://github.com/NCATSTranslator/Translator-All/wiki/SemMedDB
+  kgregistry:
+    activity_status: inactive
+    category: DataSource
+    contacts:
+    - category: Organization
+      contact_details:
+      - contact_type: email
+        value: support@nlm.nih.gov
+      label: National Library of Medicine
+    description: SemMedDB is a repository of semantic predications (subject-predicate-object
+      triples) extracted from biomedical literature by SemRep, a natural language
+      processing system. It contains over 130 million semantic predications extracted
+      from more than 37 million PubMed citations, supporting biomedical knowledge
+      discovery, literature-based discovery, and clinical applications.
+    domains:
+    - biomedical
+    - literature
+    - health
+    - clinical
+    - drug discovery
+    - genomics
+    - pharmacology
+    homepage_url: https://lhncbc.nlm.nih.gov/temp/SemRep_SemMedDB_SKR/SemMedDB_download.html
+    id: semmeddb
+    layout: resource_detail
+    license:
+      id: https://www.nlm.nih.gov/web_policies.html
+      label: UMLS License
+    name: Semantic MEDLINE Database (SemMedDB)
+    publications:
+    - authors:
+      - Kilicoglu H
+      - Shin D
+      - Fiszman M
+      - Rosemblat G
+      - Rindflesch TC
+      doi: 10.1093/bioinformatics/bts591
+      id: https://doi.org/10.1093/bioinformatics/bts591
+      journal: Bioinformatics
+      preferred: true
+      title: 'SemMedDB: a PubMed-scale repository of biomedical semantic predications'
+      year: '2012'
+    - authors:
+      - Kilicoglu H
+      - Rosemblat G
+      - Fiszman M
+      - Shin D
+      - Rindflesch TC
+      doi: 10.1186/s12859-020-3517-7
+      id: https://doi.org/10.1186/s12859-020-3517-7
+      journal: BMC Bioinformatics
+      title: Broad-coverage biomedical relation extraction with SemRep
+      year: '2020'
+    - authors:
+      - Kilicoglu H
+      - Rosemblat G
+      - Fiszman M
+      - Rindflesch TC
+      doi: 10.1186/1471-2105-12-486
+      id: https://doi.org/10.1186/1471-2105-12-486
+      journal: BMC Bioinformatics
+      title: Constructing a semantic predication gold standard from the biomedical
+        literature
+      year: '2011'
+    - authors:
+      - Rindflesch TC
+      - Fiszman M
+      doi: 10.1016/j.jbi.2003.11.003
+      id: https://doi.org/10.1016/j.jbi.2003.11.003
+      journal: Journal of Biomedical Informatics
+      title: 'The interaction of domain knowledge and linguistic structure in natural
+        language processing: interpreting hypernymic propositions in biomedical text'
+      year: '2003'
+  matrixcurated:
+    license_name: UMLS Metathesaurus
+    license_source_link: 'https://academic.oup.com/bioinformatics/article/28/23/3158/195282 '
+    primary_knowledge_source: infores:semmeddb
+  matrixreviews:
+    domain_coverage_comments: 'Entities: drug,target,disease via UMLS CUIs; Relations:
+      TREATS, INHIBITS, ASSOCIATED_WITH (~30 predicate types). Rich coverage but many
+      edges generic/ambiguous.'
+    domain_coverage_score: 2
+    label_manual: Medium
+    label_manual_comment: "SemMedDB is a valuable pharmacology-facing resource because\
+      \ it systematically mines the biomedical literature to surface relationships\
+      \ among drugs, targets, and diseases. For pharmacology and repurposing work,\
+      \ this means one can quickly identify broad patterns of how drugs are reported\
+      \ to treat conditions, inhibit targets, or interact with biological processes\
+      \ across the entire PubMed corpus. The use of UMLS CUIs ensures standardized\
+      \ identifiers and allows integration with other biomedical datasets. However,\
+      \ because the relationships are automatically extracted via NLP rather than\
+      \ manually curated, there is considerable noise, and predicates are often generic.\
+      \ As a result, SemMedDB is best positioned as a hypothesis-generation tool rather\
+      \ than a plug-and-play backbone for drug\u2013disease modeling. With careful\
+      \ filtering around higher-confidence predicates (e.g., TREATS, INHIBITS) and\
+      \ frequency thresholds, it can enrich repurposing pipelines by pointing to candidate\
+      \ mechanisms and literature support at scale"
+    label_rubric: Medium
+    label_rubric_rationale: "Conditional: with condition = \u201Conly use curated\
+      \ subsets (e.g., TREATS, INHIBITS) and filter by frequency/confidence"
+    primary_knowledge_source: infores:semmeddb
+    reviewer: https://orcid.org/0000-0003-4097-3395
+    source_scope_score: 3
+    source_scope_score_comment: Broad, cross-disease; >21M PubMed citations; 57.6M
+      predications; thousands of drugs, diseases, genes; multi-relation subtypes
+    utility_drugrepurposing_comment: "Direct edges: TREATS, INHIBITS, CAUSES, etc.\
+      \ present but NLP-extracted, noisy; predicates often generic; PubMed links but\
+      \ no confidence scores; precision ~70\u201380% \u2192 heavy filtering required"
+    utility_drugrepurposing_score: 1
+sgd:
+  infores:
+    agent_type: not_provided
+    id: infores:sgd
+    knowledge_level: knowledge_assertion
+    name: Saccharomyces Genome Database
+    status: released
+    xref:
+    - http://www.yeastgenome.org/
+  kgregistry:
+    activity_status: active
+    category: DataSource
+    contacts:
+    - category: Organization
+      contact_details:
+      - contact_type: email
+        value: sgd-helpdesk@lists.stanford.edu
+      label: SGD Helpdesk
+    description: The Saccharomyces Genome Database (SGD) project collects information
+      and maintains a database of the molecular biology of the yeast Saccharomyces
+      cerevisiae.
+    domains:
+    - biological systems
+    homepage_url: https://www.yeastgenome.org/
+    id: sgd
+    layout: resource_detail
+    name: Saccharomyces Genome Database
+  matrixcurated:
+    license_name: CC BY 4.0
+    license_source_link: 'https://sites.google.com/view/yeastgenome-help/about '
+    primary_knowledge_source: infores:sgd
+  reusabledata:
+    contacts:
+    - https://www.yeastgenome.org/suggestion
+    - sgd-helpdesk@lists.stanford.edu
+    data-access:
+    - location: https://www.yeastgenome.org/search?category=download
+      type: download
+    - location: https://yeastmine.yeastgenome.org/yeastmine/api.do
+      type: api
+    data-categories:
+    - genotype-phenotype association
+    - disease-model association
+    - gene expression
+    data-field: biology
+    data-tags: biology, MOD, genotype-phenotype association, disease-model association,
+      gene expression
+    data-type: MOD
+    description: The Saccharomyces Genome Database (SGD) provides comprehensive integrated
+      biological information for the budding yeast Saccharomyces cerevisiae along
+      with search and analysis tools to explore these data, enabling the discovery
+      of functional relationships between sequence and gene products in fungi and
+      higher organisms.
+    grade-automatic: 4.5
+    id: sgd
+    license: CC-BY-4.0
+    license-commentary:
+    - The license information found in the "About SGD" paragraph on the SGD Help page
+      at https://sites.google.com/view/yeastgenome-help/about
+    - SGD operates under the Creative Commons Attribution 4.0 International license
+      (CC BY 4.0).
+    - 'However, the license information for the API is much less clear, reading: "Permission
+      to use the information contained in this database was given by the researchers/institutes
+      who contributed or published the information. Users of the database are solely
+      responsible for compliance with any copyright restrictions, including those
+      applying to the author abstracts."'
+    - The API did not seem to offer any way of filter out things with other licenses.
+    - 'Without ascending, noting that various upstream for the SGD API could have
+      other terms: https://yeastmine.yeastgenome.org/yeastmine/dataCategories.do'
+    license-commentary-embeddable: 'The license information found in the "About SGD"
+      paragraph on the SGD Help page at https://sites.google.com/view/yeastgenome-help/about<hr
+      />SGD operates under the Creative Commons Attribution 4.0 International license
+      (CC BY 4.0).<hr />However, the license information for the API is much less
+      clear, reading: "Permission to use the information contained in this database
+      was given by the researchers/institutes who contributed or published the information.
+      Users of the database are solely responsible for compliance with any copyright
+      restrictions, including those applying to the author abstracts."<hr />The API
+      did not seem to offer any way of filter out things with other licenses.<hr />Without
+      ascending, noting that various upstream for the SGD API could have other terms:
+      https://yeastmine.yeastgenome.org/yeastmine/dataCategories.do'
+    license-issues:
+    - comment: While the downloadable data seems quite clearly CC-BY-4.0, the API
+        footer has terms that indicate that all data may not be covered under the
+        same license (see comments).
+      criteria: B.2.1
+    - comment: The API does not seem to be any easy way to differentiate the \"clean\"
+        CC-BY-4.0 data from other licenses.
+      criteria: B.2.2
+    license-link: https://sites.google.com/view/yeastgenome-help/about
+    license-type: permissive
+    provisional: 'true'
+    source: Saccharomyces Genome Database (SGD)
+    source-link: https://yeastgenome.org/
+    status: complete
+    was-controversial: 'false'
+sider:
+  infores:
+    agent_type: not_provided
+    consumed_by:
+    - infores:catrax-pharmacogenomics
+    - infores:molepro
+    id: infores:sider
+    knowledge_level: knowledge_assertion
+    name: SIDER
+    status: released
+    xref:
+    - https://github.com/NCATSTranslator/Translator-All/wiki/SIDER
+  kgregistry:
+    activity_status: inactive
+    category: DataSource
+    contacts:
+    - category: Individual
+      contact_details:
+      - contact_type: email
+        value: michael.kuhn@gmail.com
+      label: Michael Kuhn
+    - category: Organization
+      label: European Molecular Biology Laboratory (EMBL)
+    description: SIDER (Side Effect Resource) contains information on marketed medicines
+      and their recorded adverse drug reactions. The information is extracted from
+      public documents and package inserts, including side effect frequency, drug
+      and side effect classifications, and links to further information.
+    domains:
+    - biomedical
+    - pharmacology
+    - drug discovery
+    - health
+    homepage_url: http://sideeffects.embl.de/
+    id: sider
+    layout: resource_detail
+    license:
+      id: https://creativecommons.org/licenses/by-nc-sa/4.0/
+      label: CC-BY-NC-4.0
+    name: SIDER
+    publications:
+    - authors:
+      - Kuhn M
+      - Letunic I
+      - Jensen LJ
+      - Bork P
+      doi: doi:10.1093/nar/gkv1075
+      id: https://doi.org/10.1093/nar/gkv1075
+      journal: Nucleic Acids Research
+      preferred: true
+      title: The SIDER database of drugs and side effects
+      year: '2016'
+    - authors:
+      - Kuhn M
+      - Campillos M
+      - Letunic I
+      - Jensen LJ
+      - Bork P
+      doi: doi:10.1038/msb.2009.98
+      id: https://doi.org/10.1038/msb.2009.98
+      journal: Molecular Systems Biology
+      title: A side effect resource to capture phenotypic effects of drugs
+      year: '2010'
+    warnings:
+    - The last release for this resource was on October 21, 2015.
+  matrixcurated:
+    license_name: CC BY-NC-SA 4.0
+    license_source_link: 'http://sideeffects.embl.de/about/ '
+    primary_knowledge_source: infores:sider
+signor:
+  infores:
+    agent_type: not_provided
+    consumed_by:
+    - infores:catrax-pharmacogenomics
+    id: infores:signor
+    knowledge_level: knowledge_assertion
+    name: SIGNOR 3.0
+    status: released
+    xref:
+    - https://signor.uniroma2.it/
+  kgregistry:
+    activity_status: active
+    category: DataSource
+    contacts:
+    - category: Organization
+      contact_details:
+      - contact_type: url
+        value: https://signor.uniroma2.it/contact.php
+      label: SIGNOR Team (University of Rome Tor Vergata & Sapienza University of
+        Rome)
+    creation_date: '2025-08-12T00:00:00Z'
+    description: "SIGNOR (SIGnaling Network Open Resource) is a manually curated repository\
+      \ of experimentally supported, causal relationships between human proteins and\
+      \ other biologically relevant entities (chemicals, phenotypes, complexes, families,\
+      \ stimuli). Each interaction is annotated with effect, mechanism, directionality,\
+      \ evidence (PMID), and a relevance score, enabling construction and analysis\
+      \ of signed, directed signaling networks and pathways. Cite SIGNOR (Lo Surdo\
+      \ et al., 2022 NAR) when using data; interaction data are directional and signed\u2014\
+      verify effect/mechanism fields when integrating."
+    domains:
+    - pathways
+    - biomedical
+    - systems biology
+    - proteomics
+    homepage_url: https://signor.uniroma2.it/
+    id: signor
+    last_modified_date: '2025-08-23T00:00:00Z'
+    layout: resource_detail
+    license:
+      id: https://creativecommons.org/licenses/by/4.0/
+      label: CC-BY 4.0
+      logo: http://mirrors.creativecommons.org/presskit/buttons/80x15/png/by.png
+    name: SIGNOR
+    publications:
+    - id: https://doi.org/10.1093/nar/gkac883
+      journal: Nucleic Acids Research
+      preferred: true
+      title: 'SIGNOR 3.0, the SIGnaling network open resource 3.0: 2022 update'
+      year: '2022'
+  matrixcurated:
+    license_name: CC BY 4.0
+    license_source_link: https://signor.uniroma2.it/
+    primary_knowledge_source: infores:signor
+string:
+  infores:
+    agent_type: not_provided
+    consumed_by:
+    - infores:molepro
+    id: infores:string
+    knowledge_level: knowledge_assertion
+    name: Search Tool for the Retrieval of Interacting Genes/Proteins
+    status: released
+    synonym:
+    - STRING
+    xref:
+    - https://github.com/NCATSTranslator/Translator-All/wiki/STRING
+  kgregistry:
+    activity_status: active
+    category: DataSource
+    contacts:
+    - category: Organization
+      contact_details:
+      - contact_type: url
+        value: https://string-db.org/
+      label: STRING Consortium
+    description: STRING is a database of known and predicted protein-protein interactions.
+      The interactions include direct (physical) and indirect (functional) associations
+      derived from computational prediction, knowledge transfer between organisms,
+      and interactions aggregated from other primary databases.
+    domains:
+    - genomics
+    - biomedical
+    - proteomics
+    homepage_url: https://string-db.org/
+    id: string
+    layout: resource_detail
+    license:
+      id: https://creativecommons.org/licenses/by/4.0/
+      label: Creative Commons Attribution 4.0 International (CC BY 4.0)
+      logo: http://mirrors.creativecommons.org/presskit/buttons/80x15/png/by.png
+    name: STRING
+    publications:
+    - authors:
+      - Szklarczyk D
+      - Kirsch R
+      - Koutrouli M
+      - Nastou K
+      - Mehryary F
+      - Hachilif R
+      - Annika GL
+      - Fang T
+      - Doncheva NT
+      - Pyysalo S
+      - Bork P
+      - Jensen LJ
+      - von Mering C
+      doi: doi:10.1093/nar/gkac1000
+      id: https://doi.org/10.1093/nar/gkac1000
+      journal: Nucleic Acids Research
+      preferred: true
+      title: The STRING database in 2023 - protein-protein association networks and
+        functional enrichment analyses for any sequenced genome of interest
+      year: '2023'
+    version: '12.0'
+  matrixcurated:
+    license_name: CC BY 4.0
+    license_source_link: https://string-db.org/cgi/access?footer_active_subpage=licensing
+    primary_knowledge_source: infores:string
+  matrixreviews:
+    domain_coverage_comments: Comprehensive gene/protein coverage with dense functional/physical
+      associations and rich UniProt-based descriptors.
+    domain_coverage_score: 3
+    label_manual: High
+    label_manual_comment: "STRING is highly relevant for repurposing and translational\
+      \ pharmacology because it captures the functional protein landscape that underlies\
+      \ drug action. By linking proteins in pathways, networks, and disease processes,\
+      \ it enables inference of indirect drug\u2013disease relationships. The layered\
+      \ evidence and confidence scoring help distinguish biologically meaningful interactions\
+      \ from background noise, which is essential for pharmacology-driven hypotheses.\
+      \ Since drugs act through proteins, STRING provides the mechanistic bridge between\
+      \ drug targets and downstream phenotypes, making it a great source for evaluating\
+      \ new therapeutic opportunities"
+    label_rubric: High
+    label_rubric_rationale: 'Nominate: as gets A=3 / B=3/ C=3; pretty good source'
+    primary_knowledge_source: infores:string
+    reviewer: https://orcid.org/0000-0003-4097-3395
+    source_scope_score: 3
+    source_scope_score_comment: Global-scale, multi-species PPI/functional knowledgebase
+      with millions of high-confidence edges from heterogeneous evidence.
+    utility_drugrepurposing_comment: Directly usable as a backbone for repurposing
+      pipelines; confidence-scored PPI edges integrate seamlessly once drug and disease
+      mappings are added.
+    utility_drugrepurposing_score: 3
+  reusabledata:
+    contacts:
+    - https://string-db.org/cgi/support.pl
+    data-access:
+    - location: https://string-db.org/cgi/download.pl
+      type: download
+    data-categories:
+    - protein-protein interaction
+    - protein families
+    data-field: biology
+    data-tags: biology, cross-species, protein-protein interaction, protein families
+    data-type: cross-species
+    description: STRING is a database of known and predicted protein-protein interactions.
+      The interactions include direct (physical) and indirect (functional) associations;
+      they stem from computational prediction, from knowledge transfer between organisms,
+      and from interactions aggregated from other (primary) databases.
+    grade-automatic: 5
+    id: string
+    license: CC-BY-4.0
+    license-commentary:
+    - While there are APIs available, we skipped evaluation as they explicitly state
+      they are now meant for bulk use and downloads are available anyways.
+    license-commentary-embeddable: While there are APIs available, we skipped evaluation
+      as they explicitly state they are now meant for bulk use and downloads are available
+      anyways.
+    license-link: https://string-db.org/cgi/access.pl
+    license-type: permissive
+    source: STRING
+    source-link: https://string-db.org
+    status: complete
+text-mining-provider-targeted:
+  infores:
+    agent_type: text_mining_agent
+    consumed_by:
+    - infores:service-provider-trapi
+    - infores:unsecret-agent
+    consumes:
+    - infores:pubmed
+    - infores:pubmed-central
+    description: API serving explicitly targeted Biolink Associations extracted from
+      sentences in the scientific literature. Here, targeted refers to the fact that
+      this service is based on text-mining models targeted to extract specific associations
+      between concepts, as opposed to concepts cooccurring with each other.
+    id: infores:text-mining-provider-targeted
+    knowledge_level: not_provided
+    name: Text Mining Targeted Association API
+    status: released
+    xref:
+    - https://github.com/NCATSTranslator/Translator-All/wiki/Text%E2%80%90mined-Assertion-KP
+  matrixcurated:
+    license_name: CC BY 4.0
+    license_source_link: 'https://smart-api.info/ui/978fe380a147a8641caf72320862697b '
+    primary_knowledge_source: infores:text-mining-provider-targeted
+tiga:
+  infores:
+    agent_type: not_provided
+    description: Aggregating and assessing experimental evidence for interpretable,
+      explainable, accountable gene-trait associations.
+    id: infores:tiga
+    knowledge_level: knowledge_assertion
+    name: Target Illumination GWAS Analytics
+    status: released
+    synonym:
+    - TIGA
+    xref:
+    - https://github.com/NCATSTranslator/Translator-All/wiki/TIGA
+  matrixcurated:
+    license_name: BSD-2-Clause
+    license_source_link: https://academic.oup.com/bioinformatics/article/37/21/3865/6292081
+    primary_knowledge_source: infores:tiga
+tissues-expression-db:
+  infores:
+    agent_type: not_provided
+    id: infores:tissues-expression-db
+    knowledge_level: knowledge_assertion
+    name: Tissue Expression Database
+    status: released
+    synonym:
+    - TED
+    xref:
+    - https://github.com/NCATSTranslator/Translator-All/wiki/Tissue-Expression-Database
+  matrixcurated:
+    license_name: CC BY 4.0
+    license_source_link: 'https://tissues.jensenlab.org/About '
+    primary_knowledge_source: infores:tissues-expression-db
+ubergraph:
+  infores:
+    agent_type: not_provided
+    description: A graph representation of Ubergraph, an integration of ontologies
+      including GO, CHEBI, Uberon, and HPO.
+    id: infores:ubergraph
+    knowledge_level: knowledge_assertion
+    name: Ubergraph
+    status: released
+    xref:
+    - https://github.com/NCATSTranslator/Translator-All/wiki/Ubergraph
+  kgregistry:
+    activity_status: active
+    category: KnowledgeGraph
+    contacts:
+    - category: Individual
+      contact_details:
+      - contact_type: email
+        value: balhoff@renci.org
+      - contact_type: github
+        value: balhoff
+      label: James P. Balhoff
+      orcid: 0000-0002-8688-6599
+    description: Ubergraph is an RDF triplestore integrating OBO ontologies into a
+      unified semantic graph
+    domains:
+    - other
+    homepage_url: https://ubergraph.apps.renci.org/sparql
+    id: ubergraph
+    layout: resource_detail
+    license:
+      id: https://creativecommons.org/licenses/by/4.0/
+      label: CC BY 4.0
+      logo: http://mirrors.creativecommons.org/presskit/buttons/80x15/png/by.png
+    name: Ubergraph
+    repository: https://github.com/INCATools/ubergraph
+  matrixcurated:
+    license_name: "Aggregated data \u2014 follows licenses of primary data sources"
+    license_source_link: 'https://github.com/INCATools/ubergraph?tab=BSD-3-Clause-1-ov-file '
+    primary_knowledge_source: infores:ubergraph
+uberon:
+  infores:
+    agent_type: not_provided
+    consumed_by:
+    - infores:biothings-uberon-ontology
+    - infores:rtx-kg2
+    id: infores:uberon
+    knowledge_level: knowledge_assertion
+    name: Uber Anatomy Ontology
+    status: released
+    synonym:
+    - Uberon
+    xref:
+    - https://github.com/NCATSTranslator/Translator-All/wiki/Uberon
+  kgregistry:
+    activity_status: active
+    category: DataModel
+    contacts:
+    - category: Individual
+      contact_details:
+      - contact_type: email
+        value: cjmungall@lbl.gov
+      - contact_type: github
+        value: cmungall
+      label: Christopher J. Mungall
+      orcid: 0000-0002-6601-2165
+    description: An integrated cross-species anatomy ontology representing a variety
+      of anatomical structures across taxonomic groups, with a focus on vertebrates
+      and model organisms.
+    domains:
+    - anatomy and development
+    - organisms
+    homepage_url: https://obophenotype.github.io/uberon/
+    id: uberon
+    layout: resource_detail
+    license:
+      id: https://creativecommons.org/licenses/by/3.0/
+      label: CC-BY-3.0
+      logo: http://mirrors.creativecommons.org/presskit/buttons/80x15/png/by.png
+    name: Uber-Anatomy Ontology
+    repository: https://github.com/obophenotype/uberon
+  matrixcurated:
+    license_name: CC BY 3.0
+    license_source_link: 'https://obofoundry.org/ontology/uberon.html '
+    primary_knowledge_source: infores:uberon
+umls-metathesaurus:
+  infores:
+    agent_type: not_provided
+    consumed_by:
+    - infores:rtx-kg2
+    id: infores:umls-metathesaurus
+    knowledge_level: knowledge_assertion
+    name: UMLS Metathesaurus (MTH) (from UMLS)
+    status: released
+    xref:
+    - https://www.nlm.nih.gov/research/umls/sourcereleasedocs/current/MTH/index.html
+  matrixcurated:
+    license_name: UMLS Metathesaurus
+    license_source_link: 'https://www.nlm.nih.gov/databases/umls.html '
+    primary_knowledge_source: infores:umls-metathesaurus
+  matrixreviews:
+    domain_coverage_comments: Covers diseases, drugs/chemicals, genes/genomes, anatomy,
+      phenotypes, procedures, functions; concepts standardized to CUIs with 134 semantic
+      types and 54 relation families.
+    domain_coverage_score: 3
+    label_manual: High
+    label_manual_comment: "Although the rubric yields Conditional due to a Utility\
+      \ score of 2, UMLS is being elevated to Nominate status. Its unparalleled breadth\
+      \ across ~60 integrated vocabularies, extensive coverage of diseases, drugs,\
+      \ phenotypes, anatomy, and genomic entities, and its role as the canonical backbone\
+      \ for biomedical concept normalization make it a uniquely valuable resource.\
+      \ While it lacks curated instance-level D\u2013D edges, its semantic network\
+      \ (134 semantic types, 54 relation families) provides strong relation templates\
+      \ and consistent categorization, enabling cross-walks and harmonization critical\
+      \ for downstream repurposing models\u2014meriting Nmination despite a rubric-derived\
+      \ Conditional"
+    label_rubric: Medium
+    label_rubric_rationale: 'Conditional: due to a Utility score of 2'
+    primary_knowledge_source: infores:umls-metathesaurus
+    reviewer: https://orcid.org/0000-0003-4097-3395
+    source_scope_score: 3
+    source_scope_score_comment: Unifies ~60 vocabularies (~900k concepts) spanning
+      clinical medicine and life sciences, from MeSH and SNOMED to NCBI Taxonomy and
+      early GO integration.
+    utility_drugrepurposing_comment: "Provides schema-level relations (e.g., \u2018\
+      Pharmacologic Substance TREATS Disease or Syndrome\u2019, \u2018interacts with\u2019\
+      ) but not instance-level curated edges, so mainly useful for normalization and\
+      \ relation templates."
+    utility_drugrepurposing_score: 2
+unichem:
+  infores:
+    agent_type: not_provided
+    consumed_by:
+    - infores:rtx-kg2
+    id: infores:unichem
+    knowledge_level: knowledge_assertion
+    name: UniChem
+    status: released
+    synonym:
+    - unichem
+    xref:
+    - https://github.com/NCATSTranslator/Translator-All/wiki/UniChem
+  matrixcurated:
+    license_name: CC BY 4.0
+    license_source_link: 'https://www.ebi.ac.uk/training/online/courses/unichem-quick-tour/what-is-unichem/ '
+    primary_knowledge_source: infores:unichem
+uniprot:
+  infores:
+    agent_type: not_provided
+    consumed_by:
+    - infores:ebi-proteins
+    - infores:molepro
+    - infores:rtx-kg2
+    id: infores:uniprot
+    knowledge_level: knowledge_assertion
+    name: UniProt Knowledgebase
+    status: released
+    synonym:
+    - UniProt
+    xref:
+    - https://github.com/NCATSTranslator/Translator-All/wiki/UniProt
+  kgregistry:
+    activity_status: active
+    category: DataSource
+    contacts:
+    - category: Organization
+      contact_details:
+      - contact_type: email
+        value: help@uniprot.org
+      label: UniProt Consortium
+    description: UniProt Protein Knowledge Base
+    domains:
+    - biological systems
+    - proteomics
+    - biomedical
+    homepage_url: https://www.uniprot.org/
+    id: uniprot
+    layout: resource_detail
+    license:
+      id: https://creativecommons.org/licenses/by/4.0/
+      label: CC-BY-4.0
+      logo: http://mirrors.creativecommons.org/presskit/buttons/80x15/png/by.png
+    name: uniprot
+    repository: https://www.uniprot.org/help/downloads
+  matrixcurated:
+    license_name: CC BY 4.0
+    license_source_link: https://www.uniprot.org/help/license
+    primary_knowledge_source: infores:uniprot
+vandf-umls:
+  infores:
+    agent_type: not_provided
+    consumed_by:
+    - infores:rtx-kg2
+    id: infores:vandf-umls
+    knowledge_level: knowledge_assertion
+    name: Veterans Association National Drug File (VANDF) (from UMLS)
+    status: released
+    xref:
+    - https://github.com/NCATSTranslator/Translator-All/wiki/VANDF
+  matrixcurated:
+    license_name: UMLS Metathesaurus
+    license_source_link: https://bioportal.bioontology.org/ontologies/VANDF
+    primary_knowledge_source: infores:vandf-umls
+zfin:
+  infores:
+    agent_type: not_provided
+    id: infores:zfin
+    knowledge_level: knowledge_assertion
+    name: Zebrafish Information Network
+    status: released
+    synonym:
+    - ZFIN
+    xref:
+    - https://zfin.org/
+  kgregistry:
+    activity_status: active
+    category: DataSource
+    contacts:
+    - category: Organization
+      contact_details:
+      - contact_type: email
+        value: zfinadmn@zfin.org
+      label: Zebrafish Information Network
+    description: Zebrafish Information Network, including the Zebrafish Anatomical
+      Ontology
+    domains:
+    - biological systems
+    homepage_url: https://zfin.org/
+    id: zfin
+    layout: resource_detail
+    license:
+      id: https://creativecommons.org/licenses/by/4.0/
+      label: CC-BY-4.0
+      logo: http://mirrors.creativecommons.org/presskit/buttons/80x15/png/by.png
+    name: ZFIN
+    repository: https://github.com/ZFIN/
+  matrixcurated:
+    license_name: CC BY 4.0
+    license_source_link: 'https://zfin.atlassian.net/wiki/spaces/general/pages/1942160112/WARRANTY+AND+LIABILITY+DISCLAIMER+OWNERSHIP+AND+LIMITS+ON+USE '
+    primary_knowledge_source: infores:zfin
+  reusabledata:
+    contacts:
+    - jknight@zfin.org
+    data-access:
+    - location: http://zfin.org/downloads
+      type: download
+    data-field: biology
+    data-tags: biology, model organism database
+    data-type: model organism database
+    description: The Zebrafish Information Resource is the community database resource
+      for the laboratory use of zebrafish which develops and supports integrated zebrafish
+      genetic, genomic and developmental information, maintains the definitive reference
+      data sets of zebrafish research information toward facilitation of the use of
+      zebrafish as a model for human biology.
+    grade-automatic: 2
+    id: zfin
+    license: custom
+    license-commentary:
+    - -ZFIN Software and Data are provided to enhance knowledge and encourage progress
+      in the scientific community, and are to be used only for research and educational
+      purposes. ZFIN reserves all rights not expressly granted. Further, ZFIN retains
+      all rights, title, and interest in and to the Software and Data. Any reproduction
+      or use for a commercial purpose is prohibited without the prior express written
+      permission of ZFIN. Distribution of the Software or Data to any third party,
+      without a separate written agreement with ZFIN, is prohibited.
+    license-commentary-embeddable: -ZFIN Software and Data are provided to enhance
+      knowledge and encourage progress in the scientific community, and are to be
+      used only for research and educational purposes. ZFIN reserves all rights not
+      expressly granted. Further, ZFIN retains all rights, title, and interest in
+      and to the Software and Data. Any reproduction or use for a commercial purpose
+      is prohibited without the prior express written permission of ZFIN. Distribution
+      of the Software or Data to any third party, without a separate written agreement
+      with ZFIN, is prohibited.
+    license-issues:
+    - comment: Custom license with non-academic and non-research use restrictions.
+      criteria: A.2.2
+    - comment: The license explicity requires intervention for downstream reuse and
+        redistribution.
+      criteria: B.1
+    - comment: The license requires written permission for redistribution.
+      criteria: D.1.2
+    - comment: The license requires written premission for redistribution even for
+        academic and non commerical parties.
+      criteria: E.1.2
+    license-link: http://zfin.org/warranty.html
+    license-type: restrictive
+    source: Zebrafish Information Network (ZFIN)
+    source-link: http://zfin.org
+    status: complete
