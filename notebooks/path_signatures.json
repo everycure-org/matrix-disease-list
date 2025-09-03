@@ -1,0 +1,1262 @@
+[
+  [
+    [
+      {
+        "to": "Entity",
+        "from": "Entity",
+        "rel": "close_match"
+      },
+      {
+        "to": "Entity",
+        "from": "Entity",
+        "rel": "interacts_with"
+      },
+      {
+        "to": "Entity",
+        "from": "Entity",
+        "rel": "affects"
+      },
+      {
+        "to": "Entity",
+        "from": "Entity",
+        "rel": "gene_associated_with_condition"
+      },
+      {
+        "to": "Entity",
+        "from": "Entity",
+        "rel": "close_match"
+      }
+    ],
+    26
+  ],
+  [
+    [
+      {
+        "to": "Entity",
+        "from": "Entity",
+        "rel": "close_match"
+      },
+      {
+        "to": "Entity",
+        "from": "Entity",
+        "rel": "interacts_with"
+      },
+      {
+        "to": "Entity",
+        "from": "Entity",
+        "rel": "treats_or_applied_or_studied_to_treat"
+      },
+      {
+        "to": "Entity",
+        "from": "Entity",
+        "rel": "subclass_of"
+      },
+      {
+        "to": "Entity",
+        "from": "Entity",
+        "rel": "close_match"
+      }
+    ],
+    14
+  ],
+  [
+    [
+      {
+        "to": "Entity",
+        "from": "Entity",
+        "rel": "close_match"
+      },
+      {
+        "to": "Entity",
+        "from": "Entity",
+        "rel": "interacts_with"
+      },
+      {
+        "to": "Entity",
+        "from": "Entity",
+        "rel": "related_to"
+      },
+      {
+        "to": "Entity",
+        "from": "Entity",
+        "rel": "subclass_of"
+      },
+      {
+        "to": "Entity",
+        "from": "Entity",
+        "rel": "close_match"
+      }
+    ],
+    12
+  ],
+  [
+    [
+      {
+        "to": "Entity",
+        "from": "Entity",
+        "rel": "close_match"
+      },
+      {
+        "to": "Entity",
+        "from": "Entity",
+        "rel": "interacts_with"
+      },
+      {
+        "to": "Entity",
+        "from": "Entity",
+        "rel": "causes"
+      },
+      {
+        "to": "Entity",
+        "from": "Entity",
+        "rel": "subclass_of"
+      },
+      {
+        "to": "Entity",
+        "from": "Entity",
+        "rel": "close_match"
+      }
+    ],
+    5
+  ],
+  [
+    [
+      {
+        "to": "Entity",
+        "from": "Entity",
+        "rel": "close_match"
+      },
+      {
+        "to": "Entity",
+        "from": "Entity",
+        "rel": "interacts_with"
+      },
+      {
+        "to": "Entity",
+        "from": "Entity",
+        "rel": "associated_with"
+      },
+      {
+        "to": "Entity",
+        "from": "Entity",
+        "rel": "subclass_of"
+      },
+      {
+        "to": "Entity",
+        "from": "Entity",
+        "rel": "close_match"
+      }
+    ],
+    5
+  ],
+  [
+    [
+      {
+        "to": "Entity",
+        "from": "Entity",
+        "rel": "close_match"
+      },
+      {
+        "to": "Entity",
+        "from": "Entity",
+        "rel": "treats_or_applied_or_studied_to_treat"
+      },
+      {
+        "to": "Entity",
+        "from": "Entity",
+        "rel": "gene_associated_with_condition"
+      },
+      {
+        "to": "Entity",
+        "from": "Entity",
+        "rel": "gene_associated_with_condition"
+      },
+      {
+        "to": "Entity",
+        "from": "Entity",
+        "rel": "close_match"
+      }
+    ],
+    5
+  ],
+  [
+    [
+      {
+        "to": "Entity",
+        "from": "Entity",
+        "rel": "close_match"
+      },
+      {
+        "to": "Entity",
+        "from": "Entity",
+        "rel": "affects"
+      },
+      {
+        "to": "Entity",
+        "from": "Entity",
+        "rel": "gene_associated_with_condition"
+      },
+      {
+        "to": "Entity",
+        "from": "Entity",
+        "rel": "subclass_of"
+      },
+      {
+        "to": "Entity",
+        "from": "Entity",
+        "rel": "close_match"
+      }
+    ],
+    5
+  ],
+  [
+    [
+      {
+        "to": "Entity",
+        "from": "Entity",
+        "rel": "close_match"
+      },
+      {
+        "to": "Entity",
+        "from": "Entity",
+        "rel": "interacts_with"
+      },
+      {
+        "to": "Entity",
+        "from": "Entity",
+        "rel": "treats_or_applied_or_studied_to_treat"
+      },
+      {
+        "to": "Entity",
+        "from": "Entity",
+        "rel": "related_to"
+      },
+      {
+        "to": "Entity",
+        "from": "Entity",
+        "rel": "close_match"
+      }
+    ],
+    4
+  ],
+  [
+    [
+      {
+        "to": "Entity",
+        "from": "Entity",
+        "rel": "close_match"
+      },
+      {
+        "to": "Entity",
+        "from": "Entity",
+        "rel": "physically_interacts_with"
+      },
+      {
+        "to": "Entity",
+        "from": "Entity",
+        "rel": "gene_associated_with_condition"
+      },
+      {
+        "to": "Entity",
+        "from": "Entity",
+        "rel": "subclass_of"
+      },
+      {
+        "to": "Entity",
+        "from": "Entity",
+        "rel": "close_match"
+      }
+    ],
+    3
+  ],
+  [
+    [
+      {
+        "to": "Entity",
+        "from": "Entity",
+        "rel": "close_match"
+      },
+      {
+        "to": "Entity",
+        "from": "Entity",
+        "rel": "subclass_of"
+      },
+      {
+        "to": "Entity",
+        "from": "Entity",
+        "rel": "subclass_of"
+      },
+      {
+        "to": "Entity",
+        "from": "Entity",
+        "rel": "gene_associated_with_condition"
+      },
+      {
+        "to": "Entity",
+        "from": "Entity",
+        "rel": "close_match"
+      }
+    ],
+    3
+  ],
+  [
+    [
+      {
+        "to": "Entity",
+        "from": "Entity",
+        "rel": "close_match"
+      },
+      {
+        "to": "Entity",
+        "from": "Entity",
+        "rel": "affects"
+      },
+      {
+        "to": "Entity",
+        "from": "Entity",
+        "rel": "gene_associated_with_condition"
+      },
+      {
+        "to": "Entity",
+        "from": "Entity",
+        "rel": "related_to"
+      },
+      {
+        "to": "Entity",
+        "from": "Entity",
+        "rel": "close_match"
+      }
+    ],
+    3
+  ],
+  [
+    [
+      {
+        "to": "Entity",
+        "from": "Entity",
+        "rel": "close_match"
+      },
+      {
+        "to": "Entity",
+        "from": "Entity",
+        "rel": "affects"
+      },
+      {
+        "to": "Entity",
+        "from": "Entity",
+        "rel": "causes"
+      },
+      {
+        "to": "Entity",
+        "from": "Entity",
+        "rel": "subclass_of"
+      },
+      {
+        "to": "Entity",
+        "from": "Entity",
+        "rel": "close_match"
+      }
+    ],
+    2
+  ],
+  [
+    [
+      {
+        "to": "Entity",
+        "from": "Entity",
+        "rel": "close_match"
+      },
+      {
+        "to": "Entity",
+        "from": "Entity",
+        "rel": "affects"
+      },
+      {
+        "to": "Entity",
+        "from": "Entity",
+        "rel": "associated_with"
+      },
+      {
+        "to": "Entity",
+        "from": "Entity",
+        "rel": "subclass_of"
+      },
+      {
+        "to": "Entity",
+        "from": "Entity",
+        "rel": "close_match"
+      }
+    ],
+    2
+  ],
+  [
+    [
+      {
+        "to": "Entity",
+        "from": "Entity",
+        "rel": "close_match"
+      },
+      {
+        "to": "Entity",
+        "from": "Entity",
+        "rel": "affects"
+      },
+      {
+        "to": "Entity",
+        "from": "Entity",
+        "rel": "predisposes_to_condition"
+      },
+      {
+        "to": "Entity",
+        "from": "Entity",
+        "rel": "subclass_of"
+      },
+      {
+        "to": "Entity",
+        "from": "Entity",
+        "rel": "close_match"
+      }
+    ],
+    2
+  ],
+  [
+    [
+      {
+        "to": "Entity",
+        "from": "Entity",
+        "rel": "close_match"
+      },
+      {
+        "to": "Entity",
+        "from": "Entity",
+        "rel": "treats_or_applied_or_studied_to_treat"
+      },
+      {
+        "to": "Entity",
+        "from": "Entity",
+        "rel": "occurs_in"
+      },
+      {
+        "to": "Entity",
+        "from": "Entity",
+        "rel": "subclass_of"
+      },
+      {
+        "to": "Entity",
+        "from": "Entity",
+        "rel": "close_match"
+      }
+    ],
+    2
+  ],
+  [
+    [
+      {
+        "to": "Entity",
+        "from": "Entity",
+        "rel": "close_match"
+      },
+      {
+        "to": "Entity",
+        "from": "Entity",
+        "rel": "treats_or_applied_or_studied_to_treat"
+      },
+      {
+        "to": "Entity",
+        "from": "Entity",
+        "rel": "coexists_with"
+      },
+      {
+        "to": "Entity",
+        "from": "Entity",
+        "rel": "subclass_of"
+      },
+      {
+        "to": "Entity",
+        "from": "Entity",
+        "rel": "close_match"
+      }
+    ],
+    2
+  ],
+  [
+    [
+      {
+        "to": "Entity",
+        "from": "Entity",
+        "rel": "close_match"
+      },
+      {
+        "to": "Entity",
+        "from": "Entity",
+        "rel": "subclass_of"
+      },
+      {
+        "to": "Entity",
+        "from": "Entity",
+        "rel": "gene_associated_with_condition"
+      },
+      {
+        "to": "Entity",
+        "from": "Entity",
+        "rel": "subclass_of"
+      },
+      {
+        "to": "Entity",
+        "from": "Entity",
+        "rel": "close_match"
+      }
+    ],
+    2
+  ],
+  [
+    [
+      {
+        "to": "Entity",
+        "from": "Entity",
+        "rel": "close_match"
+      },
+      {
+        "to": "Entity",
+        "from": "Entity",
+        "rel": "interacts_with"
+      },
+      {
+        "to": "Entity",
+        "from": "Entity",
+        "rel": "affects"
+      },
+      {
+        "to": "Entity",
+        "from": "Entity",
+        "rel": "subclass_of"
+      },
+      {
+        "to": "Entity",
+        "from": "Entity",
+        "rel": "close_match"
+      }
+    ],
+    2
+  ],
+  [
+    [
+      {
+        "to": "Entity",
+        "from": "Entity",
+        "rel": "close_match"
+      },
+      {
+        "to": "Entity",
+        "from": "Entity",
+        "rel": "interacts_with"
+      },
+      {
+        "to": "Entity",
+        "from": "Entity",
+        "rel": "treats_or_applied_or_studied_to_treat"
+      },
+      {
+        "to": "Entity",
+        "from": "Entity",
+        "rel": "close_match"
+      },
+      {
+        "to": "Entity",
+        "from": "Entity",
+        "rel": "close_match"
+      }
+    ],
+    2
+  ],
+  [
+    [
+      {
+        "to": "Entity",
+        "from": "Entity",
+        "rel": "close_match"
+      },
+      {
+        "to": "Entity",
+        "from": "Entity",
+        "rel": "interacts_with"
+      },
+      {
+        "to": "Entity",
+        "from": "Entity",
+        "rel": "applied_to_treat"
+      },
+      {
+        "to": "Entity",
+        "from": "Entity",
+        "rel": "subclass_of"
+      },
+      {
+        "to": "Entity",
+        "from": "Entity",
+        "rel": "close_match"
+      }
+    ],
+    2
+  ],
+  [
+    [
+      {
+        "to": "Entity",
+        "from": "Entity",
+        "rel": "close_match"
+      },
+      {
+        "to": "Entity",
+        "from": "Entity",
+        "rel": "interacts_with"
+      },
+      {
+        "to": "Entity",
+        "from": "Entity",
+        "rel": "drug_regulatory_status_world_wide"
+      },
+      {
+        "to": "Entity",
+        "from": "Entity",
+        "rel": "subclass_of"
+      },
+      {
+        "to": "Entity",
+        "from": "Entity",
+        "rel": "close_match"
+      }
+    ],
+    2
+  ],
+  [
+    [
+      {
+        "to": "Entity",
+        "from": "Entity",
+        "rel": "close_match"
+      },
+      {
+        "to": "Entity",
+        "from": "Entity",
+        "rel": "has_part"
+      },
+      {
+        "to": "Entity",
+        "from": "Entity",
+        "rel": "causes"
+      },
+      {
+        "to": "Entity",
+        "from": "Entity",
+        "rel": "subclass_of"
+      },
+      {
+        "to": "Entity",
+        "from": "Entity",
+        "rel": "close_match"
+      }
+    ],
+    2
+  ],
+  [
+    [
+      {
+        "to": "Entity",
+        "from": "Entity",
+        "rel": "close_match"
+      },
+      {
+        "to": "Entity",
+        "from": "Entity",
+        "rel": "has_part"
+      },
+      {
+        "to": "Entity",
+        "from": "Entity",
+        "rel": "associated_with"
+      },
+      {
+        "to": "Entity",
+        "from": "Entity",
+        "rel": "subclass_of"
+      },
+      {
+        "to": "Entity",
+        "from": "Entity",
+        "rel": "close_match"
+      }
+    ],
+    2
+  ],
+  [
+    [
+      {
+        "to": "Entity",
+        "from": "Entity",
+        "rel": "close_match"
+      },
+      {
+        "to": "Entity",
+        "from": "Entity",
+        "rel": "interacts_with"
+      },
+      {
+        "to": "Entity",
+        "from": "Entity",
+        "rel": "contraindicated_in"
+      },
+      {
+        "to": "Entity",
+        "from": "Entity",
+        "rel": "subclass_of"
+      },
+      {
+        "to": "Entity",
+        "from": "Entity",
+        "rel": "close_match"
+      }
+    ],
+    2
+  ],
+  [
+    [
+      {
+        "to": "Entity",
+        "from": "Entity",
+        "rel": "close_match"
+      },
+      {
+        "to": "Entity",
+        "from": "Entity",
+        "rel": "physically_interacts_with"
+      },
+      {
+        "to": "Entity",
+        "from": "Entity",
+        "rel": "causes"
+      },
+      {
+        "to": "Entity",
+        "from": "Entity",
+        "rel": "subclass_of"
+      },
+      {
+        "to": "Entity",
+        "from": "Entity",
+        "rel": "close_match"
+      }
+    ],
+    1
+  ],
+  [
+    [
+      {
+        "to": "Entity",
+        "from": "Entity",
+        "rel": "close_match"
+      },
+      {
+        "to": "Entity",
+        "from": "Entity",
+        "rel": "physically_interacts_with"
+      },
+      {
+        "to": "Entity",
+        "from": "Entity",
+        "rel": "associated_with"
+      },
+      {
+        "to": "Entity",
+        "from": "Entity",
+        "rel": "subclass_of"
+      },
+      {
+        "to": "Entity",
+        "from": "Entity",
+        "rel": "close_match"
+      }
+    ],
+    1
+  ],
+  [
+    [
+      {
+        "to": "Entity",
+        "from": "Entity",
+        "rel": "close_match"
+      },
+      {
+        "to": "Entity",
+        "from": "Entity",
+        "rel": "interacts_with"
+      },
+      {
+        "to": "Entity",
+        "from": "Entity",
+        "rel": "predisposes_to_condition"
+      },
+      {
+        "to": "Entity",
+        "from": "Entity",
+        "rel": "subclass_of"
+      },
+      {
+        "to": "Entity",
+        "from": "Entity",
+        "rel": "close_match"
+      }
+    ],
+    1
+  ],
+  [
+    [
+      {
+        "to": "Entity",
+        "from": "Entity",
+        "rel": "close_match"
+      },
+      {
+        "to": "Entity",
+        "from": "Entity",
+        "rel": "physically_interacts_with"
+      },
+      {
+        "to": "Entity",
+        "from": "Entity",
+        "rel": "predisposes_to_condition"
+      },
+      {
+        "to": "Entity",
+        "from": "Entity",
+        "rel": "subclass_of"
+      },
+      {
+        "to": "Entity",
+        "from": "Entity",
+        "rel": "close_match"
+      }
+    ],
+    1
+  ],
+  [
+    [
+      {
+        "to": "Entity",
+        "from": "Entity",
+        "rel": "close_match"
+      },
+      {
+        "to": "Entity",
+        "from": "Entity",
+        "rel": "has_part"
+      },
+      {
+        "to": "Entity",
+        "from": "Entity",
+        "rel": "located_in"
+      },
+      {
+        "to": "Entity",
+        "from": "Entity",
+        "rel": "subclass_of"
+      },
+      {
+        "to": "Entity",
+        "from": "Entity",
+        "rel": "close_match"
+      }
+    ],
+    1
+  ],
+  [
+    [
+      {
+        "to": "Entity",
+        "from": "Entity",
+        "rel": "close_match"
+      },
+      {
+        "to": "Entity",
+        "from": "Entity",
+        "rel": "located_in"
+      },
+      {
+        "to": "Entity",
+        "from": "Entity",
+        "rel": "expressed_in"
+      },
+      {
+        "to": "Entity",
+        "from": "Entity",
+        "rel": "gene_associated_with_condition"
+      },
+      {
+        "to": "Entity",
+        "from": "Entity",
+        "rel": "close_match"
+      }
+    ],
+    1
+  ],
+  [
+    [
+      {
+        "to": "Entity",
+        "from": "Entity",
+        "rel": "close_match"
+      },
+      {
+        "to": "Entity",
+        "from": "Entity",
+        "rel": "has_part"
+      },
+      {
+        "to": "Entity",
+        "from": "Entity",
+        "rel": "in_taxon"
+      },
+      {
+        "to": "Entity",
+        "from": "Entity",
+        "rel": "gene_associated_with_condition"
+      },
+      {
+        "to": "Entity",
+        "from": "Entity",
+        "rel": "close_match"
+      }
+    ],
+    1
+  ],
+  [
+    [
+      {
+        "to": "Entity",
+        "from": "Entity",
+        "rel": "close_match"
+      },
+      {
+        "to": "Entity",
+        "from": "Entity",
+        "rel": "treats_or_applied_or_studied_to_treat"
+      },
+      {
+        "to": "Entity",
+        "from": "Entity",
+        "rel": "in_taxon"
+      },
+      {
+        "to": "Entity",
+        "from": "Entity",
+        "rel": "gene_associated_with_condition"
+      },
+      {
+        "to": "Entity",
+        "from": "Entity",
+        "rel": "close_match"
+      }
+    ],
+    1
+  ],
+  [
+    [
+      {
+        "to": "Entity",
+        "from": "Entity",
+        "rel": "close_match"
+      },
+      {
+        "to": "Entity",
+        "from": "Entity",
+        "rel": "has_part"
+      },
+      {
+        "to": "Entity",
+        "from": "Entity",
+        "rel": "affects"
+      },
+      {
+        "to": "Entity",
+        "from": "Entity",
+        "rel": "subclass_of"
+      },
+      {
+        "to": "Entity",
+        "from": "Entity",
+        "rel": "close_match"
+      }
+    ],
+    1
+  ],
+  [
+    [
+      {
+        "to": "Entity",
+        "from": "Entity",
+        "rel": "close_match"
+      },
+      {
+        "to": "Entity",
+        "from": "Entity",
+        "rel": "treats_or_applied_or_studied_to_treat"
+      },
+      {
+        "to": "Entity",
+        "from": "Entity",
+        "rel": "affects"
+      },
+      {
+        "to": "Entity",
+        "from": "Entity",
+        "rel": "subclass_of"
+      },
+      {
+        "to": "Entity",
+        "from": "Entity",
+        "rel": "close_match"
+      }
+    ],
+    1
+  ],
+  [
+    [
+      {
+        "to": "Entity",
+        "from": "Entity",
+        "rel": "close_match"
+      },
+      {
+        "to": "Entity",
+        "from": "Entity",
+        "rel": "has_part"
+      },
+      {
+        "to": "Entity",
+        "from": "Entity",
+        "rel": "occurs_in"
+      },
+      {
+        "to": "Entity",
+        "from": "Entity",
+        "rel": "subclass_of"
+      },
+      {
+        "to": "Entity",
+        "from": "Entity",
+        "rel": "close_match"
+      }
+    ],
+    1
+  ],
+  [
+    [
+      {
+        "to": "Entity",
+        "from": "Entity",
+        "rel": "close_match"
+      },
+      {
+        "to": "Entity",
+        "from": "Entity",
+        "rel": "applied_to_treat"
+      },
+      {
+        "to": "Entity",
+        "from": "Entity",
+        "rel": "related_to"
+      },
+      {
+        "to": "Entity",
+        "from": "Entity",
+        "rel": "related_to"
+      },
+      {
+        "to": "Entity",
+        "from": "Entity",
+        "rel": "close_match"
+      }
+    ],
+    1
+  ],
+  [
+    [
+      {
+        "to": "Entity",
+        "from": "Entity",
+        "rel": "close_match"
+      },
+      {
+        "to": "Entity",
+        "from": "Entity",
+        "rel": "treats_or_applied_or_studied_to_treat"
+      },
+      {
+        "to": "Entity",
+        "from": "Entity",
+        "rel": "related_to"
+      },
+      {
+        "to": "Entity",
+        "from": "Entity",
+        "rel": "related_to"
+      },
+      {
+        "to": "Entity",
+        "from": "Entity",
+        "rel": "close_match"
+      }
+    ],
+    1
+  ],
+  [
+    [
+      {
+        "to": "Entity",
+        "from": "Entity",
+        "rel": "close_match"
+      },
+      {
+        "to": "Entity",
+        "from": "Entity",
+        "rel": "drug_regulatory_status_world_wide"
+      },
+      {
+        "to": "Entity",
+        "from": "Entity",
+        "rel": "related_to"
+      },
+      {
+        "to": "Entity",
+        "from": "Entity",
+        "rel": "related_to"
+      },
+      {
+        "to": "Entity",
+        "from": "Entity",
+        "rel": "close_match"
+      }
+    ],
+    1
+  ],
+  [
+    [
+      {
+        "to": "Entity",
+        "from": "Entity",
+        "rel": "close_match"
+      },
+      {
+        "to": "Entity",
+        "from": "Entity",
+        "rel": "associated_with"
+      },
+      {
+        "to": "Entity",
+        "from": "Entity",
+        "rel": "related_to"
+      },
+      {
+        "to": "Entity",
+        "from": "Entity",
+        "rel": "related_to"
+      },
+      {
+        "to": "Entity",
+        "from": "Entity",
+        "rel": "close_match"
+      }
+    ],
+    1
+  ],
+  [
+    [
+      {
+        "to": "Entity",
+        "from": "Entity",
+        "rel": "close_match"
+      },
+      {
+        "to": "Entity",
+        "from": "Entity",
+        "rel": "related_to"
+      },
+      {
+        "to": "Entity",
+        "from": "Entity",
+        "rel": "related_to"
+      },
+      {
+        "to": "Entity",
+        "from": "Entity",
+        "rel": "related_to"
+      },
+      {
+        "to": "Entity",
+        "from": "Entity",
+        "rel": "close_match"
+      }
+    ],
+    1
+  ],
+  [
+    [
+      {
+        "to": "Entity",
+        "from": "Entity",
+        "rel": "close_match"
+      },
+      {
+        "to": "Entity",
+        "from": "Entity",
+        "rel": "subclass_of"
+      },
+      {
+        "to": "Entity",
+        "from": "Entity",
+        "rel": "subclass_of"
+      },
+      {
+        "to": "Entity",
+        "from": "Entity",
+        "rel": "subclass_of"
+      },
+      {
+        "to": "Entity",
+        "from": "Entity",
+        "rel": "close_match"
+      }
+    ],
+    1
+  ],
+  [
+    [
+      {
+        "to": "Entity",
+        "from": "Entity",
+        "rel": "close_match"
+      },
+      {
+        "to": "Entity",
+        "from": "Entity",
+        "rel": "affects"
+      },
+      {
+        "to": "Entity",
+        "from": "Entity",
+        "rel": "gene_associated_with_condition"
+      },
+      {
+        "to": "Entity",
+        "from": "Entity",
+        "rel": "close_match"
+      },
+      {
+        "to": "Entity",
+        "from": "Entity",
+        "rel": "close_match"
+      }
+    ],
+    1
+  ]
+]
