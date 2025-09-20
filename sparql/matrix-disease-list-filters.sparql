@@ -8,7 +8,7 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 PREFIX mondo: <http://purl.obolibrary.org/obo/mondo#>
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 
-SELECT DISTINCT ?category_class ?label ?definition ?synonyms ?subsets ?crossreferences
+SELECT DISTINCT ?category_class ?label ?definition ?synonyms ?subsets ?crossreferences ?malacards_linkouts
   (IF(SUM(IF(?filter_matrix_manually_excluded = "TRUE", 1, 0)) > 0, "TRUE", "") AS ?f_matrix_manually_excluded)
   (IF(SUM(IF(?filter_matrix_manually_included = "TRUE", 1, 0)) > 0, "TRUE", "") AS ?f_matrix_manually_included)
   (IF(SUM(IF(?filter_clingen = "TRUE", 1, 0)) > 0, "TRUE", "") AS ?f_clingen)
@@ -56,6 +56,24 @@ WHERE
 
   OPTIONAL {
     ?category_class IAO:0000115 ?definition .
+  }
+
+  OPTIONAL {
+    {
+      SELECT ?category_class (GROUP_CONCAT(DISTINCT ?sorted_malacardslinkouts; separator="; ") AS ?malacards_linkouts)
+      WHERE {
+        ?category_class mondo:curated_content_resource ?malacards_linkout .
+        ?malacards_assertion a owl:Axiom ;
+          owl:annotatedSource ?category_class ;
+          owl:annotatedProperty mondo:curated_content_resource ;
+          owl:annotatedTarget ?malacards_linkout ;
+          oio:source "MONDO:MalaCards" .
+        FILTER(STRSTARTS(STR(?malacards_linkout), "https://www.malacards.org/"))
+        BIND(STR(?malacards_linkout) AS ?sorted_malacardslinkouts)
+      }
+      GROUP BY ?category_class
+      ORDER BY ?sorted_malacardslinkouts
+    }
   }
 
   # Optional Subquery for synonyms
@@ -402,5 +420,5 @@ WHERE
 
   FILTER( !isBlank(?category_class) && STRSTARTS(str(?category_class), "http://purl.obolibrary.org/obo/MONDO_"))
 } 
-GROUP BY ?category_class ?label ?definition ?synonyms ?subsets ?crossreferences
+GROUP BY ?category_class ?label ?definition ?synonyms ?subsets ?crossreferences ?malacards_linkouts
 ORDER BY DESC(?label)
