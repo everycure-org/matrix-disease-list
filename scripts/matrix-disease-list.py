@@ -23,6 +23,56 @@ def matrix_filter_final_columns(df_disease_list):
     return df_disease_list[['category_class', 'label', 'definition', 'synonyms', 'subsets', 'crossreferences']]
                                               
 
+def is_grouping_heuristic(df):
+    """
+    Determine if a disease is a grouping heuristic based on its filters.
+    
+    Parameters
+    ----------
+    df : pandas.DataFrame
+        The disease list with all its filter columns
+    
+    Returns
+    -------
+    The updated disease list
+    """
+    is_grouping_heuristic_column = 'is_grouping_heuristic'
+    
+    not_grouping_indicators = [
+        "is_clingen",
+        "is_orphanet_subtype",
+        "is_orphanet_subtype_descendant",
+        "is_omimps_descendant",
+        "is_leaf",
+        "is_leaf_direct_parent",
+        "is_orphanet_disorder",
+        "is_omim",
+        "is_icd_billable",
+        "is_mondo_subtype"]
+
+    grouping_indicators = [
+        "is_grouping_subset",
+        "is_grouping_subset_ancestor",
+        "is_omimps",
+        "harrisons_view",
+        "mondo_top_grouping",
+        "is_icd_chapter_header",
+        "is_icd_chapter_code",
+        "is_icd_category"
+    ]
+
+    # First, if something carries indications of a grouping, 
+    # we want to mark it as such
+    for col in grouping_indicators:
+        df[is_grouping_heuristic_column] |= df[col] == True
+    
+    # We are conservative here: if we have some evidence something is NOT
+    # a grouping heuristic, we do not want to mark it as a grouping
+    for col in not_grouping_indicators:
+        df[is_grouping_heuristic_column] |= df[col] == False
+
+    return df
+
 def matrix_disease_filter(df_disease_list_unfiltered):
     """
     Filter a DataFrame by a specific column and value.
@@ -42,6 +92,8 @@ def matrix_disease_filter(df_disease_list_unfiltered):
     # By default, no disease is included
     df_disease_list_unfiltered[filter_column] = False
     
+    df_disease_list_unfiltered = is_grouping_heuristic(df_disease_list_unfiltered)
+
     # QC: Check for conflicts where both f_matrix_manually_included and f_matrix_manually_excluded are True
     conflicts = df_disease_list_unfiltered[
         df_disease_list_unfiltered['f_matrix_manually_included'] & df_disease_list_unfiltered['f_matrix_manually_excluded']
