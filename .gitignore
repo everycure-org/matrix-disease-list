@@ -7,3 +7,5 @@ matrix-disease-list.xlsx
 mondo-with-filter-designations.owl
 .DS_Store
 /kedro_env
+mondo-obsoletes.tsv
+mondo-obsoletion-candidates.tsv
