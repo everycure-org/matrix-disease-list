@@ -24,21 +24,9 @@ def matrix_filter_final_columns(df_disease_list):
                                               
 
 def is_grouping_heuristic(df):
-    """
-    Determine if a disease is a grouping heuristic based on its filters.
-    
-    Parameters
-    ----------
-    df : pandas.DataFrame
-        The disease list with all its filter columns
-    
-    Returns
-    -------
-    The updated disease list
-    """
-    is_grouping_heuristic_column = 'is_grouping_heuristic'
-    
-    not_grouping_indicators = [
+    col_out = "is_grouping_heuristic"
+
+    not_grouping = [
         "is_clingen",
         "is_orphanet_subtype",
         "is_orphanet_subtype_descendant",
@@ -48,30 +36,40 @@ def is_grouping_heuristic(df):
         "is_orphanet_disorder",
         "is_omim",
         "is_icd_billable",
-        "is_mondo_subtype"]
+        "is_mondo_subtype",
+    ]
 
-    grouping_indicators = [
+    grouping = [
         "is_grouping_subset",
         "is_grouping_subset_ancestor",
         "is_omimps",
-        "harrisons_view",
-        "mondo_top_grouping",
         "is_icd_chapter_header",
         "is_icd_chapter_code",
-        "is_icd_category"
     ]
-
-    # First, if something carries indications of a grouping, 
-    # we want to mark it as such
-    for col in grouping_indicators:
-        df[is_grouping_heuristic_column] |= df[col] == True
     
-    # We are conservative here: if we have some evidence something is NOT
-    # a grouping heuristic, we do not want to mark it as a grouping
-    for col in not_grouping_indicators:
-        df[is_grouping_heuristic_column] |= df[col] == False
+    # Ensure all expected grouping-related columns are present
+    expected_cols = set(grouping) | set(not_grouping)
+    missing = [c for c in expected_cols if c not in df.columns]
+    if missing:
+        logging.warning("{df.columns}")
+        raise ValueError(f"DataFrame is missing expected grouping columns: {', '.join(sorted(missing))}")
+
+    # Initialize the column to False
+    df[col_out] = False
+
+    # Set True if any grouping column is True
+    for col in grouping:
+        if col in df.columns:
+            df[col_out] = df[col_out] | df[col].fillna(False)
+
+    # Override by setting False if any not_grouping column is True
+    for col in not_grouping:
+        if col in df.columns:
+            df.loc[df[col].fillna(False), col_out] = False
 
     return df
+
+
 
 def matrix_disease_filter(df_disease_list_unfiltered):
     """
@@ -92,8 +90,6 @@ def matrix_disease_filter(df_disease_list_unfiltered):
     # By default, no disease is included
     df_disease_list_unfiltered[filter_column] = False
     
-    df_disease_list_unfiltered = is_grouping_heuristic(df_disease_list_unfiltered)
-
     # QC: Check for conflicts where both f_matrix_manually_included and f_matrix_manually_excluded are True
     conflicts = df_disease_list_unfiltered[
         df_disease_list_unfiltered['f_matrix_manually_included'] & df_disease_list_unfiltered['f_matrix_manually_excluded']
@@ -370,6 +366,9 @@ def create_matrix_disease_list(input_file, subtype_counts_tsv, metrics, output_i
     
     if "tag_existing_treatment" in df_matrix_disease_filter_modified.columns:
         columns_to_check.append('tag_existing_treatment')
+    
+    # Compute a general grouping heuristic for the all diseases in the list
+    df_matrix_disease_filter_modified = is_grouping_heuristic(df_matrix_disease_filter_modified)
     
     for col in columns_to_check:
         df_matrix_disease_filter_modified[col] = df_matrix_disease_filter_modified[col].map(
