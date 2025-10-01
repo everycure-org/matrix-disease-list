@@ -32,7 +32,7 @@ ASSETS=matrix-disease-list.tsv \
 	matrix-disease-groupings.tsv \
 	mondo-metadata.tsv \
 	mondo-with-filter-designations.owl \
-	mondo-obsoletes.sparql \
+	mondo-obsoletes.tsv \
 	mondo-obsoletion-candidates.tsv
 
 all: $(ASSETS)
@@ -122,7 +122,7 @@ mondo-obsoletion-candidates.tsv:
 	wget "https://raw.githubusercontent.com/monarch-initiative/mondo/refs/heads/master/src/ontology/reports/mondo_obsoletioncandidates.tsv" -O $@
 .PRECIOUS: mondo-obsoletion-candidates.tsv
 
-mondo-obsoletes.tsv: #tmp/mondo.owl sparql/mondo-obsoletes.sparql
+mondo-obsoletes.tsv: tmp/mondo.owl sparql/mondo-obsoletes.sparql
 	$(ROBOT) query -i tmp/mondo.owl -f tsv --query sparql/mondo-obsoletes.sparql $@
 	sed -i 's/[?]//g' $@
 	sed -i 's/<//g' $@
