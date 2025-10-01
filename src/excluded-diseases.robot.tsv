@@ -1000,3 +1000,38 @@ MONDO:0100586	B3GALT6-congenital disorder of glycosylation	obo:mondo#matrix_excl
 MONDO:0975847	autoimmune disease with susceptibility to mycobacterium tuberculosis	obo:mondo#matrix_excluded	https://orcid.org/0000-0003-2955-4640|https://orcid.org/0000-0002-1149-7767	https://github.com/everycure-org/matrix-disease-list/issues/81
 MONDO:1010117	sudden unexplained death in childhood	obo:mondo#matrix_excluded	https://orcid.org/0000-0003-2955-4640|https://orcid.org/0000-0002-1149-7767	https://github.com/everycure-org/matrix-disease-list/issues/81
 MONDO:1010116	sudden unexpected infant death	obo:mondo#matrix_excluded	https://orcid.org/0000-0003-2955-4640|https://orcid.org/0000-0002-1149-7767	https://github.com/everycure-org/matrix-disease-list/issues/81
+MONDO:0021072	sympathetic paraganglioma			
+MONDO:0005487	schizoaffective disorder			
+MONDO:0021052	parasympathetic paraganglioma			
+MONDO:0100581	ocular growth disorder			
+MONDO:0021064	jugulotympanic paraganglioma			
+MONDO:0018097	infantile spasms			
+MONDO:0006239	head and neck paraganglioma			
+MONDO:0957431	endogenous Cushing syndrome			
+MONDO:0011055	distal monosomy 10p			
+MONDO:0012672	cholelithiasis			
+MONDO:0021053	carotid body paraganglioma			
+MONDO:0012016	capillary malformation-arteriovenous malformation syndrome			
+MONDO:0005659	atrophic rhinitis			
+MONDO:0004974	adrenal gland pheochromocytoma			
+MONDO:1040070	SPATA7-related retinopathy			
+MONDO:1040066	REEP6-related retinopathy			
+MONDO:1060136	PIK3R1-related immunodeficiency and SHORT syndrome			
+MONDO:1040039	OFD1-related ciliopathy			
+MONDO:1060150	NOTCH1-related AOS spectrum disorder			
+MONDO:1040068	MKS1-related ciliopathy			
+MONDO:1040063	KCNV2-related retinopathy			
+MONDO:1060154	INTU-related skeletal ciliopathy			
+MONDO:0700350	GRIN2B-related complex neurodevelopmental disorder			
+MONDO:1060139	GRIN2A-related complex neurodevelopmental disorder			
+MONDO:1060123	GRIN1-related complex neurodevelopmental disorder			
+MONDO:1060138	GRIN-related complex neurodevelopmental disorder			
+MONDO:0035660	GNAO1-related developmental delay-seizures-movement disorder spectrum			
+MONDO:0100632	CSF1R-related disorder			
+MONDO:1040064	CRX-related retinopathy			
+MONDO:1010150	COL4A1/A2-related disorder			
+MONDO:0700344	CEP164-related ciliopathy			
+MONDO:0100613	BMP4-related ocular growth disorder			
+MONDO:1040065	ARL6-related ciliopathy			
+MONDO:0700349	ACTN2-related cardiac and skeletal myopathy			
+MONDO:1060149	ACAN-related short stature spectrum			

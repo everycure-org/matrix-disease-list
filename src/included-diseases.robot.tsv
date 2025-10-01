@@ -619,3 +619,88 @@ MONDO:0100589	ALG10-congenital disorder of glycosylation	obo:mondo#matrix_includ
 MONDO:1010132	AARS1-related leukoencephalopathy	obo:mondo#matrix_included	https://orcid.org/0000-0003-2955-4640|https://orcid.org/0000-0002-1149-7767	https://github.com/everycure-org/matrix-disease-list/issues/81
 MONDO:0100587	A4GALT-congenital disorder of glycosylation	obo:mondo#matrix_included	https://orcid.org/0000-0003-2955-4640|https://orcid.org/0000-0002-1149-7767	https://github.com/everycure-org/matrix-disease-list/issues/81
 MONDO:0100577	myoclonic epilepsy	obo:mondo#matrix_included	https://orcid.org/0000-0003-2955-4640|https://orcid.org/0000-0002-1149-7767	https://github.com/everycure-org/matrix-disease-list/issues/81
+MONDO:0971089	vasa previa			
+MONDO:0975906	unifocal langerhans cell histiocytosis			
+MONDO:0975910	splenic venous malformation			
+MONDO:0971086	small intestine duplication			
+MONDO:0975908	single-system multifocal langerhans cell histiocytosis			
+MONDO:1060152	schizoaffective depressive disorder			
+MONDO:1060151	schizoaffective bipolar disorder			
+MONDO:1060144	retinitis pigmentosa 7, digenic			
+MONDO:0975911	reticular dysgenesis-like severe combined immunodeficiency			
+MONDO:0971085	pyloric duplication			
+MONDO:0975907	pulmonary langerhans cell histiocytosis			
+MONDO:0975898	post-selective serotonin reuptake inhibitor sexual dysfunction			
+MONDO:0975897	post 5-alpha-reductase inhibitors treatment syndrome			
+MONDO:0100131	pediatric acute respiratory distress syndrome			
+MONDO:0000461	nutritional biotin deficiency			
+MONDO:0975895	non-fibrotic hypersensitivity pneumonitis			
+MONDO:0976264	neurodevelopmental disorder with white matter abnormalities and gait disturbance			
+MONDO:0976263	neurodevelopmental disorder with thin corpus callosum, hypotonia, and absent language			
+MONDO:0976285	neurodevelopmental disorder with poor or absent speech, dysmorphic facies, and behavioral abnormalities			
+MONDO:0976265	neurodevelopmental disorder with poor growth, seizures, and brain abnormalities			
+MONDO:0975909	multisystem langerhans cell histiocytosis			
+MONDO:1060153	multiple symmetric lipomatosis with partial lipodystrophy			
+MONDO:0700342	monilethrix-3			
+MONDO:0700341	monilethrix-2			
+MONDO:0700343	monilethrix-1			
+MONDO:0975890	mesothelioma of the tunica vaginalis			
+MONDO:0971109	isolated congenital femoral bifurcation			
+MONDO:0975902	isolated congenital cholesteatoma of the middle ear			
+MONDO:0975882	intellectual disability-epilepsy-dental anomalies-facial dysmorphism syndrome			
+MONDO:1010169	infantile hypophosphatasia			
+MONDO:0975885	hypertrophic olivary degeneration			
+MONDO:0976262	holoprosencephaly 10			
+MONDO:0100533	hemorrhage, intracerebral, susceptibility to			
+MONDO:0030831	gastrointestinal defect and immunodeficiency syndrome			
+MONDO:0971082	gastric duplication			
+MONDO:0971083	gallbladder duplication			
+MONDO:0975896	fibrotic hypersensitivity pneumonitis			
+MONDO:1060126	exogenous Cushing syndrome			
+MONDO:1060148	empty nose syndrome			
+MONDO:0976268	diarrhea 15, congenital			
+MONDO:0976266	diarrhea 14, congenital			
+MONDO:0976269	cranioectodermal dysplasia 5			
+MONDO:1060125	congenital high airway obstruction syndrome			
+MONDO:0976261	congenital disorder of glycosylation type 1EE with or without immunodeficiency			
+MONDO:0975891	combined immunodeficiency due to TBX1 deficiency			
+MONDO:0971084	colonic duplication			
+MONDO:1010168	childhood hypophosphatasia			
+MONDO:0022606	branchial arch disease			
+MONDO:1010148	benign skeletal muscle neoplasm			
+MONDO:1010152	autosomal dominant nebulin-related myopathy			
+MONDO:1060134	atherosclerotic cardiovascular disease			
+MONDO:0975918	asymptomatic hyperckemia-myalgia-rhabdomyolysis syndrome			
+MONDO:0015909	aplastic anemia			
+MONDO:1010154	adult hypophosphatasia			
+MONDO:0975925	adenoid ameloblastoma			
+MONDO:1060121	adenoacanthoma			
+MONDO:0975872	acute myeloid leukemia with NPM1-MLF1 fusion			
+MONDO:0975871	acute myeloid leukemia with MNX1-ETV6 fusion			
+MONDO:0975870	acute myeloid leukemia with FUS-ERG fusion			
+MONDO:0975868	acute myeloid leukemia with CBFA2T3-GLIS2 fusion			
+MONDO:0975922	acquired hypothalamic obesity			
+MONDO:0007024	Yersinia pseudotuberculosis infectious disease			
+MONDO:0976286	Tayoun-Maawali syndrome			
+MONDO:0700345	TMEM127-related tumor predisposition			
+MONDO:0700347	SDHC-related Mitochondrial Disease			
+MONDO:0700346	MAX-related tumor predisposition			
+MONDO:1060145	Leber congenital amaurosis 18			
+MONDO:1060142	GRIN2A-related self-limited epilepsy with centrotemporal spikes			
+MONDO:1060141	GRIN2A-related rolandic epilepsy-speech dyspraxia syndrome			
+MONDO:1060140	GRIN2A-related developmental and/or epileptic encephalopathy with spike-wave activation in sleep			
+MONDO:1060147	FGFR2-related Pfeiffer syndrome			
+MONDO:1060146	FGFR1-related Pfeiffer syndrome			
+MONDO:1010146	CFAP46-related primary ciliary dyskinesia			
+MONDO:0700348	BMPR1A-related juvenile polyposis syndrome			
+MONDO:0975867	B-lymphoblastic leukemia with ZNF384 rearrangement			
+MONDO:0975866	B-lymphoblastic leukemia with TCF3-HLF fusion			
+MONDO:0975865	B-lymphoblastic leukemia with PAX5alt			
+MONDO:0975864	B-lymphoblastic leukemia with NUTM1 rearrangement			
+MONDO:0975863	B-lymphoblastic leukemia with MYC rearrangement			
+MONDO:0975862	B-lymphoblastic leukemia with MEF2D rearrangement			
+MONDO:1060132	ARHGAP29-related non-syndromic orofacial cleft			
+MONDO:1060122	ALG8-related autosomal dominant polycystic kidney and/or liver disease			
+MONDO:0975887	2q13 microdeletion syndrome			
+MONDO:0975904	10p15 microdeletion syndrome			
+MONDO:0975905	10p13-p14 deletion syndrome			
