@@ -10,9 +10,9 @@ from tqdm import tqdm
 import json
 import os
 from typing import List, Dict, Optional, Any
-from langchain.output_parsers import CommaSeparatedListOutputParser
-from langchain.prompts import ChatPromptTemplate
-from langchain.schema import HumanMessage, SystemMessage
+from langchain_core.output_parsers import CommaSeparatedListOutputParser
+from langchain_core.prompts import ChatPromptTemplate
+from langchain_core.messages import HumanMessage, SystemMessage
 from langchain_openai import ChatOpenAI
 from functools import cache
 
@@ -161,7 +161,8 @@ def return_final_categories(inList: pd.DataFrame) -> pd.DataFrame:
                  'definition', 
                  'synonyms', 
                  'subsets', 
-                 'crossreferences', 
+                 'crossreferences',
+                 'malacards_linkouts', 
                  'f_matrix_manually_included', 
                  'f_clingen', 
                  'f_grouping_subset', 
